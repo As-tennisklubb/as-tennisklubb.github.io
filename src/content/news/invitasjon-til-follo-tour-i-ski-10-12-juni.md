@@ -1,0 +1,9 @@
+---
+title: "Invitasjon til Follo Tour i Ski 10-12 juni"
+date: 2016-05-06
+categories: 
+  - "arrangementer"
+  - "turneringer"
+---
+
+Vi oppfordrer alle våre barn og juniorer til å melde seg på denne. Klikk her for invitasjon til [Follo Tour i Ski 10-12 juni](http://www.aastk.no/wp-content/uploads/2016/05/follotour16_ski.pdf) (pdf)
