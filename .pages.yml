@@ -8,6 +8,7 @@ content:
     type: collection
     path: src/content/news
     format: frontmatter
+    extension: md
     filename: "{fields.title}"
     view:
       fields: [title, date, categories]
