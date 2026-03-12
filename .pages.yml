@@ -34,18 +34,19 @@ content:
         type: select
         multiple: true
         options:
-          - value: aarsmote
-            label: Årsmøte
-          - value: arrangementer
-            label: Arrangementer
-          - value: kurstrening
-            label: Kurs og trening
-          - value: styret
-            label: Styret
-          - value: turneringer
-            label: Turneringer
-          - value: ukategorisert
-            label: Ukategorisert
+          values:
+            - value: aarsmote
+              label: Årsmøte
+            - value: arrangementer
+              label: Arrangementer
+            - value: kurstrening
+              label: Kurs og trening
+            - value: styret
+              label: Styret
+            - value: turneringer
+              label: Turneringer
+            - value: ukategorisert
+              label: Ukategorisert
       - name: draft
         label: Lagre som utkast
         type: boolean
