@@ -7,6 +7,12 @@ content:
     label: Nyheter
     path: src/content/news
     format: frontmatter
+    filename: "{fields.title}"
+    view:
+      fields: [title, date, categories]
+      primary: title
+      sort: date
+      default: desc
     fields:
       - name: title
         label: Tittel
