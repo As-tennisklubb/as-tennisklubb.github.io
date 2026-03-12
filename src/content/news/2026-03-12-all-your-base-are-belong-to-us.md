@@ -1,1 +1,7 @@
-<h1>all your base are belong to us</h1><p>... hello </p>
+---
+title: all your base are belong to us
+date: 2026-03-12
+draft: false
+---
+
+... hello
