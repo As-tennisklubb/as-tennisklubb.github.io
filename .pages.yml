@@ -20,6 +20,7 @@ content:
         label: Publiseringsdato
         type: date
         required: true
+        default: now
       - name: description
         label: Ingress
         type: text
