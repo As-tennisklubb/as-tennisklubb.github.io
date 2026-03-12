@@ -1,17 +1,108 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import { CalendarClock, MessageSquare } from "@lucide/astro";
 
+const kurs2025 = [
+  { dag: "Onsdag",  gruppe: "Nybegynner 13–17 år", tid: "16.00–17.00", avgift: "100,-" },
+  { dag: "Onsdag",  gruppe: "Nybegynner 9–12 år",  tid: "17.00–18.00", avgift: "100,-" },
+  { dag: "Onsdag",  gruppe: "Nybegynner 6–8 år",   tid: "18.00–19.00", avgift: "100,-" },
+  { dag: "Onsdag",  gruppe: "Nybegynner voksen",    tid: "19.00–20.00", avgift: "200,-" },
+  { dag: "Torsdag", gruppe: "Øvet barn og ungdom",  tid: "17.00–18.00", avgift: "100,-" },
+  { dag: "Torsdag", gruppe: "Øvet voksen",          tid: "18.00–19.00", avgift: "200,-" },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Trening og kurs – Ås Tennisklubb"
+  description="Tenniskurs for barn og voksne i Ås Tennisklubb. Alle nivåer velkommen."
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+	<h1 class="text-4xl font-bold text-green-800 dark:text-green-300 mb-4">Trening og kurs</h1>
+	<p class="text-lg text-gray-600 dark:text-gray-400 mb-10">
+	  Vi tilbyr kurs for alle aldersgrupper og nivåer – fra nybegynnere til viderekommende.
+	  Racketer og baller kan lånes gratis i klubbhuset.
+	</p>
+
+	<!-- 2026-melding (§4: viktig info tydelig fremhevet) -->
+	<section class="mb-12">
+	  <div class="flex items-start gap-4 bg-green-50 dark:bg-gray-800 border border-green-200 dark:border-green-800 rounded-xl p-6">
+		<CalendarClock class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0 mt-0.5" />
+		<div>
+		  <h2 class="font-semibold text-green-800 dark:text-green-300 mb-1">Kurs 2026 – informasjon kommer snart</h2>
+		  <p class="text-sm text-gray-600 dark:text-gray-400">
+			Kursprogrammet for 2026 er ikke klart ennå. Følg med på
+			<a href="nyheter" class="text-green-700 dark:text-green-400 hover:underline">nyhetssiden</a> for oppdateringer,
+			eller kontakt tennistrener Sondre Lundqvist på
+			<a href="tel:+4746535792" class="text-green-700 dark:text-green-400 hover:underline">465 35 792</a>.
+		  </p>
+		</div>
+	  </div>
+	</section>
+
+	<!-- Kurs 2025 som referanse -->
+	<section class="mb-12" aria-labelledby="kurs-heading">
+	  <h2 id="kurs-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-2">Kursoversikt</h2>
+	  <p class="text-sm text-gray-500 dark:text-gray-500 mb-6">Basert på høsten 2025 – tidspunkter kan endres for 2026.</p>
+
+	  <!-- Mobil: kort -->
+	  <div class="flex flex-col gap-3 md:hidden">
+		{kurs2025.map(({ dag, gruppe, tid, avgift }) => (
+		  <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+			<div class="flex justify-between items-start mb-1">
+			  <span class="font-semibold text-gray-900 dark:text-gray-100 text-sm">{gruppe}</span>
+			  <span class="text-green-700 dark:text-green-400 font-bold text-sm">kr {avgift}</span>
+			</div>
+			<span class="text-xs text-gray-500 dark:text-gray-400">{dag} {tid}</span>
+		  </div>
+		))}
+	  </div>
+
+	  <!-- Desktop: tabell -->
+	  <div class="hidden md:block overflow-x-auto">
+		<table class="w-full text-sm">
+		  <thead>
+			<tr class="border-b-2 border-green-200 dark:border-green-800">
+			  <th class="py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300">Dag</th>
+			  <th class="py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300">Gruppe</th>
+			  <th class="py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300">Tid</th>
+			  <th class="py-3 text-right font-semibold text-gray-700 dark:text-gray-300">Påmeldingsavgift</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{kurs2025.map(({ dag, gruppe, tid, avgift }) => (
+			  <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors">
+				<td class="py-3 pr-6 text-gray-600 dark:text-gray-400">{dag}</td>
+				<td class="py-3 pr-6 text-gray-900 dark:text-gray-100">{gruppe}</td>
+				<td class="py-3 pr-6 text-gray-600 dark:text-gray-400">{tid}</td>
+				<td class="py-3 text-right font-semibold text-green-700 dark:text-green-400">kr {avgift}</td>
+			  </tr>
+			))}
+		  </tbody>
+		</table>
+	  </div>
+
+	  <p class="text-xs text-gray-500 dark:text-gray-500 mt-4">
+		* Påmeldingsavgift betales til kontonr. 1100 44 76109 eller Vipps til Ås Tennisklubb #14506.
+	  </p>
+	</section>
+
+	<!-- Påmelding -->
+	<section aria-labelledby="pamelding-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<MessageSquare class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="pamelding-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Påmelding</h2>
+	  </div>
+	  <div class="prose prose-green dark:prose-invert max-w-none">
+		<p>
+		  Send SMS til tennistrener <strong>Sondre Lundqvist</strong> på
+		  <a href="tel:+4746535792">465 35 792</a>.
+		  Alle spørsmål om kurs besvares av treneren.
+		  Vi oppfordrer alle kursdeltakere til å melde seg inn som medlemmer –
+		  medlemmer kan spille så mye de vil gratis på banene.
+		</p>
+	  </div>
+	</section>
+
+  </div>
+</Layout>

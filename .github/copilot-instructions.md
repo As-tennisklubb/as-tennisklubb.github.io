@@ -21,3 +21,26 @@
   - Component-based: layout / navigation / form / content / feedback components
   - Tailwind: spacing follows 8px, container mx-auto px-4, mobile-first responsive utilities
   - Never create complex layouts without reason, never break UI consistency, never ignore accessibility
+
+## Content Writing Specification for AI (v1.0)
+- **Core Principles**: Always prioritize clarity, brevity, structure, readability, user needs. Never write complex text if simpler is possible.
+
+### Rules
+1. **Plain Language**: Short sentences, common words, avoid jargon, use active voice.
+2. **Inverted Pyramid**: Most important info first, then explanation, then details.
+3. **Scannable Content**: Short paragraphs (max 3–5 lines), clear headings, bullet lists, highlight key words.
+4. **Heading Hierarchy**: One H1 per page, H2 for sections, H3 for subsections. Headings must describe content.
+5. **Information Scent**: Links and buttons must be descriptive. Bad: "Les mer" / Good: "Se ledige timer".
+6. **Microcopy**: UI text (buttons, errors, placeholders, tooltips) must be clear, short, helpful. Bad: "Error occurred." / Good: "E-postadressen er ugyldig."
+7. **Reading Level**: Target 8th–9th grade. Short sentences, simple words, avoid passive voice.
+8. **Cognitive Load**: One idea per paragraph, short paragraphs, logical structure.
+9. **Content Structure**: Introduction → Explanation → Details → Action (What it is → How it works → What user can do → CTA).
+10. **Accessibility**: Descriptive links (never "klikk her"), alt text on images, explain abbreviations.
+11. **SEO**: One H1, logical H2 sections, natural keywords. SEO must never compromise readability.
+12. **Content Chunking**: Max 3–5 lines per paragraph, use bullet lists, avoid large text blocks.
+13. **Call to Action**: Start with a verb, be specific. Bad: "Submit" / Good: "Book bane".
+14. **Tone of Voice**: Friendly, clear, direct. Avoid bureaucratic language and unnecessary complexity.
+
+### AI Guidelines
+- **AI Shall Always**: Write short sentences, use clear headings, structure in small blocks, use action-based language, follow heading hierarchy and accessibility rules.
+- **AI Shall Never**: Write long text blocks, use unclear formulations, use generic link texts.

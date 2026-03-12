@@ -1,17 +1,136 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import { CalendarCheck, Info, ScrollText } from "@lucide/astro";
 
+const base = import.meta.env.BASE_URL;
+
+const reglement = [
+  "Det er kun betalende medlemmer som kan spille på banene.",
+  "Prøvespill/gjestespill for ikke-medlemmer skal avtales på forhånd (mail til im@aastk.no). Baneleie kr 200,- refunderes ved tegning av medlemskap.",
+  "Baner skal vannes før bruk når grusen er tørr. Spill på tørr bane er forbudt! Se demovideo for bruk av vanningsanlegget.",
+  "Av hensyn til naboer skal banen ikke benyttes før kl. 07.00 eller etter kl. 22.30.",
+  "Hver spiller er begrenset til én bestilling per dag. Husk å kansellere bestillingen i god tid!",
+  "Styret har rett til å reservere alle baner ved trening, kurs, drop-in, arrangementer o.l.",
+  "Banene skal alltid kostes etter bruk – start ytterst langs gjerde og gå i sirkler mot midten.",
+  "Bruk tennissko/joggesko med jevn såle! Fottøy med grov struktur ødelegger banen og er ikke tillatt.",
+  "En bane regnes som spillbar dersom det ikke forekommer vanndammer.",
+  "Alle medlemmer plikter å bidra med stell av linjer. Dersom en linje løsner skal den umiddelbart vannes og bankes ned i grusen med egen stamper.",
+  "Etterlat ikke drikkeflasker, tomme ballrør eller søppel på banen. Bruk søppelkassene.",
+  "De som sist forlater baneanlegget om kvelden plikter å slå av banelyset og påse at døren til klubbhuset og porten til banen er låst.",
+  "Kontakt anleggsansvarlig om noe er galt med banene.",
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Baner – Ås Tennisklubb"
+  description="Ås Tennisklubb har tre grusbaner ved Ås stadion. Les om booking, regler og banereglement."
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+	<h1 class="text-4xl font-bold text-green-800 dark:text-green-300 mb-8">Baner</h1>
+
+	<!-- Utendørs -->
+	<section class="mb-12" aria-labelledby="utendors-heading">
+	  <h2 id="utendors-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Utendørs</h2>
+	  <div class="prose prose-green dark:prose-invert max-w-none mb-6">
+		<p>
+		  Ås Tennisklubb disponerer tre grusbaner i Idrettsveien, rett ved Ås stadion.
+		  Fra april til november kan du som medlem spille så ofte du vil.
+		</p>
+	  </div>
+
+	  <!-- Booking CTA -->
+	  <a
+		href="https://www.banebooking.aastk.no"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full transition-colors min-h-[44px] mb-8"
+	  >
+		<CalendarCheck class="w-5 h-5" />
+		Book bane
+	  </a>
+
+	  <!-- Viktig å vite -->
+	  <div class="bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl p-6 mb-4">
+		<div class="flex items-center gap-2 mb-4">
+		  <Info class="w-5 h-5 text-green-700 dark:text-green-400 shrink-0" />
+		  <h3 class="font-semibold text-green-800 dark:text-green-300">Viktig å vite</h3>
+		</div>
+		<ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300">
+		  <li class="flex gap-2">
+			<span class="text-green-600 dark:text-green-400 shrink-0">•</span>
+			Det koster ingenting å bestille, men alle som benytter banen må være registrerte medlemmer i Ås Tennisklubb.
+		  </li>
+		  <li class="flex gap-2">
+			<span class="text-green-600 dark:text-green-400 shrink-0">•</span>
+			Alle spillere plikter å følge <a href="#banereglement" class="text-green-700 dark:text-green-400 underline">klubbens banereglement</a>.
+		  </li>
+		  <li class="flex gap-2">
+			<span class="text-green-600 dark:text-green-400 shrink-0">•</span>
+			Hver spiller er begrenset til én bestilling per dag.
+		  </li>
+		  <li class="flex gap-2">
+			<span class="text-green-600 dark:text-green-400 shrink-0">•</span>
+			Bestilling kan gjøres maksimum 7 dager i forveien.
+		  </li>
+		  <li class="flex gap-2">
+			<span class="text-green-600 dark:text-green-400 shrink-0">•</span>
+			Faste timer og arrangementer er satt av i kalenderen og kan ikke reserveres.
+		  </li>
+		</ul>
+	  </div>
+
+	  <!-- Adgang -->
+	  <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6">
+		<h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Adgang til bane og klubbhus</h3>
+		<p class="text-sm text-gray-600 dark:text-gray-400">
+		  Alle betalende medlemmer får tilgang via <strong class="text-gray-800 dark:text-gray-200">Yale Home-appen</strong>.
+		  <a href={`${base}medlemskap`} class="text-green-700 dark:text-green-400 hover:underline ml-1">Se medlemskapssiden for detaljer →</a>
+		</p>
+	  </div>
+	</section>
+
+	<!-- Kart -->
+	<section class="mb-12" aria-labelledby="kart-heading">
+	  <h2 id="kart-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Her finner du oss</h2>
+	  <div class="rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 shadow-sm">
+		<iframe
+		  title="Kart over Ås Tennisklubb"
+		  src="https://maps.google.com/maps?q=Idrettsveien+1,+1430+%C3%85s,+Norway&output=embed"
+		  width="100%"
+		  height="400"
+		  loading="lazy"
+		  referrerpolicy="no-referrer-when-downgrade"
+		  class="block w-full"
+		></iframe>
+	  </div>
+	  <a
+		href="https://maps.google.com/maps?q=Idrettsveien+1,+1430+Ås,+Norway"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="inline-block mt-3 text-sm text-green-700 dark:text-green-400 hover:underline"
+	  >
+		Åpne i Google Maps →
+	  </a>
+	</section>
+
+	<!-- Banereglement -->
+	<section id="banereglement" aria-labelledby="reglement-heading">
+	  <div class="flex items-center gap-2 mb-6">
+		<ScrollText class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="reglement-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Banereglement</h2>
+	  </div>
+	  <ol class="space-y-3">
+		{reglement.map((regel, i) => (
+		  <li class="flex gap-4 text-sm text-gray-700 dark:text-gray-300">
+			<span class="shrink-0 w-6 h-6 rounded-full bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-300 text-xs font-bold flex items-center justify-center mt-0.5">
+			  {i + 1}
+			</span>
+			<span>{regel}</span>
+		  </li>
+		))}
+	  </ol>
+	</section>
+
+  </div>
+</Layout>

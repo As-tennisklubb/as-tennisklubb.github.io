@@ -1,17 +1,78 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
+import { House, CircleDot, Zap } from "@lucide/astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Utstyr – Ås Tennisklubb"
+  description="Les om klubbhuset, utlån av racketer og baller, og ballmaskiner hos Ås Tennisklubb."
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+	<h1 class="text-4xl font-bold text-green-800 dark:text-green-300 mb-10">Utstyr</h1>
+
+	<!-- Klubbhuset -->
+	<section class="mb-12" aria-labelledby="klubbhus-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<House class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="klubbhus-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Klubbhuset</h2>
+	  </div>
+	  <div class="prose prose-green dark:prose-invert max-w-none">
+		<p>
+		  Klubbhuset ligger like ved banen. For å komme inn bruker du samme adgangsbrikke som på banene.
+		  Her finner du baller, racketer og ballmaskiner. Det er også toalett og vask.
+		</p>
+		<p>
+		  Bryteren for lysanlegget og vanningsanlegget er inne i klubbhuset.
+		</p>
+	  </div>
+	</section>
+
+	<!-- Racketer og baller -->
+	<section class="mb-12" aria-labelledby="racketer-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<CircleDot class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="racketer-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Tennisballer og racketer</h2>
+	  </div>
+	  <div class="prose prose-green dark:prose-invert max-w-none mb-6">
+		<p>Vi anbefaler medlemmer å ta med egen racket og baller.</p>
+		<p>
+		  Nye spillere kan finne racketer og baller til utlån i klubbhuset.
+		  Lånte racketer og baller må settes tilbake etter bruk.
+		</p>
+		<p>
+		  Det anbefales at barn inntil 10 år bruker mer saktegående røde, oransje eller grønne baller.
+		</p>
+	  </div>
+	  <div class="bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl p-5 text-sm text-gray-700 dark:text-gray-300">
+		For strenging av racketer – ta kontakt med Magnus Holmqvist i Drøbak tennisklubb
+		<a href="tel:+4799245280" class="text-green-700 dark:text-green-400 font-medium hover:underline ml-1">928 94 247</a>.
+	  </div>
+	</section>
+
+	<!-- Ballmaskiner -->
+	<section aria-labelledby="ballmaskin-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<Zap class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="ballmaskin-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Ballmaskiner</h2>
+	  </div>
+	  <div class="grid md:grid-cols-2 gap-6">
+		<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm">
+		  <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Liten ballmaskin</h3>
+		  <p class="text-sm text-gray-600 dark:text-gray-400">
+			Batteridrevet og lett å flytte rundt på banen. Passer for de yngste og nybegynnere,
+			og kan betjenes av de aller minste.
+		  </p>
+		</div>
+		<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm">
+		  <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Stor ballmaskin</h3>
+		  <p class="text-sm text-gray-600 dark:text-gray-400">
+			Rommer 125 baller og skyter både hardt (inntil 96 km/t) og løst.
+			Kan variere retning og pause mellom slagene – passer til spillere på flere nivåer.
+		  </p>
+		</div>
+	  </div>
+	</section>
+
+  </div>
+</Layout>

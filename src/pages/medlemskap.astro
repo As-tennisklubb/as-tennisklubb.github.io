@@ -1,17 +1,144 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import { UserPlus, Smartphone, CreditCard, Users } from "@lucide/astro";
 
+const base = import.meta.env.BASE_URL;
+
+const priser = [
+  { type: "Barn/junior (inntil 19 år)", pris: "500,-" },
+  { type: "Student / vernepliktig",      pris: "700,-" },
+  { type: "Voksen",                      pris: "1 200,-" },
+  { type: "Familiemedlemskap",           pris: "2 100,-" },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Medlemskap – Ås Tennisklubb"
+  description="Bli medlem av Ås Tennisklubb. Se priser, betalingsinfo og prøvespill."
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+	<h1 class="text-4xl font-bold text-green-800 dark:text-green-300 mb-4">Medlemskap</h1>
+	<p class="text-lg text-gray-600 dark:text-gray-400 mb-10">
+	  Alle er velkomne – uansett alder, kjønn og nivå.
+	</p>
+
+	<!-- Registrer nytt medlemskap (§4: viktigste handling øverst) -->
+	<section class="mb-12 bg-green-700 dark:bg-green-900 text-white rounded-xl p-8" aria-labelledby="registrer-heading">
+	  <div class="flex items-center gap-3 mb-3">
+		<UserPlus class="w-6 h-6 shrink-0" />
+		<h2 id="registrer-heading" class="text-2xl font-bold">Registrer nytt medlemskap</h2>
+	  </div>
+	  <p class="text-green-200 text-sm mb-6">
+		Innmelding skjer via Min Idrett. Siden åpnes i ny fane.
+	  </p>
+	  <a
+		href="https://medlemskap.nif.no/19967"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="inline-flex items-center gap-2 bg-white text-green-800 font-bold px-6 py-3 rounded-full hover:bg-green-50 transition-colors min-h-[44px]"
+	  >
+		Meld deg inn nå →
+	  </a>
+	</section>
+
+	<!-- Prisliste -->
+	<section class="mb-12" aria-labelledby="pris-heading">
+	  <div class="flex items-center gap-3 mb-6">
+		<Users class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="pris-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Medlemskontingent 2025</h2>
+	  </div>
+
+	  <!-- Mobil: kort -->
+	  <div class="flex flex-col gap-3 md:hidden">
+		{priser.map(({ type, pris }) => (
+		  <div class="flex justify-between items-center bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl px-5 py-4">
+			<span class="text-sm text-gray-700 dark:text-gray-300">{type}</span>
+			<span class="font-bold text-green-700 dark:text-green-400">kr {pris}</span>
+		  </div>
+		))}
+	  </div>
+
+	  <!-- Desktop: tabell -->
+	  <div class="hidden md:block">
+		<table class="w-full text-sm">
+		  <thead>
+			<tr class="border-b-2 border-green-200 dark:border-green-800">
+			  <th class="py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300">Medlemstype</th>
+			  <th class="py-3 text-right font-semibold text-gray-700 dark:text-gray-300">Pris</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{priser.map(({ type, pris }) => (
+			  <tr class="border-b border-gray-100 dark:border-gray-800">
+				<td class="py-3 pr-6 text-gray-700 dark:text-gray-300">{type}</td>
+				<td class="py-3 text-right font-bold text-green-700 dark:text-green-400">kr {pris}</td>
+			  </tr>
+			))}
+		  </tbody>
+		</table>
+	  </div>
+	</section>
+
+	<!-- Betaling -->
+	<section class="mb-12" aria-labelledby="betaling-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<CreditCard class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="betaling-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Betaling</h2>
+	  </div>
+	  <div class="bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl p-6 text-sm text-gray-700 dark:text-gray-300 space-y-2">
+		<p>Betal via <strong class="text-gray-900 dark:text-gray-100">kontonummer 1100 44 76109</strong> eller <strong class="text-gray-900 dark:text-gray-100">Vipps til Ås Tennisklubb #14506</strong>.</p>
+		<p>Merk betalingen med: <em>Navn, og type medlemskap</em>.</p>
+		<p class="pt-2">
+		  Send deretter e-post til
+		  <a href="mailto:aas.tbk@gmail.com" class="text-green-700 dark:text-green-400 hover:underline">aas.tbk@gmail.com</a>
+		  med navn og mobilnummer for de som skal ha tilgang.
+		  <br />
+		  <span class="text-gray-500 dark:text-gray-500 text-xs">Medlemmer fra i fjor med Yale Home App-tilgang trenger ikke sende mail.</span>
+		</p>
+	  </div>
+	</section>
+
+	<!-- Adgang -->
+	<section class="mb-12" aria-labelledby="adgang-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<Smartphone class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="adgang-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100">Tilgang til bane og klubbhus</h2>
+	  </div>
+	  <div class="prose prose-green dark:prose-invert max-w-none">
+		<p>
+		  Alle betalende medlemmer får tilgang til anlegget via <strong>Yale Home-appen</strong>.
+		  Tilgangen aktiveres etter at kontingenten er betalt og vi har mottatt navn og mobilnummer.
+		</p>
+	  </div>
+	</section>
+
+	<!-- Prøvespill -->
+	<section aria-labelledby="provespill-heading">
+	  <h2 id="provespill-heading" class="text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">Prøvespill</h2>
+	  <div class="prose prose-green dark:prose-invert max-w-none mb-4">
+		<p>
+		  Spillere som ikke er medlemmer er hjertelig velkomne til prøvespill.
+		  For at ordningen ikke skal misbrukes gjelder følgende regler:
+		</p>
+	  </div>
+	  <ul class="space-y-3 text-sm text-gray-700 dark:text-gray-300 mb-6">
+		{[
+		  "Prøvespill gjelder kun én gang per person.",
+		  "Baneleie for prøvespill er kr 200,- for 1 time. Beløpet refunderes ved tegning av medlemskap.",
+		  "Betal til konto 1100 44 76109 eller Vipps Ås Tennisklubb #14506.",
+		  "Send mail til im@aastk.no med mobilnummer – du får tilgang via Yale Home-appen.",
+		].map((regel) => (
+		  <li class="flex gap-2">
+			<span class="text-green-600 dark:text-green-400 shrink-0">•</span>
+			{regel}
+		  </li>
+		))}
+	  </ul>
+	  <a href="mailto:im@aastk.no" class="inline-flex items-center gap-2 border border-green-700 dark:border-green-500 text-green-700 dark:text-green-400 font-semibold px-5 py-3 rounded-full hover:bg-green-50 dark:hover:bg-green-900 transition-colors min-h-[44px] text-sm">
+		Send mail for prøvespill →
+	  </a>
+	</section>
+
+  </div>
+</Layout>
