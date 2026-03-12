@@ -40,7 +40,8 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
     <link rel="icon" href={`${base}favicon.ico`} />
     <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`} />
     <link rel="manifest" href={`${base}site.webmanifest`} />
-    <meta name="theme-color" content="#14532d" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#1e3a0c" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#2e5713" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
@@ -55,7 +56,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
 
   <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
 
-    <header class="bg-green-800 dark:bg-green-950 text-white shadow-md">
+    <header class="bg-green-800 dark:bg-green-700 text-white shadow-md">
       <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-20">
 
         <a href={base} class="flex items-center gap-3 hover:opacity-90 shrink-0" aria-label="Ås Tennisklubb – til forsiden">
@@ -72,7 +73,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
             <a
               href={`${base}${href}`}
               aria-current={isActive(href) ? "page" : undefined}
-              class={`px-3 py-3 rounded-lg transition-colors ${isActive(href) ? "bg-green-700 dark:bg-green-800 font-semibold" : "hover:bg-green-700 dark:hover:bg-green-900"}`}
+              class={`px-3 py-3 rounded-lg transition-colors ${isActive(href) ? "bg-green-700 dark:bg-green-800 font-semibold" : "hover:bg-green-700 dark:hover:bg-green-800"}`}
             >
               {label}
             </a>
@@ -102,11 +103,11 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
       <!-- Mobile meny -->
       <nav
         id="mobile-menu"
-        class="hidden border-t border-green-700 dark:border-green-900"
+        class="hidden border-t border-green-700 dark:border-green-600"
         aria-label="Mobilmeny"
       >
 
-        <div class="px-4 py-3 border-b border-green-700 dark:border-green-900">
+        <div class="px-4 py-3 border-b border-green-700 dark:border-green-600">
           <a
             href={`${base}medlemskap`}
             aria-current={isActive("medlemskap") ? "page" : undefined}
@@ -121,7 +122,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
               <a
                 href={`${base}${href}`}
                 aria-current={isActive(href) ? "page" : undefined}
-                class={`flex items-center min-h-[44px] text-sm font-medium transition-colors border-b border-green-700 dark:border-green-900 last:border-0 ${isActive(href) ? "text-yellow-300 font-semibold" : "hover:text-green-300"}`}
+                class={`flex items-center min-h-[44px] text-sm font-medium transition-colors border-b border-green-700 dark:border-green-600 last:border-0 ${isActive(href) ? "text-yellow-300 font-semibold" : "hover:text-green-300"}`}
               >
                 {label}
               </a>
@@ -145,7 +146,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
       <slot />
     </main>
 
-    <footer class="bg-green-900 dark:bg-green-950 text-green-200 mt-16">
+    <footer class="bg-green-900 dark:bg-green-800 text-green-200 mt-16">
       <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
         <div>
           <img src={`${base}logo.svg`} alt="Ås Tennisklubb" class="h-10 w-auto mb-3" />
