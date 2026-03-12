@@ -1,0 +1,54 @@
+media:
+  input: public/uploads
+  output: /website/uploads
+
+content:
+  - name: news
+    label: Nyheter
+    path: src/content/news
+    format: frontmatter
+    filename: "{fields.title}"
+    view:
+      fields: [title, date, categories]
+      primary: title
+      sort: date
+      default: desc
+    fields:
+      - name: title
+        label: Tittel
+        type: string
+        required: true
+      - name: date
+        label: Publiseringsdato
+        type: date
+        required: true
+      - name: description
+        label: Ingress
+        type: text
+      - name: author
+        label: Forfatter
+        type: string
+      - name: categories
+        label: Kategorier
+        type: select
+        multiple: true
+        options:
+          - value: aarsmote
+            label: Årsmøte
+          - value: arrangementer
+            label: Arrangementer
+          - value: kurstrening
+            label: Kurs og trening
+          - value: styret
+            label: Styret
+          - value: turneringer
+            label: Turneringer
+          - value: ukategorisert
+            label: Ukategorisert
+      - name: draft
+        label: Lagre som utkast
+        type: boolean
+        default: false
+      - name: body
+        label: Innhold
+        type: rich-text
