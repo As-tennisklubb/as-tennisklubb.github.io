@@ -1,19 +1,15 @@
 media:
   input: public/uploads
-  output: /website/uploads
+  output: /uploads
 
 content:
   - name: news
     label: Nyheter
     type: collection
     path: src/content/news
-    format: frontmatter
-    filename: "{fields.title}.md"
+    filename: '{year}-{month}-{day}-{fields.title}.md'
     view:
       fields: [title, date, categories]
-      primary: title
-      sort: date
-      default: desc
     fields:
       - name: title
         label: Tittel
