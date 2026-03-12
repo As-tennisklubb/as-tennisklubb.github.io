@@ -5,6 +5,7 @@ media:
 content:
   - name: news
     label: Nyheter
+    type: collection
     path: src/content/news
     format: frontmatter
     filename: "{fields.title}"
