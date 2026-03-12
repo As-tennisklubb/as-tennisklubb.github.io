@@ -1,17 +1,120 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import { CalendarCheck } from "@lucide/astro";
 
+const base = import.meta.env.BASE_URL;
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Ås Tennis Club – English"
+  description="Welcome to Ås Tennis Club. Information about courts, membership and courses in English."
+  lang="en"
+>
+
+  <!-- Hero -->
+  <section class="bg-green-800 text-white py-10 md:py-14 px-4">
+	<div class="max-w-6xl mx-auto">
+	  <h1 class="text-3xl md:text-5xl font-bold mb-3">Welcome to Ås Tennis Club</h1>
+	  <p class="text-green-200 text-base md:text-lg max-w-xl">
+		Tennis for everyone – regardless of age or skill level.
+	  </p>
+	</div>
+  </section>
+
+  <div class="max-w-4xl mx-auto px-4 py-12 space-y-12">
+
+	<!-- Tennis Courts -->
+	<section>
+	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Tennis courts</h2>
+	  <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
+		<p>
+		  We have 3 outdoor courts with red clay, centrally located in Ås — next to the Stadium.
+		</p>
+		<p>
+		  Reserve a court using our online booking system:
+		</p>
+	  </div>
+	  <a
+		href="https://www.banebooking.aastk.no"
+		target="_blank"
+		rel="noopener noreferrer"
+		class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full transition-colors min-h-[44px] my-6"
+	  >
+		<CalendarCheck class="w-5 h-5" />
+		Book a court
+	  </a>
+	  <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
+		<p>
+		  As a member you may freely borrow balls, rackets, mobile walls and tennis ball machines
+		  from the club house. We recommend that regular players use their own rackets.
+		</p>
+		<p>
+		  The courts are typically open from April/May until November.
+		  During winter we cooperate with Drøbak Tennisklubb.
+		</p>
+	  </div>
+	</section>
+
+	<hr class="border-green-100 dark:border-gray-800" />
+
+	<!-- Membership -->
+	<section>
+	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Membership</h2>
+	  <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
+		<p>
+		  <a href={`${base}medlemskap`} class="text-green-700 dark:text-green-400 font-semibold hover:underline">
+			View membership fees and registration form →
+		  </a>
+		</p>
+		<p>
+		  You may also join by sending an email to
+		  <a href="mailto:administrasjon@aastk.no" class="text-green-700 dark:text-green-400 hover:underline">
+			administrasjon@aastk.no
+		  </a>.
+		  Please include your contact information (name, email, phone) and membership type.
+		</p>
+		<p>
+		  New members will receive a personal key-card by mail once the membership fee is settled.
+		</p>
+	  </div>
+	</section>
+
+	<hr class="border-green-100 dark:border-gray-800" />
+
+	<!-- Courses -->
+	<section>
+	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Courses and training</h2>
+	  <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
+		<p>
+		  Ås Tennis Club offers training and courses for all ages and levels.
+		</p>
+		<p>
+		  <a href={`${base}trening`} class="text-green-700 dark:text-green-400 font-semibold hover:underline">
+			View training schedule →
+		  </a>
+		</p>
+		<p>
+		  For more information, contact our coach at
+		  <a href="mailto:im@aastk.no" class="text-green-700 dark:text-green-400 hover:underline">
+			im@aastk.no
+		  </a>.
+		</p>
+	  </div>
+	</section>
+
+	<hr class="border-green-100 dark:border-gray-800" />
+
+	<!-- Contact -->
+	<section>
+	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Contact</h2>
+	  <p class="text-gray-700 dark:text-gray-300">
+		Need more information?
+		<a href={`${base}om-klubben`} class="text-green-700 dark:text-green-400 font-semibold hover:underline">
+		  View our contact details →
+		</a>
+	  </p>
+	</section>
+
+  </div>
+
+</Layout>
