@@ -1,10 +1,23 @@
 ---
+import "../styles/global.css";
+
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = "Ås Tennisklubb" } = Astro.props;
+const { title = "Ås Tennisklubb", description = "Ås Tennisklubb – tennis for alle i Ås" } = Astro.props;
 const base = import.meta.env.BASE_URL;
+
+const navLinks = [
+  { href: "om-klubben", label: "Om klubben" },
+  { href: "baner", label: "Baner" },
+  { href: "trening", label: "Trening" },
+  { href: "nyheter", label: "Nyheter" },
+  { href: "utstyr", label: "Utstyr" },
+  { href: "kontakt", label: "Kontakt" },
+  { href: "medlemskap", label: "Bli medlem" },
+];
 ---
 
 <!doctype html>
@@ -14,25 +27,62 @@ const base = import.meta.env.BASE_URL;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body>
-    <header>
-      <nav>
-        <a href={base}>Hjem</a>
-        <a href={`${base}om-klubben`}>Om klubben</a>
-        <a href={`${base}baner`}>Baner</a>
-        <a href={`${base}trening`}>Trening</a>
-        <a href={`${base}nyheter`}>Nyheter</a>
-        <a href={`${base}utstyr`}>Utstyr</a>
-        <a href={`${base}kontakt`}>Kontakt</a>
-        <a href={`${base}medlemskap`}>Medlemskap</a>
-        <a href={`${base}english`}>English</a>
-      </nav>
+  <body class="bg-white text-gray-900 flex flex-col min-h-screen">
+
+    <header class="bg-green-800 text-white shadow-md">
+      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
+        <a href={base} class="flex items-center gap-3 hover:opacity-90">
+          <span class="text-2xl">🎾</span>
+          <div>
+            <div class="font-bold text-lg leading-tight">Ås Tennisklubb</div>
+            <div class="text-green-300 text-xs">Tennis for alle</div>
+          </div>
+        </a>
+        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+          {navLinks.map(({ href, label }) => (
+            <a
+              href={`${base}${href}`}
+              class="hover:text-yellow-300 transition-colors"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+      </div>
     </header>
-    <main>
+
+    <main class="flex-1">
       <slot />
     </main>
+
+    <footer class="bg-green-900 text-green-200 mt-16">
+      <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+        <div>
+          <div class="font-bold text-white text-lg mb-2">🎾 Ås Tennisklubb</div>
+          <p class="text-sm">Tennis for alle i Ås, siden 1974.</p>
+        </div>
+        <div>
+          <div class="font-semibold text-white mb-2">Lenker</div>
+          <ul class="text-sm space-y-1">
+            {navLinks.map(({ href, label }) => (
+              <li><a href={`${base}${href}`} class="hover:text-white transition-colors">{label}</a></li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <div class="font-semibold text-white mb-2">Kontakt</div>
+          <p class="text-sm">post@astennisklubb.no</p>
+          <a href={`${base}english`} class="inline-block mt-3 text-xs text-green-400 hover:text-white transition-colors">🇬🇧 English</a>
+        </div>
+      </div>
+      <div class="border-t border-green-800 text-center text-xs py-4 text-green-500">
+        © {new Date().getFullYear()} Ås Tennisklubb
+      </div>
+    </footer>
+
   </body>
 </html>
