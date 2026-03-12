@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { Globe } from "@lucide/astro";
 
 interface Props {
   title?: string;
@@ -36,11 +37,7 @@ const navLinks = [
     <header class="bg-green-800 text-white shadow-md">
       <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
         <a href={base} class="flex items-center gap-3 hover:opacity-90">
-          <span class="text-2xl">🎾</span>
-          <div>
-            <div class="font-bold text-lg leading-tight">Ås Tennisklubb</div>
-            <div class="text-green-300 text-xs">Tennis for alle</div>
-          </div>
+          <img src={`${base}logo.svg`} alt="Ås Tennisklubb logo" class="h-12 w-auto" />
         </a>
         <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
           {navLinks.map(({ href, label }) => (
@@ -62,7 +59,7 @@ const navLinks = [
     <footer class="bg-green-900 text-green-200 mt-16">
       <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
         <div>
-          <div class="font-bold text-white text-lg mb-2">🎾 Ås Tennisklubb</div>
+          <img src={`${base}logo.svg`} alt="Ås Tennisklubb logo" class="h-10 w-auto mb-2" />
           <p class="text-sm">Tennis for alle i Ås, siden 1974.</p>
         </div>
         <div>
@@ -76,7 +73,7 @@ const navLinks = [
         <div>
           <div class="font-semibold text-white mb-2">Kontakt</div>
           <p class="text-sm">post@astennisklubb.no</p>
-          <a href={`${base}english`} class="inline-block mt-3 text-xs text-green-400 hover:text-white transition-colors">🇬🇧 English</a>
+          <a href={`${base}english`} class="inline-flex items-center gap-1 mt-3 text-xs text-green-400 hover:text-white transition-colors"><Globe class="w-3 h-3" /> English</a>
         </div>
       </div>
       <div class="border-t border-green-800 text-center text-xs py-4 text-green-500">
