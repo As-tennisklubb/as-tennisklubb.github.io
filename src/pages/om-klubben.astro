@@ -1,17 +1,89 @@
 ---
-
+import Layout from "../layouts/Layout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout
+  title="Om klubben – Ås Tennisklubb"
+  description="Ås Tennisklubb ble grunnlagt i 1976 og holder til ved Ås stadion. Les mer om oss, våre baner og styret."
+>
+  <div class="max-w-4xl mx-auto px-4 py-12">
+
+	<!-- §4 Visual hierarchy: tittel øverst -->
+	<h1 class="text-4xl font-bold text-green-800 dark:text-green-300 mb-8">Om Ås Tennisklubb</h1>
+
+	<!-- §5 F-pattern: viktigste informasjon øverst til venstre -->
+	<div class="prose prose-green dark:prose-invert max-w-none mb-16">
+	  <p>
+		Som medlem spiller du så mye du vil – uten å betale per gang.
+		Tre grusbaner ved Ås stadion er tilgjengelige fra april til november.
+	  </p>
+	  <p>
+		Vi tilbyr kurs for barn og voksne, uansett nivå.
+		Racketer og baller kan lånes gratis i klubbhuset.
+	  </p>
+	  <p>
+		Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion.
+	  </p>
+	</div>
+
+	<!-- Styre (§6 Gestalt proximity: relatert info gruppert) -->
+	<section aria-labelledby="styre-heading">
+	  <h2 id="styre-heading" class="text-2xl font-bold text-green-800 dark:text-green-300 mb-6">
+		Styre og kontaktpersoner
+	  </h2>
+
+	  <!-- Mobil: kort-visning (§1 mobile-first) -->
+	  <div class="flex flex-col gap-4 md:hidden">
+		{[
+		  { navn: "Øyvind Engøy",          rolle: "Leder",          epost: "leder@aastk.no",           tlf: "950 55 078" },
+		  { navn: "Lars Rønn",              rolle: "Nestleder",      epost: "im@aastk.no",               tlf: "951 26 858" },
+		  { navn: "Lone Ross",              rolle: "Administrasjon", epost: "administrasjon@aastk.no",   tlf: "911 97 268" },
+		  { navn: "James Randall Fennell",  rolle: "Anlegg",         epost: "anlegg@aastk.no",           tlf: "997 98 972" },
+		  { navn: "Rune Sundbø",            rolle: "Dugnad / anlegg",epost: "anlegg@aastk.no",           tlf: "922 83 185" },
+		].map(({ navn, rolle, epost, tlf }) => (
+		  <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
+			<p class="font-semibold text-gray-900 dark:text-gray-100">{navn}</p>
+			<p class="text-sm text-green-700 dark:text-green-400 mb-2">{rolle}</p>
+			<a href={`mailto:${epost}`} class="block text-sm text-gray-600 dark:text-gray-400 hover:text-green-700 dark:hover:text-green-400 transition-colors">{epost}</a>
+			<a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="block text-sm text-gray-600 dark:text-gray-400 hover:text-green-700 dark:hover:text-green-400 transition-colors">{tlf}</a>
+		  </div>
+		))}
+	  </div>
+
+	  <!-- Desktop: tabell (§2 grid) -->
+	  <div class="hidden md:block overflow-x-auto">
+		<table class="w-full text-sm text-left">
+		  <thead>
+			<tr class="border-b-2 border-green-200 dark:border-green-800">
+			  <th class="py-3 pr-6 font-semibold text-gray-700 dark:text-gray-300">Navn</th>
+			  <th class="py-3 pr-6 font-semibold text-gray-700 dark:text-gray-300">Rolle</th>
+			  <th class="py-3 pr-6 font-semibold text-gray-700 dark:text-gray-300">E-post</th>
+			  <th class="py-3 font-semibold text-gray-700 dark:text-gray-300">Telefon</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{[
+			  { navn: "Øyvind Engøy",          rolle: "Leder",          epost: "leder@aastk.no",           tlf: "950 55 078" },
+			  { navn: "Lars Rønn",              rolle: "Nestleder",      epost: "im@aastk.no",               tlf: "951 26 858" },
+			  { navn: "Lone Ross",              rolle: "Administrasjon", epost: "administrasjon@aastk.no",   tlf: "911 97 268" },
+			  { navn: "James Randall Fennell",  rolle: "Anlegg",         epost: "anlegg@aastk.no",           tlf: "997 98 972" },
+			  { navn: "Rune Sundbø",            rolle: "Dugnad / anlegg",epost: "anlegg@aastk.no",           tlf: "922 83 185" },
+			].map(({ navn, rolle, epost, tlf }) => (
+			  <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors">
+				<td class="py-3 pr-6 font-medium text-gray-900 dark:text-gray-100">{navn}</td>
+				<td class="py-3 pr-6 text-gray-600 dark:text-gray-400">{rolle}</td>
+				<td class="py-3 pr-6">
+				  <a href={`mailto:${epost}`} class="text-green-700 dark:text-green-400 hover:underline">{epost}</a>
+				</td>
+				<td class="py-3">
+				  <a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="text-green-700 dark:text-green-400 hover:underline">{tlf}</a>
+				</td>
+			  </tr>
+			))}
+		  </tbody>
+		</table>
+	  </div>
+	</section>
+
+  </div>
+</Layout>

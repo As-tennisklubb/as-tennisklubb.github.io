@@ -11,14 +11,15 @@ const { title = "Ås Tennisklubb", description = "Ås Tennisklubb – tennis for
 const base = import.meta.env.BASE_URL;
 
 const navLinks = [
-  { href: "om-klubben", label: "Om klubben" },
-  { href: "baner",      label: "Baner" },
   { href: "trening",    label: "Trening" },
+  { href: "baner",      label: "Baner" },
   { href: "nyheter",    label: "Nyheter" },
   { href: "utstyr",     label: "Utstyr" },
-  { href: "kontakt",    label: "Kontakt" },
-  { href: "medlemskap", label: "Bli medlem" },
+  { href: "om-klubben", label: "Om klubben" },
 ];
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => pathname.includes(`/${href}`);
 ---
 
 <!doctype html>
@@ -39,19 +40,27 @@ const navLinks = [
       <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
 
         <a href={base} class="hover:opacity-90 shrink-0" aria-label="Ås Tennisklubb – til forsiden">
-          <img src={`${base}logo.svg`} alt="Ås Tennisklubb" class="h-10 w-auto" />
+          <img src={`${base}logo.svg`} alt="Ås Tennisklubb" class="h-12 w-auto" />
         </a>
 
-        <!-- Desktop nav (§7: maks 7 valg) -->
+        <!-- Desktop nav -->
         <nav class="hidden md:flex items-center gap-1 text-sm font-medium" aria-label="Hovedmeny">
           {navLinks.map(({ href, label }) => (
             <a
               href={`${base}${href}`}
-              class="px-3 py-3 rounded-lg hover:bg-green-700 dark:hover:bg-green-900 transition-colors"
+              aria-current={isActive(href) ? "page" : undefined}
+              class={`px-3 py-3 rounded-lg transition-colors ${isActive(href) ? "bg-green-700 dark:bg-green-800 font-semibold" : "hover:bg-green-700 dark:hover:bg-green-900"}`}
             >
               {label}
             </a>
           ))}
+          <a
+            href={`${base}medlemskap`}
+            aria-current={isActive("medlemskap") ? "page" : undefined}
+            class={`ml-2 font-bold px-4 py-2 rounded-full transition-colors min-h-[44px] flex items-center whitespace-nowrap ${isActive("medlemskap") ? "bg-yellow-300 text-gray-900" : "bg-yellow-400 text-gray-900 hover:bg-yellow-300"}`}
+          >
+            Bli medlem
+          </a>
         </nav>
 
         <!-- Hamburger (§1 §7 §8: synlig mobil, 44px touch target) -->
@@ -67,18 +76,28 @@ const navLinks = [
         </button>
       </div>
 
-      <!-- Mobile meny (§1 §7) -->
+      <!-- Mobile meny -->
       <nav
         id="mobile-menu"
         class="hidden border-t border-green-700 dark:border-green-900"
         aria-label="Mobilmeny"
       >
+        <div class="px-4 py-3 border-b border-green-700 dark:border-green-900">
+          <a
+            href={`${base}medlemskap`}
+            aria-current={isActive("medlemskap") ? "page" : undefined}
+            class="flex items-center justify-center min-h-[44px] bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors text-sm"
+          >
+            Bli medlem
+          </a>
+        </div>
         <ul class="flex flex-col px-4 py-2">
           {navLinks.map(({ href, label }) => (
             <li>
               <a
                 href={`${base}${href}`}
-                class="flex items-center min-h-[44px] text-sm font-medium hover:text-green-300 transition-colors border-b border-green-700 dark:border-green-900 last:border-0"
+                aria-current={isActive(href) ? "page" : undefined}
+                class={`flex items-center min-h-[44px] text-sm font-medium transition-colors border-b border-green-700 dark:border-green-900 last:border-0 ${isActive(href) ? "text-yellow-300 font-semibold" : "hover:text-green-300"}`}
               >
                 {label}
               </a>
@@ -98,7 +117,7 @@ const navLinks = [
           <img src={`${base}logo.svg`} alt="Ås Tennisklubb" class="h-10 w-auto mb-3" />
           <p class="text-sm leading-relaxed">Tennis for alle i Ås, siden 1974.</p>
         </div>
-        <nav aria-label="Foterlenker">
+        <nav aria-label="Snarveier">
           <p class="font-semibold text-white mb-3">Lenker</p>
           <ul class="text-sm space-y-2">
             {navLinks.map(({ href, label }) => (
@@ -112,7 +131,7 @@ const navLinks = [
         </nav>
         <div>
           <p class="font-semibold text-white mb-3">Kontakt</p>
-          <p class="text-sm">post@astennisklubb.no</p>
+          <a href="mailto:administrasjon@aastk.no" class="text-sm hover:text-white transition-colors">administrasjon@aastk.no</a>
           <a
             href={`${base}english`}
             class="inline-flex items-center gap-1 mt-4 text-xs text-green-400 hover:text-white transition-colors min-h-[44px]"
