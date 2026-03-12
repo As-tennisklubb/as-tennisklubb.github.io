@@ -9,7 +9,7 @@ const sortedPosts = posts.sort(
 const base = import.meta.env.BASE_URL;
 ---
 
-<Layout title="Nyheter – Ås Tennisklubb" pageTitle="Nyheter" pageDescription={`${sortedPosts.length} innlegg fra Ås Tennisklubb`}>
+<Layout title="Nyheter – Ås Tennisklubb" description="Siste nyheter fra Ås Tennisklubb." pageTitle="Nyheter" pageDescription={`${sortedPosts.length} innlegg fra Ås Tennisklubb`}>
   <div class="max-w-4xl mx-auto px-4 py-12">
     <div class="space-y-4">
       {sortedPosts.map((post) => {

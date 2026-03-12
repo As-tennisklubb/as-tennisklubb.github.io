@@ -44,3 +44,59 @@
 ### AI Guidelines
 - **AI Shall Always**: Write short sentences, use clear headings, structure in small blocks, use action-based language, follow heading hierarchy and accessibility rules.
 - **AI Shall Never**: Write long text blocks, use unclear formulations, use generic link texts.
+
+---
+
+## Ås Tennisklubb – Spesifikke Design-regler (Astro + Tailwind)
+
+Disse reglene gjelder for alle sider og komponenter i dette prosjektet. Alle nye sider og seksjoner MÅ følge disse mønstrene eksakt.
+
+### Layout
+| Element | Klasser |
+|---------|---------|
+| Side-wrapper (innersider) | `max-w-4xl mx-auto px-4 py-12` |
+| Side-wrapper (forside / wide) | `max-w-6xl mx-auto px-4` |
+| Hero-seksjon | `bg-green-800 dark:bg-green-700 text-white py-10 md:py-14 px-4` |
+| Seksjon-avstand (alle unntatt siste) | `mb-12` på `<section>` |
+
+### Typografi
+| Element | Klasser |
+|---------|---------|
+| H2 uten ikon | `text-2xl font-bold text-green-800 dark:text-green-300 mb-4` |
+| H2 med ikon – wrapper | `<div class="flex items-center gap-3 mb-4">` |
+| H2 ikon | `w-6 h-6 text-green-700 dark:text-green-400 shrink-0` |
+| H3 plain | `font-semibold text-gray-900 dark:text-gray-100 mb-2` |
+| H3 i info-boks – wrapper | `<div class="flex items-center gap-2 mb-4">` |
+| H3 ikon (info-boks) | `w-5 h-5 text-green-700 dark:text-green-400 shrink-0` |
+| Prose-seksjon | `prose prose-green dark:prose-invert max-w-none` |
+
+### Kort og bokser
+| Element | Klasser |
+|---------|---------|
+| Grønn info-boks | `bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl p-6` |
+| Hvit feature-kort | `bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm` |
+| Hvit mobil-kort (tabeller) | `bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4` |
+| Mobil-kort liste-wrapper | `flex flex-col gap-3 md:hidden` |
+
+### Tabeller
+| Element | Klasser |
+|---------|---------|
+| Desktop-wrapper | `hidden md:block overflow-x-auto` |
+| `<table>` | `w-full text-sm` |
+| `<thead> <tr>` | `border-b-2 border-green-200 dark:border-green-800` |
+| `<th>` | `py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300` |
+| `<tbody> <tr>` | `border-b border-gray-100 dark:border-gray-800 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors` |
+
+### Knapper og lenker
+| Element | Klasser |
+|---------|---------|
+| Primær CTA (fylt) | `inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full transition-colors min-h-[44px]` |
+| Sekundær CTA (outline) | `inline-flex items-center gap-2 border border-green-700 dark:border-green-500 text-green-700 dark:text-green-400 font-semibold px-5 py-3 rounded-full hover:bg-green-50 dark:hover:bg-green-900 transition-colors min-h-[44px] text-sm` |
+| Inline tekstlenke | `text-green-700 dark:text-green-400 font-semibold hover:underline` |
+| Bullet-liste item | `<li class="flex gap-2"><span class="text-green-600 dark:text-green-400 shrink-0">•</span>{tekst}</li>` |
+
+### Regler
+- **Touch targets**: alltid `min-h-[44px]` på alle klikkbare elementer
+- **Dark mode**: alltid `dark:` klasser på alle bakgrunner, tekster og borders – ingen unntak
+- **CTA-tekst**: start alltid med verb (f.eks. "Book bane", "Se treningsplan", "Send mail")
+- **Siste seksjon**: skal aldri ha `mb-12`

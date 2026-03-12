@@ -20,22 +20,22 @@ const priser = [
 >
   <div class="max-w-4xl mx-auto px-4 py-12">
 
-	<!-- Registrer nytt medlemskap
-	<section class="mb-12 bg-green-700 dark:bg-green-900 text-white rounded-xl p-8" aria-labelledby="registrer-heading">
-	  <div class="flex items-center gap-3 mb-3">
-		<UserPlus class="w-6 h-6 shrink-0" />
-		<h2 id="registrer-heading" class="text-2xl font-bold">Registrer nytt medlemskap</h2>
+	<!-- Registrer nytt medlemskap -->
+	<section class="mb-12" aria-labelledby="registrer-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<UserPlus class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="registrer-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Registrer nytt medlemskap</h2>
 	  </div>
-	  <p class="text-green-200 text-sm mb-6">
-		Innmelding skjer via Min Idrett. Siden åpnes i ny fane.
+	  <p class="text-sm text-gray-700 dark:text-gray-300 mb-6">
+		Innmelding skjer via Min Idrett. Du registrerer deg i ny fane – det tar bare noen minutter.
 	  </p>
 	  <a
 		href="https://medlemskap.nif.no/19967"
 		target="_blank"
 		rel="noopener noreferrer"
-		class="inline-flex items-center gap-2 bg-white text-green-800 font-bold px-6 py-3 rounded-full hover:bg-green-50 transition-colors min-h-[44px]"
+		class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full transition-colors min-h-[44px]"
 	  >
-		Meld deg inn nå →
+		Meld deg inn på Min Idrett →
 	  </a>
 	</section>
 
@@ -49,7 +49,7 @@ const priser = [
 	  <!-- Mobil: kort -->
 	  <div class="flex flex-col gap-3 md:hidden">
 		{priser.map(({ type, pris }) => (
-		  <div class="flex justify-between items-center bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl px-5 py-4">
+		  <div class="flex justify-between items-center bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
 			<span class="text-sm text-gray-700 dark:text-gray-300">{type}</span>
 			<span class="font-bold text-green-700 dark:text-green-400">kr {pris}</span>
 		  </div>
@@ -57,7 +57,7 @@ const priser = [
 	  </div>
 
 	  <!-- Desktop: tabell -->
-	  <div class="hidden md:block">
+	  <div class="hidden md:block overflow-x-auto">
 		<table class="w-full text-sm">
 		  <thead>
 			<tr class="border-b-2 border-green-200 dark:border-green-800">
@@ -67,7 +67,7 @@ const priser = [
 		  </thead>
 		  <tbody>
 			{priser.map(({ type, pris }) => (
-			  <tr class="border-b border-gray-100 dark:border-gray-800">
+			  <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors">
 				<td class="py-3 pr-6 text-gray-700 dark:text-gray-300">{type}</td>
 				<td class="py-3 text-right font-bold text-green-700 dark:text-green-400">kr {pris}</td>
 			  </tr>
