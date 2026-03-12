@@ -11,14 +11,14 @@ const base = import.meta.env.BASE_URL;
 
 <Layout title="Nyheter – Ås Tennisklubb">
   <div class="max-w-4xl mx-auto px-4 py-12">
-    <h1 class="text-4xl font-bold text-green-800 mb-10">Nyheter</h1>
+    <h1 class="text-4xl font-bold text-green-800 dark:text-green-300 mb-10">Nyheter</h1>
     <div class="space-y-6">
       {sortedPosts.map((post) => (
-        <a href={`${base}nyheter/${post.id}`} class="block bg-white border border-gray-100 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
-          <div class="text-xs text-gray-400 mb-1">{post.data.date.toLocaleDateString("no-NO")}</div>
-          <h2 class="text-xl font-bold text-gray-900 mb-1">{post.data.title}</h2>
-          {post.data.description && <p class="text-gray-600 text-sm">{post.data.description}</p>}
-          {post.data.author && <div class="mt-3 text-xs text-green-700 font-medium">{post.data.author}</div>}
+        <a href={`${base}nyheter/${post.id}`} class="block bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow p-6">
+          <div class="text-xs text-gray-400 dark:text-gray-500 mb-1">{post.data.date.toLocaleDateString("no-NO")}</div>
+          <h2 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-1">{post.data.title}</h2>
+          {post.data.description && <p class="text-gray-600 dark:text-gray-400 text-sm">{post.data.description}</p>}
+          {post.data.author && <div class="mt-3 text-xs text-green-700 dark:text-green-400 font-medium">{post.data.author}</div>}
         </a>
       ))}
     </div>

@@ -2,7 +2,30 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-primary: #15803d;
-  --color-primary-dark: #14532d;
-  --color-accent: #ca8a04;
+  /* Fargepalett basert på #4C911F (§11) */
+  --color-green-50:  #f6faf4;
+  --color-green-100: #e4efdd;
+  --color-green-200: #c0d9b1;
+  --color-green-300: #94bd79;
+  --color-green-400: #70a74c;
+  --color-green-500: #4C911F;
+  --color-green-600: #3d7419;
+  --color-green-700: #2e5713;
+  --color-green-800: #1e3a0c;
+  --color-green-900: #0f1d06;
+  --color-green-950: #080f03;
+}
+
+/* §9 Typografi – line-height 1.4–1.6, lesbar body */
+html {
+  font-size: 16px;
+}
+
+body {
+  line-height: 1.6;
+}
+
+/* §9 Line length – maks 65 tegn for leseflyt */
+.prose {
+  max-width: 65ch;
 }

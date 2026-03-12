@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { Globe } from "@lucide/astro";
+import { Globe, Menu, X } from "@lucide/astro";
 
 interface Props {
   title?: string;
@@ -12,11 +12,11 @@ const base = import.meta.env.BASE_URL;
 
 const navLinks = [
   { href: "om-klubben", label: "Om klubben" },
-  { href: "baner", label: "Baner" },
-  { href: "trening", label: "Trening" },
-  { href: "nyheter", label: "Nyheter" },
-  { href: "utstyr", label: "Utstyr" },
-  { href: "kontakt", label: "Kontakt" },
+  { href: "baner",      label: "Baner" },
+  { href: "trening",    label: "Trening" },
+  { href: "nyheter",    label: "Nyheter" },
+  { href: "utstyr",     label: "Utstyr" },
+  { href: "kontakt",    label: "Kontakt" },
   { href: "medlemskap", label: "Bli medlem" },
 ];
 ---
@@ -25,55 +25,100 @@ const navLinks = [
 <html lang="no">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="bg-white text-gray-900 flex flex-col min-h-screen">
 
-    <header class="bg-green-800 text-white shadow-md">
-      <div class="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
-        <a href={base} class="flex items-center gap-3 hover:opacity-90">
-          <img src={`${base}logo.svg`} alt="Ås Tennisklubb logo" class="h-12 w-auto" />
+  <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
+
+    <header class="bg-green-800 dark:bg-green-950 text-white shadow-md">
+      <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
+
+        <a href={base} class="hover:opacity-90 shrink-0" aria-label="Ås Tennisklubb – til forsiden">
+          <img src={`${base}logo.svg`} alt="Ås Tennisklubb" class="h-10 w-auto" />
         </a>
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+
+        <!-- Desktop nav (§7: maks 7 valg) -->
+        <nav class="hidden md:flex items-center gap-1 text-sm font-medium" aria-label="Hovedmeny">
           {navLinks.map(({ href, label }) => (
             <a
               href={`${base}${href}`}
-              class="hover:text-yellow-300 transition-colors"
+              class="px-3 py-3 rounded-lg hover:bg-green-700 dark:hover:bg-green-900 transition-colors"
             >
               {label}
             </a>
           ))}
         </nav>
+
+        <!-- Hamburger (§1 §7 §8: synlig mobil, 44px touch target) -->
+        <button
+          id="menu-btn"
+          class="md:hidden p-2 rounded-lg hover:bg-green-700 transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+          aria-label="Åpne meny"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <Menu id="icon-open" class="w-6 h-6" />
+          <X   id="icon-close" class="w-6 h-6 hidden" />
+        </button>
       </div>
+
+      <!-- Mobile meny (§1 §7) -->
+      <nav
+        id="mobile-menu"
+        class="hidden border-t border-green-700 dark:border-green-900"
+        aria-label="Mobilmeny"
+      >
+        <ul class="flex flex-col px-4 py-2">
+          {navLinks.map(({ href, label }) => (
+            <li>
+              <a
+                href={`${base}${href}`}
+                class="flex items-center min-h-[44px] text-sm font-medium hover:text-green-300 transition-colors border-b border-green-700 dark:border-green-900 last:border-0"
+              >
+                {label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
     </header>
 
     <main class="flex-1">
       <slot />
     </main>
 
-    <footer class="bg-green-900 text-green-200 mt-16">
-      <div class="max-w-6xl mx-auto px-4 py-10 grid md:grid-cols-3 gap-8">
+    <footer class="bg-green-900 dark:bg-green-950 text-green-200 mt-16">
+      <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-8">
         <div>
-          <img src={`${base}logo.svg`} alt="Ås Tennisklubb logo" class="h-10 w-auto mb-2" />
-          <p class="text-sm">Tennis for alle i Ås, siden 1974.</p>
+          <img src={`${base}logo.svg`} alt="Ås Tennisklubb" class="h-10 w-auto mb-3" />
+          <p class="text-sm leading-relaxed">Tennis for alle i Ås, siden 1974.</p>
         </div>
-        <div>
-          <div class="font-semibold text-white mb-2">Lenker</div>
-          <ul class="text-sm space-y-1">
+        <nav aria-label="Foterlenker">
+          <p class="font-semibold text-white mb-3">Lenker</p>
+          <ul class="text-sm space-y-2">
             {navLinks.map(({ href, label }) => (
-              <li><a href={`${base}${href}`} class="hover:text-white transition-colors">{label}</a></li>
+              <li>
+                <a href={`${base}${href}`} class="hover:text-white transition-colors">
+                  {label}
+                </a>
+              </li>
             ))}
           </ul>
-        </div>
+        </nav>
         <div>
-          <div class="font-semibold text-white mb-2">Kontakt</div>
+          <p class="font-semibold text-white mb-3">Kontakt</p>
           <p class="text-sm">post@astennisklubb.no</p>
-          <a href={`${base}english`} class="inline-flex items-center gap-1 mt-3 text-xs text-green-400 hover:text-white transition-colors"><Globe class="w-3 h-3" /> English</a>
+          <a
+            href={`${base}english`}
+            class="inline-flex items-center gap-1 mt-4 text-xs text-green-400 hover:text-white transition-colors min-h-[44px]"
+          >
+            <Globe class="w-3 h-3" /> English
+          </a>
         </div>
       </div>
       <div class="border-t border-green-800 text-center text-xs py-4 text-green-500">
@@ -83,3 +128,18 @@ const navLinks = [
 
   </body>
 </html>
+
+<script>
+  const btn     = document.getElementById("menu-btn");
+  const menu    = document.getElementById("mobile-menu");
+  const iconOpen  = document.getElementById("icon-open");
+  const iconClose = document.getElementById("icon-close");
+
+  btn?.addEventListener("click", () => {
+    const isOpen = btn.getAttribute("aria-expanded") === "true";
+    btn.setAttribute("aria-expanded", String(!isOpen));
+    menu?.classList.toggle("hidden");
+    iconOpen?.classList.toggle("hidden");
+    iconClose?.classList.toggle("hidden");
+  });
+</script>
