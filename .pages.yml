@@ -21,18 +21,19 @@ content:
         required: true
 
       - name: date
-        label: Publiseringsdato
+        label: Publisert dato
         type: date
-        required: true
         default: now
 
       - name: ingress
         label: Kort ingress
         type: text
+        placeholder: Kort oppsummering av artikkelen (vises i nyhetslisten)
 
       - name: cover
         label: Hovedbilde
         type: image
+        description: Valgfritt bilde som vises øverst i artikkelen
 
       - name: categories
         label: Kategorier
@@ -70,3 +71,4 @@ content:
       - name: body
         label: Artikkel
         type: rich-text
+        description: Skriv artikkelen her. Du kan legge inn bilder, lenker og lister.
