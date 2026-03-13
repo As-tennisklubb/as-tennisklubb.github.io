@@ -22,13 +22,13 @@ const base = import.meta.env.BASE_URL;
       {sortedPosts.map((post) => {
         const categories = post.data.categories?.filter(c => c !== "ukategorisert") ?? [];
         return (
-          <a href={`${base}nyheter/${post.id}`} class="group flex flex-col bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5">
+          <a href={`${base}nyheter/${post.id}`} class="group flex flex-col bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5">
             <div class="flex flex-wrap items-center gap-2 mb-2">
               <span class="text-xs font-medium text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-0.5 rounded-full">
                 {post.data.date.toLocaleDateString("no-NO", { day: "numeric", month: "long", year: "numeric" })}
               </span>
               {categories.map(cat => (
-                <span class="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded-full">{cat}</span>
+                <span class="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-700 border border-green-100 dark:border-gray-600 px-2 py-0.5 rounded-full">{cat}</span>
               ))}
             </div>
             <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors">

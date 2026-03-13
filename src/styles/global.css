@@ -14,6 +14,19 @@
   --color-green-800: #1e3a0c;
   --color-green-900: #0f1d06;
   --color-green-950: #080f03;
+
+  /* Fargepalett basert på logo-oransje #f28d3b */
+  --color-brand-orange-50:  #fef6ee;
+  --color-brand-orange-100: #fde8d0;
+  --color-brand-orange-200: #faca9c;
+  --color-brand-orange-300: #f7a965;
+  --color-brand-orange-400: #f49444;
+  --color-brand-orange-500: #f28d3b;
+  --color-brand-orange-600: #d4721f;
+  --color-brand-orange-700: #a85618;
+  --color-brand-orange-800: #7a3d12;
+  --color-brand-orange-900: #4e270b;
+  --color-brand-orange-950: #2b1405;
 }
 
 /* §9 Typografi – line-height 1.4–1.6, lesbar body */

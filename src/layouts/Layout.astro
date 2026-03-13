@@ -111,7 +111,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
           <a
             href={`${base}medlemskap`}
             aria-current={isActive("medlemskap") ? "page" : undefined}
-            class={`ml-2 font-bold px-4 py-2 rounded-full transition-colors min-h-[44px] flex items-center whitespace-nowrap ${isActive("medlemskap") ? "bg-yellow-300 text-gray-900" : "bg-yellow-400 text-gray-900 hover:bg-yellow-300"}`}
+            class={`ml-2 font-bold px-4 py-2 rounded-full transition-colors min-h-[44px] flex items-center whitespace-nowrap ${isActive("medlemskap") ? "bg-brand-orange-600 text-white" : "bg-brand-orange-500 text-white hover:bg-brand-orange-600"}`}
           >
             Bli medlem
           </a>
@@ -141,7 +141,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
           <a
             href={`${base}medlemskap`}
             aria-current={isActive("medlemskap") ? "page" : undefined}
-            class="flex items-center justify-center min-h-[44px] bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors text-sm"
+            class="flex items-center justify-center min-h-[44px] bg-brand-orange-500 text-white font-bold px-4 py-2 rounded-full hover:bg-brand-orange-600 transition-colors text-sm"
           >
             Bli medlem
           </a>
@@ -193,7 +193,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
               </li>
             ))}
             <li class="pt-1">
-              <a href={`${base}medlemskap`} class="inline-flex items-center min-h-[44px] bg-yellow-400 text-gray-900 font-bold px-4 py-2 rounded-full hover:bg-yellow-300 transition-colors text-sm">
+              <a href={`${base}medlemskap`} class="inline-flex items-center min-h-[44px] bg-brand-orange-500 text-white font-bold px-4 py-2 rounded-full hover:bg-brand-orange-600 transition-colors text-sm">
                 Bli medlem
               </a>
             </li>
