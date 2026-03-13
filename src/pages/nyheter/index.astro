@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { Rss } from "@lucide/astro";
 
 const posts = await getCollection("news");
 const sortedPosts = posts.sort(
@@ -11,6 +12,12 @@ const base = import.meta.env.BASE_URL;
 
 <Layout title="Nyheter – Ås Tennisklubb" description="Siste nyheter fra Ås Tennisklubb." pageTitle="Nyheter" pageDescription={`${sortedPosts.length} innlegg fra Ås Tennisklubb`}>
   <div class="max-w-6xl mx-auto px-4 py-12">
+    <div class="flex items-center justify-end mb-6">
+      <a href={`${base}rss.xml`} class="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-green-700 dark:hover:text-green-400 transition-colors min-h-[44px]" title="Abonner på nyheter via RSS">
+        <Rss size={16} />
+        RSS
+      </a>
+    </div>
     <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {sortedPosts.map((post) => {
         const categories = post.data.categories?.filter(c => c !== "ukategorisert") ?? [];
