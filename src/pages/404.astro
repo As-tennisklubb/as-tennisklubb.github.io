@@ -1,0 +1,81 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { SearchX } from "@lucide/astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Side ikke funnet – Ås Tennisklubb"
+  description="Siden du leter etter finnes ikke. Finn frem til riktig sted på Ås Tennisklubb."
+>
+  <section class="bg-green-800 dark:bg-green-700 text-white py-10 md:py-14 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center gap-3 mb-2">
+        <p class="text-green-300 text-5xl font-bold" aria-hidden="true">404</p>
+        <SearchX class="w-12 h-12 text-green-300" aria-hidden="true" />
+      </div>
+      <h1 class="text-3xl md:text-5xl font-bold mb-3">Siden finnes ikke</h1>
+      <p class="text-green-200 text-base md:text-lg max-w-md">
+        Ballen havnet utenfor banen. Siden du leter etter eksisterer ikke eller har blitt flyttet.
+      </p>
+      <div class="mt-6">
+        <a
+          href={base}
+          class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-full min-h-[44px] transition-colors border border-green-500"
+        >
+          Gå til forsiden
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-3xl mx-auto px-4 py-16">
+    <div class="pl-5 border-l-4 border-green-600 dark:border-green-500">
+      <p id="quote-text" class="text-lg text-gray-700 dark:text-gray-300 leading-relaxed italic"></p>
+      <p id="quote-author" class="mt-3 text-sm font-medium text-green-700 dark:text-green-400"></p>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const quotes = [
+    { text: "Tennis is 90% mental. You win or lose the match before you even go out there.", author: "Venus Williams" },
+    { text: "The mental part is the hardest part. Everybody can hit great shots when they're feeling good, but there are days when you're not feeling good and you have to rely on your mental toughness.", author: "Rafael Nadal" },
+    { text: "In tennis, it is not the opponent you fear, it is the failure itself, knowing how near you were but just out of reach.", author: "Andy Murray" },
+    { text: "Tennis is a mental game. Everyone is fit, everyone hits great forehands and backhands.", author: "Novak Djokovic" },
+    { text: "You've got to stay relaxed out there, no matter what. You can't afford to get tight. When you do get tight, you lose.", author: "Arthur Ashe" },
+    { text: "Tennis is mostly mental. Of course, you must have a lot of physical skill, but you can't play tennis well and not be a good thinker.", author: "Billie Jean King" },
+    { text: "Tennis is a perfect combination of violent action taking place in an atmosphere of total tranquillity.", author: "Billie Jean King" },
+    { text: "Champions keep playing until they get it right.", author: "Billie Jean King" },
+    { text: "You have to believe in yourself when no one else does. That's what makes you a winner.", author: "Venus Williams" },
+    { text: "I don't think about the past. I don't think about the future. I think about what I can do right now.", author: "Rafael Nadal" },
+    { text: "Winning is a state of mind that embraces everything you do.", author: "Björn Borg" },
+    { text: "The mark of great sportsmen is not how good they are at their best, but how good they are at their worst.", author: "Martina Navratilova" },
+    { text: "Tennis is a mental game. Everyone is talented, but not everyone is mentally tough.", author: "John McEnroe" },
+    { text: "Wimbledon is the Mecca of tennis. It's the most prestigious event, and winning it is a true achievement.", author: "Roger Federer" },
+    { text: "Wimbledon is the only tournament that gives you goosebumps. You feel the history when you play there.", author: "Maria Sharapova" },
+    { text: "There's something about the tradition and history of Wimbledon that makes it so special. It's like playing in a cathedral of tennis.", author: "Rafael Nadal" },
+    { text: "The US Open is like no other tournament. The atmosphere in New York is electric, and it's a place where anything can happen.", author: "Serena Williams" },
+    { text: "The US Open is where you see the grit and determination of players willing to leave it all on the court.", author: "Pete Sampras" },
+    { text: "Roland Garros is the temple of clay court tennis, and it has a special place in the heart of every player.", author: "Rafael Nadal" },
+    { text: "The French Open is where the red clay tells its own story, and every player has to learn its language.", author: "Novak Djokovic" },
+    { text: "Winning at Roland Garros is like mastering a piece of art. It's a masterpiece in a tennis player's career.", author: "Björn Borg" },
+    { text: "Winning the French Open is like winning a love affair with clay court tennis. It's a romance that lasts a lifetime.", author: "Rafael Nadal" },
+    { text: "The Australian Open is the Grand Slam of Asia-Pacific, a tournament that truly represents the global nature of tennis.", author: "Roger Federer" },
+    { text: "The Australian Open is where you witness the harmony of sportsmanship and competition on the court.", author: "Ken Rosewall" },
+    { text: "There is no place for cheating in tennis. It's a game built on integrity and honour.", author: "Serena Williams" },
+    { text: "The true champions in tennis are those who win with honor and play with integrity.", author: "Martina Navratilova" },
+    { text: "Tennis is a game of character, and cheating is a sign of weak character. It has no place on the court.", author: "Arthur Ashe" },
+    { text: "The most important thing is to stay positive, stay focused, and stay strong mentally.", author: "Serena Williams" },
+    { text: "Mental toughness is to physical as four is to one.", author: "Bobby Knight" },
+    { text: "The more you sweat in practice, the less you bleed in battle.", author: "Julie Moss" },
+  ];
+
+  const q = quotes[Math.floor(Math.random() * quotes.length)];
+  const textEl = document.getElementById("quote-text");
+  const authorEl = document.getElementById("quote-author");
+  if (textEl) textEl.textContent = q.text;
+  if (authorEl) authorEl.textContent = "— " + q.author;
+</script>
+
+

@@ -1,0 +1,34 @@
+# Ås Tennisklubb
+
+> Tennisklubb for alle i Ås, stiftet i 1976.
+
+## Om klubben
+
+Ås Tennisklubb er en lokal tennisklubb i Ås kommune, Norge. Vi tilbyr tennis for barn, ungdom og voksne – fra nybegynner til turneringsspill. Klubben ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion.
+
+## Baner
+
+Tre grusbaner ved Ås stadion, tilgjengelige for leie fra april til november.
+Banebooking: https://banebooking.aastk.no
+
+## Trening og kurs
+
+Vi tilbyr kurs og organisert trening for alle nivåer – barn, ungdom og voksne.
+Se treningsplan: https://as-tennisklubb.github.io/trening
+
+## Medlemskap
+
+Alle medlemmer har fri tilgang til banene hele sesongen. Racketer og baller kan lånes gratis i klubbhuset.
+Se medlemskap og priser: https://as-tennisklubb.github.io/medlemskap
+
+## Utstyr
+
+Klubben tilbyr utlån av racketer og baller. Se mer: https://as-tennisklubb.github.io/utstyr
+
+## Kontakt
+
+E-post: administrasjon@aastk.no
+
+## Nettside
+
+https://as-tennisklubb.github.io
