@@ -7,6 +7,10 @@ export default defineConfig({
   site: 'https://as-tennisklubb.github.io',
   base: '/',
 
+  prefetch: {
+    prefetchAll: true,
+  },
+
   integrations: [
     sitemap({
       namespaces: {
