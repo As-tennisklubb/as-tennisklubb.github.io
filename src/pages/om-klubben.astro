@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Building2, Users } from "@lucide/astro";
 ---
 
 <Layout
@@ -11,25 +12,32 @@ import Layout from "../layouts/Layout.astro";
   <div class="max-w-4xl mx-auto px-4 py-12">
 
 	<!-- §5 F-pattern: viktigste informasjon øverst til venstre -->
-	<div class="prose prose-green dark:prose-invert max-w-none mb-12">
-	  <p>
-		Som medlem spiller du så mye du vil – uten å betale per gang.
-		Tre grusbaner ved Ås stadion er tilgjengelige fra april til november.
-	  </p>
-	  <p>
-		Vi tilbyr kurs for barn og voksne, uansett nivå.
-		Racketer og baller kan lånes gratis i klubbhuset.
-	  </p>
-	  <p>
-		Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion.
-	  </p>
-	</div>
+	<section class="mb-12" aria-labelledby="om-oss-heading">
+	  <div class="flex items-center gap-3 mb-4">
+		<Building2 class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="om-oss-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Om oss</h2>
+	  </div>
+	  <div class="prose prose-green dark:prose-invert max-w-none">
+		<p>
+		  Som medlem spiller du så mye du vil – uten å betale per gang.
+		  Tre grusbaner ved Ås stadion er tilgjengelige fra april til november.
+		</p>
+		<p>
+		  Vi tilbyr kurs for barn og voksne, uansett nivå.
+		  Racketer og baller kan lånes gratis i klubbhuset.
+		</p>
+		<p>
+		  Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion.
+		</p>
+	  </div>
+	</section>
 
 	<!-- Styre (§6 Gestalt proximity: relatert info gruppert) -->
 	<section aria-labelledby="styre-heading">
-	  <h2 id="styre-heading" class="text-2xl font-bold text-green-800 dark:text-green-300 mb-6">
-		Styre og kontaktpersoner
-	  </h2>
+	  <div class="flex items-center gap-3 mb-6">
+		<Users class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
+		<h2 id="styre-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Styre og kontaktpersoner</h2>
+	  </div>
 
 	  <!-- Mobil: kort-visning (§1 mobile-first) -->
 	  <div class="flex flex-col gap-3 md:hidden">
