@@ -1,29 +1,21 @@
 ---
 title: "Vinnere og oppsummering av Ås Open 2021"
+ingress: "Ås Open 2021 ble en veldig varm og våt tennisfest med rekordmange deltakere og antall kamper."
 date: 2021-07-04
 categories: 
   - "arrangementer"
   - "turneringer"
 ---
-
 **Ås Open 2021 ble en veldig varm og våt tennisfest med rekordmange deltakere og antall kamper.**  
 
 Tusen takk til alle som bidro til å lage en god stemning! Spesielt hyggelig at flere kom for å heie og følge med på det gode tennisspillet.   Vi gleder oss allerede til klubbmesterskapet i september - da blir det enda mer tennis og moro for alle medlemmer.
 
 Spillere og publikum koste seg med til sammen 8 kilo pølser (cirka 80 pølser), 5,4 kilo bananer, 7,1 kilo vannmelon og 12 liter saft.
 
-<figure>
-
-![](/images/news/Ås-Open-2021-Regn-1024x576.jpg)
-
-<figcaption>
+![](/uploads/Ås-Open-2021-Regn-1024x576.jpg)
 
   
 _FRA VARMT TIL VÅTT: Lørdag var årets hittills varmeste dag med over 30 grader i skyggen. Søndag var det mer behagelig å spille rent temperaturmessig, men i 14-tiden var alle kraner åpen og omgjorde tennisbanen til svømmebasseng. God drenering og flott innsats fra banemannskapet gjorde banene spillbare fra kl 17._ 
-
-</figcaption>
-
-</figure>
 
 ## Vinnere
 
@@ -33,18 +25,10 @@ I klassen for barn var det to deltakere. Begge spiller i Ås, men på vinteren d
 
 Vinner Ås Open - klasse barn: **Live Viken.**  
 
-<figure>
-
-![](/images/news/Ås-Open-2021-Vinnere-Barn-1024x576.jpg)
-
-<figcaption>
+![](/uploads/Ås-Open-2021-Vinnere-Barn-1024x576.jpg)
 
   
 _SPILLER ÅRET RUNDT: Live Viken vant til slutt et jevnt og tett oppgjør over tre sett mot Albert Julian Talmo-Rønn. Flott spill av begge og en rekke gode vekslinger ga en veldig severdig kamp._ ﻿
-
-</figcaption>
-
-</figure>
 
 ### Juniorer
 
@@ -56,18 +40,10 @@ Etter gruppespill og velspilte semifinaler, var det Ulf Viken og Sondre Lundquis
 
 Vinner Ås Open - klasse junior: **Sondre Lundquist.**  
 
-<figure>
-
-![](/images/news/Ås-Open-2021-Vinnere-Junior-1024x576.jpg)
-
-<figcaption>
+![](/uploads/Ås-Open-2021-Vinnere-Junior-1024x576.jpg)
 
   
 _OGSÅ KLUBBMESTER: I en nervepirrende og velspilt finale, var det Sondre Lundquist som til slutt vant oppgjøret. Sondre er også regjerende klubbmester i klassen junior._ ﻿
-
-</figcaption>
-
-</figure>
 
 ### Damer
 
@@ -75,17 +51,9 @@ Katrine Kleven og Annalisa Rueter brukte årets hittills varmeste dag til å kje
 
 Vinner Ås Open - klasse damer: **Kathrine Kleven**  
 
-<figure>
-
-![](/images/news/Ås-Open-2021-Vinnere-Damer-1024x576.jpg)
-
-<figcaption>
+![](/uploads/Ås-Open-2021-Vinnere-Damer-1024x576.jpg)
 
 _VARME SPILLERE: Katrine Kleven og Annalisa Rueter spilte om seieren. Kathrine stakk av med seieren og twistposen, mens Annalisa fikk en gullbrød for sin gode innsats._
-
-</figcaption>
-
-</figure>
 
 ### Herrer
 
@@ -95,18 +63,10 @@ Flere av deltakerne er nye i klubben og det var gode debuter i Ås Open. 
 
 Vinner Ås Open - klasse damer: **Øyvind Engøy**  
 
-<figure>
-
-![](/images/news/Ås-Open-2021-Vinnere-Herrer-1024x576.jpg)
-
-<figcaption>
+![](/uploads/Ås-Open-2021-Vinnere-Herrer-1024x576.jpg)
 
   
 _DOBBELTMESTER: Patrick Marques-Smith gjorde en formidabel debut i Ås Open ved å spille seg fram til finalen og kjempe mot regjerende klubbmester Øyvind Engøy. Marques-Smith presset Engøy i mye av spillet, men det var den regjerende klubbmesteren som dro i land seieren._ 
-
-</figcaption>
-
-</figure>
 
 ### Poengmester Ås Open 2021
 
@@ -123,15 +83,7 @@ Det ble veldig tett i toppen - og det var kun veldig få poeng som skilte. 
 
 Vinner Ås Open - klasse poengmester: **Randall Fennell**  
 
-<figure>
-
-![](/images/news/Ås-Open-2021-Vinnere-Poengmester-1024x576.jpg)
-
-<figcaption>
+![](/uploads/Ås-Open-2021-Vinnere-Poengmester-1024x576.jpg)
 
   
-_ELDST ER BEST: Randall Fennell er turneringens eldste, men kjempet ned yngre generasjon og vant sin første pokal i poengmester. - De andre ble nok litt slitne, sa 63 årige Fennell i seiersintervjuet._ 
-
-</figcaption>
-
-</figure>
+_ELDST ER BEST: Randall Fennell er turneringens eldste, men kjempet ned yngre generasjon og vant sin første pokal i poengmester. - De andre ble nok litt slitne, sa 63 årige Fennell i seiersintervjuet._

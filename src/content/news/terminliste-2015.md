@@ -1,10 +1,10 @@
 ---
 title: "Terminliste 2015"
+ingress: "Datoene er også lagt inn i aktivitetskalenderen i hovedmenyen."
 date: 2015-03-24
 categories: 
   - "arrangementer"
 ---
-
 Terminlisten for 2015 er nå klar.
 
 Datoene er også lagt inn i aktivitetskalenderen i hovedmenyen.

@@ -1,10 +1,10 @@
 ---
 title: "Velkommen til å prøve tennis!"
+ingress: "Ås tennisklubbs eget medlem Sondre Lundqvist ønsker velkommen til lavterskel introduksjonskurs."
 date: 2024-08-25
 categories: 
   - "kurstrening"
 ---
-
 **Ås tennisklubbs eget medlem Sondre Lundqvist ønsker velkommen til lavterskel introduksjonskurs.**
 
 Kurset passer for dem uten eller lite erfaring med sporten.

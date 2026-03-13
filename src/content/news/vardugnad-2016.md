@@ -1,11 +1,11 @@
 ---
 title: "Vårdugnad 22. - 24. april"
+ingress: "Velg den tiden som passer best. Vær vennlig og møt opp presis da arbeidsoppgaver og instruksjon tas i starten av hver gruppe. Varighet på dugnad er ca. 2 timer. Det er en fordel at de som har lagt linjer før møter på lørdag!"
 date: 2016-04-21
 categories: 
   - "arrangementer"
 ---
-
-![dugnad](/images/news/dugnad.jpg)Vi anmoder at så mange som mulig deltar på dugnaden og vær presis.  Kryss av på deltakerlisten som henger på oppslagstavle. Husk fottøy egnet for tennisbane ‐ uten for mye mønster.
+![dugnad](/uploads/dugnad.jpg)Vi anmoder at så mange som mulig deltar på dugnaden og vær presis.  Kryss av på deltakerlisten som henger på oppslagstavle. Husk fottøy egnet for tennisbane ‐ uten for mye mønster.
 
 Velg den tiden som passer best. Vær vennlig og møt opp presis da arbeidsoppgaver og instruksjon tas i starten av hver gruppe. Varighet på dugnad er ca. 2 timer.  Det er en fordel at de som har lagt linjer før møter på lørdag!
 

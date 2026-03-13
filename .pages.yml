@@ -8,7 +8,7 @@ content:
     type: collection
     path: src/content/news
     format: yaml-frontmatter
-    filename: "{year}-{month}-{day}-{slug}.md"
+    filename: "{year}-{month}-{day}-{title}.md"
 
     view:
       fields: [title, date, categories]
@@ -39,6 +39,7 @@ content:
         label: Kategorier
         type: select
         options:
+          multiple: true
           values:
             - value: aarsmote
               label: Årsmøte

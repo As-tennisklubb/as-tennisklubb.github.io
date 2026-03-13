@@ -1,10 +1,10 @@
 ---
 title: "Kampoppsett, tidsplan og praktisk informasjon - Klubbmesterskap i Ås tennisklubb"
+ingress: "Hjertelig velkommen til Ås tennisklubb sitt klubbmesterskap 2021 fra onsdag 1. september til søndag 5. september!"
 date: 2021-08-30
 categories: 
   - "turneringer"
 ---
-
 Hjertelig velkommen til Ås tennisklubb sitt klubbmesterskap 2021 fra onsdag 1. september til søndag 5. september! 
 
 Vedlagt følger praktisk informasjon, kampoppsett og tidsplan for fine tennisdager. 

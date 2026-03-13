@@ -4,5 +4,4 @@ date: 2016-04-25
 categories: 
   - "ukategorisert"
 ---
-
 [Mer informasjon...](http://www.aastk.no/kurs/)

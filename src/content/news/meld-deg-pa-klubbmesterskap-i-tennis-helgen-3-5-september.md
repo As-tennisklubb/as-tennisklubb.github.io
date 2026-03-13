@@ -1,5 +1,6 @@
 ---
 title: "Meld deg på klubbmesterskap i tennis - helgen 3. - 5. september"
+ingress: "Vi ønsker alle medlemmer i Ås tennisklubb hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet første helgen i september."
 date: 2021-08-10
 categories: 
   - "arrangementer"
@@ -7,7 +8,6 @@ categories:
 tags: 
   - "obs"
 ---
-
 **Vi ønsker alle medlemmer i Ås tennisklubb hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet første helgen i september.**  
 
 Det siste året har det gledelig nok vært rekordmange påmeldte i Ås Open og klubbmesterskap.  

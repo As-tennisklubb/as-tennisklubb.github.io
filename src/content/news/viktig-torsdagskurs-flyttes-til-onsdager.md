@@ -1,10 +1,10 @@
 ---
 title: "Viktig: Torsdagskurs flyttes til onsdager"
+ingress: "På grunn av trener Hannas studier har vi litt problemer med gjennomføring av kursene på torsdag ettermiddag. Vi ønsker derfor å flytte begge kursene fra torsdager til onsdager samme tid."
 date: 2016-08-09
 categories: 
   - "ukategorisert"
 ---
-
 På grunn av trener Hannas studier har vi litt problemer med gjennomføring av kursene på torsdag ettermiddag. Vi ønsker derfor å flytte begge kursene fra torsdager til onsdager samme tid.
 
 [Se oppdaterte kurstider her](http://www.aastk.no/kurs/)...

@@ -24,8 +24,3 @@ html {
 body {
   line-height: 1.6;
 }
-
-/* §9 Line length – maks 65 tegn for leseflyt */
-.prose {
-  max-width: 65ch;
-}

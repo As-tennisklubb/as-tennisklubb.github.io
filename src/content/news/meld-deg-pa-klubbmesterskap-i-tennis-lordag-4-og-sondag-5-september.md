@@ -1,12 +1,12 @@
 ---
 title: "Meld deg på klubbmesterskap i tennis  - lørdag 5. og søndag 6. september"
+ingress: "Lørdag 5. og søndag 6. september arrangerer Ås tennisklubb klubbmesterskap i klassene barn, junior damer og herrer. Juniorer er velkommen til også å delta i dame og herre-klassen."
 date: 2020-08-27
 categories: 
   - "ukategorisert"
 tags: 
   - "obs"
 ---
-
 Lørdag 5. og søndag 6. september arrangerer Ås tennisklubb klubbmesterskap i klassene barn, junior damer og herrer. Juniorer er velkommen til også å delta i dame og herre-klassen.
 
 Meld deg på ved å sende inn mail til [aastbk@gmail.com](mailto:aastbk@gmail.com) innen 2. september:

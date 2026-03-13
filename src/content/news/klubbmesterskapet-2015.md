@@ -1,10 +1,10 @@
 ---
 title: "Klubbmesterskapet 2015"
+ingress: "Dameklassen ble i år vunnet av Gro Thorup med overbevisende 4 av 4 seire. Andreplassen gikk til Marianne Bråthen med 3 seire."
 date: 2015-09-07
 categories: 
   - "turneringer"
 ---
-
 ## **Vi gratulerer årets klubbmestere!**
 
 Dameklassen ble i år vunnet av Gro Thorup med overbevisende 4 av 4 seire. Andreplassen gikk til Marianne Bråthen med 3 seire.

@@ -1,10 +1,10 @@
 ---
 title: "Follo Tour i Ski 5. – 7. juni 2015"
+ingress: "Ski IL Tennis inviterer til Follo Tour på tennisanlegget i Ski idrettspark (ved Ski stadion hvor Follo Fotball spiller sine hjemmekamper)."
 date: 2015-05-22
 categories: 
   - "arrangementer"
 ---
-
 Ski IL Tennis inviterer til Follo Tour på tennisanlegget i Ski idrettspark (ved Ski stadion hvor Follo Fotball spiller sine hjemmekamper).
 
 **Det spilles i følgende klasser;**

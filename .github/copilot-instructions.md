@@ -1,102 +1,628 @@
 # Copilot Instructions
 
 ## Project Guidelines
-- User wants git pushes done when they explicitly ask for it. They are fine with me running git add, commit, and push when requested.
+* Do not perform git operations unless explicitly requested by the user.
+* When requested it is acceptable to run:
 
-## Frontend Development Guidelines
-- Follow "Mobile-First, Accessible, Predictable Web Design v1.0" spec for all frontend work:
-  - Always mobile-first (start at 375px, progressively enhance)
-  - Breakpoints: 480px, 768px, 1024px, 1280px, 1440px
-  - 12-col grid, max-width 1200-1280px, container mx-auto px-4
-  - 8px spacing system (4, 8, 16, 24, 32, 48, 64, 96)
-  - Visual hierarchy: Hero → Primary → Features → CTA → Footer
-  - F-pattern for text, Z-pattern for landing pages
-  - Gestalt principles (proximity, similarity, continuity, closure)
-  - Max 5-7 top-level nav items (Hick's Law)
-  - Touch targets min 44x44px
-  - Line length 45-75 chars, line-height 1.4-1.6
-  - WCAG 2.2: contrast min 4.5:1, alt text, keyboard nav, semantic HTML
-  - Dark mode via CSS variables / prefers-color-scheme
-  - Minimal JS, lazy load images, assets optimized, page load under 2s
-  - Component-based: layout / navigation / form / content / feedback components
-  - Tailwind: spacing follows 8px, container mx-auto px-4, mobile-first responsive utilities
-  - Never create complex layouts without reason, never break UI consistency, never ignore accessibility
+  * `git add`
+  * `git commit`
+  * `git push`
 
-## Content Writing Specification for AI (v1.0)
-- **Core Principles**: Always prioritize clarity, brevity, structure, readability, user needs. Never write complex text if simpler is possible.
 
-### Rules
-1. **Plain Language**: Short sentences, common words, avoid jargon, use active voice.
-2. **Inverted Pyramid**: Most important info first, then explanation, then details.
-3. **Scannable Content**: Short paragraphs (max 3–5 lines), clear headings, bullet lists, highlight key words.
-4. **Heading Hierarchy**: One H1 per page, H2 for sections, H3 for subsections. Headings must describe content.
-5. **Information Scent**: Links and buttons must be descriptive. Bad: "Les mer" / Good: "Se ledige timer".
-6. **Microcopy**: UI text (buttons, errors, placeholders, tooltips) must be clear, short, helpful. Bad: "Error occurred." / Good: "E-postadressen er ugyldig."
-7. **Reading Level**: Target 8th–9th grade. Short sentences, simple words, avoid passive voice.
-8. **Cognitive Load**: One idea per paragraph, short paragraphs, logical structure.
-9. **Content Structure**: Introduction → Explanation → Details → Action (What it is → How it works → What user can do → CTA).
-10. **Accessibility**: Descriptive links (never "klikk her"), alt text on images, explain abbreviations.
-11. **SEO**: One H1, logical H2 sections, natural keywords. SEO must never compromise readability.
-12. **Content Chunking**: Max 3–5 lines per paragraph, use bullet lists, avoid large text blocks.
-13. **Call to Action**: Start with a verb, be specific. Bad: "Submit" / Good: "Book bane".
-14. **Tone of Voice**: Friendly, clear, direct. Avoid bureaucratic language and unnecessary complexity.
+# Frontend Development Specification (AI)
 
-### AI Guidelines
-- **AI Shall Always**: Write short sentences, use clear headings, structure in small blocks, use action-based language, follow heading hierarchy and accessibility rules.
-- **AI Shall Never**: Write long text blocks, use unclear formulations, use generic link texts.
+All frontend work must follow:
 
----
+**Mobile-First, Accessible, Predictable Web Design v1.0**
 
-## Ås Tennisklubb – Spesifikke Design-regler (Astro + Tailwind)
+These guidelines are based on established research and design systems.
 
-Disse reglene gjelder for alle sider og komponenter i dette prosjektet. Alle nye sider og seksjoner MÅ følge disse mønstrene eksakt.
+Sources:
 
-### Layout
-| Element | Klasser |
-|---------|---------|
-| Side-wrapper (innersider) | `max-w-4xl mx-auto px-4 py-12` |
-| Side-wrapper (forside / wide) | `max-w-6xl mx-auto px-4` |
-| Hero-seksjon | `bg-green-800 dark:bg-green-700 text-white py-10 md:py-14 px-4` |
-| Seksjon-avstand (alle unntatt siste) | `mb-12` på `<section>` |
+* Mobile First — Luke Wroblewski
+* Nielsen Norman Group UX research
+* Material Design layout system
+* WCAG 2.2 accessibility guidelines
+* Gestalt principles of visual perception
+* Atomic Design — Brad Frost
 
-### Typografi
-| Element | Klasser |
-|---------|---------|
-| H2 uten ikon | `text-2xl font-bold text-green-800 dark:text-green-300 mb-4` |
-| H2 med ikon – wrapper | `<div class="flex items-center gap-3 mb-4">` |
-| H2 ikon | `w-6 h-6 text-green-700 dark:text-green-400 shrink-0` |
-| H3 plain | `font-semibold text-gray-900 dark:text-gray-100 mb-2` |
-| H3 i info-boks – wrapper | `<div class="flex items-center gap-2 mb-4">` |
-| H3 ikon (info-boks) | `w-5 h-5 text-green-700 dark:text-green-400 shrink-0` |
-| Prose-seksjon | `prose prose-green dark:prose-invert max-w-none` |
 
-### Kort og bokser
-| Element | Klasser |
-|---------|---------|
-| Grønn info-boks | `bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl p-6` |
-| Hvit feature-kort | `bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm` |
-| Hvit mobil-kort (tabeller) | `bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4` |
-| Mobil-kort liste-wrapper | `flex flex-col gap-3 md:hidden` |
 
-### Tabeller
-| Element | Klasser |
-|---------|---------|
-| Desktop-wrapper | `hidden md:block overflow-x-auto` |
-| `<table>` | `w-full text-sm` |
-| `<thead> <tr>` | `border-b-2 border-green-200 dark:border-green-800` |
-| `<th>` | `py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300` |
-| `<tbody> <tr>` | `border-b border-gray-100 dark:border-gray-800 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors` |
+# Core Design Principles
 
-### Knapper og lenker
-| Element | Klasser |
-|---------|---------|
-| Primær CTA (fylt) | `inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full transition-colors min-h-[44px]` |
-| Sekundær CTA (outline) | `inline-flex items-center gap-2 border border-green-700 dark:border-green-500 text-green-700 dark:text-green-400 font-semibold px-5 py-3 rounded-full hover:bg-green-50 dark:hover:bg-green-900 transition-colors min-h-[44px] text-sm` |
-| Inline tekstlenke | `text-green-700 dark:text-green-400 font-semibold hover:underline` |
-| Bullet-liste item | `<li class="flex gap-2"><span class="text-green-600 dark:text-green-400 shrink-0">•</span>{tekst}</li>` |
+Frontend must always prioritize:
 
-### Regler
-- **Touch targets**: alltid `min-h-[44px]` på alle klikkbare elementer
-- **Dark mode**: alltid `dark:` klasser på alle bakgrunner, tekster og borders – ingen unntak
-- **CTA-tekst**: start alltid med verb (f.eks. "Book bane", "Se treningsplan", "Send mail")
-- **Siste seksjon**: skal aldri ha `mb-12`
+* clarity
+* simplicity
+* accessibility
+* performance
+* consistency
+* predictability
+
+If multiple solutions exist choose the **simplest and most consistent one**.
+
+Never introduce visual complexity without a clear purpose.
+
+
+
+# Mobile-First Layout
+
+Always design **mobile-first**.
+
+Start layout at:
+
+375px viewport width
+
+Enhance progressively for larger screens.
+
+## Breakpoints
+
+480px
+768px
+1024px
+1280px
+1440px
+
+
+
+# Grid System
+
+Use a **12 column grid on desktop**.
+
+Container rules
+
+`max-w-6xl mx-auto px-4`
+
+For inner pages use
+
+`max-w-4xl mx-auto px-4`
+
+
+
+# Spacing System
+
+Spacing must follow the **8px scale**.
+
+Allowed values:
+
+4
+8
+16
+24
+32
+48
+64
+96
+
+Reference
+Material Design spacing system
+
+
+
+# Visual Hierarchy
+
+Pages must follow predictable structure.
+
+Standard flow:
+
+Hero
+Primary message
+Supporting content
+CTA
+Footer
+
+Use whitespace and contrast to guide the user.
+
+Reference
+Nielsen Norman Group — Visual Hierarchy
+
+
+
+# Reading Patterns
+
+Use established reading patterns.
+
+Text pages:
+
+**F-pattern**
+
+Landing pages:
+
+**Z-pattern**
+
+Important information should appear:
+
+* near the top
+* left aligned
+* before scroll
+
+Reference
+Nielsen Norman Group — How Users Read on the Web
+
+
+
+# Gestalt Principles
+
+UI composition must respect
+
+* proximity
+* similarity
+* continuity
+* closure
+
+Elements that belong together must appear visually grouped.
+
+Reference
+Gestalt Principles of Visual Perception
+
+
+
+# Navigation Rules
+
+Maximum **5–7 top-level navigation items**.
+
+Reference
+Hick’s Law
+
+Navigation must be
+
+* visible
+* predictable
+* consistent
+
+
+
+# Interaction Rules
+
+Touch targets must be at least
+
+**44 × 44 px**
+
+Reference
+
+Fitts’s Law
+Apple Human Interface Guidelines
+
+
+
+# Typography Rules
+
+Readable text is mandatory.
+
+Line length
+
+45–75 characters
+
+Line height
+
+1.4–1.6
+
+Heading hierarchy
+
+H1 page title
+H2 sections
+H3 subsections
+
+Only one H1 per page.
+
+
+
+# Accessibility (WCAG 2.2)
+
+Requirements
+
+* contrast ≥ 4.5:1
+* keyboard navigation must work
+* semantic HTML must be used
+* images require alt text
+
+Recommended semantic elements
+
+nav
+main
+section
+header
+footer
+
+Reference
+WCAG 2.2 — W3C Web Accessibility Initiative
+
+
+
+# Dark Mode
+
+Dark mode must always be supported.
+
+Implementation
+
+* CSS variables
+* prefers-color-scheme
+
+Every color must have a dark mode equivalent.
+
+
+
+# Performance
+
+Frontend must be optimized.
+
+Rules
+
+* minimal JavaScript
+* lazy loading images
+* optimized images (WebP / AVIF)
+* avoid blocking scripts
+
+Target
+
+page load under 2 seconds
+
+Reference
+Google Web Performance Guidelines
+
+
+
+# Component Architecture
+
+Use component-based architecture.
+
+Component types
+
+layout
+navigation
+form
+content
+feedback
+
+Components must be
+
+* reusable
+* predictable
+* consistent
+
+Reference
+Atomic Design — Brad Frost
+
+
+
+# AI Guardrails
+
+AI must always follow these rules.
+
+AI shall always
+
+* follow mobile-first layout
+* reuse existing layout patterns
+* follow spacing scale
+* follow accessibility rules
+* implement dark mode
+* use existing Tailwind classes
+
+AI shall never
+
+* invent new layout structures
+* break spacing system
+* ignore accessibility
+* introduce complex layouts without reason
+
+
+
+# Mandatory UI Patterns
+
+AI must reuse the following patterns when generating UI.
+
+Do not invent new patterns unless explicitly requested.
+
+
+
+## Standard Section Pattern
+
+All sections must follow this structure.
+
+<section class="max-w-4xl mx-auto px-4 mb-12">
+
+H2 heading
+
+Content block
+
+Optional CTA or list
+
+</section>
+
+
+
+## Standard Hero Pattern
+
+Hero sections must follow this pattern.
+
+<section class="bg-green-800 dark:bg-green-700 text-white py-10 md:py-14 px-4">
+
+<div class="max-w-6xl mx-auto">
+
+H1 headline
+Short intro text
+Primary CTA
+
+</div>
+
+</section>
+
+
+
+## Standard Card Grid
+
+Used for feature blocks.
+
+<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+cards
+
+</div>
+
+Card component
+
+<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm">
+
+card content
+
+</div>
+
+
+
+## Standard CTA Button
+
+Primary CTA
+
+<a class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full min-h-[44px]">
+
+CTA text
+
+</a>
+
+CTA text must start with a verb.
+
+Examples
+
+Book bane
+Se treningstilbud
+Kontakt klubben
+
+
+
+# Content Writing Specification for AI
+
+Based on
+
+Plain Language Guidelines
+Nielsen Norman Group research
+GOV.UK Content Design
+Information Foraging Theory
+Cognitive Load Theory
+
+
+
+# Core Writing Principles
+
+AI must prioritize
+
+clarity
+brevity
+structure
+readability
+user needs
+
+If a sentence can be simpler simplify it.
+
+
+
+# Plain Language
+
+Use simple language.
+
+Rules
+
+* short sentences
+* common words
+* avoid jargon
+* active voice
+
+Example
+
+Bad
+Det anbefales at brukeren gjennomfører autentisering før systemets funksjonalitet tas i bruk.
+
+Good
+Logg inn før du bruker tjenesten.
+
+Reference
+Plain Language Guidelines
+
+
+
+# Inverted Pyramid
+
+Most important information first.
+
+Structure
+
+key information
+explanation
+details
+
+Reference
+Nielsen Norman Group
+
+
+
+# Scannable Content
+
+Users scan pages.
+
+Rules
+
+* short paragraphs
+* headings
+* bullet lists
+* highlight key information
+
+Paragraph length
+
+max 3–5 lines
+
+
+
+# Heading Hierarchy
+
+H1 page title
+H2 sections
+H3 subsections
+
+Only one H1 per page.
+
+Reference
+W3C semantics
+
+
+
+# Information Scent
+
+Links must describe action.
+
+Bad
+Les mer
+
+Good
+Se ledige timer
+
+Reference
+Information Foraging Theory — Peter Pirolli
+
+
+
+# Microcopy
+
+UI text must be
+
+* clear
+* short
+* helpful
+
+Example
+
+Bad
+Error occurred
+
+Good
+E-postadressen er ugyldig
+
+Reference
+Google UX Writing
+
+
+
+# Reading Level
+
+Target readability
+
+8–9th grade level
+
+Use
+
+* short sentences
+* simple words
+
+Reference
+Flesch readability research
+
+
+
+# Cognitive Load
+
+Reduce mental effort.
+
+Rules
+
+* one idea per paragraph
+* short paragraphs
+* logical structure
+
+Reference
+Cognitive Load Theory — John Sweller
+
+
+
+# Content Structure
+
+Recommended page structure
+
+Introduction
+Explanation
+Details
+Action
+
+Example
+
+What this is
+How it works
+What the user can do
+Call to action
+
+
+
+# Accessibility in Text
+
+Rules
+
+* descriptive links
+* avoid “click here”
+* alt text on images
+* explain abbreviations
+
+Reference
+WCAG 2.2
+
+
+
+# Call-to-Action Writing
+
+CTA text must start with a verb.
+
+Bad
+Submit
+
+Good
+Book bane
+
+
+
+# Tone of Voice
+
+Tone must be
+
+* friendly
+* clear
+* direct
+
+Avoid bureaucratic language.
+
+Reference
+GOV.UK Tone of Voice Guidelines
+
+
+
+
+# Final Rules
+
+Touch targets must always be
+
+`min-h-[44px]`
+
+Dark mode must exist for **all colors**.
+
+CTA text must start with a verb.
+
+Examples
+
+Book bane
+Se treningsplan
+Send mail

@@ -1,10 +1,10 @@
 ---
 title: "Follo Tour i Ås lørdag 20. juni"
+ingress: "Tilsammen deltok 26 spillere fra Ås, Nesodden, Kolbotn, Drøbak, Soon og Ski denne lørdagen."
 date: 2015-06-15
 categories: 
   - "arrangementer"
 ---
-
 Tilsammen deltok 26 spillere fra Ås, Nesodden, Kolbotn, Drøbak, Soon og Ski denne lørdagen.
 
 \[gallery columns="2" size="medium" ids="326,327,328,329,330,331,332,333" orderby="rand"\]

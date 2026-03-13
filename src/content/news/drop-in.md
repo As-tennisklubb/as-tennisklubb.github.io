@@ -1,10 +1,10 @@
 ---
 title: "Drop-in"
+ingress: "Hver onsdag kl. 18:00 - 20:00 har vi satt av banene til drop-in."
 date: 2016-05-11
 categories: 
   - "ukategorisert"
 ---
-
 Hver onsdag kl. 18:00 - 20:00 har vi satt av banene til drop-in.
 
 Dette er et tilbud til nye og gamle medlemmer som kanskje ikke har en fast partner å spille med eller som har lyst til å bli kjent med andre spillere i klubben.

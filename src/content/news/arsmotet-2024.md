@@ -1,5 +1,6 @@
 ---
 title: "Årsmøtet 2024"
+ingress: "Vi varsler herved årsmøte 2024 blir tirsdag 5. mars kl.19.00 på Innbyggertorget, Skoleveien 1, Ås"
 date: 2024-01-29
 categories: 
   - "aarsmote"
@@ -7,7 +8,6 @@ categories:
 tags: 
   - "arsmote"
 ---
-
 Vi varsler herved årsmøte 2024 blir tirsdag 5. mars kl.19.00 på Innbyggertorget, Skoleveien 1, Ås
 
 Det vil være mulighet for å delta også elektronisk.

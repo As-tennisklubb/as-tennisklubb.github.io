@@ -7,5 +7,4 @@ categories:
 tags: 
   - "arsmote"
 ---
-
-[![pdf](/images/news/pdf.png)**Referat årsmøte 2016**](http://www.aastk.no/wp-content/uploads/2016/03/Referat-årsmøte-2016-signert.pdf)
+[![pdf](/uploads/pdf.png)**Referat årsmøte 2016**](http://www.aastk.no/wp-content/uploads/2016/03/Referat-årsmøte-2016-signert.pdf)

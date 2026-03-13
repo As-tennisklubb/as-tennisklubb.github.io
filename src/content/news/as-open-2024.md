@@ -1,10 +1,10 @@
 ---
 title: "Ås Open 2024"
+ingress: "I år stilte 10 herrer (fordelt på 2 grupper), 3 damer, 3 junior, 3 mixed lag og hele 4 lag i herre-double."
 date: 2024-06-24
 categories: 
   - "ukategorisert"
 ---
-
 I år stilte 10 herrer (fordelt på 2 grupper), 3 damer, 3 junior, 3 mixed lag og hele 4 lag i herre-double.
 
 På grunn av mye regn lørdag startet vi allerede fredag ettermiddag, så med noen få timer på lørdag og en veldig tight plan for søndag klarte vi å fullføre for alle klasser.
@@ -27,54 +27,14 @@ Håper å se de fleste av dere også på klubbmesterskapet til høsten.
 
 God sommer!
 
-<figure>
+![](/uploads/Junior.png)
+*Juniorvinner Mathias Rånås flankert av Camilla Lundqvist og Herman Ingebrigtsen Krog*
 
-<figure>
+![](/uploads/Damer.png)
+*Vinner Andrea Larsen flankert av Marianne Bråthen (t.v.) og Nina Lundqvist*
 
-[![](/images/news/Junior.png)](https://www.aastk.no/wp-content/uploads/2024/06/Junior.png)
+![](/uploads/Peder-Elias.png)
+*Double-vinnere Elias Pettersen Nævdal og Peder Hvidsten Hem*
 
-<figcaption>
-
-Juniorvinner Mathias Rånås flankert av Camilla Lundqvist og Herman Ingebrigtsen Krog
-
-</figcaption>
-
-</figure>
-
-</figure>
-
-<figure>
-
-[![](/images/news/Damer.png)](https://www.aastk.no/wp-content/uploads/2024/06/Damer.png)
-
-<figcaption>
-
-Vinner Andrea Larsen flankert av Marianne Bråthen (t.v.) og Nina Lundqvist
-
-</figcaption>
-
-</figure>
-
-<figure>
-
-[![](/images/news/Peder-Elias.png)](https://www.aastk.no/wp-content/uploads/2024/06/Peder-Elias.png)
-
-<figcaption>
-
-Double-vinnere Elias Pettersen Nævdal og Peder Hvidsten Hem
-
-</figcaption>
-
-</figure>
-
-<figure>
-
-[![](/images/news/Herrer.png)](https://www.aastk.no/wp-content/uploads/2024/06/Herrer.png)
-
-<figcaption>
-
-Herre-vinner og fotograf Øyvind Engøy og finalist Øystein Eskeland
-
-</figcaption>
-
-</figure>
+![](/uploads/Herrer.png)
+*Herre-vinner og fotograf Øyvind Engøy og finalist Øystein Eskeland*

@@ -1,10 +1,10 @@
 ---
 title: "Ås Open 2025 - resultater"
+ingress: "Helga 20-22 juni ble det gjennomført hele 75 tenniskamper fordelt på de 3 banene til Ås tennisklubb. Som vanlig ved større tennisturneringer så ble det dessverre litt ventetid for både spillere og publikum, men vi kompenserte med strålende sommervær, gode campingstoler og fyr på…"
 date: 2025-06-23
 categories: 
   - "ukategorisert"
 ---
-
 Helga 20-22 juni ble det gjennomført hele 75 tenniskamper fordelt på de 3 banene til Ås tennisklubb. Som vanlig ved større tennisturneringer så ble det dessverre litt ventetid for både spillere og publikum, men vi kompenserte med strålende sommervær, gode campingstoler og fyr på grillen - vi har fortært til sammen 100 pølser!
 
 Takk til alle som bidro til at dette ble en fantastisk tennis-helg!
@@ -25,33 +25,15 @@ Semifinale **Ola** vs Sondre L: 6-0, 6-1 -> Ola
 
 Finale **Ola** vs Ulf: 6-1, 6-1 -> Ola
 
-<figure>
-
-[![Vinner Ola Ulmo (t.v) og finalist Ulf Viken](/images/news/IMG_1295-1024x768.jpg)](https://www.aastk.no/wp-content/uploads/2025/06/IMG_1295.jpg)
-
-<figcaption>
-
-Vinner Ola Ulmo (t.v) og finalist Ulf Viken
-
-</figcaption>
-
-</figure>
+![Vinner Ola Ulmo (t.v) og finalist Ulf Viken](/uploads/IMG_1295-1024x768.jpg)
+*Vinner Ola Ulmo (t.v) og finalist Ulf Viken*
 
 **Single - Damer**
 
 Vi hadde fem påmeldte i dameklassen - og spilte derfor en runde med 1-setts kamper, alle-mot-alle. Det ble til slutt veldig jevnt mellom Monica Finstad Viken og **Katrine Kleven** - men vi ble på forhånd enige om at var antall game vunnet som avgjør og dermed stakk Katrine av med en knepen seier.
 
-<figure>
-
-[![Vinner av dameklassen Katrine Kleven](/images/news/att.gSKZyyYxJjq2-zVrh-00belcqKoWfIV1nx8_aV5_gkw-edited.jpg)](https://www.aastk.no/wp-content/uploads/2025/06/att.gSKZyyYxJjq2-zVrh-00belcqKoWfIV1nx8_aV5_gkw.jpg)
-
-<figcaption>
-
-Vinner av dameklassen Katrine Kleven
-
-</figcaption>
-
-</figure>
+![Vinner av dameklassen Katrine Kleven](/uploads/att.gSKZyyYxJjq2-zVrh-00belcqKoWfIV1nx8_aV5_gkw-edited.jpg)
+*Vinner av dameklassen Katrine Kleven*
 
 **Double - Herrer**
 
@@ -59,17 +41,8 @@ Litt frem og tilbake med påmeldinger og oppmøte, men vi endte til slutt med se
 
 Finale **Thomas Viken & Ulf Viken** vs Sander Rånås & Mathias Rånås: 6-4, 6-0 -> vinner Thomas og Ulf
 
-<figure>
-
-[![Vinnerne Thomas og Ulf Viken (i blått) og finalister Sander og Mathias Rånås (i grønt)](/images/news/IMG_1274-edited.jpg)](https://www.aastk.no/wp-content/uploads/2025/06/IMG_1274.jpg)
-
-<figcaption>
-
-Vinnerne Thomas og Ulf Viken (i blått) og finalister Sander og Mathias Rånås (i grønt)
-
-</figcaption>
-
-</figure>
+![Vinnerne Thomas og Ulf Viken (i blått) og finalister Sander og Mathias Rånås (i grønt)](/uploads/IMG_1274-edited.jpg)
+*Vinnerne Thomas og Ulf Viken (i blått) og finalister Sander og Mathias Rånås (i grønt)*
 
 **Mixed - Double**
 
@@ -79,4 +52,4 @@ Her ble det også spilt innledende runder i to grupper med tre par i hver. Til s
 
 Alle resultater:
 
-[![](/images/news/IMG_1296-edited.jpg)](https://www.aastk.no/wp-content/uploads/2025/06/IMG_1296.jpg)
+[![](/uploads/IMG_1296-edited.jpg)](https://www.aastk.no/wp-content/uploads/2025/06/IMG_1296.jpg)

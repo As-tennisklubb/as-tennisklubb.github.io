@@ -1,10 +1,10 @@
 ---
 title: "Årsmøte onsdag 11. Mars kl 19"
+ingress: "Vi varsler herved årsmøte 2026 blir onsdag 11. mars kl.19.00 på Innbyggertorget, Skoleveien 1, Ås"
 date: 2026-02-05
 categories: 
   - "aarsmote"
 ---
-
 Til alle medlemmer i Ås tennisklubb!
 
   

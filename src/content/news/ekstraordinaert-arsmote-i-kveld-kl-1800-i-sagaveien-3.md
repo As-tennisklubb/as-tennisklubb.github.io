@@ -7,7 +7,6 @@ categories:
 tags: 
   - "arsmote"
 ---
-
 Årsmøtet gjelder nye vedtekter tilpasset NIFs nye lovnorm.
 
 [Innkalling med sakspapirer finner du her](http://www.aastk.no/ekstraordinaert-arsmote-avholdes-9-januar-kl-1800-i-sagaveien-3/)

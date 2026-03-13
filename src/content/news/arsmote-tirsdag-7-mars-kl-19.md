@@ -1,5 +1,6 @@
 ---
 title: "Årsmøte tirsdag 7. mars kl 19"
+ingress: "Årsmøtet for Ås Tennisklubb er kl 19 på Innbyggertorget, Skoleveien 1, Ås."
 date: 2023-02-28
 categories: 
   - "aarsmote"
@@ -7,7 +8,6 @@ categories:
 tags: 
   - "arsmote"
 ---
-
 Årsmøtet for Ås Tennisklubb er kl 19 på Innbyggertorget, Skoleveien 1, Ås.
 
 Vell møtt!

@@ -1,10 +1,10 @@
 ---
 title: "Ås Open 2023 - resultater"
+ingress: "Ås Open (som vi nå kaller den tidligere så uformelle sommerturneringen) ble avviklet helgen 17-18 juni 2023. Lørdagen bød på strålende sol, nesten 30 graders varme (!) og lite vind - et vær som kanskje favoriserer våre medlemmer fra sørlige breddegrader?, mens søndagen var mer…"
 date: 2023-06-18
 categories: 
   - "ukategorisert"
 ---
-
 Ås Open (som vi nå kaller den tidligere så uformelle sommerturneringen) ble avviklet helgen 17-18 juni 2023. Lørdagen bød på strålende sol, nesten 30 graders varme (!) og lite vind - et vær som kanskje favoriserer våre medlemmer fra sørlige breddegrader?, mens søndagen var mer mer "norsk" med lett sommer-regn.
 
 Å år hadde vi 17 påmeldte i herreklassen og (dessverre) bare to damer (hvor er dere?), samt 6 par med herrer som også spilte double på søndagen.
@@ -19,50 +19,14 @@ og til slutt også **Øyvind Engøy + David Johnson** med seier i double-finale 
 
 Resultatene, slik de ble notert på klubbhus-veggen, er gjengitt på bilde under.
 
-<figure>
+![](/uploads/Madeleine-og-Esther-1024x767.png)
+*Madeleine Burud og Esther van Waes*
 
-[![](/images/news/Madeleine-og-Esther-1024x767.png)](https://www.aastk.no/wp-content/uploads/2023/06/Madeleine-og-Esther.png)
+![](/uploads/Oyvind-og-Luis-768x1024.png)
+*Øyvind Engøy og Luis Barreiro*
 
-<figcaption>
+![](/uploads/Oyvind-og-David-As-Open-2023-1024x768.png)
+*Øyvind Engøy og David Johnson*
 
-Madeleine Burud og Esther van Waes  
-
-</figcaption>
-
-</figure>
-
-<figure>
-
-[![](/images/news/Oyvind-og-Luis-768x1024.png)](https://www.aastk.no/wp-content/uploads/2023/06/Oyvind-og-Luis.png)
-
-<figcaption>
-
-Øyvind Engøy og Luis Barreiro
-
-</figcaption>
-
-</figure>
-
-<figure>
-
-[![](/images/news/Oyvind-og-David-As-Open-2023-1024x768.png)](https://www.aastk.no/wp-content/uploads/2023/06/Oyvind-og-David-As-Open-2023.png)
-
-<figcaption>
-
-Øyvind Engøy og David Johnson
-
-</figcaption>
-
-</figure>
-
-<figure>
-
-[![](/images/news/As-open-resultat-tavla-2023-1024x863.png)](https://www.aastk.no/wp-content/uploads/2023/06/As-open-resultat-tavla-2023.png)
-
-<figcaption>
-
-Resultat-tavla på klubbhuset
-
-</figcaption>
-
-</figure>
+![](/uploads/As-open-resultat-tavla-2023-1024x863.png)
+*Resultat-tavla på klubbhuset*

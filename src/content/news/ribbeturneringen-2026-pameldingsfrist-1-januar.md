@@ -1,10 +1,10 @@
 ---
 title: "Ribbeturneringen 2026! Påmeldingsfrist 1. januar"
+ingress: "Har du også ladet opp til nytt tennis-år med ribbe, ribbe og atter ribbe?"
 date: 2025-12-15
 categories: 
   - "ukategorisert"
 ---
-
 Hei!  
 
 Har du også ladet opp til nytt tennis-år med ribbe, ribbe og atter ribbe? 

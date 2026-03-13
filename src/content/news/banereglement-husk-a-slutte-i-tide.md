@@ -1,12 +1,12 @@
 ---
 title: "Banereglement - husk å slutte i tide"
+ingress: "Gledelig nok er det mange som spiller tennis tidlig og sent. Spesielt siden vi har lys, er det mange som spiller utover kvelden."
 date: 2021-09-15
 categories: 
   - "ukategorisert"
 tags: 
   - "obs"
 ---
-
 Gledelig nok er det mange som spiller tennis tidlig og sent. Spesielt siden vi har lys, er det mange som spiller utover kvelden.
 
 Vi minner om [banereglementet](http://www.aastk.no/banereglement/) og spesielt:
