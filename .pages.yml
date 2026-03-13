@@ -8,46 +8,65 @@ content:
     type: collection
     path: src/content/news
     format: yaml-frontmatter
-    filename: '{year}-{month}-{day}-{fields.title}.md'
+    filename: "{year}-{month}-{day}-{slug}.md"
+
     view:
       fields: [title, date, categories]
+
     fields:
+
       - name: title
         label: Tittel
         type: string
         required: true
+
       - name: date
         label: Publiseringsdato
         type: date
         required: true
         default: now
-      - name: description
-        label: Ingress
+
+      - name: ingress
+        label: Kort ingress
         type: text
-      - name: author
-        label: Forfatter
-        type: string
+
+      - name: cover
+        label: Hovedbilde
+        type: image
+
       - name: categories
         label: Kategorier
         type: select
+        multiple: true
+        values:
+          - value: aarsmote
+            label: Årsmøte
+          - value: arrangementer
+            label: Arrangementer
+          - value: kurstrening
+            label: Kurs og trening
+          - value: styret
+            label: Styret
+          - value: turneringer
+            label: Turneringer
+          - value: nyheter
+            label: Nyheter
+          - value: ukategorisert
+            label: Ukategorisert
+
+      - name: attachments
+        label: Dokumenter (PDF)
+        type: file
         options:
-          values:
-            - value: aarsmote
-              label: Årsmøte
-            - value: arrangementer
-              label: Arrangementer
-            - value: kurstrening
-              label: Kurs og trening
-            - value: styret
-              label: Styret
-            - value: turneringer
-              label: Turneringer
-            - value: ukategorisert
-              label: Ukategorisert
+          multiple:
+            max: 10
+          extensions: [pdf]
+
       - name: draft
         label: Lagre som utkast
         type: boolean
         default: false
+
       - name: body
-        label: Innhold
+        label: Artikkel
         type: rich-text
