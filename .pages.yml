@@ -24,36 +24,34 @@ content:
         label: Publisert dato
         type: date
         default: now
+        required: true
 
       - name: ingress
         label: Kort ingress
         type: text
-        placeholder: Kort oppsummering av artikkelen (vises i nyhetslisten)
+        description: Kort oppsummering av artikkelen (vises i nyhetslisten)
 
       - name: cover
         label: Hovedbilde
         type: image
-        description: Valgfritt bilde som vises øverst i artikkelen
 
       - name: categories
         label: Kategorier
         type: select
-        multiple: true
-        values:
-          - value: aarsmote
-            label: Årsmøte
-          - value: arrangementer
-            label: Arrangementer
-          - value: kurstrening
-            label: Kurs og trening
-          - value: styret
-            label: Styret
-          - value: turneringer
-            label: Turneringer
-          - value: nyheter
-            label: Nyheter
-          - value: ukategorisert
-            label: Ukategorisert
+        options:
+          values:
+            - value: aarsmote
+              label: Årsmøte
+            - value: arrangementer
+              label: Arrangementer
+            - value: kurstrening
+              label: Kurs og trening
+            - value: styret
+              label: Styret
+            - value: turneringer
+              label: Turneringer
+            - value: ukategorisert
+              label: Ukategorisert
 
       - name: attachments
         label: Dokumenter (PDF)
@@ -71,4 +69,3 @@ content:
       - name: body
         label: Artikkel
         type: rich-text
-        description: Skriv artikkelen her. Du kan legge inn bilder, lenker og lister.
