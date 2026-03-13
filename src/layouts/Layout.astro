@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { Globe, Menu, X } from "@lucide/astro";
+import { ClientRouter, slide } from "astro:transitions";
 
 interface Props {
   title?: string;
@@ -31,7 +32,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={lang} transition:animate="none">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,6 +65,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
     {languageAlternates?.map(({ href, hrefLang }) => (
       <link rel="alternate" hreflang={hrefLang} href={href} />
     ))}
+    <ClientRouter />
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "SportsClub",
@@ -84,7 +86,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
 
   <body class="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 flex flex-col min-h-screen">
 
-    <header class="bg-green-800 dark:bg-green-700 text-white shadow-md">
+    <header transition:name="site-header" transition:animate="none" class="bg-green-800 dark:bg-green-700 text-white shadow-md">
       <div class="max-w-6xl mx-auto px-4 flex items-center justify-between h-20">
 
         <a href={base} class="flex items-center gap-3 hover:opacity-90 shrink-0" aria-label="Ås Tennisklubb – til forsiden">
@@ -160,7 +162,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
       </nav>
     </header>
 
-    <main class="flex-1">
+    <main transition:animate={slide({ duration: '0.3s' })} class="flex-1">
       {pageTitle && (
         <section class="bg-green-800 dark:bg-green-700 text-white py-10 md:py-12 px-4">
           <div class="max-w-4xl mx-auto">
@@ -219,16 +221,20 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
 </html>
 
 <script>
-  const btn     = document.getElementById("menu-btn");
-  const menu    = document.getElementById("mobile-menu");
-  const iconOpen  = document.getElementById("icon-open");
-  const iconClose = document.getElementById("icon-close");
+  function initMenu() {
+    const btn     = document.getElementById("menu-btn");
+    const menu    = document.getElementById("mobile-menu");
+    const iconOpen  = document.getElementById("icon-open");
+    const iconClose = document.getElementById("icon-close");
 
-  btn?.addEventListener("click", () => {
-    const isOpen = btn.getAttribute("aria-expanded") === "true";
-    btn.setAttribute("aria-expanded", String(!isOpen));
-    menu?.classList.toggle("hidden");
-    iconOpen?.classList.toggle("hidden");
-    iconClose?.classList.toggle("hidden");
-  });
+    btn?.addEventListener("click", () => {
+      const isOpen = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      menu?.classList.toggle("hidden");
+      iconOpen?.classList.toggle("hidden");
+      iconClose?.classList.toggle("hidden");
+    });
+  }
+
+  document.addEventListener("astro:page-load", initMenu);
 </script>
