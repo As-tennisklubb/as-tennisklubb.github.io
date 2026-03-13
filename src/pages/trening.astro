@@ -73,7 +73,7 @@ const kurs2025 = [
 			{kurs2025.map(({ dag, gruppe, tid, avgift }) => (
 			  <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors">
 				<td class="py-3 pr-6 text-gray-600 dark:text-gray-400">{dag}</td>
-				<td class="py-3 pr-6 text-gray-900 dark:text-gray-100">{gruppe}</td>
+				<td class="py-3 pr-6 font-medium text-gray-900 dark:text-gray-100">{gruppe}</td>
 				<td class="py-3 pr-6 text-gray-600 dark:text-gray-400">{tid}</td>
 				<td class="py-3 text-right font-semibold text-green-700 dark:text-green-400">kr {avgift}</td>
 			  </tr>
@@ -82,7 +82,7 @@ const kurs2025 = [
 		</table>
 	  </div>
 
-	  <p class="text-xs text-gray-500 dark:text-gray-500 mt-4">
+	  <p class="text-xs text-gray-500 dark:text-gray-400 mt-4">
 		* Påmeldingsavgift betales til kontonr. 1100 44 76109 eller Vipps til Ås Tennisklubb #14506.
 	  </p>
 	</section>
