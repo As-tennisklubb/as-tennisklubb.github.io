@@ -1,6 +1,5 @@
 ---
 import { cn } from "@/lib/cn";
-import Badge from "../ui/Badge.astro";
 
 interface Props {
   href: string;
@@ -35,10 +34,6 @@ const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
     className,
   )}
 >
-  <div class="mb-2 flex flex-wrap items-center gap-2">
-    <Badge variant="date">{date}</Badge>
-    {categories.map((cat) => <Badge>{cat}</Badge>)}
-  </div>
   {
     headingLevel === "h2" ? (
       <h2 class={headingClasses}>{title}</h2>
@@ -46,6 +41,9 @@ const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
       <h3 class={headingClasses}>{title}</h3>
     )
   }
+  <p class="mt-1 text-sm text-brand-700 dark:text-brand-400">
+    {date}{categories.length > 0 && ` · ${categories.join(", ")}`}
+  </p>
   {
     excerpt && (
       <p class={cn("mt-2 text-sm text-gray-600 dark:text-gray-400", clampClass)}>{excerpt}</p>
