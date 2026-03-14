@@ -1,10 +1,11 @@
 ---
 title: "Referat fra årsmøtet 2016"
 date: 2016-03-08
-categories: 
+categories:
   - "aarsmote"
   - "ukategorisert"
-tags: 
+tags:
   - "arsmote"
 ---
+
 [![pdf](/uploads/pdf.png)**Referat årsmøte 2016**](http://www.aastk.no/wp-content/uploads/2016/03/Referat-årsmøte-2016-signert.pdf)

@@ -2,10 +2,11 @@
 title: "Ribbeturneringen 2023"
 ingress: "Har du også ladet opp til nytt tennis-år med ribbe, ribbe og atter ribbe? Start det nye året med en avslappende, uhøytidelig og hyggelig mixed double tennisturnering for Ås tennisklubb sine medlemmer."
 date: 2023-01-09
-categories: 
+categories:
   - "arrangementer"
   - "turneringer"
 ---
+
 Har du også ladet opp til nytt tennis-år med ribbe, ribbe og atter ribbe? Start det nye året med en avslappende, uhøytidelig og hyggelig mixed double tennisturnering for Ås tennisklubb sine medlemmer.
 
 [Meld deg på nå – senest i løpet 11. januar](https://u11194885.ct.sendgrid.net/ls/click?upn=mjD-2F3crAaBTzlHFOz9byNPl1PhDHOFwk0q8sCLLMn2QvMmi6Kry0slQ46mKjgiVHSDzb_j6m7-2FqG7anmzjrQcdDy-2BRKbtWWnQT58GCr3KEbtf-2FNzrdgWol6qUESAVkggpHqy7MFcklfsmO1sU5vj8Y1IennfJd-2BGhwTutf2Mz8maiCFmiabBUf7EQeW-2BVujxrYXwYsdMlR4jAAm-2Bk0iVO848pGt1y4TTQ68c-2F-2FM62uMk1IHG0Kjgl9antItgVcczLzP2IQitrqky1QxrjZTa23b1wlIrKDQvYuClTcRYYs4VdLP-2Bmz5tx6WnuTU3SyiaGWkVaIUh2c-2FBhO-2FEDM64J3DITE5onh5wynibM8V6lvL0zqleWxZsJAX8flUJNctX6JqNRMu6BvNpHrnmAc9l4Ra7k5smnGrOTP-2B0S3NbIFnINX8KWn6pLYB73jUxilW3qOOcZNlt738whMKNC4jjTKaIZ-2Fw-3D-3D)  

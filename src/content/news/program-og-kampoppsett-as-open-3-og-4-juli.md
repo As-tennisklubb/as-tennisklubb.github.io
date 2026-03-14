@@ -2,10 +2,11 @@
 title: "Program og kampoppsett Ås Open 3. og 4. juli"
 ingress: "Her følger praktisk informasjon, kampoppsett og tidsplan for lørdag og søndag. Med rekordmange påmeldte (37), blir det en laaang og hyggelig tennishelg hvor lørdag i hovedsak består av gruppespill, mens søndagen blir kvartfinaler, semifinaler og finaler."
 date: 2021-07-02
-categories: 
+categories:
   - "arrangementer"
   - "turneringer"
 ---
+
 Her følger praktisk informasjon, kampoppsett og tidsplan for lørdag og søndag. Med rekordmange påmeldte (37), blir det en laaang og hyggelig tennishelg hvor lørdag i hovedsak består av gruppespill, mens søndagen blir kvartfinaler, semifinaler og finaler. 
 
 # Praktisk - koronasituasjon
@@ -61,8 +62,8 @@ Ny rekord med 10 påmeldte til juniorklassen! 
 - Alle spiller ett sett mot alle. Ett poeng per seier. Ved poenglikhet avgjøres av innbyrdes oppgjør.
 - Dersom en spiller må trekke seg i gruppespillet, fjernes alle resultater.
 - Semifinaler:  
-    - Nr 1 i gruppe 1 møter nr 2 i gruppe 2
-    - Nr 1 i gruppe 2 møter nr 2 i gruppe 1
+  - Nr 1 i gruppe 1 møter nr 2 i gruppe 2
+  - Nr 1 i gruppe 2 møter nr 2 i gruppe 1
 
 ### Gruppe 1:
 
@@ -96,12 +97,12 @@ Annalisa Rueter
 - Dersom en spiller må trekke seg i gruppespillet, fjernes alle resultater.
 - De som ikke går til kvartfinaler er velkommen til å spille om å bli **Poengmester Ås Open 2021** i Ås tennisklubb!
 - Kvartfinaler og semifinaler spilles ut fra følgende oppsett:
-    - Kvartfinale 1: Vinner gruppe 1 mot nr 2 i gruppe 3
-    - Kvartfinale 2: Vinner gruppe 2 mot nr 2 i gruppe 4
-    - Kvartfinale 3: Vinner gruppe 3 mot nr 2 i gruppe 1
-    - Kvartfinale 4: Vinner gruppe 4 mot nr 2 i gruppe 2
-    - Semifinale 1: Vinner kvartfinale 1 VS vinner kvartfinale 2
-    - Semfinale 2: Vinner kvartfinale 3 VS vinner kvartfinale 4
+  - Kvartfinale 1: Vinner gruppe 1 mot nr 2 i gruppe 3
+  - Kvartfinale 2: Vinner gruppe 2 mot nr 2 i gruppe 4
+  - Kvartfinale 3: Vinner gruppe 3 mot nr 2 i gruppe 1
+  - Kvartfinale 4: Vinner gruppe 4 mot nr 2 i gruppe 2
+  - Semifinale 1: Vinner kvartfinale 1 VS vinner kvartfinale 2
+  - Semfinale 2: Vinner kvartfinale 3 VS vinner kvartfinale 4
 
 - Kvartfinaler spilles som ett sett.
 - Semifinaler og finaler spilles best av tre sett.

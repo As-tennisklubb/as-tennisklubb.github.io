@@ -1,13 +1,13 @@
-import rss from '@astrojs/rss';
-import { getCollection } from 'astro:content';
+import rss from "@astrojs/rss";
+import { getCollection } from "astro:content";
 
 export async function GET(context) {
-  const posts = await getCollection('news', ({ data }) => !data.draft);
+  const posts = await getCollection("news", ({ data }) => !data.draft);
   const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 
   return rss({
-    title: 'Nyheter – Ås Tennisklubb',
-    description: 'Siste nyheter fra Ås Tennisklubb',
+    title: "Nyheter – Ås Tennisklubb",
+    description: "Siste nyheter fra Ås Tennisklubb",
     site: context.site,
     trailingSlash: false,
     customData: `<language>no</language>`,

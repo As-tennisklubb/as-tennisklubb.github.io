@@ -2,9 +2,10 @@
 title: "Ååååsome klubbmesterskap!"
 ingress: "Klubbmesterskapet i Ås tenniskeklubb hadde nyyydelig høstvær som rammer for mange tette og spennende oppgjør i alle klasser helgen 13. til 15. september 2024. Blant årets vinnere er flere gjengangere, men også noen hyggelige overraskelser."
 date: 2024-09-15
-categories: 
+categories:
   - "turneringer"
 ---
+
 **Klubbmesterskapet i Ås tenniskeklubb hadde nyyydelig høstvær som rammer for mange tette og spennende oppgjør i alle klasser helgen 13. til 15. september 2024. Blant årets vinnere er flere gjengangere, men også noen hyggelige overraskelser.**
 
 Gjennom helgen spilte 24 deltakere 55 kamper i klassene singel damer og herrer, herrer double og mixed double. 
@@ -34,7 +35,7 @@ Etter tre sett - hvor det svinge fram og tilbake - var det **Masa Johansen** som
 Gratulerer til klubbmester Masa - og alle - for flott innsats!
 
 ![](/uploads/20240915_163331-1024x768.jpg)
-*_SLITESEIER: Etter tre fulle sett og over to timers spill - hvor det bølget fram og tilbake - var det Masa Johansen (til høyre) som kunne krone utesesongen 2024 med tittelen klubbmester. Gratulerer!_*
+_*SLITESEIER: Etter tre fulle sett og over to timers spill - hvor det bølget fram og tilbake - var det Masa Johansen (til høyre) som kunne krone utesesongen 2024 med tittelen klubbmester. Gratulerer!*_
 
 For herrene var lørdagen en rekke av mange ett-sets kamper i fire grupper for å avgjøre hvem som skulle gå videre til kvartfinale på søndag. 
 
@@ -65,8 +66,8 @@ Her også ble det et tett og jevnt oppgjør som endte i et supertiebrake, men n�
 Gratulerer til alle som gjorde Mixed Double-klassen til en tidsmessig laaaaang og spennende affære og til “The Vikens” med sitt første klubbmesterskap! 
 
 ![](/uploads/20240915_163440-1024x768.jpg)
-*[](https://www.aastk.no/wp-content/uploads/2024/09/20240915_163440.jpg)  
-_GULLVIKEN: Thomas Viken er mangeårig klubbmester i klassen Miced Double, men i år var første gang at tittelen ble vunnet sammen med livspartner Monica Viken. Marianne Bråthen og Håkon Straume ga sterk motstand og det måtte supertiebrake for å avgjøre hvem som skulle få klubbmestertittelen. Gratulerer med flott innsats og tittel!!_*
+_[](https://www.aastk.no/wp-content/uploads/2024/09/20240915_163440.jpg)  
+*GULLVIKEN: Thomas Viken er mangeårig klubbmester i klassen Miced Double, men i år var første gang at tittelen ble vunnet sammen med livspartner Monica Viken. Marianne Bråthen og Håkon Straume ga sterk motstand og det måtte supertiebrake for å avgjøre hvem som skulle få klubbmestertittelen. Gratulerer med flott innsats og tittel!!*_
 
 I herreklassen var det litt “business as usual” på veien til finalen - her var det titanene i klubbmesterskaptifler - Øyvind Engøy og Andreas Lotarev - som skulle gjøre opp om gullet! 
 
@@ -77,7 +78,7 @@ Lotarev dro i land andre sett og dermed var det duket for et avgjørende tredje 
 Gratulerer for stort spill av samtlige og til Andreas - som har tatt tilbake mestertittelen etter flere års avbrudd fra å stille i klubbmesterskapet. 
 
 ![](/uploads/20240915_163529-1024x768.jpg)
-*_ÅRETS COMEBBACK: Andreas Lotarev (til høyre) dro til slutt i land seieren etter en jevnspilt kamp hvor det mildt sagt bølget en del fram og tilbake. Øyvind Engøy spilte seg fram til to finaler og befester sin posisjon som en av de aller beste spillerne i Ås tennisklubb._*
+_*ÅRETS COMEBBACK: Andreas Lotarev (til høyre) dro til slutt i land seieren etter en jevnspilt kamp hvor det mildt sagt bølget en del fram og tilbake. Øyvind Engøy spilte seg fram til to finaler og befester sin posisjon som en av de aller beste spillerne i Ås tennisklubb.*_
 
 [![](/uploads/20240913_202800-1024x768.jpg)](https://www.aastk.no/wp-content/uploads/2024/09/20240913_202800.jpg)
 

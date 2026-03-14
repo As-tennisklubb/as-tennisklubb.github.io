@@ -2,9 +2,10 @@
 title: "Kurs-start"
 ingress: "Vi har gjort litt endringer i tidene siden i fjor. Se her for timeplan og mer informasjon."
 date: 2018-05-02
-categories: 
+categories:
   - "kurstrening"
 ---
+
 Tirsdag 8.5 starter vi den nye kurs-sesongen.
 
 Vi har gjort litt endringer i tidene siden i fjor. [Se her for timeplan og mer informasjon](http://www.aastk.no/kurs/).

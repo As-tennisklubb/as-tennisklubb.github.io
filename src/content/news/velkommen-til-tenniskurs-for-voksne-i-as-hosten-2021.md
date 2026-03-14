@@ -2,16 +2,17 @@
 title: "Velkommen til tenniskurs for voksne i Ås høsten 2021"
 ingress: "Kurset starter 25. august og hver onsdag til og med 29. september. (Seks ganger)."
 date: 2021-08-02
-categories: 
+categories:
   - "kurstrening"
 ---
+
 **Kurset starter 25. august og hver onsdag til og med 29. september. (Seks ganger).**
 
 ### Tidspunkter
 
 Kl. 18.00-19.00: Nybegynner/litt øvet  
 Kl. 19.00-20.00 Nybegynner/litt øvet  
-Kl. 20.00-21.00 Øvet  
+Kl. 20.00-21.00 Øvet
 
 ### Pris og påmelding
 

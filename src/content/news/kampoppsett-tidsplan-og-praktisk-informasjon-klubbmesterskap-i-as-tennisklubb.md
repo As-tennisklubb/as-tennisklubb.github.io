@@ -2,9 +2,10 @@
 title: "Kampoppsett, tidsplan og praktisk informasjon - Klubbmesterskap i Ås tennisklubb"
 ingress: "Hjertelig velkommen til Ås tennisklubb sitt klubbmesterskap 2021 fra onsdag 1. september til søndag 5. september!"
 date: 2021-08-30
-categories: 
+categories:
   - "turneringer"
 ---
+
 Hjertelig velkommen til Ås tennisklubb sitt klubbmesterskap 2021 fra onsdag 1. september til søndag 5. september! 
 
 Vedlagt følger praktisk informasjon, kampoppsett og tidsplan for fine tennisdager. 
@@ -25,32 +26,32 @@ Regjeringen har innført trinn tre [i gjenåpningsplanen](https://u11194885.ct.
 
 Alle spiller 10-er sett mot alle. Må vinne med to poeng. Best av tre sett. Ett poeng per seier. Ved poenglikhet avgjøres vinner ut fra innbyrdes oppgjør.  
 
-| Barn |
-| --- |
+| Barn                     |
+| ------------------------ |
 | Albert Julian Talmo-Rønn |
-| Live Viken |
+| Live Viken               |
 
 ## Junior
 
 Alle spiller ett sett mot alle. Ett poeng per seier. Den som har flest poeng blir klubbmester. Ved poenglikhet avgjøres vinner ut fra innbyrdes oppgjør.
 
-| Junior |
-| --- |
+| Junior                   |
+| ------------------------ |
 | Pål Andreas Storm Larsen |
-| Una Viken |
-| August Eskeland |
-| Sondre Lundqvist |
-| Bjørn Straume |
+| Una Viken                |
+| August Eskeland          |
+| Sondre Lundqvist         |
+| Bjørn Straume            |
 
 ## Damer
 
 Alle spiller ett sett mot alle. Ett poeng per seier. Den som har flest poeng blir klubbmester. Ved poenglikhet avgjøres vinner ut fra innbyrdes oppgjør.
 
-| Damer |
-| --- |
-| Gro I Thorup |
-| Andrea Larsen |
-| Anne Hexeberg |
+| Damer          |
+| -------------- |
+| Gro I Thorup   |
+| Andrea Larsen  |
+| Anne Hexeberg  |
 | Nina Lundqvist |
 | Katrine Kleven |
 
@@ -74,21 +75,21 @@ o   Semfinale 2: Nr gruppe 2 VS nr 2 gruppe 1
 
 \-          Andreas Lotarev og Øyvind Engøy er seedet som 1 og 2. Resten er trukket tilfeldig.
 
-| Herrer single 1 |
-| --- |
-| **Øyvind Engøy** |
-| Sander Rånås |
-| Håkon Straume |
-| Lars Rønn |
-| Thomas Viken |
-| Kevin Boodhun |
-| Herrer Singel 2 |
+| Herrer single 1     |
+| ------------------- |
+| **Øyvind Engøy**    |
+| Sander Rånås        |
+| Håkon Straume       |
+| Lars Rønn           |
+| Thomas Viken        |
+| Kevin Boodhun       |
+| Herrer Singel 2     |
 | **Andreas Lotarev** |
-| Tobias Nord |
-| Bjarte Tronbøl |
-| David Johnson |
-| Nicolas Burud |
-| Emil Hajdian |
+| Tobias Nord         |
+| Bjarte Tronbøl      |
+| David Johnson       |
+| Nicolas Burud       |
+| Emil Hajdian        |
 
 ## Herrer - doubel
 
@@ -106,16 +107,16 @@ o   Semfinale 2: Nr gruppe 2 VS nr 2 gruppe 1
 
 \-          Semifinaler og finaler spilles best av tre sett.
 
-| Herrer Double 1 |
-| --- |
-| Emilj Hadjian og Lars Rønn |
-| Daniel Rasse og Nicolas Burud |
-| Øyvind Engøy og David Johnson |
-| Herrer Double 2 |
-| Thomas Viken og Randall fennel |
-| Håkon Straume og Bjarte Tronbøl |
+| Herrer Double 1                   |
+| --------------------------------- |
+| Emilj Hadjian og Lars Rønn        |
+| Daniel Rasse og Nicolas Burud     |
+| Øyvind Engøy og David Johnson     |
+| Herrer Double 2                   |
+| Thomas Viken og Randall fennel    |
+| Håkon Straume og Bjarte Tronbøl   |
 | Sindre Nordby og Daniel Glemminge |
-| Niklas Wittwer og Elias Evjen |
+| Niklas Wittwer og Elias Evjen     |
 
 ## Poengmester 2020
 
@@ -132,62 +133,62 @@ Merk! Vi har en puljevis avvikling av gruppene på grunn av mange påmeldinger i
 
 Det er satt et klokkeslett for alle kamper, men tidspunktene er veiledende. Det er estimert 45 minutter per kamp. Kom gjerne litt før oppsatt tid for å heie eller eventuelt starte kamp tidligere hvis ledige baner.
 
-| Dag | onsdag 1. september |
-| --- | --- |
-| Tid | Bane 1 | Bane 2 | Bane 3 |
-| 1715 - 1800 | N/A | N/A | Oppvarming |
-| 1800 - 1845 | N/A | N/A |
-| 1845 - 1930 | N/A | N/A |
-| 1930 - 2015 | N/A | N/A | Daniel Rasse og Nicolas Burud   VS Øyvind Engøy og David Johnson |
-| 2015 - 2100 | N/A | N/A | Emilj Hadjian/Lars Rønn   VS Daniel Rasse og Nicolas Burud |
-| 2100 - 2145 | N/A | N/A | Emilj Hadjian/Lars Rønn   VS Øyvind Engøy og David Johnson |
-| Dag | torsdag 2. september |
-| Tid | Bane 1 | Bane 2 | Bane 3 |
-| 1715 - 1800 | Oppvarming | Oppvarming |
-| 1800 - 1845 | Gro Thorup og Thomas Viken   VS Anne Hexeberg og Bjarte Tronbøl | Katrine Kleven og Øystein Eskeland   VS Nina Lundqvist og Georg eller Sondre Lundqvist |
-| 1845 - 1930 | Anne Hexeberg og Bjarte Tronbøl   VS Katrine Kleven og Øystein Eskeland |
-| 1930 - 2015 | Gro Thorup og Thomas Viken   VS Katrine Kleven og Øystein Eskeland | Anne Hexeberg og Bjarte Tronbøl   VS Nina Lundqvist og Georg eller Sondre Lundqvist |
-| 2015 - 2100 | Gro Thorup og Thomas Viken   VS Nina Lundqvist og Georg eller Sondre Lundqvist |
+| Dag         | onsdag 1. september                                                          |
+| ----------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------- |
+| Tid         | Bane 1                                                                       | Bane 2                                                                               | Bane 3                                                         |
+| 1715 - 1800 | N/A                                                                          | N/A                                                                                  | Oppvarming                                                     |
+| 1800 - 1845 | N/A                                                                          | N/A                                                                                  |
+| 1845 - 1930 | N/A                                                                          | N/A                                                                                  |
+| 1930 - 2015 | N/A                                                                          | N/A                                                                                  | Daniel Rasse og Nicolas Burud VS Øyvind Engøy og David Johnson |
+| 2015 - 2100 | N/A                                                                          | N/A                                                                                  | Emilj Hadjian/Lars Rønn VS Daniel Rasse og Nicolas Burud       |
+| 2100 - 2145 | N/A                                                                          | N/A                                                                                  | Emilj Hadjian/Lars Rønn VS Øyvind Engøy og David Johnson       |
+| Dag         | torsdag 2. september                                                         |
+| Tid         | Bane 1                                                                       | Bane 2                                                                               | Bane 3                                                         |
+| 1715 - 1800 | Oppvarming                                                                   | Oppvarming                                                                           |
+| 1800 - 1845 | Gro Thorup og Thomas Viken VS Anne Hexeberg og Bjarte Tronbøl                | Katrine Kleven og Øystein Eskeland VS Nina Lundqvist og Georg eller Sondre Lundqvist |
+| 1845 - 1930 | Anne Hexeberg og Bjarte Tronbøl VS Katrine Kleven og Øystein Eskeland        |
+| 1930 - 2015 | Gro Thorup og Thomas Viken VS Katrine Kleven og Øystein Eskeland             | Anne Hexeberg og Bjarte Tronbøl VS Nina Lundqvist og Georg eller Sondre Lundqvist    |
+| 2015 - 2100 | Gro Thorup og Thomas Viken VS Nina Lundqvist og Georg eller Sondre Lundqvist |
 | 2100 - 2145 |
 
 | Dag | fredag 3. september |
 | Tid | Bane 1 | Bane 2 | Bane 3 |
 | 1715 - 1800 | Oppvarming | Oppvarming | Oppvarming |
-| 1800 - 1845 | Håkon Straume og Bjarte Tronbøl   VS Sindre Nordby/Daniel Glemminge | Thomas Viken og Randall fennel   VS Niklas Wittwer og Elias Evjen | Lars Rønn   VSKevin Boodhun |
-| 1845 - 1930 | Håkon Straume og Bjarte Tronbøl   VS Niklas Wittwer og Elias Evjen | Thomas Viken og Randall fennel   VS Sindre Nordby/Daniel Glemminge | Øyvind Engøy   VSKevin Boodhun |
-| 1930 - 2015 | Thomas Viken og Randall fennel   VS Håkon Straume og Bjarte Tronbøl | Sindre Nordby/Daniel Glemminge   VS Niklas Wittwer og Elias Evjen | Øyvind Engøy   VS Lars Rønn |
-| 2015 - 2100 | David Johnson   VS Emil Hajdian | Andreas Lotarev   VS Nicolas Burud |
-| 2100 - 2145 | David Johnson   VS Nicolas Burud | Andreas Lotarev   VS Emil Hajdian |
+| 1800 - 1845 | Håkon Straume og Bjarte Tronbøl VS Sindre Nordby/Daniel Glemminge | Thomas Viken og Randall fennel VS Niklas Wittwer og Elias Evjen | Lars Rønn VSKevin Boodhun |
+| 1845 - 1930 | Håkon Straume og Bjarte Tronbøl VS Niklas Wittwer og Elias Evjen | Thomas Viken og Randall fennel VS Sindre Nordby/Daniel Glemminge | Øyvind Engøy VSKevin Boodhun |
+| 1930 - 2015 | Thomas Viken og Randall fennel VS Håkon Straume og Bjarte Tronbøl | Sindre Nordby/Daniel Glemminge VS Niklas Wittwer og Elias Evjen | Øyvind Engøy VS Lars Rønn |
+| 2015 - 2100 | David Johnson VS Emil Hajdian | Andreas Lotarev VS Nicolas Burud |
+| 2100 - 2145 | David Johnson VS Nicolas Burud | Andreas Lotarev VS Emil Hajdian |
 
 | Dag | lørdag 4. september |
 | Tid | Bane 1 | Bane 2 | Bane 3 |
-| 0815 - 0900 | Oppvarming   Herrer singel gruppe 1 | Oppvarming   Herrer singel gruppe 2 | Oppvarming   Damer |
-| 0900 - 0945 | Øyvind Engøy   VS Sander Rånås | Bjarte Tronbøl   VS David Johnson | Gro I Thorup   VS Andrea Larsen |
-| 0945 -1030 | Håkon Straume   VS Lars Rønn | Nicolas Burud   VS Emil Hajdian | Anne Hexeberg   VS Nina lundqvist |
-| 1030 - 1115 | Thomas Viken   VSKevin Boodhun | Tobias Nord   VS Bjarte Tronbøl | Nina lundqvist   VS Katrine Kleven |
-| 1115 - 1200 | Sander Rånås   VS Håkon Straume | Andreas Lotarev   VS Bjarte Tronbøl | Andrea Larsen   VS Anne Hexeberg |
-| 1200 - 1245 | Lars Rønn   VS Thomas Viken | Tobias Nord   VS Emil Hajdian | Gro I Thorup   VS Anne Hexeberg |
-| 1245 - 1330 | Øyvind Engøy   VS Håkon Straume | Bjarte Tronbøl   VS Nicolas Burud | Andrea Larsen   VS Nina lundqvist |
-| 1330 - 1415 | Sander Rånås   VSKevin Boodhun | Andreas Lotarev   VS David Johnson | Andrea Larsen   VS Katrine Kleven |
-| 1415 - 1500 | Håkon Straume   VS Thomas Viken | Tobias Nord   VS Nicolas Burud | Gro I Thorup   VS Nina lundqvist |
-| 1500 - 1545 | Sander Rånås   VS Lars Rønn | Bjarte Tronbøl   VS Emil Hajdian | Anne Hexeberg   VS Katrine Kleven |
-| 1545 - 1630 | Sander Rånås   VS Thomas Viken | Tobias Nord   VS David Johnson | Gro I Thorup   VS Katrine Kleven |
-| 1630 - 1715 | Håkon Straume   VSKevin Boodhun | Andreas Lotarev   VS Tobias Nord |
-| 1715 - 1800 | Øyvind Engøy   VS Thomas Viken |
-|  |
+| 0815 - 0900 | Oppvarming Herrer singel gruppe 1 | Oppvarming Herrer singel gruppe 2 | Oppvarming Damer |
+| 0900 - 0945 | Øyvind Engøy VS Sander Rånås | Bjarte Tronbøl VS David Johnson | Gro I Thorup VS Andrea Larsen |
+| 0945 -1030 | Håkon Straume VS Lars Rønn | Nicolas Burud VS Emil Hajdian | Anne Hexeberg VS Nina lundqvist |
+| 1030 - 1115 | Thomas Viken VSKevin Boodhun | Tobias Nord VS Bjarte Tronbøl | Nina lundqvist VS Katrine Kleven |
+| 1115 - 1200 | Sander Rånås VS Håkon Straume | Andreas Lotarev VS Bjarte Tronbøl | Andrea Larsen VS Anne Hexeberg |
+| 1200 - 1245 | Lars Rønn VS Thomas Viken | Tobias Nord VS Emil Hajdian | Gro I Thorup VS Anne Hexeberg |
+| 1245 - 1330 | Øyvind Engøy VS Håkon Straume | Bjarte Tronbøl VS Nicolas Burud | Andrea Larsen VS Nina lundqvist |
+| 1330 - 1415 | Sander Rånås VSKevin Boodhun | Andreas Lotarev VS David Johnson | Andrea Larsen VS Katrine Kleven |
+| 1415 - 1500 | Håkon Straume VS Thomas Viken | Tobias Nord VS Nicolas Burud | Gro I Thorup VS Nina lundqvist |
+| 1500 - 1545 | Sander Rånås VS Lars Rønn | Bjarte Tronbøl VS Emil Hajdian | Anne Hexeberg VS Katrine Kleven |
+| 1545 - 1630 | Sander Rånås VS Thomas Viken | Tobias Nord VS David Johnson | Gro I Thorup VS Katrine Kleven |
+| 1630 - 1715 | Håkon Straume VSKevin Boodhun | Andreas Lotarev VS Tobias Nord |
+| 1715 - 1800 | Øyvind Engøy VS Thomas Viken |
+| |
 
 | Dag | søndag 5. september |
 | Tid | Bane 1 | Bane 2 | Bane 3 |
-|  |
-|  |
+| |
+| |
 | 0945 -1030 | Oppvarming | Oppvarming | Oppvarming |
-| 1030 - 1115 | Semifinale double herrer   Nr 1 gr 1 VS Nr 2 gr 2 | Semifinale double herrer   Nr 1 gr 2 VS Nr 2 gr 1 | Oppvarming |
-| 1115 - 1200 | Una Viken   VS August Eskeland |
-| 1200 - 1245 | Pål Andreas Storm Larsen   VS Una Viken | August Eskeland   VS Sondre Lundqvist | Albert Julian Talmo-Rønn   VS Live Viken |
-| 1245 - 1330 | Semifinale single herrer   Nr 1 gr 1 VS nr 2 gr 2 | Semifinale single herrer   Nr 1 gr 2 VS nr 2 gr 1 | Sondre Lundqvist   VS Bjørn Straume |
-| 1330 - 1415 | Pål Andreas Storm Larsen   VS August Eskeland |
-| 1415 - 1500 | Finale Double herrer | Una Viken   VS Sondre Lundqvist | August Eskeland   VS Bjørn Straume |
-| 1500 - 1545 | Finale Double herrer | Una Viken   VS Bjørn Straume | Pål Andreas Storm Larsen   VS Sondre Lundqvist |
-| 1545 - 1630 | Poengmester | Poengmester | Pål Andreas Storm Larsen   VS Bjørn Straume |
+| 1030 - 1115 | Semifinale double herrer Nr 1 gr 1 VS Nr 2 gr 2 | Semifinale double herrer Nr 1 gr 2 VS Nr 2 gr 1 | Oppvarming |
+| 1115 - 1200 | Una Viken VS August Eskeland |
+| 1200 - 1245 | Pål Andreas Storm Larsen VS Una Viken | August Eskeland VS Sondre Lundqvist | Albert Julian Talmo-Rønn VS Live Viken |
+| 1245 - 1330 | Semifinale single herrer Nr 1 gr 1 VS nr 2 gr 2 | Semifinale single herrer Nr 1 gr 2 VS nr 2 gr 1 | Sondre Lundqvist VS Bjørn Straume |
+| 1330 - 1415 | Pål Andreas Storm Larsen VS August Eskeland |
+| 1415 - 1500 | Finale Double herrer | Una Viken VS Sondre Lundqvist | August Eskeland VS Bjørn Straume |
+| 1500 - 1545 | Finale Double herrer | Una Viken VS Bjørn Straume | Pål Andreas Storm Larsen VS Sondre Lundqvist |
+| 1545 - 1630 | Poengmester | Poengmester | Pål Andreas Storm Larsen VS Bjørn Straume |
 | 1630 - 1715 | Finale Single Herrer | Poengmester | Poengmester |
 | 1715 - 1800 | Finale Single Herrer | Poengmester | Poengmester |

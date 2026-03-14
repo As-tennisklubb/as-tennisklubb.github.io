@@ -2,15 +2,16 @@
 title: "Årsmøte 2020"
 ingress: "Tid: Tirsdag 25. februar 2020 kl 19:00. Sted: Klubbhuset til Ås IL."
 date: 2020-02-18
-categories: 
+categories:
   - "aarsmote"
   - "ukategorisert"
-tags: 
+tags:
   - "arsmote"
 ---
+
 Velkommen til årsmøte i Ås tennisklubb:
 
-Tid: Tirsdag 25. februar 2020 kl 19:00. 
+Tid: Tirsdag 25. februar 2020 kl 19:00.
 Sted: Klubbhuset til Ås IL.
 
 Alle klubbens medlemmer er velkommen.

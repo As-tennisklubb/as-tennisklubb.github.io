@@ -2,11 +2,12 @@
 title: "Meld deg på klubbmesterskap i tennis - helgen 5. - 7. september"
 ingress: "Vi ønsker alle medlemmer hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet."
 date: 2025-08-24
-categories: 
+categories:
   - "turneringer"
-tags: 
+tags:
   - "obs"
 ---
+
 **Vi ønsker alle medlemmer hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet.**
 
 Program med tidspunkter blir sendt ut i midten av uke 36. 

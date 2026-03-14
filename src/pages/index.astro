@@ -1,6 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
+import HeroSection from "../components/layout/HeroSection.astro";
+import Container from "../components/layout/Container.astro";
+import CardGrid from "../components/layout/CardGrid.astro";
 
 const latestNews = (await getCollection("news"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -17,78 +20,135 @@ const base = import.meta.env.BASE_URL;
     { href: new URL(Astro.url.pathname, Astro.site).href, hrefLang: "x-default" },
   ]}
 >
-
   <!-- Hero -->
-  <section class="bg-green-800 dark:bg-green-700 text-white py-10 md:py-14 px-4">
-    <div class="max-w-6xl mx-auto">
-      <h1 class="text-3xl md:text-5xl font-bold mb-3">
-        Tennis for alle
-      </h1>
-      <p class="text-green-200 text-base md:text-lg max-w-md">
-        Vi har skapt tennisglede for barn, unge og voksne i nærmiljøet i snart 50 år.      </p>
-      <div class="flex flex-wrap gap-4 mt-6">
-        <a href="https://banebooking.aastk.no" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-600 text-white font-semibold px-6 py-3 rounded-full min-h-[44px] transition-colors border border-green-500">Book bane</a>
-        <a href={`${base}medlemskap`} class="inline-flex items-center gap-2 bg-brand-orange-500 hover:bg-brand-orange-600 text-white font-semibold px-6 py-3 rounded-full min-h-[44px] transition-colors">Bli med i dag</a>
-      </div>
+  <HeroSection>
+    <h1 class="mb-3 text-3xl font-bold md:text-5xl">Tennis for alle</h1>
+    <p class="max-w-md text-base text-brand-200 md:text-lg">
+      Vi har skapt tennisglede for barn, unge og voksne i nærmiljøet i snart 50 år.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-4">
+      <a
+        href="https://banebooking.aastk.no"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-500 bg-brand-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-600"
+        >Book bane</a
+      >
+      <a
+        href={`${base}medlemskap`}
+        class="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-accent-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-600"
+        >Bli med i dag</a
+      >
     </div>
-  </section>
+  </HeroSection>
 
-  <!-- Info-kort (§6 Gestalt: proximity, similarity) -->
-  <section class="max-w-6xl mx-auto px-4 py-16">
-    <div class="grid gap-6 md:grid-cols-3">
-      <a href={`${base}trening`} class="group flex flex-col bg-brand-orange-50 dark:bg-gray-800 border border-brand-orange-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5">
-        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-orange-700 dark:group-hover:text-brand-orange-400 transition-colors mb-2">Tennismoro</h2>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">Vi tilbyr trening for barn, ungdom og voksne – fra nybegynner til turnering.</p>
-        <span class="inline-flex items-center gap-1 mt-auto pt-4 text-brand-orange-700 dark:text-brand-orange-400 font-semibold text-sm">Se treningsplan →</span>
+  <!-- Info-kort -->
+  <Container size="wide" class="py-16">
+    <CardGrid cols={3}>
+      <a
+        href={`${base}trening`}
+        class="group flex flex-col rounded-xl border border-accent-100 bg-accent-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+      >
+        <h2
+          class="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-accent-700 dark:text-gray-100 dark:group-hover:text-accent-400"
+        >
+          Tennismoro
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Vi tilbyr trening for barn, ungdom og voksne – fra nybegynner til turnering.
+        </p>
+        <span
+          class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-accent-700 dark:text-accent-400"
+          >Se treningsplan →</span
+        >
       </a>
-      <a href={`${base}baner`} class="group flex flex-col bg-brand-orange-50 dark:bg-gray-800 border border-brand-orange-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5">
-        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-orange-700 dark:group-hover:text-brand-orange-400 transition-colors mb-2">Våre baner</h2>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">Vi har tre grusbaner ved Ås stadion, tilgjengelige for leie fra april til november.</p>
-        <span class="inline-flex items-center gap-1 mt-auto pt-4 text-brand-orange-700 dark:text-brand-orange-400 font-semibold text-sm">Se baneoversikt →</span>
+      <a
+        href={`${base}baner`}
+        class="group flex flex-col rounded-xl border border-accent-100 bg-accent-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+      >
+        <h2
+          class="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-accent-700 dark:text-gray-100 dark:group-hover:text-accent-400"
+        >
+          Våre baner
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Vi har tre grusbaner ved Ås stadion, tilgjengelige for leie fra april til november.
+        </p>
+        <span
+          class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-accent-700 dark:text-accent-400"
+          >Se baneoversikt →</span
+        >
       </a>
-      <a href={`${base}medlemskap`} class="group flex flex-col bg-brand-orange-50 dark:bg-gray-800 border border-brand-orange-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5">
-        <h2 class="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-orange-700 dark:group-hover:text-brand-orange-400 transition-colors mb-2">Bli med i klubben</h2>
-        <p class="text-gray-600 dark:text-gray-400 text-sm">Spill så mye du vil – alle medlemmer har fri tilgang til banene hele sesongen.</p>
-        <span class="inline-flex items-center gap-1 mt-auto pt-4 text-brand-orange-700 dark:text-brand-orange-400 font-semibold text-sm">Se medlemskap →</span>
+      <a
+        href={`${base}medlemskap`}
+        class="group flex flex-col rounded-xl border border-accent-100 bg-accent-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+      >
+        <h2
+          class="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-accent-700 dark:text-gray-100 dark:group-hover:text-accent-400"
+        >
+          Bli med i klubben
+        </h2>
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Spill så mye du vil – alle medlemmer har fri tilgang til banene hele sesongen.
+        </p>
+        <span
+          class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-accent-700 dark:text-accent-400"
+          >Se medlemskap →</span
+        >
       </a>
-    </div>
-  </section>
+    </CardGrid>
+  </Container>
 
   <!-- Siste nyheter -->
-  {latestNews.length > 0 && (
-    <section class="bg-gray-50 dark:bg-gray-900 py-16 px-4">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold text-green-800 dark:text-green-300 mb-8">Siste nyheter</h2>
-        <div class="grid md:grid-cols-3 gap-6">
-          {latestNews.map((post) => {
-            const categories = post.data.categories?.filter(c => c !== "ukategorisert") ?? [];
-            return (
-              <a href={`${base}nyheter/${post.id}`} class="group block bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5">
-                <div class="flex flex-wrap items-center gap-2 mb-2">
-                  <span class="text-xs font-medium text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2 py-0.5 rounded-full">
-                    {post.data.date.toLocaleDateString("no-NO", { day: "numeric", month: "long", year: "numeric" })}
-                  </span>
-                  {categories.map(cat => (
-                    <span class="text-xs text-gray-600 dark:text-gray-400 bg-white dark:bg-gray-700 border border-green-100 dark:border-gray-600 px-2 py-0.5 rounded-full">{cat}</span>
-                  ))}
-                </div>
-                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-green-700 dark:group-hover:text-green-400 transition-colors mb-0">
-                  {post.data.title}
-                </h3>
-                {(post.data.ingress ?? post.data.description) && (
-                  <p class="text-gray-600 dark:text-gray-400 text-sm mt-2 line-clamp-2">{post.data.ingress ?? post.data.description}</p>
-                )}
-              </a>
-            );
-          })}
-        </div>
-        <div class="mt-8 text-center">
-          <a href={`${base}nyheter`} class="inline-flex items-center gap-2 bg-green-700 text-white px-6 py-3 rounded-full hover:bg-green-800 transition-colors font-semibold min-h-[44px]">
-            Se alle nyheter →
-          </a>
-        </div>
-      </div>
-    </section>
-  )}
-
+  {
+    latestNews.length > 0 && (
+      <section class="bg-gray-50 py-16 dark:bg-gray-900">
+        <Container size="wide">
+          <h2 class="mb-8 text-3xl font-bold text-brand-800 dark:text-brand-300">Siste nyheter</h2>
+          <CardGrid cols={3}>
+            {latestNews.map((post) => {
+              const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
+              return (
+                <a
+                  href={`${base}nyheter/${post.id}`}
+                  class="group block rounded-xl border border-brand-100 bg-brand-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
+                >
+                  <div class="mb-2 flex flex-wrap items-center gap-2">
+                    <span class="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700 dark:bg-brand-900/30 dark:text-brand-400">
+                      {post.data.date.toLocaleDateString("no-NO", {
+                        day: "numeric",
+                        month: "long",
+                        year: "numeric",
+                      })}
+                    </span>
+                    {categories.map((cat) => (
+                      <span class="rounded-full border border-brand-100 bg-white px-2 py-0.5 text-xs text-gray-600 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-400">
+                        {cat}
+                      </span>
+                    ))}
+                  </div>
+                  <h3 class="mb-0 text-lg font-bold text-gray-900 transition-colors group-hover:text-brand-700 dark:text-gray-100 dark:group-hover:text-brand-400">
+                    {post.data.title}
+                  </h3>
+                  {(post.data.ingress ?? post.data.description) && (
+                    <p class="mt-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
+                      {post.data.ingress ?? post.data.description}
+                    </p>
+                  )}
+                </a>
+              );
+            })}
+          </CardGrid>
+          <div class="mt-8 text-center">
+            <a
+              href={`${base}nyheter`}
+              class="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-brand-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-800"
+            >
+              Se alle nyheter →
+            </a>
+          </div>
+        </Container>
+      </section>
+    )
+  }
 </Layout>

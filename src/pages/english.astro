@@ -1,6 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { CalendarCheck } from "@lucide/astro";
+import Container from "../components/layout/Container.astro";
+import HeroSection from "../components/layout/HeroSection.astro";
+import Button from "../components/ui/Button.astro";
+import SectionHeading from "../components/layout/SectionHeading.astro";
+import RichTextBlock from "../components/ui/RichTextBlock.astro";
+import Divider from "../components/ui/Divider.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -10,118 +16,105 @@ const base = import.meta.env.BASE_URL;
   description="Welcome to Ås Tennis Club. Information about courts, membership and courses in English."
   lang="en"
   languageAlternates={[
-	{ href: new URL(Astro.url.pathname, Astro.site).href, hrefLang: "en" },
-	{ href: new URL("/", Astro.site).href, hrefLang: "no" },
-	{ href: new URL("/", Astro.site).href, hrefLang: "x-default" },
+    { href: new URL(Astro.url.pathname, Astro.site).href, hrefLang: "en" },
+    { href: new URL("/", Astro.site).href, hrefLang: "no" },
+    { href: new URL("/", Astro.site).href, hrefLang: "x-default" },
   ]}
 >
-
   <!-- Hero -->
-  <section class="bg-green-800 dark:bg-green-700 text-white py-10 md:py-14 px-4">
-	<div class="max-w-6xl mx-auto">
-	  <h1 class="text-3xl md:text-5xl font-bold mb-3">Welcome to Ås Tennis Club</h1>
-	  <p class="text-green-200 text-base md:text-lg max-w-xl">
-		Tennis for everyone – regardless of age or skill level.
-	  </p>
-	  <a href="https://banebooking.aastk.no" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 mt-6 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-semibold px-6 py-3 rounded-full min-h-[44px] transition-colors">Book a court</a>
-	</div>
-  </section>
+  <HeroSection>
+    <h1 class="mb-3 text-3xl font-bold md:text-5xl">Welcome to Ås Tennis Club</h1>
+    <p class="max-w-xl text-base text-brand-200 md:text-lg">
+      Tennis for everyone – regardless of age or skill level.
+    </p>
+    <Button
+      variant="highlight"
+      href="https://banebooking.aastk.no"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="mt-6">Book a court</Button
+    >
+  </HeroSection>
 
-  <div class="max-w-4xl mx-auto px-4 py-12 space-y-12">
+  <Container padded class="space-y-12">
+    <!-- Tennis Courts -->
+    <section>
+      <SectionHeading title="Tennis courts" />
+      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
+        <p>We have 3 outdoor courts</p>
+        <p>Reserve a court using our online booking system:</p>
+      </RichTextBlock>
+      <Button
+        href="https://banebooking.aastk.no"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="my-6"
+      >
+        <CalendarCheck class="h-5 w-5" />
+        Book a court
+      </Button>
+      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
+        <p>
+          As a member you may freely borrow from the club house. We recommend that regular players
+          use their own rackets.
+        </p>
+        <p>
+          The courts are typically open from April/May until November. During winter we cooperate
+          with Drøbak Tennisklubb.
+        </p>
+      </RichTextBlock>
+    </section>
 
-	<!-- Tennis Courts -->
-	<section>
-	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Tennis courts</h2>
-	  <div class="prose prose-green dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-		<p>
-		  We have 3 outdoor courts
-		</p>
-		<p>
-		  Reserve a court using our online booking system:
-		</p>
-	  </div>
-	  <a
-		href="https://banebooking.aastk.no"
-		target="_blank"
-		rel="noopener noreferrer"
-		class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full transition-colors min-h-[44px] my-6"
-	  >
-		<CalendarCheck class="w-5 h-5" />
-		Book a court
-	  </a>
-	  <div class="prose prose-green dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-		<p>
-		  As a member you may freely borrow
-		  from the club house. We recommend that regular players use their own rackets.
-		</p>
-		<p>
-		  The courts are typically open from April/May until November.
-		  During winter we cooperate with Drøbak Tennisklubb.
-		</p>
-	  </div>
-	</section>
+    <Divider />
 
-	<hr class="border-green-100 dark:border-gray-800" />
+    <!-- Membership -->
+    <section>
+      <SectionHeading title="Membership" />
+      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
+        <p>
+          <a href={`${base}medlemskap`} class="link font-semibold">
+            View membership fees and registration form →
+          </a>
+        </p>
+        <p>
+          You may also join by sending an email to
+          <a href="mailto:administrasjon@aastk.no" class="link"> administrasjon@aastk.no </a>
+          Please include your contact information (name, email, phone) and membership type.
+        </p>
+        <p>
+          New members get access to the courts and club house via the <strong>Yale Home app</strong
+          >. Access is activated after the membership fee is paid and we have received your name and
+          mobile number.
+        </p>
+      </RichTextBlock>
+    </section>
 
-	<!-- Membership -->
-	<section>
-	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Membership</h2>
-	  <div class="prose prose-green dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-		<p>
-		  <a href={`${base}medlemskap`} class="text-green-700 dark:text-green-400 font-semibold hover:underline">
-			View membership fees and registration form →
-		  </a>
-		</p>
-		<p>
-		  You may also join by sending an email to
-		  <a href="mailto:administrasjon@aastk.no" class="text-green-700 dark:text-green-400 hover:underline">
-			administrasjon@aastk.no
-		  </a>.
-		  Please include your contact information (name, email, phone) and membership type.
-		</p>
-		<p>
-		  New members get access to the courts and club house via the <strong>Yale Home app</strong>.
-		  Access is activated after the membership fee is paid and we have received your name and mobile number.
-		</p>
-	  </div>
-	</section>
+    <Divider />
 
-	<hr class="border-green-100 dark:border-gray-800" />
+    <!-- Courses -->
+    <section>
+      <SectionHeading title="Courses and training" />
+      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
+        <p>Ås Tennis Club offers training and courses for all ages and levels.</p>
+        <p>
+          <a href={`${base}trening`} class="link font-semibold"> View training schedule → </a>
+        </p>
+        <p>
+          For more information, contact our coach at
+          <a href="mailto:im@aastk.no" class="link"> im@aastk.no </a>
+        </p>
+      </RichTextBlock>
+    </section>
 
-	<!-- Courses -->
-	<section>
-	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Courses and training</h2>
-	  <div class="prose prose-green dark:prose-invert max-w-none text-gray-700 dark:text-gray-300 space-y-4">
-		<p>
-		  Ås Tennis Club offers training and courses for all ages and levels.
-		</p>
-		<p>
-		  <a href={`${base}trening`} class="text-green-700 dark:text-green-400 font-semibold hover:underline">
-			View training schedule →
-		  </a>
-		</p>
-		<p>
-		  For more information, contact our coach at
-		  <a href="mailto:im@aastk.no" class="text-green-700 dark:text-green-400 hover:underline">
-			im@aastk.no
-		  </a>.
-		</p>
-	  </div>
-	</section>
+    <Divider />
 
-	<hr class="border-green-100 dark:border-gray-800" />
-
-	<!-- Contact -->
-	<section>
-	  <h2 class="text-2xl font-bold text-green-800 dark:text-green-300 mb-4">Contact</h2>
-	  <p class="text-gray-700 dark:text-gray-300">
-		Need more information?
-		<a href={`${base}om-klubben`} class="text-green-700 dark:text-green-400 font-semibold hover:underline">
-		  View our contact details →
-		</a>
-	  </p>
-	</section>
-
-  </div>
-
+    <!-- Contact -->
+    <section>
+      <SectionHeading title="Contact" />
+      <p class="text-gray-700 dark:text-gray-300">
+        Need more information?
+        <a href={`${base}om-klubben`} class="link font-semibold"> View our contact details → </a>
+      </p>
+    </section>
+  </Container>
 </Layout>

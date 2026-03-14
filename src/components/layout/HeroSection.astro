@@ -1,0 +1,17 @@
+---
+import { cn } from "@/lib/cn";
+import Container from "./Container.astro";
+
+interface Props {
+  size?: "content" | "wide" | "narrow";
+  class?: string;
+}
+
+const { size = "wide", class: className } = Astro.props;
+---
+
+<section class={cn("bg-brand-800 dark:bg-brand-700 text-white py-10 md:py-14", className)}>
+  <Container size={size}>
+    <slot />
+  </Container>
+</section>

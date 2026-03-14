@@ -1,0 +1,35 @@
+---
+import { FileDown } from "@lucide/astro";
+
+interface Attachment {
+  url: string;
+  name?: string;
+}
+
+interface Props {
+  attachments: Attachment[];
+}
+
+const { attachments } = Astro.props;
+---
+
+{
+  attachments.length > 0 && (
+    <div class="flex flex-col gap-3">
+      {attachments.map((a) => {
+        const filename = a.name ?? a.url.split("/").pop() ?? a.url;
+        return (
+          <a
+            href={a.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-[44px] items-center gap-3 rounded-xl border border-brand-100 bg-brand-50 px-5 py-3 font-semibold text-brand-700 transition-colors hover:bg-brand-100 dark:border-gray-700 dark:bg-gray-800 dark:text-brand-400 dark:hover:bg-gray-700"
+          >
+            <FileDown class="h-5 w-5 shrink-0" />
+            {filename}
+          </a>
+        );
+      })}
+    </div>
+  )
+}

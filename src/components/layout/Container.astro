@@ -1,0 +1,21 @@
+---
+import { cn } from "@/lib/cn";
+
+interface Props {
+  size?: "content" | "wide" | "narrow";
+  padded?: boolean;
+  class?: string;
+}
+
+const { size = "content", padded = false, class: className } = Astro.props;
+
+const widths = {
+  content: "max-w-4xl",
+  wide: "max-w-6xl",
+  narrow: "max-w-3xl",
+};
+---
+
+<div class={cn(widths[size], "mx-auto px-4", padded && "py-12", className)}>
+  <slot />
+</div>

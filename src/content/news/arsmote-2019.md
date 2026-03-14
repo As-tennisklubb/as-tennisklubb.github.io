@@ -1,13 +1,14 @@
 ---
 title: "Årsmøte 2019"
 date: 2019-01-21
-categories: 
+categories:
   - "arrangementer"
   - "aarsmote"
   - "styret"
-tags: 
+tags:
   - "arsmote"
 ---
+
 Husk årsmøtet i Sagaveien 3 tirsdag **26 februar** 2019.
 
 Sakspapirer:

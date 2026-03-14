@@ -2,34 +2,54 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  /* Fargepalett basert på #4C911F (§11) */
-  --color-green-50:  #f6faf4;
-  --color-green-100: #e4efdd;
-  --color-green-200: #c0d9b1;
-  --color-green-300: #94bd79;
-  --color-green-400: #70a74c;
-  --color-green-500: #4C911F;
-  --color-green-600: #3d7419;
-  --color-green-700: #2e5713;
-  --color-green-800: #1e3a0c;
-  --color-green-900: #0f1d06;
-  --color-green-950: #080f03;
+  /* =========================================================
+   * Primary brand – hovedfarge (grønn)
+   * Brukes til:
+   * - primære knapper
+   * - lenker (.link)
+   * - section headings
+   * - fokus-outline
+   * - primary UI states
+   * ========================================================= */
+  --color-brand-50: #f6faf4;
+  --color-brand-100: #e4efdd;
+  --color-brand-200: #c0d9b1;
+  --color-brand-300: #94bd79;
+  --color-brand-400: #70a74c;
+  --color-brand-500: #4c911f;
+  --color-brand-600: #3d7419;
+  --color-brand-700: #2e5713;
+  --color-brand-800: #1e3a0c;
+  --color-brand-900: #0f1d06;
+  --color-brand-950: #080f03;
 
-  /* Fargepalett basert på logo-oransje #f28d3b */
-  --color-brand-orange-50:  #fef6ee;
-  --color-brand-orange-100: #fde8d0;
-  --color-brand-orange-200: #faca9c;
-  --color-brand-orange-300: #f7a965;
-  --color-brand-orange-400: #f49444;
-  --color-brand-orange-500: #f28d3b;
-  --color-brand-orange-600: #d4721f;
-  --color-brand-orange-700: #a85618;
-  --color-brand-orange-800: #7a3d12;
-  --color-brand-orange-900: #4e270b;
-  --color-brand-orange-950: #2b1405;
+  /* =========================================================
+   * Accent – sekundærfarge (logo-oransje)
+   * Brukes til:
+   * - sekundære CTA-er (Button secondary)
+   * - feature/link cards
+   * - visuelle aksenter
+   *
+   * Kalles "accent" i stedet for "brand-orange" fordi
+   * rollen er viktigere enn selve fargen. Kan byttes
+   * uten å endre markup.
+   * ========================================================= */
+  --color-accent-50: #fef6ee;
+  --color-accent-100: #fde8d0;
+  --color-accent-200: #faca9c;
+  --color-accent-300: #f7a965;
+  --color-accent-400: #f49444;
+  --color-accent-500: #f28d3b;
+  --color-accent-600: #d4721f;
+  --color-accent-700: #a85618;
+  --color-accent-800: #7a3d12;
+  --color-accent-900: #4e270b;
+  --color-accent-950: #2b1405;
 }
 
-/* §9 Typografi – line-height 1.4–1.6, lesbar body */
+/* =========================================================
+ * Base typography
+ * ========================================================= */
 html {
   font-size: 16px;
 }
@@ -38,19 +58,91 @@ body {
   line-height: 1.6;
 }
 
-/* Tastaturnavigasjon – synlig fokus for alle interaktive elementer */
+/* =========================================================
+ * Accessibility – synlig tastaturfokus
+ * ========================================================= */
 :focus-visible {
-  outline: 2px solid var(--color-green-500);
+  outline: 2px solid var(--color-brand-500);
   outline-offset: 2px;
   border-radius: 2px;
 }
 
-/* Redusert bevegelse – respekterer brukerens systeminnstilling */
+/* =========================================================
+ * Reduced motion
+ * ========================================================= */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+ * Design-system notes
+ *
+ * Spacing-skala (8px-basert)
+ *
+ * page-y        = py-12      = 48px
+ * section-gap   = mb-12      = 48px
+ * block-gap     = mb-6       = 24px
+ * element-gap   = mb-4       = 16px
+ * card-grid-gap = gap-6      = 24px
+ * hero-py       = py-14      = 56px
+ *
+ * Bruk disse verdiene konsekvent for de angitte formålene.
+ * ========================================================= */
+
+/* =========================================================
+ * Components / utilities
+ * ========================================================= */
+@layer components {
+  /* Brand link – standard tekstlenke */
+  .link {
+    @apply text-brand-700 hover:underline dark:text-brand-400;
+  }
+
+  /* Accent link – for oransje lenker i feature-flater */
+  .link-accent {
+    @apply text-accent-700 hover:underline dark:text-accent-400;
+  }
+
+  /* Kompakt datakort (mobil ResponsiveDataList) */
+  .data-card {
+    @apply rounded-xl border border-gray-100 bg-white p-4 dark:border-gray-700 dark:bg-gray-800;
+  }
+
+  /* Datatabell – felles stil for alle responsive tabeller */
+  .data-table {
+    @apply w-full text-sm;
+  }
+  .data-table thead tr {
+    @apply border-b-2 border-brand-200 dark:border-brand-800;
+  }
+  .data-table th {
+    @apply py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300;
+  }
+  .data-table th:last-child {
+    @apply pr-0;
+  }
+  .data-table tbody tr {
+    @apply border-b border-gray-100 transition-colors hover:bg-brand-50 dark:border-gray-800 dark:hover:bg-gray-800;
+  }
+  .data-table td {
+    @apply py-3 pr-6 text-gray-600 dark:text-gray-400;
+  }
+  .data-table td:last-child {
+    @apply pr-0;
+  }
+
+  /* Surface-utilities for fargede bakgrunnsflater */
+  .surface-brand {
+    @apply bg-brand-50 dark:bg-brand-950/20;
+  }
+  .surface-accent {
+    @apply bg-accent-50 dark:bg-accent-950/20;
   }
 }

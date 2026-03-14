@@ -2,11 +2,12 @@
 title: "Lynkurs i tennis"
 ingress: "Velkommen til lynkurs i tennis mandag 14. juni til torsdag 17. juni"
 date: 2021-05-20
-categories: 
+categories:
   - "kurstrening"
-tags: 
+tags:
   - "obs"
 ---
+
 Velkommen til lynkurs i tennis mandag 14. juni til torsdag 17. juni
 
 # Tidspunkt

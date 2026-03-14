@@ -2,10 +2,11 @@
 title: "Sommerturnering"
 ingress: "Lørdag 2. juni arrangerer vi igjen vår tradisjonelle sommerturnering."
 date: 2018-05-27
-categories: 
+categories:
   - "arrangementer"
   - "turneringer"
 ---
+
 Lørdag 2. juni arrangerer vi igjen vår tradisjonelle sommerturnering.
 
 I motsetning til det mer formelle klubbmesterskapet, som avholdes senere på høsten, så er denne sommerturneringen mest for moro skyld. Vi skal forsøke å sette opp kamper ut fra alder og noenlunde nivå - og oppfordrer derfor spesielt nye medlemmer til å melde seg på.

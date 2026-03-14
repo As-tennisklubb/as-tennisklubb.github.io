@@ -2,12 +2,13 @@
 title: "Ås Open lørdag 6. juni"
 ingress: "Velkommen til en uhøytidelig tennisturnering lørdag 6. juni. Som vanlig kjører vi innledende round-robin grupper med 1-set kamper. Alle for da spilt flere kamper og møtt forskjellige motstandere."
 date: 2020-05-29
-categories: 
+categories:
   - "arrangementer"
   - "turneringer"
-tags: 
+tags:
   - "obs"
 ---
+
 Velkommen til en uhøytidelig tennisturnering lørdag 6. juni.  
 Som vanlig kjører vi innledende round-robin grupper med 1-set kamper. Alle for da spilt flere kamper og møtt forskjellige motstandere.
 

@@ -9,10 +9,7 @@ const news = defineCollection({
     description: z.string().optional(),
     date: z.coerce.date(),
     author: z.string().optional(),
-    categories: z.union([
-      z.array(z.string()),
-      z.string().transform(s => [s]),
-    ]).optional(),
+    categories: z.union([z.array(z.string()), z.string().transform((s) => [s])]).optional(),
     tags: z.array(z.string()).optional(),
     draft: z.boolean().optional(),
     cover: z.string().optional(),

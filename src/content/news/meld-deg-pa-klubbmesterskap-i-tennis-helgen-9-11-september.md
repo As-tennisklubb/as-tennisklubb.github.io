@@ -2,14 +2,15 @@
 title: "Meld deg på klubbmesterskap i tennis - helgen 9. - 11. september"
 ingress: "Vi ønsker alle medlemmer hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet andre helgen i september."
 date: 2022-08-25
-categories: 
+categories:
   - "turneringer"
-tags: 
+tags:
   - "obs"
 ---
-**Vi ønsker alle medlemmer hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet andre helgen i september.**  
 
-Det siste året har det gledelig nok vært mange påmeldte i Ås Open og klubbmesterskap.  
+**Vi ønsker alle medlemmer hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet andre helgen i september.**
+
+Det siste året har det gledelig nok vært mange påmeldte i Ås Open og klubbmesterskap.
 
 Program med tidspunkter blir sendt ut i begynnelse av uke 36.
 
@@ -17,7 +18,7 @@ Følg [Ås tennisklubb på facebook](https://www.facebook.com/aastennisklubb) fo
 
 ## Påmelding
 
-[Meld deg på](https://forms.gle/YMCuzuSDUXR8Wmzr7) nå eller senest i løpet av søndag 4. september.   
+[Meld deg på](https://forms.gle/YMCuzuSDUXR8Wmzr7) nå eller senest i løpet av søndag 4. september. 
 
 Du kan melde deg på følgende:
 
@@ -28,7 +29,7 @@ Du kan melde deg på følgende:
 - Herrer double \*\*\*
 - Mixed double \*\*\*
 
-I tillegg er det mulig å delta i kampen om å bli poengmester \*\*\*\* i klubbmesterskapet.   
+I tillegg er det mulig å delta i kampen om å bli poengmester \*\*\*\* i klubbmesterskapet. 
 
 Avhengig av hvor mange påmeldte i de forskjellige klassene, vil vi legge opp til enten cup, gruppespill eller å dele inn i grupper som spiller round robin før kvartfinale, semifinaler og finale.
 

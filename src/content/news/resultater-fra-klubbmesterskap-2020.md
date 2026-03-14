@@ -2,10 +2,11 @@
 title: "Resultater fra klubbmesterskap 2020"
 ingress: "Lørdag 5. og søndag 6. september var det klubbmesterskap med rekordmange deltakere, åpning av flunkende nytt lysanlegg og første klubbmesterfinale i flomlys."
 date: 2020-09-07
-categories: 
+categories:
   - "arrangementer"
   - "turneringer"
 ---
+
 **Lørdag 5. og søndag 6. september var det klubbmesterskap med rekordmange deltakere, åpning av flunkende nytt lysanlegg og første klubbmesterfinale i flomlys.**
 
 Fordelt på ni nasjonaliteter var det 20 påmeldte i herreklassen, seks i dameklassen, 5 i barneklasse og 2 i juniorklassen i årets mesterskap. Det var med andre ord duket for en tettpakket tennishelg med hyggelige mennesker i strålende vær.
@@ -24,15 +25,13 @@ I poengmester kom deltakerne kom fra gruppespillet i herreklassen og konkurrerte
 
 **Herrer**: Øyvind Engøy
 
-**Poengmester**: Daniel Rasse  
-  
+**Poengmester**: Daniel Rasse
 
 ![](/uploads/Barn-1024x576.jpg)
 
 Fem meget dyktige, vennlige og hardarbeidende deltagere i barneklassen. Det var meget jevnt, men til slutt var det Herman Ingebrigsten Krog som ble klubbmester.  
 Fra venster: Kristoffer Bergvik Haug, Una Viken, Live Viken, Albert Julian Talmo-Rønn og  
-Herman Ingebrigsten Krog.  
-  
+Herman Ingebrigsten Krog.
 
 ![](/uploads/Sondre-og-Jørgen-junior-1024x768.jpg)
 
@@ -50,34 +49,9 @@ Tidenes første herrefinale i flomlys på Ås tennisarena. Kampen var preget av 
 
 Daniel Rasse ble tidenes første poengmester i Ås tennisklubb. - Jeg måtte bli over femti for å min første pokal i idrett, sa den ferske mesteren etter seremonien.
 
-- 
-    
-    ![](/uploads/Malin-in-action-1-1024x881.jpg)
-    
-    
-    
-    Klubbmester Malin Wold med en av sine mange harde og velplasserte forhander.
-    
-    
-    
-    
-    
-- 
-    
-    ![](/uploads/Sondre-serve-1-787x1024.jpg)
-    
-    
-    
-    Klubbmester i juniorklassen, Sondre Lundquist, i servemodus.
-    
-    
-    
-    
-    
-- 
-    
-    ![](/uploads/Øyvind-lystenning-1-1024x576.jpg)
-    
-    
-    
-    Leder av Ås tennisklubb, Øyvind Engøy, med velvalgte ord og historier, før lysanlegget på Ås tennisarena ble offisielt åpnet til applaus fra mange fremmøtte.
+- ![](/uploads/Malin-in-action-1-1024x881.jpg)
+  Klubbmester Malin Wold med en av sine mange harde og velplasserte forhander.
+- ![](/uploads/Sondre-serve-1-787x1024.jpg)
+  Klubbmester i juniorklassen, Sondre Lundquist, i servemodus.
+- ![](/uploads/Øyvind-lystenning-1-1024x576.jpg)
+  Leder av Ås tennisklubb, Øyvind Engøy, med velvalgte ord og historier, før lysanlegget på Ås tennisarena ble offisielt åpnet til applaus fra mange fremmøtte.

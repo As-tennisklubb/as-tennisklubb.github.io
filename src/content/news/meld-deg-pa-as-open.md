@@ -2,11 +2,12 @@
 title: "Meld deg på Ås Open"
 ingress: "Velkommen til Ås Open 17. - 19. juni! Ås Open er en uhøytidelig tennisturnering med lav terskel for å spille mye tennis og ha det hyggelig!"
 date: 2022-06-06
-categories: 
+categories:
   - "turneringer"
-tags: 
+tags:
   - "obs"
 ---
+
 Velkommen til Ås Open 17. - 19. juni! Ås Open er en uhøytidelig tennisturnering med lav terskel for å spille mye tennis og ha det hyggelig!
 
 [Meld deg på nå - senest i løpet av 14. juni!](https://forms.gle/8G4V1dENhF531WtN6)

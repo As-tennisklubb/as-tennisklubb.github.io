@@ -2,23 +2,24 @@
 title: "Meld deg på klubbmesterskap i tennis - helgen 3. - 5. september"
 ingress: "Vi ønsker alle medlemmer i Ås tennisklubb hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet første helgen i september."
 date: 2021-08-10
-categories: 
+categories:
   - "arrangementer"
   - "turneringer"
-tags: 
+tags:
   - "obs"
 ---
-**Vi ønsker alle medlemmer i Ås tennisklubb hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet første helgen i september.**  
 
-Det siste året har det gledelig nok vært rekordmange påmeldte i Ås Open og klubbmesterskap.  
+**Vi ønsker alle medlemmer i Ås tennisklubb hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet første helgen i september.**
 
-Avhengig av antall påmeldte kan det derfor bli aktuelt å avvikle enkelte grupper og kamper på ettermiddagene onsdag 1., torsdag 2. og fredag 3. september.   
+Det siste året har det gledelig nok vært rekordmange påmeldte i Ås Open og klubbmesterskap.
+
+Avhengig av antall påmeldte kan det derfor bli aktuelt å avvikle enkelte grupper og kamper på ettermiddagene onsdag 1., torsdag 2. og fredag 3. september. 
 
 Program med tidspunkter blir sendt ut i løpet av mandag 30 august. Følg [Aas tennisklubb på facebokk](https://www.facebook.com/aastennisklubb) for nyheter, meldinger og varsler før, under og etter mesterskapet. 
 
 ## Påmelding
 
-[Meld deg på](https://docs.google.com/forms/d/e/1FAIpQLSeYadcMBQIGjjpVa8_Ff5uIynBVHYIjDoy-7n_au6TOBlm3XA/viewform)  senest i løpet av søndag 29. august.   
+[Meld deg på](https://docs.google.com/forms/d/e/1FAIpQLSeYadcMBQIGjjpVa8_Ff5uIynBVHYIjDoy-7n_au6TOBlm3XA/viewform)  senest i løpet av søndag 29. august. 
 
 Du kan melde deg på følgende:
 
@@ -29,9 +30,9 @@ Du kan melde deg på følgende:
 - Herrer double \*\*\*
 - Mixed double \*\*\*
 
-I tillegg er det mulig å delta i kampen om å bli poengmester \*\*\*\* i klubbmesterskapet.   
+I tillegg er det mulig å delta i kampen om å bli poengmester \*\*\*\* i klubbmesterskapet. 
 
-Avhengig av hvor mange påmeldte i de forskjellige klassene, vil vi legge opp til enten cup, gruppespill eller å dele inn i grupper som spiller round robin før kvartfinale, semifinaler og finale.  
+Avhengig av hvor mange påmeldte i de forskjellige klassene, vil vi legge opp til enten cup, gruppespill eller å dele inn i grupper som spiller round robin før kvartfinale, semifinaler og finale.
 
 \* Gruppespill singel: Herrer, damer, junior: Ett sett
 

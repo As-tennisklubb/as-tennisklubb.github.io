@@ -2,9 +2,10 @@
 title: "Ås Open 2024"
 ingress: "I år stilte 10 herrer (fordelt på 2 grupper), 3 damer, 3 junior, 3 mixed lag og hele 4 lag i herre-double."
 date: 2024-06-24
-categories: 
+categories:
   - "ukategorisert"
 ---
+
 I år stilte 10 herrer (fordelt på 2 grupper), 3 damer, 3 junior, 3 mixed lag og hele 4 lag i herre-double.
 
 På grunn av mye regn lørdag startet vi allerede fredag ettermiddag, så med noen få timer på lørdag og en veldig tight plan for søndag klarte vi å fullføre for alle klasser.
@@ -28,13 +29,13 @@ Håper å se de fleste av dere også på klubbmesterskapet til høsten.
 God sommer!
 
 ![](/uploads/Junior.png)
-*Juniorvinner Mathias Rånås flankert av Camilla Lundqvist og Herman Ingebrigtsen Krog*
+_Juniorvinner Mathias Rånås flankert av Camilla Lundqvist og Herman Ingebrigtsen Krog_
 
 ![](/uploads/Damer.png)
-*Vinner Andrea Larsen flankert av Marianne Bråthen (t.v.) og Nina Lundqvist*
+_Vinner Andrea Larsen flankert av Marianne Bråthen (t.v.) og Nina Lundqvist_
 
 ![](/uploads/Peder-Elias.png)
-*Double-vinnere Elias Pettersen Nævdal og Peder Hvidsten Hem*
+_Double-vinnere Elias Pettersen Nævdal og Peder Hvidsten Hem_
 
 ![](/uploads/Herrer.png)
-*Herre-vinner og fotograf Øyvind Engøy og finalist Øystein Eskeland*
+_Herre-vinner og fotograf Øyvind Engøy og finalist Øystein Eskeland_

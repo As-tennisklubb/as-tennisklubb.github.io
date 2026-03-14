@@ -1,6 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { Users } from "@lucide/astro";
+import Container from "../components/layout/Container.astro";
+import PageSection from "../components/layout/PageSection.astro";
+import RichTextBlock from "../components/ui/RichTextBlock.astro";
+import ResponsiveDataList from "../components/content/ResponsiveDataList.astro";
+
+const styret = [
+  { navn: "Øyvind Engøy", rolle: "Leder", epost: "leder@aastk.no", tlf: "950 55 078" },
+  { navn: "Lars Rønn", rolle: "Nestleder", epost: "im@aastk.no", tlf: "951 26 858" },
+  {
+    navn: "Lone Ross",
+    rolle: "Administrasjon",
+    epost: "administrasjon@aastk.no",
+    tlf: "911 97 268",
+  },
+  { navn: "James Randall Fennell", rolle: "Anlegg", epost: "anlegg@aastk.no", tlf: "997 98 972" },
+  { navn: "Rune Sundbø", rolle: "Dugnad / anlegg", epost: "anlegg@aastk.no", tlf: "922 83 185" },
+];
 ---
 
 <Layout
@@ -9,87 +26,80 @@ import { Users } from "@lucide/astro";
   pageTitle="Om Ås Tennisklubb"
   pageDescription="Tennisklubb for alle i Ås – stiftet i 1976."
 >
-  <div class="max-w-4xl mx-auto px-4 py-12">
+  <Container padded>
+    <PageSection title="Om oss">
+      <RichTextBlock>
+        <p>
+          Som medlem spiller du så mye du vil – uten å betale per gang. Tre grusbaner ved Ås stadion
+          er tilgjengelige fra april til november.
+        </p>
+        <p>
+          Vi tilbyr kurs for barn og voksne, uansett nivå. Racketer og baller kan lånes gratis i
+          klubbhuset.
+        </p>
+        <p>
+          Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion.
+        </p>
+      </RichTextBlock>
+    </PageSection>
 
-	<!-- §5 F-pattern: viktigste informasjon øverst til venstre -->
-	<section class="mb-12" aria-labelledby="om-oss-heading">
-	  <div class="flex items-center gap-3 mb-4">
-		<h2 id="om-oss-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Om oss</h2>
-	  </div>
-	  <div class="prose prose-green dark:prose-invert max-w-none">
-		<p>
-		  Som medlem spiller du så mye du vil – uten å betale per gang.
-		  Tre grusbaner ved Ås stadion er tilgjengelige fra april til november.
-		</p>
-		<p>
-		  Vi tilbyr kurs for barn og voksne, uansett nivå.
-		  Racketer og baller kan lånes gratis i klubbhuset.
-		</p>
-		<p>
-		  Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion.
-		</p>
-	  </div>
-	</section>
-
-	<!-- Styre (§6 Gestalt proximity: relatert info gruppert) -->
-	<section aria-labelledby="styre-heading">
-	  <div class="flex items-center gap-3 mb-6">
-		<Users class="w-6 h-6 text-green-700 dark:text-green-400 shrink-0" />
-		<h2 id="styre-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Styre og kontaktpersoner</h2>
-	  </div>
-
-	  <!-- Mobil: kort-visning (§1 mobile-first) -->
-	  <div class="flex flex-col gap-3 md:hidden">
-		{[
-		  { navn: "Øyvind Engøy",          rolle: "Leder",          epost: "leder@aastk.no",           tlf: "950 55 078" },
-		  { navn: "Lars Rønn",              rolle: "Nestleder",      epost: "im@aastk.no",               tlf: "951 26 858" },
-		  { navn: "Lone Ross",              rolle: "Administrasjon", epost: "administrasjon@aastk.no",   tlf: "911 97 268" },
-		  { navn: "James Randall Fennell",  rolle: "Anlegg",         epost: "anlegg@aastk.no",           tlf: "997 98 972" },
-		  { navn: "Rune Sundbø",            rolle: "Dugnad / anlegg",epost: "anlegg@aastk.no",           tlf: "922 83 185" },
-		].map(({ navn, rolle, epost, tlf }) => (
-		  <div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-4">
-			<p class="font-semibold text-gray-900 dark:text-gray-100">{navn}</p>
-			<p class="text-sm text-green-700 dark:text-green-400 mb-2">{rolle}</p>
-			<a href={`mailto:${epost}`} class="block text-sm text-gray-600 dark:text-gray-400 hover:text-green-700 dark:hover:text-green-400 transition-colors">{epost}</a>
-			<a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="block text-sm text-gray-600 dark:text-gray-400 hover:text-green-700 dark:hover:text-green-400 transition-colors">{tlf}</a>
-		  </div>
-		))}
-	  </div>
-
-	  <!-- Desktop: tabell (§2 grid) -->
-	  <div class="hidden md:block overflow-x-auto">
-		<table class="w-full text-sm">
-		  <thead>
-			<tr class="border-b-2 border-green-200 dark:border-green-800">
-			  <th class="py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300">Navn</th>
-			  <th class="py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300">Rolle</th>
-			  <th class="py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300">E-post</th>
-			  <th class="py-3 text-left font-semibold text-gray-700 dark:text-gray-300">Telefon</th>
-			</tr>
-		  </thead>
-		  <tbody>
-			{[
-			  { navn: "Øyvind Engøy",          rolle: "Leder",          epost: "leder@aastk.no",           tlf: "950 55 078" },
-			  { navn: "Lars Rønn",              rolle: "Nestleder",      epost: "im@aastk.no",               tlf: "951 26 858" },
-			  { navn: "Lone Ross",              rolle: "Administrasjon", epost: "administrasjon@aastk.no",   tlf: "911 97 268" },
-			  { navn: "James Randall Fennell",  rolle: "Anlegg",         epost: "anlegg@aastk.no",           tlf: "997 98 972" },
-			  { navn: "Rune Sundbø",            rolle: "Dugnad / anlegg",epost: "anlegg@aastk.no",           tlf: "922 83 185" },
-			].map(({ navn, rolle, epost, tlf }) => (
-			  <tr class="border-b border-gray-100 dark:border-gray-800 hover:bg-green-50 dark:hover:bg-gray-800 transition-colors">
-				<td class="py-3 pr-6 font-medium text-gray-900 dark:text-gray-100">{navn}</td>
-				<td class="py-3 pr-6 text-gray-600 dark:text-gray-400">{rolle}</td>
-				<td class="py-3 pr-6">
-				  <a href={`mailto:${epost}`} class="text-green-700 dark:text-green-400 hover:underline">{epost}</a>
-				</td>
-				<td class="py-3">
-				  <a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="text-green-700 dark:text-green-400 hover:underline">{tlf}</a>
-				</td>
-			  </tr>
-			))}
-		  </tbody>
-		</table>
-	  </div>
-	</section>
-
-  </div>
+    <PageSection title="Styre og kontaktpersoner" icon={Users}>
+      <ResponsiveDataList>
+        <Fragment slot="mobile">
+          {
+            styret.map(({ navn, rolle, epost, tlf }) => (
+              <div class="data-card">
+                <p class="font-semibold text-gray-900 dark:text-gray-100">{navn}</p>
+                <p class="mb-2 text-sm text-brand-700 dark:text-brand-400">{rolle}</p>
+                <a
+                  href={`mailto:${epost}`}
+                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
+                >
+                  {epost}
+                </a>
+                <a
+                  href={`tel:+47${tlf.replace(/\s/g, "")}`}
+                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
+                >
+                  {tlf}
+                </a>
+              </div>
+            ))
+          }
+        </Fragment>
+        <Fragment slot="desktop">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Navn</th>
+                <th>Rolle</th>
+                <th>E-post</th>
+                <th>Telefon</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                styret.map(({ navn, rolle, epost, tlf }) => (
+                  <tr>
+                    <td class="font-medium text-gray-900 dark:text-gray-100">{navn}</td>
+                    <td>{rolle}</td>
+                    <td>
+                      <a href={`mailto:${epost}`} class="link">
+                        {epost}
+                      </a>
+                    </td>
+                    <td>
+                      <a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="link">
+                        {tlf}
+                      </a>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </Fragment>
+      </ResponsiveDataList>
+    </PageSection>
+  </Container>
 </Layout>

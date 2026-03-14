@@ -2,9 +2,10 @@
 title: "Ribbeturneringen 2016"
 ingress: "Ås tennisklubb starter som vanlig det nye året med den tradisjonelle ribbeturneringen:"
 date: 2015-12-29
-categories: 
+categories:
   - "ukategorisert"
 ---
+
 Ås tennisklubb starter som vanlig det nye året med den tradisjonelle ribbeturneringen:
 
 [![new_year_firework_icon](/uploads/new_year_firework_icon-150x150.png)](http://www.aastk.no/wp-content/uploads/2015/12/new_year_firework_icon.png)

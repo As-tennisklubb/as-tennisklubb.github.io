@@ -14,7 +14,6 @@ content:
       fields: [title, date, categories]
 
     fields:
-
       - name: title
         label: Tittel
         type: string

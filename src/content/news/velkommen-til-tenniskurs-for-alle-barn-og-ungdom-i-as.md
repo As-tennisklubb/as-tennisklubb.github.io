@@ -2,9 +2,10 @@
 title: "Velkommen til tenniskurs for alle barn og ungdom i Ås!"
 ingress: "Vi starter mandag 24. august. Gratis lån av rackerter og baller"
 date: 2020-08-10
-categories: 
+categories:
   - "ukategorisert"
 ---
+
 Vi starter mandag 24. august. Gratis lån av rackerter og baller
 
 Hver mandag fram til 12. oktober. Værforbehold.

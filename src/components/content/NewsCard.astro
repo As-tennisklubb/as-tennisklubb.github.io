@@ -1,0 +1,54 @@
+---
+import { cn } from "@/lib/cn";
+import Badge from "../ui/Badge.astro";
+
+interface Props {
+  href: string;
+  title: string;
+  date: string;
+  categories?: string[];
+  excerpt?: string;
+  headingLevel?: "h2" | "h3";
+  clampLines?: 2 | 3;
+  class?: string;
+}
+
+const {
+  href,
+  title,
+  date,
+  categories = [],
+  excerpt,
+  headingLevel = "h3",
+  clampLines = 2,
+  class: className,
+} = Astro.props;
+const headingClasses =
+  "text-lg font-bold text-gray-900 dark:text-gray-100 group-hover:text-brand-700 dark:group-hover:text-brand-400 transition-colors";
+const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
+---
+
+<a
+  href={href}
+  class={cn(
+    "group flex flex-col bg-brand-50 dark:bg-gray-800 border border-brand-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5",
+    className,
+  )}
+>
+  <div class="mb-2 flex flex-wrap items-center gap-2">
+    <Badge variant="date">{date}</Badge>
+    {categories.map((cat) => <Badge>{cat}</Badge>)}
+  </div>
+  {
+    headingLevel === "h2" ? (
+      <h2 class={headingClasses}>{title}</h2>
+    ) : (
+      <h3 class={headingClasses}>{title}</h3>
+    )
+  }
+  {
+    excerpt && (
+      <p class={cn("mt-2 text-sm text-gray-600 dark:text-gray-400", clampClass)}>{excerpt}</p>
+    )
+  }
+</a>

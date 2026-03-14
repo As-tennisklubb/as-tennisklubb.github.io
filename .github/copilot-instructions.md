@@ -1,61 +1,192 @@
-# Copilot Instructions
+# Copilot Instructions – Ås Tennisklubb Frontend (v3)
 
-## Project Guidelines
-* Do not perform git operations unless explicitly requested by the user.
-* When requested it is acceptable to run:
+This document defines how AI assistants (Copilot, ChatGPT, etc.) must behave when generating
+frontend code or content for this project.
 
-  * `git add`
-  * `git commit`
-  * `git push`
+The objective is:
 
+consistent, accessible, mobile‑first UI built using the project's component system.
 
-# Frontend Development Specification (AI)
+Nothing in this document overrides the component system.  
+Design theory exists to guide decisions when implementing components and content.
 
-All frontend work must follow:
+---
 
-**Mobile-First, Accessible, Predictable Web Design v1.0**
+# 1. Project Guidelines
 
-These guidelines are based on established research and design systems.
+AI assistants must **never perform git operations unless explicitly requested** by the user.
 
-Sources:
+Allowed when explicitly requested:
 
-* Mobile First — Luke Wroblewski
-* Nielsen Norman Group UX research
-* Material Design layout system
-* WCAG 2.2 accessibility guidelines
-* Gestalt principles of visual perception
-* Atomic Design — Brad Frost
+- git add
+- git commit
+- git push
 
+---
 
+# 2. Source of Truth
 
-# Core Design Principles
+Reusable UI components and patterns are documented in:
 
-Frontend must always prioritize:
+src/components/COMPONENTS.md
 
-* clarity
-* simplicity
-* accessibility
-* performance
-* consistency
-* predictability
+This file is the **primary reference for UI implementation**.
+
+AI must always check this file before generating markup.
+
+If a documented component exists it **must be used instead of recreating the pattern with Tailwind.**
+
+---
+
+# 3. UI Decision Hierarchy
+
+When generating UI follow this order strictly.
+
+1. Use an existing component from COMPONENTS.md
+2. Use documented utility classes from global.css
+3. Reuse an existing layout pattern used elsewhere in the project
+4. Only then write minimal Tailwind markup
+
+Never recreate a component pattern inline.
+
+If a pattern is repeated more than once, suggest extending the component system instead.
+
+---
+
+# 4. Component Usage Rules
+
+Prefer these components when applicable.
+
+Purpose → Component
+
+Page container → <Container padded>
+Section layout → <PageSection>
+Section heading → <SectionHeading>
+Hero banner → <HeroSection>
+CTA buttons → <Button>
+Highlight box → <Callout>
+Long form text → <RichTextBlock>
+Bullet lists → <BulletList>
+Card grids → <CardGrid>
+Structured data → <ResponsiveDataList>
+News items → <NewsCard>
+Navigation cards → <LinkCard>
+Map embed → <LazyMap>
+
+Do not recreate these patterns using raw Tailwind markup.
+
+---
+
+# 5. Utility Classes
+
+The following utilities may be used directly in markup.
+
+.link
+Brand styled inline links
+
+.data-table
+Standard table styling
+
+.data-card
+Mobile card layout for structured data
+
+These utilities should be preferred over manually reproducing the same styling.
+
+---
+
+# 6. Component Overrides
+
+Components support a class prop for **small layout adjustments only**.
+
+Allowed overrides
+
+spacing (mb-4, mt-6)
+layout (flex, gap-_)
+alignment (items-center, text-right)
+width (max-w-_)
+
+Avoid overriding
+
+colors
+padding
+border radius
+typography hierarchy
+shadow system
+
+If repeated overrides are required the component should be extended instead.
+
+---
+
+# 7. Component Extension Rule
+
+If a component almost fits but requires repeated overrides:
+
+Do NOT recreate it inline.
+
+Instead extend the component with
+
+additional props
+variants
+layout options
+
+---
+
+# 8. Preferred Astro Page Structure
+
+Pages should follow this hierarchy.
+
+HeroSection (optional)
+
+Container padded
+PageSection
+SectionHeading
+Content (RichTextBlock / CardGrid / ResponsiveDataList)
+
+CTA section
+
+Footer
+
+Avoid inventing new layout hierarchies if existing components already express the structure.
+
+---
+
+# 9. Core Design Principles
+
+Frontend must always prioritize
+
+clarity
+simplicity
+accessibility
+performance
+consistency
+predictability
 
 If multiple solutions exist choose the **simplest and most consistent one**.
 
 Never introduce visual complexity without a clear purpose.
 
+Sources
 
+Mobile First — Luke Wroblewski
+Nielsen Norman Group UX research
+Material Design layout system
+WCAG 2.2 accessibility guidelines
+Gestalt principles of visual perception
+Atomic Design — Brad Frost
 
-# Mobile-First Layout
+---
 
-Always design **mobile-first**.
+# 10. Mobile‑First Layout
 
-Start layout at:
+Always design mobile first.
+
+Start layout at
 
 375px viewport width
 
 Enhance progressively for larger screens.
 
-## Breakpoints
+Breakpoints
 
 480px
 768px
@@ -63,27 +194,27 @@ Enhance progressively for larger screens.
 1280px
 1440px
 
+---
 
+# 11. Grid System
 
-# Grid System
+Desktop layouts conceptually follow a 12 column grid.
 
-Use a **12 column grid on desktop**.
+Implementation should rely on project components:
 
-Container rules
+Container
+CardGrid
+PageSection
 
-`max-w-6xl mx-auto px-4`
+Avoid manually recreating container patterns.
 
-For inner pages use
+---
 
-`max-w-4xl mx-auto px-4`
+# 12. Spacing System
 
+Spacing follows an 8px scale.
 
-
-# Spacing System
-
-Spacing must follow the **8px scale**.
-
-Allowed values:
+Allowed values
 
 4
 8
@@ -94,16 +225,19 @@ Allowed values:
 64
 96
 
-Reference
-Material Design spacing system
+Primary spacing is controlled by components such as
 
+Container
+PageSection
+CardGrid
 
+Do not introduce new spacing systems.
 
-# Visual Hierarchy
+---
+
+# 13. Visual Hierarchy
 
 Pages must follow predictable structure.
-
-Standard flow:
 
 Hero
 Primary message
@@ -111,81 +245,78 @@ Supporting content
 CTA
 Footer
 
-Use whitespace and contrast to guide the user.
+Whitespace and contrast guide the user.
 
 Reference
 Nielsen Norman Group — Visual Hierarchy
 
+---
 
+# 14. Reading Patterns
 
-# Reading Patterns
+Users scan pages using established reading patterns.
 
-Use established reading patterns.
+Text heavy pages
 
-Text pages:
+F‑pattern
 
-**F-pattern**
+Landing pages
 
-Landing pages:
+Z‑pattern
 
-**Z-pattern**
+Important information should appear
 
-Important information should appear:
-
-* near the top
-* left aligned
-* before scroll
+near the top
+left aligned
+before scroll
 
 Reference
-Nielsen Norman Group — How Users Read on the Web
+Nielsen Norman Group
 
+---
 
+# 15. Gestalt Principles
 
-# Gestalt Principles
+UI composition should respect
 
-UI composition must respect
-
-* proximity
-* similarity
-* continuity
-* closure
+proximity
+similarity
+continuity
+closure
 
 Elements that belong together must appear visually grouped.
 
-Reference
-Gestalt Principles of Visual Perception
+---
 
+# 16. Navigation Rules
 
-
-# Navigation Rules
-
-Maximum **5–7 top-level navigation items**.
+Maximum 5–7 top‑level navigation items.
 
 Reference
 Hick’s Law
 
 Navigation must be
 
-* visible
-* predictable
-* consistent
+visible
+predictable
+consistent
 
+---
 
-
-# Interaction Rules
+# 17. Interaction Rules
 
 Touch targets must be at least
 
-**44 × 44 px**
+44 × 44 px
 
 Reference
 
 Fitts’s Law
 Apple Human Interface Guidelines
 
+---
 
-
-# Typography Rules
+# 18. Typography Rules
 
 Readable text is mandatory.
 
@@ -205,16 +336,16 @@ H3 subsections
 
 Only one H1 per page.
 
+---
 
-
-# Accessibility (WCAG 2.2)
+# 19. Accessibility (WCAG 2.2)
 
 Requirements
 
-* contrast ≥ 4.5:1
-* keyboard navigation must work
-* semantic HTML must be used
-* images require alt text
+contrast ≥ 4.5:1
+keyboard navigation must work
+semantic HTML must be used
+images require alt text
 
 Recommended semantic elements
 
@@ -227,31 +358,45 @@ footer
 Reference
 WCAG 2.2 — W3C Web Accessibility Initiative
 
+---
 
+# 20. Accessibility in Text
 
-# Dark Mode
+Rules
+
+use descriptive links
+avoid "click here"
+always include alt text on images
+explain abbreviations when first used
+
+Reference
+WCAG 2.2
+
+---
+
+# 21. Dark Mode
 
 Dark mode must always be supported.
 
 Implementation
 
-* CSS variables
-* prefers-color-scheme
+CSS variables
+prefers-color-scheme
 
 Every color must have a dark mode equivalent.
 
+---
 
+# 22. Performance
 
-# Performance
-
-Frontend must be optimized.
+Frontend must remain lightweight.
 
 Rules
 
-* minimal JavaScript
-* lazy loading images
-* optimized images (WebP / AVIF)
-* avoid blocking scripts
+minimal JavaScript
+lazy loading images
+optimized images (WebP / AVIF)
+avoid blocking scripts
 
 Target
 
@@ -260,136 +405,9 @@ page load under 2 seconds
 Reference
 Google Web Performance Guidelines
 
+---
 
-
-# Component Architecture
-
-Use component-based architecture.
-
-Component types
-
-layout
-navigation
-form
-content
-feedback
-
-Components must be
-
-* reusable
-* predictable
-* consistent
-
-Reference
-Atomic Design — Brad Frost
-
-
-
-# AI Guardrails
-
-AI must always follow these rules.
-
-AI shall always
-
-* follow mobile-first layout
-* reuse existing layout patterns
-* follow spacing scale
-* follow accessibility rules
-* implement dark mode
-* use existing Tailwind classes
-
-AI shall never
-
-* invent new layout structures
-* break spacing system
-* ignore accessibility
-* introduce complex layouts without reason
-
-
-
-# Mandatory UI Patterns
-
-AI must reuse the following patterns when generating UI.
-
-Do not invent new patterns unless explicitly requested.
-
-
-
-## Standard Section Pattern
-
-All sections must follow this structure.
-
-<section class="max-w-4xl mx-auto px-4 mb-12">
-
-H2 heading
-
-Content block
-
-Optional CTA or list
-
-</section>
-
-
-
-## Standard Hero Pattern
-
-Hero sections must follow this pattern.
-
-<section class="bg-green-800 dark:bg-green-700 text-white py-10 md:py-14 px-4">
-
-<div class="max-w-6xl mx-auto">
-
-H1 headline
-Short intro text
-Primary CTA
-
-</div>
-
-</section>
-
-
-
-## Standard Card Grid
-
-Used for feature blocks.
-
-<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-
-cards
-
-</div>
-
-Card component
-
-<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm">
-
-card content
-
-</div>
-
-
-
-## Standard CTA Button
-
-Primary CTA
-
-<a class="inline-flex items-center gap-2 bg-green-700 hover:bg-green-800 text-white font-semibold px-6 py-3 rounded-full min-h-[44px]">
-
-CTA text
-
-</a>
-
-CTA text must start with a verb.
-
-Examples
-
-Book bane
-Se treningstilbud
-Kontakt klubben
-
-
-
-# Content Writing Specification for AI
+# 23. Content Writing Specification
 
 Based on
 
@@ -399,10 +417,6 @@ GOV.UK Content Design
 Information Foraging Theory
 Cognitive Load Theory
 
-
-
-# Core Writing Principles
-
 AI must prioritize
 
 clarity
@@ -411,147 +425,19 @@ structure
 readability
 user needs
 
-If a sentence can be simpler simplify it.
+Use
 
-
-
-# Plain Language
-
-Use simple language.
-
-Rules
-
-* short sentences
-* common words
-* avoid jargon
-* active voice
-
-Example
-
-Bad
-Det anbefales at brukeren gjennomfører autentisering før systemets funksjonalitet tas i bruk.
-
-Good
-Logg inn før du bruker tjenesten.
-
-Reference
-Plain Language Guidelines
-
-
-
-# Inverted Pyramid
-
-Most important information first.
-
-Structure
-
-key information
-explanation
-details
-
-Reference
-Nielsen Norman Group
-
-
-
-# Scannable Content
-
-Users scan pages.
-
-Rules
-
-* short paragraphs
-* headings
-* bullet lists
-* highlight key information
+short sentences
+simple words
+active voice
 
 Paragraph length
 
-max 3–5 lines
+maximum 3–5 lines
 
+---
 
-
-# Heading Hierarchy
-
-H1 page title
-H2 sections
-H3 subsections
-
-Only one H1 per page.
-
-Reference
-W3C semantics
-
-
-
-# Information Scent
-
-Links must describe action.
-
-Bad
-Les mer
-
-Good
-Se ledige timer
-
-Reference
-Information Foraging Theory — Peter Pirolli
-
-
-
-# Microcopy
-
-UI text must be
-
-* clear
-* short
-* helpful
-
-Example
-
-Bad
-Error occurred
-
-Good
-E-postadressen er ugyldig
-
-Reference
-Google UX Writing
-
-
-
-# Reading Level
-
-Target readability
-
-8–9th grade level
-
-Use
-
-* short sentences
-* simple words
-
-Reference
-Flesch readability research
-
-
-
-# Cognitive Load
-
-Reduce mental effort.
-
-Rules
-
-* one idea per paragraph
-* short paragraphs
-* logical structure
-
-Reference
-Cognitive Load Theory — John Sweller
-
-
-
-# Content Structure
+# 24. Content Structure
 
 Recommended page structure
 
@@ -567,62 +453,120 @@ How it works
 What the user can do
 Call to action
 
-
-
-# Accessibility in Text
-
-Rules
-
-* descriptive links
-* avoid “click here”
-* alt text on images
-* explain abbreviations
+Most important information should appear first.
 
 Reference
-WCAG 2.2
+Nielsen Norman Group — Inverted Pyramid
 
+---
 
+# 25. Scannable Content
 
-# Call-to-Action Writing
+Users scan pages rather than read them line by line.
+
+Use
+
+short paragraphs
+headings
+bullet lists
+highlighted key information
+
+---
+
+# 26. Microcopy
+
+UI text must be
+
+clear
+short
+helpful
+
+Example
+
+Bad
+Error occurred
+
+Good
+E‑postadressen er ugyldig
+
+Reference
+Google UX Writing
+
+---
+
+# 27. Call‑to‑Action Writing
 
 CTA text must start with a verb.
 
 Bad
+
 Submit
+Learn more
 
 Good
+
 Book bane
+Se treningsplan
+Kontakt klubben
 
+---
 
-
-# Tone of Voice
+# 28. Tone of Voice
 
 Tone must be
 
-* friendly
-* clear
-* direct
+friendly
+clear
+direct
 
 Avoid bureaucratic language.
 
 Reference
 GOV.UK Tone of Voice Guidelines
 
+---
 
+# 29. Content vs UI Rule
 
+UI structure must follow the **component system**.
+
+Text and content must follow the **content writing rules**.
+
+These systems must not conflict.
+
+Layout decisions should never override accessibility or readability.
+
+---
+
+# 30. AI Guardrails
+
+AI must always
+
+follow mobile‑first layout
+reuse existing components
+follow spacing scale
+respect accessibility rules
+support dark mode
+keep markup simple
+
+AI must never
+
+invent new layout systems
+break spacing rules
+ignore accessibility
+recreate existing components inline
+introduce unnecessary complexity
+
+---
 
 # Final Rules
 
 Touch targets must always be
 
-`min-h-[44px]`
+min-h-[44px]
 
-Dark mode must exist for **all colors**.
+Dark mode must exist for all colors.
 
 CTA text must start with a verb.
 
-Examples
-
-Book bane
-Se treningsplan
-Send mail
+Always prefer **existing components over new markup.**

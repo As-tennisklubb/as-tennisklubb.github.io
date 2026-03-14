@@ -2,12 +2,13 @@
 title: "Årsmøte 2016"
 ingress: "Tid: Mandag 1. februar 2016, kl. 19:00. Sted: Asplan Viak, Moerveien 5, 1430 Ås"
 date: 2016-01-29
-categories: 
+categories:
   - "aarsmote"
   - "styret"
-tags: 
+tags:
   - "arsmote"
 ---
+
 Tid: Mandag 1. februar 2016, kl. 19:00. Sted: Asplan Viak, Moerveien 5, 1430 Ås
 
 **Program**

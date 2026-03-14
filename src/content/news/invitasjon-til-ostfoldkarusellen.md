@@ -1,9 +1,10 @@
 ---
 title: "Invitasjon til Østfoldkarusellen"
 date: 2017-09-18
-categories: 
+categories:
   - "ukategorisert"
 ---
+
 ØstfoldKarusell Mini/Midi -- Moss TK – 24. september 2017.
 
 Klikk på linkene under for mer informajon.

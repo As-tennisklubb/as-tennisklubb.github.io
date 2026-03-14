@@ -1,0 +1,19 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={className}>
+  <!-- Mobil: kort -->
+  <div class="flex flex-col gap-3 md:hidden">
+    <slot name="mobile" />
+  </div>
+
+  <!-- Desktop: tabell -->
+  <div class="hidden overflow-x-auto md:block">
+    <slot name="desktop" />
+  </div>
+</div>

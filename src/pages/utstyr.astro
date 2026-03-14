@@ -1,5 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Container from "../components/layout/Container.astro";
+import PageSection from "../components/layout/PageSection.astro";
+import CardGrid from "../components/layout/CardGrid.astro";
+import Card from "../components/ui/Card.astro";
+import Callout from "../components/ui/Callout.astro";
+import RichTextBlock from "../components/ui/RichTextBlock.astro";
 ---
 
 <Layout
@@ -8,67 +14,60 @@ import Layout from "../layouts/Layout.astro";
   pageTitle="Utstyr"
   pageDescription="Alt av utstyr og fasiliteter tilgjengelig for medlemmer."
 >
-  <div class="max-w-4xl mx-auto px-4 py-12">
+  <Container padded>
+    <!-- Klubbhuset -->
+    <PageSection title="Klubbhuset">
+      <RichTextBlock>
+        <p>
+          Klubbhuset ligger like ved banen. For å komme inn bruker du <strong
+            >Yale Home-appen</strong
+          > – samme løsning som gir tilgang til banene. Her finner du baller, racketer og ballmaskiner.
+          Det er også toalett og vask.
+        </p>
+        <p>Bryteren for lysanlegget og vanningsanlegget er inne i klubbhuset.</p>
+      </RichTextBlock>
+    </PageSection>
 
-	<!-- Klubbhuset -->
-	<section class="mb-12" aria-labelledby="klubbhus-heading">
-	  <div class="flex items-center gap-3 mb-4">
-		<h2 id="klubbhus-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Klubbhuset</h2>
-	  </div>
-	  <div class="prose prose-green dark:prose-invert max-w-none">
-		<p>
-		  Klubbhuset ligger like ved banen. For å komme inn bruker du <strong>Yale Home-appen</strong> – samme løsning som gir tilgang til banene.
-		  Her finner du baller, racketer og ballmaskiner. Det er også toalett og vask.
-		</p>
-		<p>
-		  Bryteren for lysanlegget og vanningsanlegget er inne i klubbhuset.
-		</p>
-	  </div>
-	</section>
+    <!-- Racketer og baller -->
+    <PageSection title="Tennisballer og racketer">
+      <RichTextBlock class="mb-6">
+        <p>Vi anbefaler medlemmer å ta med egen racket og baller.</p>
+        <p>
+          Nye spillere kan finne racketer og baller til utlån i klubbhuset. Lånte racketer og baller
+          må settes tilbake etter bruk.
+        </p>
+        <p>
+          Det anbefales at barn inntil 10 år bruker mer saktegående røde, oransje eller grønne
+          baller.
+        </p>
+      </RichTextBlock>
+      <Callout>
+        For strenging av racketer – ta kontakt med Magnus Holmqvist i Drøbak tennisklubb
+        <a
+          href="tel:+4799245280"
+          class="ml-1 font-medium text-brand-700 hover:underline dark:text-brand-400">928 94 247</a
+        >.
+      </Callout>
+    </PageSection>
 
-	<!-- Racketer og baller -->
-	<section class="mb-12" aria-labelledby="racketer-heading">
-	  <div class="flex items-center gap-3 mb-4">
-		<h2 id="racketer-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Tennisballer og racketer</h2>
-	  </div>
-	  <div class="prose prose-green dark:prose-invert max-w-none mb-6">
-		<p>Vi anbefaler medlemmer å ta med egen racket og baller.</p>
-		<p>
-		  Nye spillere kan finne racketer og baller til utlån i klubbhuset.
-		  Lånte racketer og baller må settes tilbake etter bruk.
-		</p>
-		<p>
-		  Det anbefales at barn inntil 10 år bruker mer saktegående røde, oransje eller grønne baller.
-		</p>
-	  </div>
-	  <div class="bg-green-50 dark:bg-gray-800 border border-green-100 dark:border-gray-700 rounded-xl p-6 text-sm text-gray-700 dark:text-gray-300">
-		For strenging av racketer – ta kontakt med Magnus Holmqvist i Drøbak tennisklubb
-		<a href="tel:+4799245280" class="text-green-700 dark:text-green-400 font-medium hover:underline ml-1">928 94 247</a>.
-	  </div>
-	</section>
-
-	<!-- Ballmaskiner -->
-	<section aria-labelledby="ballmaskin-heading">
-	  <div class="flex items-center gap-3 mb-4">
-		<h2 id="ballmaskin-heading" class="text-2xl font-bold text-green-800 dark:text-green-300">Ballmaskiner</h2>
-	  </div>
-	  <div class="grid md:grid-cols-2 gap-6">
-		<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm">
-		  <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Liten ballmaskin</h3>
-		  <p class="text-sm text-gray-600 dark:text-gray-400">
-			Batteridrevet og lett å flytte rundt på banen. Passer for de yngste og nybegynnere,
-			og kan betjenes av de aller minste.
-		  </p>
-		</div>
-		<div class="bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-xl p-6 shadow-sm">
-		  <h3 class="font-semibold text-gray-900 dark:text-gray-100 mb-2">Stor ballmaskin</h3>
-		  <p class="text-sm text-gray-600 dark:text-gray-400">
-			Rommer 125 baller og skyter både hardt (inntil 96 km/t) og løst.
-			Kan variere retning og pause mellom slagene – passer til spillere på flere nivåer.
-		  </p>
-		</div>
-	  </div>
-	</section>
-
-  </div>
+    <!-- Ballmaskiner -->
+    <PageSection title="Ballmaskiner">
+      <CardGrid cols={2}>
+        <Card>
+          <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">Liten ballmaskin</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Batteridrevet og lett å flytte rundt på banen. Passer for de yngste og nybegynnere, og
+            kan betjenes av de aller minste.
+          </p>
+        </Card>
+        <Card>
+          <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">Stor ballmaskin</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            Rommer 125 baller og skyter både hardt (inntil 96 km/t) og løst. Kan variere retning og
+            pause mellom slagene – passer til spillere på flere nivåer.
+          </p>
+        </Card>
+      </CardGrid>
+    </PageSection>
+  </Container>
 </Layout>

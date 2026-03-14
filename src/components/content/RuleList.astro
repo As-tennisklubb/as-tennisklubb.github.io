@@ -1,0 +1,21 @@
+---
+interface Props {
+  rules: string[];
+  class?: string;
+}
+
+const { rules, class: className } = Astro.props;
+---
+
+<ol class:list={["space-y-3", className]}>
+  {
+    rules.map((rule, i) => (
+      <li class="flex gap-4 text-sm text-gray-700 dark:text-gray-300">
+        <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-100 text-xs font-bold text-brand-800 dark:bg-brand-900 dark:text-brand-300">
+          {i + 1}
+        </span>
+        <span>{rule}</span>
+      </li>
+    ))
+  }
+</ol>

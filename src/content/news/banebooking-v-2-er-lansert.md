@@ -9,6 +9,7 @@ categories:
   - ukategorisert
 draft: false
 ---
+
 Klubben har nylig tatt i bruk **Banebooking v2**, en ny versjon av bookingsystemet for reservasjon av tennisbaner. Systemet er utviklet for å erstatte den tidligere løsningen, som over tid hadde blitt vanskeligere å vedlikeholde og videreutvikle.
 
 Den gamle løsningen hadde vært i bruk i mange år og fungerte i praksis bra, men teknologien den var bygget på begynte etter hvert å bli utdatert. Det gjorde det mer krevende å gjøre endringer, rette feil og legge til nye funksjoner. Derfor ble det besluttet å utvikle en ny løsning basert på mer moderne teknologi.

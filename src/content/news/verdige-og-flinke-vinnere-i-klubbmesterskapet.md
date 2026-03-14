@@ -2,9 +2,10 @@
 title: "Verdige og flinke vinnere i klubbmesterskapet"
 ingress: "Årets klubbmestere er kåret. Les resultatene og se bilder fra en fin-fin tennisuke med mange gode kamper."
 date: 2021-09-05
-categories: 
+categories:
   - "turneringer"
 ---
+
 Årets klubbmestere er kåret. Les resultatene og se bilder fra en fin-fin tennisuke med mange gode kamper.
 
 Det var 27 deltakere som var påmeldt i årets klubbmesterskap. Mange var med i både singel, dobbel og mixed dobbel. Nydelig høstvær ga fine rammer for spennende oppgjør i alle klasser.
