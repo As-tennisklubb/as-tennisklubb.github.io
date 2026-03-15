@@ -1,12 +1,12 @@
 ---
 import { cn } from "@/lib/cn";
 
-interface Props {
+interface Props extends astroHTML.JSX.HTMLAttributes {
   variant?: "info" | "success" | "warning";
   class?: string;
 }
 
-const { variant = "info", class: className } = Astro.props;
+const { variant = "info", class: className, ...attrs } = Astro.props;
 
 const styles = {
   info: "bg-brand-50 dark:bg-gray-800 border-brand-200 dark:border-brand-800",
@@ -16,6 +16,7 @@ const styles = {
 ---
 
 <div
+  {...attrs}
   class={cn(
     "rounded-xl border p-6 text-sm text-gray-700 dark:text-gray-300",
     styles[variant],
