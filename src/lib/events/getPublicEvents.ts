@@ -1,7 +1,6 @@
 import { mapPublicEvent, type PublicClubEvent } from "./mapPublicEvent";
 
-const API_URL =
-  "https://banebooking-voyager.fly.dev/api/offentlig/klubb/aas-tennisklubb/arrangementer";
+const API_URL = `${import.meta.env.PUBLIC_API_BASE_URL}/api/offentlig/klubb/aas-tennisklubb/arrangementer`;
 
 export async function getPublicEvents(): Promise<PublicClubEvent[]> {
   const response = await fetch(API_URL, { cache: "no-store" });
