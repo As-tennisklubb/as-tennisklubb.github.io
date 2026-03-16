@@ -10,7 +10,7 @@ interface Props {
 const { size = "wide", class: className } = Astro.props;
 ---
 
-<section class={cn("bg-brand-800 dark:bg-brand-700 text-white py-10 md:py-14", className)}>
+<section class={cn("bg-brand-800 dark:bg-brand-700 text-white py-8 md:py-12", className)}>
   <Container size={size}>
     <slot />
   </Container>

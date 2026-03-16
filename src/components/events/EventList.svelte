@@ -28,16 +28,16 @@
 </script>
 
 {#if loading}
-  <p class="py-8 text-sm text-gray-500 dark:text-gray-400">Laster arrangementer…</p>
+  <p class="py-6 text-sm text-gray-500 dark:text-gray-400">Laster arrangementer…</p>
 {:else if error}
-  <p class="py-8 text-sm text-gray-600 dark:text-gray-400">
+  <p class="py-6 text-sm text-gray-600 dark:text-gray-400">
     Kunne ikke hente arrangementer akkurat nå. Prøv igjen litt senere.
   </p>
 {:else if events.length === 0}
-  <div class="py-8">
+  <div class="py-6">
     <p class="mb-1 font-medium text-gray-800 dark:text-gray-100">Ingen kommende arrangementer</p>
     <p class="text-sm text-gray-600 dark:text-gray-400">
-      Det er ingen kommende arrangementer akkurat nå. Følg med her for dugnader, turneringer og
+      Det er ingen kommende arrangementer akkurat nå. Følg med her for kurs, turneringer og
       andre aktiviteter i klubben.
     </p>
   </div>

@@ -29,8 +29,8 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
 ---
 
 <Layout title={`${post.data.title} – Ås Tennisklubb`} description={ingress}>
-  <Container size="narrow" padded>
-    <a href={`${base}nyheter`} class="link mb-8 inline-flex items-center gap-1 text-sm font-medium">
+  <Container size="narrow" padded class="pt-10">
+    <a href={`${base}nyheter`} class="link mb-6 inline-flex items-center gap-1 text-sm font-medium">
       ← Tilbake til nyheter
     </a>
     <article>
@@ -49,7 +49,7 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
       <!-- Cover-bilde -->
       {
         post.data.cover && (
-          <div class="mb-8 overflow-hidden rounded-xl">
+          <div class="mb-6 overflow-hidden rounded-xl">
             <img
               src={post.data.cover}
               alt={post.data.title}
@@ -61,7 +61,7 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
       }
 
       <!-- Ingress -->
-      {ingress && <Blockquote class="mb-10">{ingress}</Blockquote>}
+      {ingress && <Blockquote class="mb-8">{ingress}</Blockquote>}
 
       <!-- Innhold -->
       <RichTextBlock>
@@ -71,7 +71,7 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
       <!-- Vedlegg -->
       {
         post.data.attachments && post.data.attachments.length > 0 && (
-          <div class="mt-10 border-t border-gray-100 pt-8 dark:border-gray-700">
+          <div class="mt-8 border-t border-gray-100 pt-6 dark:border-gray-700">
             <h2 class="mb-4 text-lg font-bold text-gray-800 dark:text-gray-200">Vedlegg</h2>
             <AttachmentList attachments={post.data.attachments.map((url) => ({ url }))} />
           </div>

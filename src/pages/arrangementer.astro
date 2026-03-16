@@ -7,14 +7,14 @@ import EventList from "../components/events/EventList.svelte";
 ---
 
 <Layout title="Arrangementer – Ås Tennisklubb" description="Hva skjer i Ås Tennisklubb.">
-  <HeroSection>
-    <h1 class="mb-3 text-3xl font-bold md:text-5xl">Arrangementer</h1>
+  <HeroSection size="content">
+    <h1 class="mb-2 text-3xl font-bold md:text-4xl">Arrangementer</h1>
     <p class="max-w-md text-base text-brand-200 md:text-lg">
-      Her finner du kommende aktiviteter, dugnader og arrangementer i Ås Tennisklubb.
+      Oversikt over kurs, turneringer og andre aktiviteter.
     </p>
   </HeroSection>
 
-  <Container size="wide" padded>
+  <Container padded>
     <PageSection>
       <EventList client:load />
     </PageSection>

@@ -43,7 +43,7 @@ const base = import.meta.env.BASE_URL;
   </HeroSection>
 
   <!-- Info-kort -->
-  <Container size="wide" class="py-16">
+  <Container size="wide" class="py-12">
     <CardGrid cols={3}>
       <a
         href={`${base}arrangementer`}
@@ -102,9 +102,9 @@ const base = import.meta.env.BASE_URL;
   <!-- Siste nyheter -->
   {
     latestNews.length > 0 && (
-      <section class="bg-gray-50 py-16 dark:bg-gray-900">
+      <section class="bg-gray-50 py-12 dark:bg-gray-900">
         <Container size="wide">
-          <h2 class="mb-8 text-3xl font-bold text-brand-800 dark:text-brand-300">Siste nyheter</h2>
+          <h2 class="mb-6 text-3xl font-bold text-brand-800 dark:text-brand-300">Siste nyheter</h2>
           <CardGrid cols={3}>
             {latestNews.map((post) => {
               const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
@@ -133,7 +133,7 @@ const base = import.meta.env.BASE_URL;
               );
             })}
           </CardGrid>
-          <div class="mt-8 text-center">
+          <div class="mt-6 text-center">
             <a
               href={`${base}nyheter`}
               class="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-brand-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-800"

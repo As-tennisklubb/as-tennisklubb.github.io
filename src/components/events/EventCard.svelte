@@ -1,53 +1,62 @@
 <script lang="ts">
   import type { PublicClubEvent } from "../../lib/events/mapPublicEvent";
   import {
-    formatDateRange,
     formatSignupStatus,
-    formatNaturalList,
-    formatScheduleLine,
+    formatPresentation,
   } from "../../lib/events/formatEvent";
 
   let { event }: { event: PublicClubEvent } = $props();
 
-  const dateRange = $derived(formatDateRange(event.startDate, event.endDate));
+  const pLines = $derived(formatPresentation(event.presentation));
   const showCategory = $derived(event.category !== event.title);
-  const allTimes = $derived([...new Set(event.courtGroups.flatMap((g) => g.times))]);
-  const allCourtNames = $derived([...new Set(event.courtGroups.flatMap((g) => g.courtNames))]);
-  const scheduleLine = $derived(formatScheduleLine(event.weekdays, allTimes));
-  const courtLine = $derived(formatNaturalList(allCourtNames));
   const signupStatus = $derived(formatSignupStatus(event.allowsSignup, event.signupCount));
 </script>
 
 <li>
-  <article class="flex flex-col gap-5 py-8">
+  <article class="flex flex-col gap-4 py-6">
     <div>
       <h3 class="text-xl font-bold text-gray-900 md:text-2xl dark:text-gray-100">
         {event.title}
       </h3>
-      <div class="mt-2 flex flex-wrap items-center gap-2">
+      {#if showCategory}
         <span
-          class="rounded-full bg-brand-50 px-2 py-0.5 text-xs font-medium text-brand-700 dark:bg-brand-900/30 dark:text-brand-400"
+          class="mt-1.5 inline-block rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-500 dark:bg-gray-700 dark:text-gray-400"
         >
-          {dateRange}
+          {event.category}
         </span>
-        {#if showCategory}
-          <span
-            class="rounded-full bg-gray-100 px-2 py-1 text-xs text-gray-500 dark:bg-gray-700 dark:text-gray-400"
-          >
-            {event.category}
-          </span>
-        {/if}
-      </div>
+      {/if}
     </div>
 
-    <div class="space-y-1 text-sm text-gray-600 dark:text-gray-400">
-      {#if scheduleLine}
-        <p>{scheduleLine}</p>
+    <div class="space-y-0.5 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
+      <p class="font-medium text-gray-900 dark:text-gray-100">{pLines.date}</p>
+      {#if pLines.schedule}
+        <p class="flex items-center gap-1.5">
+          <svg class="size-3.5 shrink-0 text-gray-400 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>{pLines.schedule}{#if event.presentation.hasDeviatingSlots}{' '}<span class="text-gray-400 dark:text-gray-500">(varierer)</span>{/if}</span>
+        </p>
       {/if}
-      {#if courtLine}
-        <p class="text-gray-500 dark:text-gray-400">{courtLine}</p>
+      {#if pLines.courts}
+        <p class="flex items-center gap-1.5">
+          <svg class="size-3.5 shrink-0 text-gray-400 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>{pLines.courts}</span>
+        </p>
       {/if}
-      <p class="text-gray-500 dark:text-gray-400">{signupStatus}</p>
+      {#if event.allowsSignup}
+        <a
+          href={event.bookingUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-1.5 text-brand-600 hover:underline dark:text-brand-400"
+        >
+          <svg class="size-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>{signupStatus}</span>
+        </a>
+      {:else}
+        <p class="flex items-center gap-1.5 text-gray-500 dark:text-gray-400">
+          <svg class="size-3.5 shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <span>{signupStatus}</span>
+        </p>
+      {/if}
     </div>
 
     {#if event.description}

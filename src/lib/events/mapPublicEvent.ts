@@ -1,5 +1,23 @@
+export type PresentationType =
+  | "EnkeltDato"
+  | "DatoIntervallAlleDager"
+  | "DatoIntervallUkedager"
+  | "Uregelmessig";
+
+export type EventPresentation = {
+  type: PresentationType;
+  startDate: string;
+  endDate: string;
+  weekdays: string[];
+  times: string[];
+  courtNames: string[];
+  hasDeviatingSlots: boolean;
+};
+
 export type PublicClubEvent = {
   id: string;
+  arrangementId: string;
+  bookingUrl: string;
   title: string;
   description?: string;
   category: string;
@@ -15,10 +33,11 @@ export type PublicClubEvent = {
   allowsSignup: boolean;
   signupCount: number;
   isPast: boolean;
+  presentation: EventPresentation;
 };
 
 type ApiEvent = {
-  id: string;
+  arrangementId: string;
   tittel: string;
   beskrivelse?: string;
   kategori: string;
@@ -34,11 +53,23 @@ type ApiEvent = {
   tillaterPaamelding: boolean;
   antallPaameldte: number;
   erPassert: boolean;
+  presentasjon: {
+    type: string;
+    startDato: string;
+    sluttDato: string;
+    ukedager: string[];
+    tidspunkter: string[];
+    baneNavn: string[];
+    harAvvikendeSlots: boolean;
+  };
 };
 
 export function mapPublicEvent(api: ApiEvent): PublicClubEvent {
+  const bookingUrl = `${import.meta.env.PUBLIC_BOOKING_URL}/arrangementer?arrangement=${api.arrangementId}`;
   return {
-    id: api.id,
+    id: api.arrangementId,
+    arrangementId: api.arrangementId,
+    bookingUrl,
     title: api.tittel,
     description: api.beskrivelse,
     category: api.kategori,
@@ -54,5 +85,14 @@ export function mapPublicEvent(api: ApiEvent): PublicClubEvent {
     allowsSignup: api.tillaterPaamelding,
     signupCount: api.antallPaameldte,
     isPast: api.erPassert,
+    presentation: {
+      type: api.presentasjon.type as PresentationType,
+      startDate: api.presentasjon.startDato,
+      endDate: api.presentasjon.sluttDato,
+      weekdays: api.presentasjon.ukedager,
+      times: api.presentasjon.tidspunkter,
+      courtNames: api.presentasjon.baneNavn,
+      hasDeviatingSlots: api.presentasjon.harAvvikendeSlots,
+    },
   };
 }

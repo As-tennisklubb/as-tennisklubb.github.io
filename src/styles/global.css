@@ -86,12 +86,12 @@ body {
  *
  * Spacing-skala (8px-basert)
  *
- * page-y        = py-12      = 48px
- * section-gap   = mb-12      = 48px
+ * page-y        = pt-6 pb-10 = 24/40px
+ * section-gap   = mb-10      = 40px
  * block-gap     = mb-6       = 24px
  * element-gap   = mb-4       = 16px
  * card-grid-gap = gap-6      = 24px
- * hero-py       = py-14      = 56px
+ * hero-py       = py-8/py-12 = 32/48px
  *
  * Bruk disse verdiene konsekvent for de angitte formålene.
  * ========================================================= */

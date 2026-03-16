@@ -99,7 +99,7 @@ Sentrert innholdswrapper med maks-bredde og horisontal padding.
 | Prop     | Type                                  | Default     | Beskrivelse                                                     |
 | -------- | ------------------------------------- | ----------- | --------------------------------------------------------------- |
 | `size`   | `"content"` \| `"wide"` \| `"narrow"` | `"content"` | `content` = max-w-4xl, `wide` = max-w-6xl, `narrow` = max-w-3xl |
-| `padded` | `boolean`                             | `false`     | Legger til standard vertikal sidepadding (`py-12`)              |
+| `padded` | `boolean`                             | `false`     | Legger til asymmetrisk vertikal sidepadding (`pt-6 pb-10`)     |
 
 ```astro
 <Container padded>...</Container>
@@ -146,7 +146,7 @@ Innholdsseksjon med standard bunnmargin og valgfri overskrift.
 <PageSection title="Prisliste" icon={CreditCard}>...</PageSection>
 ```
 
-**Bruk** for alle innholdsseksjoner innenfor en side. Gir konsekvent `mb-12`.
+**Bruk** for alle innholdsseksjoner innenfor en side. Gir konsekvent `mb-10` (`last:mb-0`).
 **Ikke bruk** inne i layouts der parent allerede styrer vertikal spacing med `space-y-*` � bruk bare `<section>` + `<SectionHeading>` der.
 
 ---
@@ -376,10 +376,10 @@ Google Maps-embed som lastes ved klikk (ytelse/personvern). **Bruk** kun p� ba
 
 | Form�l                | Verdi            | Kontrollert av       |
 | --------------------- | ---------------- | -------------------- |
-| Side vertikal padding | `py-12`          | `<Container padded>` |
-| Seksjonsavstand       | `mb-12`          | `<PageSection>`      |
+| Side vertikal padding | `pt-6 pb-10`     | `<Container padded>` |
+| Seksjonsavstand       | `mb-10`          | `<PageSection>`      |
 | Kortgrid gap          | `gap-6`          | `<CardGrid>`         |
-| Hero padding          | `py-10 md:py-14` | `<HeroSection>`      |
+| Hero padding          | `py-8 md:py-12` | `<HeroSection>`      |
 
 ---
 

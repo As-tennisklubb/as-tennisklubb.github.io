@@ -12,7 +12,7 @@ interface Props {
 const { title, icon: Icon, id, class: className } = Astro.props;
 ---
 
-<section id={id} class={cn("mb-12", className)}>
+<section id={id} class={cn("mb-10 last:mb-0", className)}>
   {title && <SectionHeading title={title} icon={Icon} />}
   <slot />
 </section>
