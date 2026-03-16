@@ -101,9 +101,7 @@ const WEEKDAY_ORDER: Record<string, number> = {
 function formatWeekdayRange(weekdays: string[]): string {
   if (weekdays.length === 0) return "";
 
-  const sorted = [...weekdays].sort(
-    (a, b) => (WEEKDAY_ORDER[a] ?? 0) - (WEEKDAY_ORDER[b] ?? 0),
-  );
+  const sorted = [...weekdays].sort((a, b) => (WEEKDAY_ORDER[a] ?? 0) - (WEEKDAY_ORDER[b] ?? 0));
   const names = sorted.map(formatWeekday);
 
   if (sorted.length >= 2) {

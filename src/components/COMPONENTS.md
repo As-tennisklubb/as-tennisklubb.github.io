@@ -99,7 +99,7 @@ Sentrert innholdswrapper med maks-bredde og horisontal padding.
 | Prop     | Type                                  | Default     | Beskrivelse                                                     |
 | -------- | ------------------------------------- | ----------- | --------------------------------------------------------------- |
 | `size`   | `"content"` \| `"wide"` \| `"narrow"` | `"content"` | `content` = max-w-4xl, `wide` = max-w-6xl, `narrow` = max-w-3xl |
-| `padded` | `boolean`                             | `false`     | Legger til asymmetrisk vertikal sidepadding (`pt-6 pb-10`)     |
+| `padded` | `boolean`                             | `false`     | Legger til asymmetrisk vertikal sidepadding (`pt-6 pb-10`)      |
 
 ```astro
 <Container padded>...</Container>
@@ -374,11 +374,11 @@ Google Maps-embed som lastes ved klikk (ytelse/personvern). **Bruk** kun p� ba
 
 ## Spacing-referanse
 
-| Form�l                | Verdi            | Kontrollert av       |
-| --------------------- | ---------------- | -------------------- |
-| Side vertikal padding | `pt-6 pb-10`     | `<Container padded>` |
-| Seksjonsavstand       | `mb-10`          | `<PageSection>`      |
-| Kortgrid gap          | `gap-6`          | `<CardGrid>`         |
+| Form�l                | Verdi           | Kontrollert av       |
+| --------------------- | --------------- | -------------------- |
+| Side vertikal padding | `pt-6 pb-10`    | `<Container padded>` |
+| Seksjonsavstand       | `mb-10`         | `<PageSection>`      |
+| Kortgrid gap          | `gap-6`         | `<CardGrid>`         |
 | Hero padding          | `py-8 md:py-12` | `<HeroSection>`      |
 
 ---
