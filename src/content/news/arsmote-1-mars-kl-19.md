@@ -15,6 +15,6 @@ Saker som et medlem ønsker behandlet på årsmøtet, må sendes styret på e-ma
 
 **Agenda og sakspapirer:**
 
-[http://www.aastk.no/wp-content/uploads/2022/02/2022-Agenda-og-sakspapirer-årsmøte.docx.pdf](http://www.aastk.no/wp-content/uploads/2022/02/2022-Agenda-og-sakspapirer-årsmøte.docx.pdf)
+[/uploads/2022-Agenda-og-sakspapirer-årsmøte.docx.pdf](/uploads/2022-Agenda-og-sakspapirer-årsmøte.docx.pdf)
 
 Med vennlig hilsen Styret Ås tennisklubb

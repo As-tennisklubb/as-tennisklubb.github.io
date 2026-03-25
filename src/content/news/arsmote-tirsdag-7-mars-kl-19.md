@@ -15,4 +15,4 @@ Vell møtt!
 
 Saksliste til årsmøtet.
 
-[2023-Agenda-og-sakspapirer-arsmote.docx](http://www.aastk.no/wp-content/uploads/2023/02/2023-Agenda-og-sakspapirer-arsmote.docx.pdf)[Last ned](http://www.aastk.no/wp-content/uploads/2023/02/2023-Agenda-og-sakspapirer-arsmote.docx.pdf)
+[2023-Agenda-og-sakspapirer-arsmote.docx](/uploads/2023-Agenda-og-sakspapirer-arsmote.docx.pdf)

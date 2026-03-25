@@ -12,4 +12,4 @@ Du kan også [delta digitalt](https://everbridge.zoom.us/my/haakon.straume).
 
 **Sakspapirer** til årsmøtet:
 
-[2025-Agenda-og-sakspapirer-arsmote-for-As-tennisklubb](https://www.aastk.no/wp-content/uploads/2025/02/2025-Agenda-og-sakspapirer-arsmote-for-As-tennisklubb.pdf)[Last ned](https://www.aastk.no/wp-content/uploads/2025/02/2025-Agenda-og-sakspapirer-arsmote-for-As-tennisklubb.pdf)
+[2025-Agenda-og-sakspapirer-arsmote-for-As-tennisklubb](/uploads/2025-Agenda-og-sakspapirer-arsmote-for-As-tennisklubb.pdf)

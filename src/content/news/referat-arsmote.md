@@ -8,4 +8,4 @@ tags:
   - "arsmote"
 ---
 
-[Referat årsmøte Åsbtennisklubb](http://www.aastk.no/wp-content/uploads/2022/03/20220329081341.pdf)[Last ned](http://www.aastk.no/wp-content/uploads/2022/03/20220329081341.pdf)
+[Referat årsmøte Åsbtennisklubb](/uploads/20220329081341.pdf)

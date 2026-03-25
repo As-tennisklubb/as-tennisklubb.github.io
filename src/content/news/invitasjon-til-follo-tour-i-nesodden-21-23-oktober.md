@@ -9,4 +9,4 @@ categories:
 
 Vedlagt invitasjon fra Nesodden tennisklubb. Vi oppfordrer alle barn og juniorer i Ås tennisklubb til å bli med.
 
-[invitasjon-follo-tour-okt-2016](http://www.aastk.no/wp-content/uploads/2016/10/Invitasjon-Follo-Tour-Okt-2016.pdf)
+[invitasjon-follo-tour-okt-2016](/uploads/Invitasjon-Follo-Tour-Okt-2016.pdf)

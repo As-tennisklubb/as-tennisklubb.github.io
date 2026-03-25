@@ -65,7 +65,7 @@ type ApiEvent = {
 };
 
 export function mapPublicEvent(api: ApiEvent): PublicClubEvent {
-  const baseUrl = (import.meta.env.PUBLIC_BOOKING_URL ?? '').replace(/\/$/, '');
+  const baseUrl = (import.meta.env.PUBLIC_BOOKING_URL ?? "").replace(/\/$/, "");
   const bookingUrl = `${baseUrl}/arrangementer?arrangement=${api.arrangementId}`;
   return {
     id: api.arrangementId,

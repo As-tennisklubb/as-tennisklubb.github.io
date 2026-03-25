@@ -53,4 +53,4 @@ Her ble det også spilt innledende runder i to grupper med tre par i hver. Til s
 
 Alle resultater:
 
-[![](/uploads/IMG_1296-edited.jpg)](https://www.aastk.no/wp-content/uploads/2025/06/IMG_1296.jpg)
+[![](/uploads/IMG_1296-edited.jpg)](/uploads/IMG_1296.jpg)

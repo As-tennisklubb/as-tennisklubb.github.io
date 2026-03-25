@@ -19,4 +19,4 @@ _Eventuelt_
 
 Velkommen!
 
-Sakspapirer: [Årsmøte 2016](http://www.aastk.no/wp-content/uploads/2016/01/Årsmøte-2016.docx) [Vedlegg NIFs lovnorm](http://www.aastk.no/wp-content/uploads/2016/01/Vedlegg-NIFs-lovnorm.docx) [Vedlegg Ønske om Padeltennisanlegg](http://www.aastk.no/wp-content/uploads/2016/01/Vedlegg-Ønske-om-Padeltennisanlegg.docx) [Vedlegg Tilbud Padeltennisanlegg](http://www.aastk.no/wp-content/uploads/2016/01/Vedlegg-Tilbud-Padeltennisanlegg.docx)
+Sakspapirer: [Årsmøte 2016](/uploads/Årsmøte-2016.docx) [Vedlegg NIFs lovnorm](/uploads/Vedlegg-NIFs-lovnorm.docx) [Vedlegg Ønske om Padeltennisanlegg](/uploads/Vedlegg-Ønske-om-Padeltennisanlegg.docx) [Vedlegg Tilbud Padeltennisanlegg](/uploads/Vedlegg-Tilbud-Padeltennisanlegg.docx)

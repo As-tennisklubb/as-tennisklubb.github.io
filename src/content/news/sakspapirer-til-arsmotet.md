@@ -8,4 +8,4 @@ tags:
   - "arsmote"
 ---
 
-[Agenda og sakspapirer til årsmøtet 2017](http://www.aastk.no/wp-content/uploads/2017/01/Agenda-og-sakspapirer-til-årsmøtet-2017.pdf)
+[Agenda og sakspapirer til årsmøtet 2017](/uploads/Agenda-og-sakspapirer-til-årsmøtet-2017.pdf)

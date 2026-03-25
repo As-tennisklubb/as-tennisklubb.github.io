@@ -10,7 +10,7 @@ categories:
 
 Det ble spilt 2 kamper i gruppespill før semifinale og finale. Det ble en lang og hyggelig tennisdag med mange jevne oppgjør.
 
-[![](/uploads/20230115_130836-1024x1024.jpg)](http://www.aastk.no/wp-content/uploads/2023/01/20230115_130836-scaled.jpg)
+[![](/uploads/20230115_130836-1024x1024.jpg)](/uploads/20230115_130836-scaled.jpg)
 
 Lena Lohmann & Øyvind Engøy gikk ubeseiret gjennom hele turneringen og vant en tett finale mot Gro Thorup & Thomas Viken.
 

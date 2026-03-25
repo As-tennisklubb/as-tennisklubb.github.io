@@ -5,4 +5,4 @@ categories:
   - "arrangementer"
 ---
 
-Se vedlagte invitasjon: [Invitasjon til Follo Tennis Tour](http://www.aastk.no/wp-content/uploads/2016/08/1608-Invitasjon-til-Follo-Tennis-Tour2.pdf)
+Se vedlagte invitasjon: [Invitasjon til Follo Tennis Tour](/uploads/1608-Invitasjon-til-Follo-Tennis-Tour2.pdf)

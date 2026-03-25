@@ -7,4 +7,4 @@ categories:
   - "turneringer"
 ---
 
-Vi oppfordrer alle våre barn og juniorer til å melde seg på denne. Klikk her for invitasjon til [Follo Tour i Ski 10-12 juni](http://www.aastk.no/wp-content/uploads/2016/05/follotour16_ski.pdf) (pdf)
+Vi oppfordrer alle våre barn og juniorer til å melde seg på denne. Klikk her for invitasjon til [Follo Tour i Ski 10-12 juni](/uploads/follotour16_ski.pdf) (pdf)

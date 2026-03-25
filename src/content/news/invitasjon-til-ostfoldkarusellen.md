@@ -9,6 +9,6 @@ categories:
 
 Klikk på linkene under for mer informajon.
 
-[Invitasjon](http://www.aastk.no/wp-content/uploads/2017/09/oka_sept_2017.pdf)
+[Invitasjon](/uploads/oka_sept_2017.pdf)
 
-[Informasjon om Østfoldlarusellen](http://www.aastk.no/wp-content/uploads/2017/09/info_ok_2017.pdf)
+[Informasjon om Østfoldlarusellen](/uploads/info_ok_2017.pdf)

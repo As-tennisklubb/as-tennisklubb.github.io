@@ -11,8 +11,8 @@ tags:
 
 Det er anledning til å sende inn innspill til vedtektene per e-post til aastbk@gmail.com.
 
-[vedtekter-for-as-tennisklubb-revidert-arsmote-2015](http://www.aastk.no/wp-content/uploads/2017/01/Vedtekter-for-Ås-tennisklubb-revidert-årsmøte-2015.pdf)
+[vedtekter-for-as-tennisklubb-revidert-arsmote-2015](/uploads/Vedtekter-for-Ås-tennisklubb-revidert-årsmøte-2015.pdf)
 
-[forslag-nye-vedtekter-as-tennisklubb-2017-1](http://www.aastk.no/wp-content/uploads/2017/01/Forslag-nye-vedtekter-Ås-tennisklubb-2017-1.docx)
+[forslag-nye-vedtekter-as-tennisklubb-2017-1](/uploads/Forslag-nye-vedtekter-Ås-tennisklubb-2017-1.docx)
 
-[vedlegg-nifs-lovnorm](http://www.aastk.no/wp-content/uploads/2017/01/Vedlegg-NIFs-lovnorm.docx)
+[vedlegg-nifs-lovnorm](/uploads/Vedlegg-NIFs-lovnorm.docx)

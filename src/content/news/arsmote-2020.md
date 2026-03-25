@@ -18,4 +18,4 @@ Alle klubbens medlemmer er velkommen.
 
 Sakspapirer:
 
-[Agenda og sakspapirer til årsmøtet 2020](http://www.aastk.no/wp-content/uploads/2020/02/Agenda-og-sakspapirer-til-årsmøtet-2020.pdf)[Last ned](http://www.aastk.no/wp-content/uploads/2020/02/Agenda-og-sakspapirer-til-årsmøtet-2020.pdf)
+[Agenda og sakspapirer til årsmøtet 2020](/uploads/Agenda-og-sakspapirer-til-årsmøtet-2020.pdf)

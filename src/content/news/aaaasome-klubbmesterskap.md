@@ -66,7 +66,7 @@ Her også ble det et tett og jevnt oppgjør som endte i et supertiebrake, men n�
 Gratulerer til alle som gjorde Mixed Double-klassen til en tidsmessig laaaaang og spennende affære og til “The Vikens” med sitt første klubbmesterskap! 
 
 ![](/uploads/20240915_163440-1024x768.jpg)
-_[](https://www.aastk.no/wp-content/uploads/2024/09/20240915_163440.jpg)  
+_[](/uploads/20240915_163440.jpg)  
 *GULLVIKEN: Thomas Viken er mangeårig klubbmester i klassen Miced Double, men i år var første gang at tittelen ble vunnet sammen med livspartner Monica Viken. Marianne Bråthen og Håkon Straume ga sterk motstand og det måtte supertiebrake for å avgjøre hvem som skulle få klubbmestertittelen. Gratulerer med flott innsats og tittel!!*_
 
 I herreklassen var det litt “business as usual” på veien til finalen - her var det titanene i klubbmesterskaptifler - Øyvind Engøy og Andreas Lotarev - som skulle gjøre opp om gullet! 
@@ -80,10 +80,10 @@ Gratulerer for stort spill av samtlige og til Andreas - som har tatt tilbake mes
 ![](/uploads/20240915_163529-1024x768.jpg)
 _*ÅRETS COMEBBACK: Andreas Lotarev (til høyre) dro til slutt i land seieren etter en jevnspilt kamp hvor det mildt sagt bølget en del fram og tilbake. Øyvind Engøy spilte seg fram til to finaler og befester sin posisjon som en av de aller beste spillerne i Ås tennisklubb.*_
 
-[![](/uploads/20240913_202800-1024x768.jpg)](https://www.aastk.no/wp-content/uploads/2024/09/20240913_202800.jpg)
+[![](/uploads/20240913_202800-1024x768.jpg)](/uploads/20240913_202800.jpg)
 
-[![](/uploads/20240913_202807-1024x768.jpg)](https://www.aastk.no/wp-content/uploads/2024/09/20240913_202807.jpg)
+[![](/uploads/20240913_202807-1024x768.jpg)](/uploads/20240913_202807.jpg)
 
-[![](/uploads/20240915_144539-1024x768.jpg)](https://www.aastk.no/wp-content/uploads/2024/09/20240915_144539.jpg)
+[![](/uploads/20240915_144539-1024x768.jpg)](/uploads/20240915_144539.jpg)
 
-[![](/uploads/20240915_150355-1024x768.jpg)](https://www.aastk.no/wp-content/uploads/2024/09/20240915_150355.jpg)
+[![](/uploads/20240915_150355-1024x768.jpg)](/uploads/20240915_150355.jpg)
