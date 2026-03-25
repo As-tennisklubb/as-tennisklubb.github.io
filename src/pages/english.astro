@@ -27,13 +27,6 @@ const base = import.meta.env.BASE_URL;
     <p class="max-w-xl text-base text-brand-200 md:text-lg">
       Tennis for everyone – regardless of age or skill level.
     </p>
-    <Button
-      variant="highlight"
-      href={import.meta.env.PUBLIC_BOOKING_URL}
-      target="_blank"
-      rel="noopener noreferrer"
-      class="mt-6">Book a court</Button
-    >
   </HeroSection>
 
   <Container padded class="space-y-10">
@@ -41,8 +34,10 @@ const base = import.meta.env.BASE_URL;
     <section>
       <SectionHeading title="Tennis courts" />
       <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
-        <p>We have 3 outdoor courts</p>
-        <p>Reserve a court using our online booking system:</p>
+        <p>
+          We have 3 outdoor clay courts at Ås stadion, available from April to November. Reserve a
+          court using our online booking system:
+        </p>
       </RichTextBlock>
       <Button
         href={import.meta.env.PUBLIC_BOOKING_URL}
@@ -55,13 +50,10 @@ const base = import.meta.env.BASE_URL;
       </Button>
       <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
         <p>
-          As a member you may freely borrow from the club house. We recommend that regular players
-          use their own rackets.
+          As a member you may freely borrow rackets and balls from the club house. We recommend that
+          regular players use their own rackets.
         </p>
-        <p>
-          The courts are typically open from April/May until November. During winter we cooperate
-          with Drøbak Tennisklubb.
-        </p>
+        <p>During winter we cooperate with Drøbak Tennisklubb.</p>
       </RichTextBlock>
     </section>
 
@@ -72,19 +64,22 @@ const base = import.meta.env.BASE_URL;
       <SectionHeading title="Membership" />
       <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
         <p>
+          Register as a member via Min Idrett (Norwegian Sports Federation). You can also view
+          membership fees on our membership page:
+        </p>
+        <p>
           <a href={`${base}medlemskap`} class="link font-semibold">
-            View membership fees and registration form →
+            View membership fees and registration →
           </a>
         </p>
         <p>
-          You may also join by sending an email to
-          <a href="mailto:administrasjon@aastk.no" class="link"> administrasjon@aastk.no </a>
-          Please include your contact information (name, email, phone) and membership type.
+          After paying, send an email to
+          <a href="mailto:aas.tbk@gmail.com" class="link"> aas.tbk@gmail.com </a>
+          with your name and mobile number to receive access.
         </p>
         <p>
-          New members get access to the courts and club house via the <strong>Yale Home app</strong
-          >. Access is activated after the membership fee is paid and we have received your name and
-          mobile number.
+          Members get access to the courts and club house via the <strong>Yale Home app</strong>.
+          Access is activated after the membership fee is paid and we have received your details.
         </p>
       </RichTextBlock>
     </section>

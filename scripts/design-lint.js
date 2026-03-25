@@ -28,8 +28,12 @@ const ROOT = resolve(import.meta.dirname, "..");
 
 const SCAN_DIRS = ["src/pages", "src/layouts"];
 
-/** Files that are part of the design system itself and may use raw Tailwind */
-const IGNORE_PATHS = ["src/components/", "src/styles/"];
+/**
+ * Files that are part of the design system itself and may use raw Tailwind.
+ * Layout.astro is the site shell (header, nav, footer) where component
+ * abstractions like <Container> and <HeroSection> do not apply.
+ */
+const IGNORE_PATHS = ["src/components/", "src/styles/", "src/layouts/"];
 
 /**
  * Normalize a file path to always use forward slashes.

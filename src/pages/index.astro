@@ -4,6 +4,9 @@ import { getCollection } from "astro:content";
 import HeroSection from "../components/layout/HeroSection.astro";
 import Container from "../components/layout/Container.astro";
 import CardGrid from "../components/layout/CardGrid.astro";
+import Button from "../components/ui/Button.astro";
+import LinkCard from "../components/content/LinkCard.astro";
+import NewsCard from "../components/content/NewsCard.astro";
 
 const latestNews = (await getCollection("news"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -24,78 +27,40 @@ const base = import.meta.env.BASE_URL;
   <HeroSection>
     <h1 class="mb-3 text-3xl font-bold md:text-5xl">Tennis for alle</h1>
     <p class="max-w-md text-base text-brand-200 md:text-lg">
-      Vi har skapt tennisglede for barn, unge og voksne i nærmiljøet i snart 50 år.
+      Vi har skapt tennisglede for barn, unge og voksne i nærmiljøet i 50 år.
     </p>
     <div class="mt-6 flex flex-wrap gap-4">
-      <a
+      <Button
+        variant="ghost"
         href={import.meta.env.PUBLIC_BOOKING_URL}
         target="_blank"
-        rel="noopener noreferrer"
-        class="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-brand-500 bg-brand-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-600"
-        >Book bane</a
+        rel="noopener noreferrer">Book bane</Button
       >
-      <a
-        href={`${base}arrangementer`}
-        class="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-accent-500 px-6 py-3 font-semibold text-white transition-colors hover:bg-accent-600"
-        >Se arrangementer</a
-      >
+      <Button variant="secondary" href={`${base}arrangementer`}>Se arrangementer</Button>
     </div>
   </HeroSection>
 
   <!-- Info-kort -->
   <Container size="wide" class="py-12">
     <CardGrid cols={3}>
-      <a
+      <LinkCard
         href={`${base}arrangementer`}
-        class="group flex flex-col rounded-xl border border-accent-100 bg-accent-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
-      >
-        <h2
-          class="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-accent-700 dark:text-gray-100 dark:group-hover:text-accent-400"
-        >
-          Arrangementer
-        </h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Dugnader, turneringer og stigespill – se hva som skjer i klubben.
-        </p>
-        <span
-          class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-accent-700 dark:text-accent-400"
-          >Se arrangementer →</span
-        >
-      </a>
-      <a
+        title="Arrangementer"
+        description="Dugnader, turneringer og stigespill – se hva som skjer i klubben."
+        linkText="Se arrangementer →"
+      />
+      <LinkCard
         href={`${base}baner`}
-        class="group flex flex-col rounded-xl border border-accent-100 bg-accent-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
-      >
-        <h2
-          class="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-accent-700 dark:text-gray-100 dark:group-hover:text-accent-400"
-        >
-          Våre baner
-        </h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Vi har tre grusbaner ved Ås stadion, tilgjengelige for leie fra april til november.
-        </p>
-        <span
-          class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-accent-700 dark:text-accent-400"
-          >Se baneoversikt →</span
-        >
-      </a>
-      <a
+        title="Våre baner"
+        description="Vi har tre grusbaner ved Ås stadion, tilgjengelige for leie fra april til november."
+        linkText="Se baneoversikt →"
+      />
+      <LinkCard
         href={`${base}medlemskap`}
-        class="group flex flex-col rounded-xl border border-accent-100 bg-accent-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
-      >
-        <h2
-          class="mb-2 text-lg font-bold text-gray-900 transition-colors group-hover:text-accent-700 dark:text-gray-100 dark:group-hover:text-accent-400"
-        >
-          Bli med i klubben
-        </h2>
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Spill så mye du vil – alle medlemmer har fri tilgang til banene hele sesongen.
-        </p>
-        <span
-          class="mt-auto inline-flex items-center gap-1 pt-4 text-sm font-semibold text-accent-700 dark:text-accent-400"
-          >Se medlemskap →</span
-        >
-      </a>
+        title="Bli med i klubben"
+        description="Spill så mye du vil – alle medlemmer har fri tilgang til banene hele sesongen."
+        linkText="Se medlemskap →"
+      />
     </CardGrid>
   </Container>
 
@@ -109,37 +74,22 @@ const base = import.meta.env.BASE_URL;
             {latestNews.map((post) => {
               const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
               return (
-                <a
+                <NewsCard
                   href={`${base}nyheter/${post.id}`}
-                  class="group block rounded-xl border border-brand-100 bg-brand-50 px-6 py-5 shadow-sm transition-shadow hover:shadow-md dark:border-gray-700 dark:bg-gray-800"
-                >
-                  <h3 class="text-lg font-bold text-gray-900 transition-colors group-hover:text-brand-700 dark:text-gray-100 dark:group-hover:text-brand-400">
-                    {post.data.title}
-                  </h3>
-                  <p class="mt-1 text-sm text-brand-700 dark:text-brand-400">
-                    {post.data.date.toLocaleDateString("no-NO", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                    {categories.length > 0 && ` · ${categories.join(", ")}`}
-                  </p>
-                  {(post.data.ingress ?? post.data.description) && (
-                    <p class="mt-2 line-clamp-2 text-sm text-gray-600 dark:text-gray-400">
-                      {post.data.ingress ?? post.data.description}
-                    </p>
-                  )}
-                </a>
+                  title={post.data.title}
+                  date={post.data.date.toLocaleDateString("no-NO", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                  categories={categories}
+                  excerpt={post.data.ingress ?? post.data.description}
+                />
               );
             })}
           </CardGrid>
           <div class="mt-6 text-center">
-            <a
-              href={`${base}nyheter`}
-              class="inline-flex min-h-[44px] items-center gap-2 rounded-full bg-brand-700 px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-800"
-            >
-              Se alle nyheter →
-            </a>
+            <Button href={`${base}nyheter`}>Se alle nyheter →</Button>
           </div>
         </Container>
       </section>

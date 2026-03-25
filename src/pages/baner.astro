@@ -15,7 +15,7 @@ const base = import.meta.env.BASE_URL;
 
 const reglement = [
   "Det er kun betalende medlemmer som kan spille på banene.",
-  "Prøvespill/gjestespill for ikke-medlemmer skal avtales på forhånd (mail til im@aastk.no). Baneleie kr 200,- refunderes ved tegning av medlemskap.",
+  "Prøvespill/gjestespill for ikke-medlemmer – se <a href='#prøvespill' class='text-brand-700 dark:text-brand-400 underline'>regler for prøvespill</a> lenger ned på denne siden.",
   "Baner skal vannes før bruk når grusen er tørr. Spill på tørr bane er forbudt! Se demovideo for bruk av vanningsanlegget.",
   "Av hensyn til naboer skal banen ikke benyttes før kl. 07.00 eller etter kl. 22.30.",
   "Hver spiller er begrenset til én bestilling per dag. Husk å kansellere bestillingen i god tid!",
@@ -100,6 +100,28 @@ const reglement = [
     <!-- Banereglement -->
     <PageSection title="Banereglement" id="banereglement">
       <RuleList rules={reglement} />
+    </PageSection>
+
+    <!-- Prøvespill -->
+    <PageSection title="Prøvespill" id="prøvespill">
+      <RichTextBlock class="mb-4">
+        <p>
+          Ikke medlem ennå? Du er hjertelig velkommen til å prøvespille. For at ordningen ikke skal
+          misbrukes gjelder følgende regler:
+        </p>
+      </RichTextBlock>
+      <BulletList
+        items={[
+          "Prøvespill gjelder kun én gang per person.",
+          "Baneleie for prøvespill er kr 200,- for 1 time. Beløpet refunderes ved tegning av medlemskap.",
+          "Betal til konto 1100 44 76109 eller Vipps Ås Tennisklubb #14506.",
+          "Send mail til im@aastk.no med mobilnummer – du får tilgang via Yale Home-appen.",
+        ]}
+        class="mb-6"
+      />
+      <Button variant="outline" href="mailto:im@aastk.no" class="text-sm">
+        Send mail for prøvespill →
+      </Button>
     </PageSection>
   </Container>
 </Layout>
