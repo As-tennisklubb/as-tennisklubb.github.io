@@ -50,20 +50,14 @@ import RichTextBlock from "../components/ui/RichTextBlock.astro";
     <!-- Ballmaskiner -->
     <PageSection title="Ballmaskiner">
       <CardGrid cols={2}>
-        <Card>
-          <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">Liten ballmaskin</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Batteridrevet og lett å flytte rundt på banen. Passer for de yngste og nybegynnere, og
-            kan betjenes av de aller minste.
-          </p>
-        </Card>
-        <Card>
-          <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">Stor ballmaskin</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Rommer 125 baller og skyter både hardt (inntil 96 km/t) og løst. Kan variere retning og
-            pause mellom slagene – passer til spillere på flere nivåer.
-          </p>
-        </Card>
+        <Card
+          title="Liten ballmaskin"
+          description="Batteridrevet og lett å flytte rundt på banen. Passer for de yngste og nybegynnere, og kan betjenes av de aller minste."
+        />
+        <Card
+          title="Stor ballmaskin"
+          description="Rommer 125 baller og skyter både hardt (inntil 96 km/t) og løst. Kan variere retning og pause mellom slagene – passer til spillere på flere nivåer."
+        />
       </CardGrid>
     </PageSection>
   </Container>

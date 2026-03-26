@@ -2,7 +2,6 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import sitemap from "@astrojs/sitemap";
-import svelte from "@astrojs/svelte";
 
 export default defineConfig({
   site: "https://as-tennisklubb.github.io",
@@ -13,7 +12,6 @@ export default defineConfig({
   },
 
   integrations: [
-    svelte(),
     sitemap({
       namespaces: {
         news: false,

@@ -69,3 +69,6 @@ content:
       - name: body
         label: Artikkel
         type: rich-text
+        options:
+          media: false
+          switcher: false

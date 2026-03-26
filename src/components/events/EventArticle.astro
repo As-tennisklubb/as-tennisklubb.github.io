@@ -1,0 +1,67 @@
+---
+import { cn } from "@/lib/cn";
+import type { PublicClubEvent } from "../../lib/events/mapPublicEvent";
+import { formatPresentation, formatSignupStatus } from "../../lib/events/formatEvent";
+import { renderTiptapJson } from "../../lib/events/renderTiptapJson";
+import Badge from "../ui/Badge.astro";
+import RichTextBlock from "../ui/RichTextBlock.astro";
+import Button from "../ui/Button.astro";
+import BackLink from "../content/BackLink.astro";
+import ArticleHeading from "../content/ArticleHeading.astro";
+
+interface Props {
+  event: PublicClubEvent;
+  headingLevel?: "h1" | "h2";
+  backLink?: boolean;
+  class?: string;
+}
+
+const { event, headingLevel = "h1", backLink = false, class: className } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pLines = formatPresentation(event.presentation);
+const showCategory = event.category !== event.title;
+const signupStatus = formatSignupStatus(event.allowsSignup, event.signupCount);
+const cleanDescription = renderTiptapJson(event.description);
+---
+
+<article class={cn(className)}>
+  {backLink && (
+    <BackLink href={`${base}arrangementer`}>← Tilbake til arrangementer</BackLink>
+  )}
+
+  <ArticleHeading level={headingLevel}>{event.title}</ArticleHeading>
+
+  <!-- Metadata -->
+  <div class="mb-6 border-b border-gray-100 pb-6 dark:border-gray-700">
+    <div class="mb-3 flex flex-wrap items-center gap-3">
+      <Badge variant="date">{pLines.date}</Badge>
+      {showCategory && <Badge variant="category">{event.category}</Badge>}
+    </div>
+    <div class="space-y-0.5 text-sm text-gray-600 dark:text-gray-400">
+      {pLines.schedule && (
+        <p>{pLines.schedule}{event.presentation.hasDeviatingSlots && " (varierer)"}</p>
+      )}
+      {pLines.courts && <p>{pLines.courts}</p>}
+      {event.allowsSignup
+        ? <p class="text-brand-600 dark:text-brand-400">{signupStatus}</p>
+        : <p>{signupStatus}</p>
+      }
+    </div>
+  </div>
+
+  <!-- Beskrivelse -->
+  {cleanDescription && (
+    <RichTextBlock>
+      <Fragment set:html={cleanDescription} />
+    </RichTextBlock>
+  )}
+
+  <!-- CTA -->
+  {event.allowsSignup && (
+    <div class="mt-8 border-t border-gray-100 pt-6 dark:border-gray-700">
+      <Button href={event.bookingUrl} target="_blank" rel="noopener noreferrer">
+        Meld deg på
+      </Button>
+    </div>
+  )}
+</article>

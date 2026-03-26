@@ -1,0 +1,25 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Container from "../../components/layout/Container.astro";
+import EventArticle from "../../components/events/EventArticle.astro";
+import { fetchUpcomingEvents } from "../../lib/events/fetchEvents";
+
+export async function getStaticPaths() {
+  const events = await fetchUpcomingEvents();
+  return events.map((event) => ({
+    params: { id: event.arrangementId },
+    props: { event },
+  }));
+}
+
+const { event } = Astro.props;
+---
+
+<Layout
+  title={`${event.title} – Ås Tennisklubb`}
+  description={`${event.category} – ${event.title}`}
+>
+  <Container size="narrow" padded class="pt-10">
+    <EventArticle event={event} backLink headingLevel="h1" />
+  </Container>
+</Layout>

@@ -229,16 +229,32 @@ Liten pille for metadata som dato og kategori.
 
 N�ytral innholdswrapper med hvit bakgrunn, skygge og padding. **Ikke klikkbar.**
 
+| Prop          | Type     | Default     | Beskrivelse                         |
+| ------------- | -------- | ----------- | ----------------------------------- |
+| `title`       | `string` | `undefined` | Valgfri `<h3>` med standard styling |
+| `description` | `string` | `undefined` | Valgfri `<p>` med standard styling  |
+
 ```astro
+<!-- Enkel Card med props -->
+<Card title="Liten ballmaskin" description="Batteridrevet og lett å flytte." />
+
+<!-- Card med custom innhold via slot -->
+<Card title="Adgang til bane">
+  <p class="text-sm text-gray-600 dark:text-gray-400">
+    Tilgang via <strong>Yale Home-appen</strong>.
+  </p>
+</Card>
+
+<!-- Card uten props (ren wrapper) -->
 <Card>
   <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">Tittel</h3>
   <p class="text-sm text-gray-600 dark:text-gray-400">Beskrivelse</p>
 </Card>
 ```
 
-**Bruk** for frittst�ende informasjonsblokker (utstyr, fasiliteter etc.).
-**Ikke bruk** for klikkbare kort � bruk NewsCard eller LinkCard.
-Card er en bevisst "dum" wrapper � den eier layout, men innholdet styres av forbrukeren.
+**Bruk** for frittstående informasjonsblokker (utstyr, fasiliteter etc.).
+**Ikke bruk** for klikkbare kort – bruk NewsCard eller LinkCard.
+Når title/description dekker behovet: bruk props. Ellers bruk slot for egendefinert innhold.
 
 ---
 
@@ -340,6 +356,28 @@ Klikkbart navigasjonskort med `accent`-tone. Tittel, beskrivelse og CTA-lenketek
 ### ArticleMeta
 
 Metadata-rad for nyhetsartikler. **Bruk** kun i `nyheter/[id].astro`.
+
+### ArticleHeading
+
+Felles overskrift for artikkel-sider (nyheter og arrangementer).
+
+| Prop    | Type              | Default | Beskrivelse   |
+| ------- | ----------------- | ------- | ------------- |
+| `level` | `"h1"` \| `"h2"` | `"h1"`  | Heading-nivå |
+
+```astro
+<ArticleHeading>{post.data.title}</ArticleHeading>
+<ArticleHeading level="h2">{event.title}</ArticleHeading>
+```
+
+### BackLink
+
+Tilbake-lenke for artikkel-undersider.
+
+```astro
+<BackLink href="/nyheter">← Tilbake til nyheter</BackLink>
+<BackLink href="/arrangementer">← Tilbake til arrangementer</BackLink>
+```
 
 ### AttachmentList
 

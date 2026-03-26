@@ -1,13 +1,15 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { mapPublicEvent, type PublicClubEvent } from "../../lib/events/mapPublicEvent";
-  import EventCard from "./EventCard.svelte";
+  import EventDetail from "./EventDetail.svelte";
+  import EventSummaryCard from "./EventSummaryCard.svelte";
 
   const API_URL = `${import.meta.env.PUBLIC_API_BASE_URL}/api/offentlig/klubb/aas-tennisklubb/arrangementer`;
 
   let events: PublicClubEvent[] = $state([]);
   let loading = $state(true);
   let error = $state(false);
+  let selectedEvent: PublicClubEvent | null = $state(null);
 
   onMount(async () => {
     try {
@@ -41,10 +43,23 @@
       andre aktiviteter i klubben.
     </p>
   </div>
+{:else if events.length === 1}
+  <EventDetail event={events[0]} />
+{:else if selectedEvent}
+  <div>
+    <button
+      type="button"
+      onclick={() => (selectedEvent = null)}
+      class="link mb-6 inline-flex min-h-[44px] cursor-pointer items-center gap-1 text-sm font-medium"
+    >
+      ← Alle arrangementer
+    </button>
+    <EventDetail event={selectedEvent} />
+  </div>
 {:else}
-  <ul class="divide-y divide-gray-100 dark:divide-gray-700" aria-label="Arrangementsliste">
+  <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list" aria-label="Arrangementsliste">
     {#each events as event (event.id)}
-      <EventCard {event} />
+      <EventSummaryCard {event} onselect={() => (selectedEvent = event)} />
     {/each}
-  </ul>
+  </div>
 {/if}

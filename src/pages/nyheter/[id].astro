@@ -6,6 +6,8 @@ import RichTextBlock from "../../components/ui/RichTextBlock.astro";
 import Blockquote from "../../components/ui/Blockquote.astro";
 import ArticleMeta from "../../components/content/ArticleMeta.astro";
 import AttachmentList from "../../components/content/AttachmentList.astro";
+import BackLink from "../../components/content/BackLink.astro";
+import ArticleHeading from "../../components/content/ArticleHeading.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("news");
@@ -30,13 +32,9 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
 
 <Layout title={`${post.data.title} – Ås Tennisklubb`} description={ingress}>
   <Container size="narrow" padded class="pt-10">
-    <a href={`${base}nyheter`} class="link mb-6 inline-flex items-center gap-1 text-sm font-medium">
-      ← Tilbake til nyheter
-    </a>
+    <BackLink href={`${base}nyheter`}>← Tilbake til nyheter</BackLink>
     <article>
-      <h1 class="mb-6 text-3xl font-bold text-gray-900 md:text-4xl dark:text-gray-100">
-        {post.data.title}
-      </h1>
+      <ArticleHeading>{post.data.title}</ArticleHeading>
 
       <!-- Metadata -->
       <ArticleMeta

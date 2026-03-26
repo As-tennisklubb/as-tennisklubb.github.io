@@ -2,10 +2,12 @@
 import { cn } from "@/lib/cn";
 
 interface Props {
+  title?: string;
+  description?: string;
   class?: string;
 }
 
-const { class: className } = Astro.props;
+const { title, description, class: className } = Astro.props;
 ---
 
 <div
@@ -14,5 +16,7 @@ const { class: className } = Astro.props;
     className,
   )}
 >
+  {title && <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">{title}</h3>}
+  {description && <p class="text-sm text-gray-600 dark:text-gray-400">{description}</p>}
   <slot />
 </div>
