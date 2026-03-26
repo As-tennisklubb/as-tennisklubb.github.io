@@ -4,12 +4,16 @@
     formatSignupStatus,
     formatPresentation,
   } from "../../lib/events/formatEvent";
+  import { sanitizeTiptapHtml } from "../../lib/events/sanitizeTiptapHtml";
 
   let { event }: { event: PublicClubEvent } = $props();
 
   const pLines = $derived(formatPresentation(event.presentation));
   const showCategory = $derived(event.category !== event.title);
   const signupStatus = $derived(formatSignupStatus(event.allowsSignup, event.signupCount));
+  const cleanDescription = $derived(
+    event.description ? sanitizeTiptapHtml(event.description) : "",
+  );
 </script>
 
 <li>
@@ -59,9 +63,9 @@
       {/if}
     </div>
 
-    {#if event.description}
+    {#if cleanDescription}
       <div class="event-description">
-        {@html event.description}
+        {@html cleanDescription}
       </div>
     {/if}
   </article>
@@ -139,6 +143,58 @@
     color: #1f2937;
   }
 
+  /* Table – matches .data-table from global.css */
+  .event-description :global(table) {
+    width: 100%;
+    font-size: 0.875rem;
+    border-collapse: collapse;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  @media (min-width: 640px) {
+    .event-description :global(table) {
+      display: table;
+      overflow-x: visible;
+    }
+  }
+
+  .event-description :global(thead tr) {
+    border-bottom: 2px solid var(--color-brand-200);
+  }
+
+  .event-description :global(th) {
+    padding: 0.75rem 1.5rem 0.75rem 0;
+    text-align: left;
+    font-weight: 600;
+    color: #374151;
+  }
+
+  .event-description :global(th:last-child) {
+    padding-right: 0;
+  }
+
+  .event-description :global(tbody tr) {
+    border-bottom: 1px solid #f3f4f6;
+    transition: background-color 150ms;
+  }
+
+  .event-description :global(tbody tr:hover) {
+    background-color: var(--color-brand-50);
+  }
+
+  .event-description :global(td) {
+    padding: 0.75rem 1.5rem 0.75rem 0;
+    color: #4b5563;
+  }
+
+  .event-description :global(td:last-child) {
+    padding-right: 0;
+  }
+
   @media (prefers-color-scheme: dark) {
     .event-description :global(h1),
     .event-description :global(h2),
@@ -162,6 +218,26 @@
 
     .event-description :global(strong) {
       color: #e5e7eb;
+    }
+
+    .event-description :global(thead tr) {
+      border-bottom-color: var(--color-brand-800);
+    }
+
+    .event-description :global(th) {
+      color: #d1d5db;
+    }
+
+    .event-description :global(tbody tr) {
+      border-bottom-color: #1f2937;
+    }
+
+    .event-description :global(tbody tr:hover) {
+      background-color: #1f2937;
+    }
+
+    .event-description :global(td) {
+      color: #9ca3af;
     }
   }
 </style>
