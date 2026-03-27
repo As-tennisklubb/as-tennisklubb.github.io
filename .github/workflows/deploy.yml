@@ -1,41 +1,13 @@
-name: Deploy til GitHub Pages
+name: Planlagt rebuild
 
 on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-  repository_dispatch:
-    types: [rebuild]
   schedule:
     - cron: "0 5 * * *"
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+  workflow_dispatch:
 
 jobs:
-  build:
+  trigger-rebuild:
     runs-on: ubuntu-latest
     steps:
-      - name: Sjekk ut kode
-        uses: actions/checkout@v4
-      - name: Bygg og last opp til GitHub Pages
-        uses: withastro/action@v3
-        with:
-          node-version: 22
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy til GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Trigger Cloudflare Pages rebuild
+        run: curl -s -X POST "${{ secrets.CLOUDFLARE_DEPLOY_HOOK_URL }}"
