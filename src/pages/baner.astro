@@ -4,7 +4,6 @@ import { CalendarCheck } from "@lucide/astro";
 import Container from "../components/layout/Container.astro";
 import PageSection from "../components/layout/PageSection.astro";
 import Button from "../components/ui/Button.astro";
-import Callout from "../components/ui/Callout.astro";
 import RichTextBlock from "../components/ui/RichTextBlock.astro";
 import RuleList from "../components/content/RuleList.astro";
 import LazyMap from "../components/content/LazyMap.astro";
@@ -43,20 +42,6 @@ const reglement = [
         </p>
       </RichTextBlock>
 
-      <!-- Medlemskap og praktisk info -->
-      <Callout class="mb-8">
-        <p class="mb-3 font-semibold text-brand-800 dark:text-brand-300">
-          Du må være medlem for å spille på banene.
-        </p>
-        <BulletList
-          items={[
-            "Booking er gratis og kan gjøres opptil 7 dager i forveien.",
-            "Tilgang til bane og klubbhus får du via Yale Home-appen.",
-            '<a href="#banereglement" class="text-brand-700 dark:text-brand-400 underline">Les banereglementet</a> før du spiller.',
-          ]}
-        />
-      </Callout>
-
       <div class="mb-8 flex flex-wrap gap-4">
         <Button href={`${base}medlemskap`}>Bli medlem →</Button>
         <Button variant="outline" href={import.meta.env.PUBLIC_BOOKING_URL} target="_blank" rel="noopener noreferrer">
@@ -64,6 +49,31 @@ const reglement = [
           Book bane
         </Button>
       </div>
+    </PageSection>
+
+    <!-- Praktisk informasjon -->
+    <PageSection title="Praktisk informasjon">
+      <RichTextBlock class="mb-6">
+        <p>Her er det viktigste du trenger å vite før du spiller:</p>
+      </RichTextBlock>
+      <BulletList
+        items={[
+          "Du må være medlem for å bruke banene.",
+          "Booking er gratis og kan gjøres opptil 7 dager i forveien.",
+          "Tilgang til bane og klubbhus skjer via Yale Home-appen.",
+          "Racketer og baller kan lånes gratis i klubbhuset.",
+          "Klubbhuset inneholder også toalett og vanningsanlegg.",
+          '<a href="#banereglement" class="text-brand-700 dark:text-brand-400 underline">Se banereglementet</a> før du spiller.',
+        ]}
+      />
+    </PageSection>
+
+    <!-- Banereglement -->
+    <PageSection title="Banereglement" id="banereglement">
+      <RichTextBlock class="mb-6">
+        <p>For å holde banene i god stand for alle, ber vi om at følgende regler følges:</p>
+      </RichTextBlock>
+      <RuleList rules={reglement} />
     </PageSection>
 
     <!-- Kart -->
@@ -74,14 +84,6 @@ const reglement = [
         embedQuery="Idrettsveien 1, 1430 Ås, Norway"
         mapsUrl="https://maps.google.com/maps?q=Idrettsveien+1,+1430+Ås,+Norway"
       />
-    </PageSection>
-
-    <!-- Banereglement -->
-    <PageSection title="Banereglement" id="banereglement">
-      <RichTextBlock class="mb-6">
-        <p>For å holde banene i god stand for alle, ber vi om at følgende regler følges:</p>
-      </RichTextBlock>
-      <RuleList rules={reglement} />
     </PageSection>
   </Container>
 </Layout>
