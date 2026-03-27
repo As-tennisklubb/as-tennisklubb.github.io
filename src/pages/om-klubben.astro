@@ -1,28 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Users } from "@lucide/astro";
 import Container from "../components/layout/Container.astro";
 import PageSection from "../components/layout/PageSection.astro";
+import Button from "../components/ui/Button.astro";
 import RichTextBlock from "../components/ui/RichTextBlock.astro";
-import ResponsiveDataList from "../components/content/ResponsiveDataList.astro";
+import LazyMap from "../components/content/LazyMap.astro";
 
-const styret = [
-  { navn: "Øyvind Engøy", rolle: "Leder", epost: "leder@aastk.no", tlf: "950 55 078" },
-  { navn: "Lars Rønn", rolle: "Nestleder", epost: "im@aastk.no", tlf: "951 26 858" },
-  {
-    navn: "Lone Ross",
-    rolle: "Administrasjon",
-    epost: "administrasjon@aastk.no",
-    tlf: "911 97 268",
-  },
-  { navn: "James Randall Fennell", rolle: "Anlegg", epost: "anlegg@aastk.no", tlf: "997 98 972" },
-  { navn: "Rune Sundbø", rolle: "Dugnad / anlegg", epost: "anlegg@aastk.no", tlf: "922 83 185" },
-];
+const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
   title="Om klubben – Ås Tennisklubb"
-  description="Ås Tennisklubb ble grunnlagt i 1976 og holder til ved Ås stadion. Les mer om oss, våre baner og styret."
+  description="Ås Tennisklubb ble grunnlagt i 1976 og holder til ved Ås stadion. Les mer om klubben."
   pageTitle="Om Ås Tennisklubb"
   pageDescription="Tennisklubb for alle i Ås – stiftet i 1976."
 >
@@ -30,76 +19,36 @@ const styret = [
     <PageSection title="Om oss">
       <RichTextBlock>
         <p>
-          Som medlem spiller du så mye du vil – uten å betale per gang. Tre grusbaner ved Ås stadion
-          er tilgjengelige fra april til november.
+          Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion. Vi
+          er en klubb for alle – uansett alder og nivå.
         </p>
         <p>
-          Vi tilbyr kurs for barn og voksne, uansett nivå. Racketer og baller kan lånes gratis i
-          klubbhuset.
-        </p>
-        <p>
-          Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion.
+          Med tre grusbaner, kurs og arrangementer gjennom sesongen, og et aktivt klubbmiljø er det
+          alltid noe å være med på.
         </p>
       </RichTextBlock>
     </PageSection>
 
-    <PageSection title="Styre og kontaktpersoner" icon={Users}>
-      <ResponsiveDataList>
-        <Fragment slot="mobile">
-          {
-            styret.map(({ navn, rolle, epost, tlf }) => (
-              <div class="data-card">
-                <p class="font-semibold text-gray-900 dark:text-gray-100">{navn}</p>
-                <p class="mb-2 text-sm text-brand-700 dark:text-brand-400">{rolle}</p>
-                <a
-                  href={`mailto:${epost}`}
-                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
-                >
-                  {epost}
-                </a>
-                <a
-                  href={`tel:+47${tlf.replace(/\s/g, "")}`}
-                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
-                >
-                  {tlf}
-                </a>
-              </div>
-            ))
-          }
-        </Fragment>
-        <Fragment slot="desktop">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Navn</th>
-                <th>Rolle</th>
-                <th>E-post</th>
-                <th>Telefon</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                styret.map(({ navn, rolle, epost, tlf }) => (
-                  <tr>
-                    <td class="font-medium text-gray-900 dark:text-gray-100">{navn}</td>
-                    <td>{rolle}</td>
-                    <td>
-                      <a href={`mailto:${epost}`} class="link">
-                        {epost}
-                      </a>
-                    </td>
-                    <td>
-                      <a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="link">
-                        {tlf}
-                      </a>
-                    </td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </Fragment>
-      </ResponsiveDataList>
+    <PageSection title="Klubbens beliggenhet">
+      <RichTextBlock class="mb-6">
+        <p>Banene ligger sentralt ved Ås stadion.</p>
+      </RichTextBlock>
+      <LazyMap
+        address="Idrettsveien 1"
+        city="1430 Ås"
+        embedQuery="Idrettsveien 1, 1430 Ås, Norway"
+        mapsUrl="https://maps.google.com/maps?q=Idrettsveien+1,+1430+Ås,+Norway"
+      />
+    </PageSection>
+
+    <PageSection title="Bli med">
+      <RichTextBlock class="mb-6">
+        <p>Bli en del av klubben – spill tennis hele sesongen fra kr 500,-.</p>
+      </RichTextBlock>
+      <div class="flex flex-wrap gap-4">
+        <Button href={`${base}medlemskap`}>Bli medlem →</Button>
+        <Button variant="outline" href={`${base}kontakt`}>Kontakt oss →</Button>
+      </div>
     </PageSection>
   </Container>
 </Layout>

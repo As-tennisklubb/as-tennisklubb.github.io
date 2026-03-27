@@ -1,0 +1,106 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Users, Mail } from "@lucide/astro";
+import Container from "../components/layout/Container.astro";
+import PageSection from "../components/layout/PageSection.astro";
+import RichTextBlock from "../components/ui/RichTextBlock.astro";
+import ResponsiveDataList from "../components/content/ResponsiveDataList.astro";
+
+const styret = [
+  { navn: "Øyvind Engøy", rolle: "Leder", epost: "leder@aastk.no", tlf: "950 55 078" },
+  { navn: "Lars Rønn", rolle: "Nestleder", epost: "im@aastk.no", tlf: "951 26 858" },
+  {
+    navn: "Lone Ross",
+    rolle: "Administrasjon",
+    epost: "administrasjon@aastk.no",
+    tlf: "911 97 268",
+  },
+  { navn: "James Randall Fennell", rolle: "Anlegg", epost: "anlegg@aastk.no", tlf: "997 98 972" },
+  { navn: "Rune Sundbø", rolle: "Dugnad / anlegg", epost: "anlegg@aastk.no", tlf: "922 83 185" },
+];
+---
+
+<Layout
+  title="Kontakt – Ås Tennisklubb"
+  description="Kontaktinformasjon for Ås Tennisklubb. Styret, e-post og telefon."
+  pageTitle="Kontakt"
+  pageDescription="Ta kontakt med oss – vi hjelper deg gjerne."
+>
+  <Container padded>
+    <PageSection title="Generelle henvendelser" icon={Mail}>
+      <RichTextBlock>
+        <p>
+          Har du spørsmål om medlemskap, booking eller arrangementer?<br />
+          Send oss en e-post – vi svarer så raskt vi kan.
+        </p>
+        <p>
+          <a href="mailto:administrasjon@aastk.no" class="link text-lg font-semibold">
+            administrasjon@aastk.no
+          </a>
+        </p>
+      </RichTextBlock>
+    </PageSection>
+
+    <PageSection title="Styret (for spesifikke henvendelser)" icon={Users}>
+      <RichTextBlock>
+        <p>Har du en spesifikk henvendelse? Ta direkte kontakt med riktig person i styret.</p>
+      </RichTextBlock>
+      <ResponsiveDataList>
+        <Fragment slot="mobile">
+          {
+            styret.map(({ navn, rolle, epost, tlf }) => (
+              <div class="data-card">
+                <p class="font-semibold text-gray-900 dark:text-gray-100">{navn}</p>
+                <p class="mb-2 text-sm text-brand-700 dark:text-brand-400">{rolle}</p>
+                <a
+                  href={`mailto:${epost}`}
+                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
+                >
+                  {epost}
+                </a>
+                <a
+                  href={`tel:+47${tlf.replace(/\s/g, "")}`}
+                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
+                >
+                  {tlf}
+                </a>
+              </div>
+            ))
+          }
+        </Fragment>
+        <Fragment slot="desktop">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Navn</th>
+                <th>Rolle</th>
+                <th>E-post</th>
+                <th>Telefon</th>
+              </tr>
+            </thead>
+            <tbody>
+              {
+                styret.map(({ navn, rolle, epost, tlf }) => (
+                  <tr>
+                    <td class="font-medium text-gray-900 dark:text-gray-100">{navn}</td>
+                    <td>{rolle}</td>
+                    <td>
+                      <a href={`mailto:${epost}`} class="link">
+                        {epost}
+                      </a>
+                    </td>
+                    <td>
+                      <a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="link">
+                        {tlf}
+                      </a>
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </Fragment>
+      </ResponsiveDataList>
+    </PageSection>
+  </Container>
+</Layout>

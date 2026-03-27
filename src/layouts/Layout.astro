@@ -31,7 +31,15 @@ const base = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const navLinks = [
-  { href: "baner", label: "Baner" },
+  { href: "baner", label: "Spill tennis" },
+  { href: "arrangementer", label: "Arrangementer" },
+  { href: "kontakt", label: "Kontakt" },
+  { href: "om-klubben", label: "Om klubben" },
+];
+
+const footerLinks = [
+  { href: "baner", label: "Spill tennis" },
+  { href: "medlemskap", label: "Bli medlem" },
   { href: "arrangementer", label: "Arrangementer" },
   { href: "nyheter", label: "Nyheter" },
   { href: "utstyr", label: "Utstyr" },
@@ -39,7 +47,7 @@ const navLinks = [
 ];
 
 const pathname = Astro.url.pathname;
-const isActive = (href: string) => pathname.includes(`/${href}`);
+const isActive = (href: string) => pathname.startsWith(`/${href}`);
 ---
 
 <!doctype html>
@@ -204,16 +212,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
     </header>
 
     <main transition:animate={slide({ duration: "0.3s" })} class="flex-1">
-      {
-        pageTitle && (
-          <HeroSection size="content">
-            <h1 class="mb-2 text-3xl font-bold md:text-4xl">{pageTitle}</h1>
-            {pageDescription && (
-              <p class="max-w-2xl text-base text-brand-200 md:text-lg">{pageDescription}</p>
-            )}
-          </HeroSection>
-        )
-      }
+      {pageTitle && <HeroSection size="content" title={pageTitle} description={pageDescription} />}
       <slot />
     </main>
 
@@ -233,7 +232,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
           <p class="mb-3 font-semibold text-white">Lenker</p>
           <ul class="space-y-2 text-sm">
             {
-              navLinks.map(({ href, label }) => (
+              footerLinks.map(({ href, label }) => (
                 <li>
                   <a
                     href={`${base}${href}`}
@@ -244,18 +243,15 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
                 </li>
               ))
             }
-            <li class="pt-1">
-              <a
-                href={`${base}medlemskap`}
-                class="inline-flex min-h-[44px] items-center rounded-full bg-accent-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-accent-600"
-              >
-                Bli medlem
-              </a>
-            </li>
           </ul>
         </nav>
         <div>
           <p class="mb-3 font-semibold text-white">Kontakt</p>
+          <a
+            href={`${base}kontakt`}
+            class="flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
+            >Se kontaktinformasjon</a
+          >
           <a
             href="mailto:administrasjon@aastk.no"
             class="flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
@@ -298,6 +294,7 @@ const isActive = (href: string) => pathname.includes(`/${href}`);
       menu?.classList.toggle("hidden");
       iconOpen?.classList.toggle("hidden");
       iconClose?.classList.toggle("hidden");
+      document.body.classList.toggle("overflow-hidden");
     });
   }
 

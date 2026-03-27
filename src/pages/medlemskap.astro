@@ -7,10 +7,7 @@ import Button from "../components/ui/Button.astro";
 import Callout from "../components/ui/Callout.astro";
 import RichTextBlock from "../components/ui/RichTextBlock.astro";
 import ResponsiveDataList from "../components/content/ResponsiveDataList.astro";
-import CardGrid from "../components/layout/CardGrid.astro";
-import Card from "../components/ui/Card.astro";
-
-const base = import.meta.env.BASE_URL;
+import StepList from "../components/content/StepList.astro";
 
 const priser = [
   { type: "Barn/junior (inntil 19 år)", pris: "500,-" },
@@ -27,6 +24,10 @@ const priser = [
   pageDescription="Alle er velkomne – uansett alder, kjønn og nivå."
 >
   <Container padded>
+    <RichTextBlock class="mb-4">
+      <p>Er du ny eller allerede medlem? Finn din vei videre.</p>
+    </RichTextBlock>
+
     <!-- Prisliste -->
     <PageSection title="Medlemskontingent 2026">
       <ResponsiveDataList>
@@ -65,76 +66,60 @@ const priser = [
       </ResponsiveDataList>
     </PageSection>
 
-    <!-- Ny medlem -->
-    <PageSection title="Ny medlem" icon={UserPlus}>
-      <RichTextBlock class="mb-4">
-        <p>Har du ikke vært medlem før? Følg disse stegene:</p>
-      </RichTextBlock>
-      <CardGrid cols={2}>
-        <Card>
-          <p
-            class="mb-1 text-xs font-semibold tracking-wide text-brand-700 uppercase dark:text-brand-400"
-          >
-            Steg 1
-          </p>
-          <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">Registrer deg</h3>
-          <p class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-            Opprett profil via Min Idrett – det tar bare noen minutter.
-          </p>
-          <Button
-            href="https://medlemskap.nif.no/19967"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-sm"
-          >
-            Registrer på Min Idrett →
-          </Button>
-        </Card>
-        <Card>
-          <p
-            class="mb-1 text-xs font-semibold tracking-wide text-brand-700 uppercase dark:text-brand-400"
-          >
-            Steg 2
-          </p>
-          <h3 class="mb-2 font-semibold text-gray-900 dark:text-gray-100">Betal og få tilgang</h3>
-          <p class="text-sm text-gray-600 dark:text-gray-400">
-            Betal kontingent til
-            <strong class="text-gray-900 dark:text-gray-100">konto 1100 44 76109</strong> eller
-            <strong class="text-gray-900 dark:text-gray-100">Vipps Ås Tennisklubb #14506</strong>.
-            Merk med <em>Navn og type medlemskap</em>.
-          </p>
-          <p class="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Send e-post til
-            <a href="mailto:aas.tbk@gmail.com" class="link">aas.tbk@gmail.com</a>
-            med navn og mobilnummer for alle som skal ha tilgang.
-          </p>
-        </Card>
-      </CardGrid>
-      <Callout class="mt-6">
-        Etter at betalingen er registrert får du tilgang til bane og klubbhus via <strong
-          >Yale Home-appen</strong
-        >.
-      </Callout>
-    </PageSection>
-
-    <!-- Eksisterende medlem -->
-    <PageSection title="Allerede medlem?" icon={RefreshCw}>
-      <RichTextBlock class="mb-4">
-        <p>
-          Forny medlemskapet ditt ved å betale kontingent – du trenger ikke registrere deg på nytt.
-        </p>
-      </RichTextBlock>
-      <Callout class="space-y-2">
+    <!-- Betaling -->
+    <PageSection title="Betaling">
+      <Callout variant="success" class="space-y-2">
+        <p class="font-semibold text-gray-900 dark:text-gray-100">Betal slik:</p>
         <p>
           Betal til <strong class="text-gray-900 dark:text-gray-100">konto 1100 44 76109</strong> eller
           <strong class="text-gray-900 dark:text-gray-100">Vipps Ås Tennisklubb #14506</strong>.
           Merk med <em>Navn og type medlemskap</em>.
         </p>
-        <p class="text-xs text-gray-500 dark:text-gray-500">
-          Har du Yale Home-tilgang fra i fjor? Da trenger du ikke sende e-post – tilgangen fornyes
-          automatisk etter betaling.
-        </p>
+        <p>Betaling gir full tilgang til banebooking og klubbhus.</p>
       </Callout>
+    </PageSection>
+
+    <!-- Ny medlem -->
+    <PageSection title="Ny medlem" icon={UserPlus}>
+      <StepList
+        steps={[
+          {
+            title: "Registrer deg",
+            text: "Opprett profil via Min Idrett – det tar bare noen minutter.",
+          },
+          {
+            title: "Betal kontingent",
+            text: "Se betalingsinformasjon over.",
+          },
+        ]}
+        class="md:grid-cols-2"
+      />
+      <Button
+        href="https://medlemskap.nif.no/19967"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mt-6 text-sm"
+      >
+        Registrer på Min Idrett →
+      </Button>
+      <RichTextBlock class="mt-6">
+        <p class="text-sm text-gray-600 dark:text-gray-400">
+          Etter betaling får du tilgang via <strong>Yale Home-appen</strong>.
+          Send e-post til <a href="mailto:aas.tbk@gmail.com" class="link">aas.tbk@gmail.com</a> med navn og mobilnummer for alle som skal ha tilgang.
+        </p>
+      </RichTextBlock>
+    </PageSection>
+
+    <!-- Eksisterende medlem -->
+    <PageSection title="Allerede medlem?" icon={RefreshCw}>
+      <RichTextBlock>
+        <p>
+          Du trenger ikke registrere deg på nytt – betal kontingent for å fornye.
+        </p>
+        <p class="mt-2 text-sm text-gray-500 dark:text-gray-500">
+          Har du Yale Home-tilgang fra i fjor? Tilgangen fornyes automatisk etter betaling.
+        </p>
+      </RichTextBlock>
     </PageSection>
   </Container>
 </Layout>

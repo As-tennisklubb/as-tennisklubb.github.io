@@ -55,7 +55,9 @@ export function sanitizeTiptapHtml(html: string): string {
       .replace(/<p>\s*<\/p>/gi, "") // drop empty <p>
       .match(/<p>([\s\S]*?)<\/p>/gi);
     if (!parts || parts.length === 0) return `<blockquote>${inner}</blockquote>`;
-    const contents = parts.map((p) => p.replace(/^<p>([\s\S]*)<\/p>$/i, "$1").trim()).filter(Boolean);
+    const contents = parts
+      .map((p) => p.replace(/^<p>([\s\S]*)<\/p>$/i, "$1").trim())
+      .filter(Boolean);
     return `<blockquote><p>${contents.join("<br>")}</p></blockquote>`;
   });
 

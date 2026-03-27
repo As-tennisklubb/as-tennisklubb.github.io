@@ -361,8 +361,8 @@ Metadata-rad for nyhetsartikler. **Bruk** kun i `nyheter/[id].astro`.
 
 Felles overskrift for artikkel-sider (nyheter og arrangementer).
 
-| Prop    | Type              | Default | Beskrivelse   |
-| ------- | ----------------- | ------- | ------------- |
+| Prop    | Type             | Default | Beskrivelse  |
+| ------- | ---------------- | ------- | ------------ |
 | `level` | `"h1"` \| `"h2"` | `"h1"`  | Heading-nivå |
 
 ```astro

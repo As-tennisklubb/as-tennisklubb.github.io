@@ -30,7 +30,7 @@ const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
 <a
   href={href}
   class={cn(
-    "group flex flex-col bg-brand-50 dark:bg-gray-800 border border-brand-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md transition-shadow px-6 py-5",
+    "group flex flex-col bg-brand-50 dark:bg-gray-800 border border-brand-100 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-md hover:border-brand-300 dark:hover:border-brand-500 transition-all px-6 py-5",
     className,
   )}
 >
@@ -42,11 +42,19 @@ const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
     )
   }
   <p class="mt-1 text-sm text-brand-700 dark:text-brand-400">
-    {date}{categories.length > 0 && ` · ${categories.join(", ")}`}
+    {date}
   </p>
+  {categories.length > 0 && (
+    <p class="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
+      {categories.join(", ")}
+    </p>
+  )}
   {
     excerpt && (
       <p class={cn("mt-2 text-sm text-gray-600 dark:text-gray-400", clampClass)}>{excerpt}</p>
     )
   }
+  <p class="mt-auto pt-3 text-sm font-medium text-brand-700 transition-colors group-hover:text-brand-900 dark:text-brand-400 dark:group-hover:text-brand-300">
+    Les mer →
+  </p>
 </a>

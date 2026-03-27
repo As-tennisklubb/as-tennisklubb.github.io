@@ -1,10 +1,9 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { CalendarCheck, Info } from "@lucide/astro";
+import { CalendarCheck } from "@lucide/astro";
 import Container from "../components/layout/Container.astro";
 import PageSection from "../components/layout/PageSection.astro";
 import Button from "../components/ui/Button.astro";
-import Card from "../components/ui/Card.astro";
 import Callout from "../components/ui/Callout.astro";
 import RichTextBlock from "../components/ui/RichTextBlock.astro";
 import RuleList from "../components/content/RuleList.astro";
@@ -14,19 +13,17 @@ import BulletList from "../components/ui/BulletList.astro";
 const base = import.meta.env.BASE_URL;
 
 const reglement = [
-  "Det er kun betalende medlemmer som kan spille på banene.",
-  "Prøvespill/gjestespill for ikke-medlemmer – se <a href='#prøvespill' class='text-brand-700 dark:text-brand-400 underline'>regler for prøvespill</a> lenger ned på denne siden.",
-  "Baner skal vannes før bruk når grusen er tørr. Spill på tørr bane er forbudt! Se demovideo for bruk av vanningsanlegget.",
-  "Av hensyn til naboer skal banen ikke benyttes før kl. 07.00 eller etter kl. 22.30.",
-  "Hver spiller er begrenset til én bestilling per dag. Husk å kansellere bestillingen i god tid!",
-  "Styret har rett til å reservere alle baner ved trening, kurs, drop-in, arrangementer o.l.",
-  "Banene skal alltid kostes etter bruk – start ytterst langs gjerde og gå i sirkler mot midten.",
-  "Bruk tennissko/joggesko med jevn såle! Fottøy med grov struktur ødelegger banen og er ikke tillatt.",
-  "En bane regnes som spillbar dersom det ikke forekommer vanndammer.",
-  "Alle medlemmer plikter å bidra med stell av linjer. Dersom en linje løsner skal den umiddelbart vannes og bankes ned i grusen med egen stamper.",
-  "Etterlat ikke drikkeflasker, tomme ballrør eller søppel på banen. Bruk søppelkassene.",
-  "De som sist forlater baneanlegget om kvelden plikter å slå av banelyset og påse at døren til klubbhuset og porten til banen er låst.",
-  "Kontakt anleggsansvarlig om noe er galt med banene.",
+  "Banene må vannes før bruk når grusen er tørr.",
+  "Banene kan benyttes mellom kl. 07.00 og 22.30.",
+  "Hver spiller kan bestille én bane per dag.",
+  "Kanseller bestillingen i god tid hvis du ikke kan spille.",
+  "Kost banen etter bruk – start ytterst langs gjerdet og jobb deg innover.",
+  "Bruk sko med jevn såle – grov såle ødelegger grusen.",
+  "Banen er spillbar så lenge det ikke står vann på den.",
+  "Dersom en linje løsner, vann den og bank den ned med stamperen.",
+  "Kast søppel, flasker og tomme ballrør i søppelkassene.",
+  "Den som forlater anlegget sist, slår av lyset og låser port og klubbhus.",
+  "Kontakt klubben dersom du oppdager feil på banene.",
 ];
 ---
 
@@ -37,8 +34,8 @@ const reglement = [
   pageDescription="Tre grusbaner ved Ås stadion – tilgjengelige for medlemmer fra april til november."
 >
   <Container padded>
-    <!-- Utendørs -->
-    <PageSection title="Utendørs">
+    <!-- Intro -->
+    <PageSection title="Spill tennis i Ås">
       <RichTextBlock class="mb-6">
         <p>
           Ås Tennisklubb disponerer tre grusbaner i Idrettsveien, rett ved Ås stadion. Fra april til
@@ -46,42 +43,27 @@ const reglement = [
         </p>
       </RichTextBlock>
 
-      <Button
-        href={import.meta.env.PUBLIC_BOOKING_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mb-8"
-      >
-        <CalendarCheck class="h-5 w-5" />
-        Book bane
-      </Button>
-
-      <!-- Viktig å vite -->
-      <Callout class="mb-4">
-        <div class="mb-4 flex items-center gap-2">
-          <Info class="h-5 w-5 shrink-0 text-brand-700 dark:text-brand-400" />
-          <h3 class="font-semibold text-brand-800 dark:text-brand-300">Viktig å vite</h3>
-        </div>
+      <!-- Medlemskap og praktisk info -->
+      <Callout class="mb-8">
+        <p class="mb-3 font-semibold text-brand-800 dark:text-brand-300">
+          Du må være medlem for å spille på banene.
+        </p>
         <BulletList
           items={[
-            "Det koster ingenting å bestille, men alle som benytter banen må være registrerte medlemmer i Ås Tennisklubb.",
-            'Alle spillere plikter å følge <a href="#banereglement" class="text-brand-700 dark:text-brand-400 underline">klubbens banereglement</a>.',
-            "Hver spiller er begrenset til én bestilling per dag.",
-            "Bestilling kan gjøres maksimum 7 dager i forveien.",
-            "Faste timer og arrangementer er satt av i kalenderen og kan ikke reserveres.",
+            "Booking er gratis og kan gjøres opptil 7 dager i forveien.",
+            "Tilgang til bane og klubbhus får du via Yale Home-appen.",
+            '<a href="#banereglement" class="text-brand-700 dark:text-brand-400 underline">Les banereglementet</a> før du spiller.',
           ]}
         />
       </Callout>
 
-      <!-- Adgang -->
-      <Card title="Adgang til bane og klubbhus">
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Alle betalende medlemmer får tilgang via <strong class="text-gray-800 dark:text-gray-200"
-            >Yale Home-appen</strong
-          >.
-          <a href={`${base}medlemskap`} class="link ml-1">Se medlemskapssiden for detaljer →</a>
-        </p>
-      </Card>
+      <div class="mb-8 flex flex-wrap gap-4">
+        <Button href={`${base}medlemskap`}>Bli medlem →</Button>
+        <Button variant="outline" href={import.meta.env.PUBLIC_BOOKING_URL} target="_blank" rel="noopener noreferrer">
+          <CalendarCheck class="h-5 w-5" />
+          Book bane
+        </Button>
+      </div>
     </PageSection>
 
     <!-- Kart -->
@@ -96,29 +78,10 @@ const reglement = [
 
     <!-- Banereglement -->
     <PageSection title="Banereglement" id="banereglement">
-      <RuleList rules={reglement} />
-    </PageSection>
-
-    <!-- Prøvespill -->
-    <PageSection title="Prøvespill" id="prøvespill">
-      <RichTextBlock class="mb-4">
-        <p>
-          Ikke medlem ennå? Du er hjertelig velkommen til å prøvespille. For at ordningen ikke skal
-          misbrukes gjelder følgende regler:
-        </p>
+      <RichTextBlock class="mb-6">
+        <p>For å holde banene i god stand for alle, ber vi om at følgende regler følges:</p>
       </RichTextBlock>
-      <BulletList
-        items={[
-          "Prøvespill gjelder kun én gang per person.",
-          "Baneleie for prøvespill er kr 200,- for 1 time. Beløpet refunderes ved tegning av medlemskap.",
-          "Betal til konto 1100 44 76109 eller Vipps Ås Tennisklubb #14506.",
-          "Send mail til im@aastk.no med mobilnummer – du får tilgang via Yale Home-appen.",
-        ]}
-        class="mb-6"
-      />
-      <Button variant="outline" href="mailto:im@aastk.no" class="text-sm">
-        Send mail for prøvespill →
-      </Button>
+      <RuleList rules={reglement} />
     </PageSection>
   </Container>
 </Layout>

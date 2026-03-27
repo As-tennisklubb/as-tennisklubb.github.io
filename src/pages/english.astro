@@ -2,11 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import { CalendarCheck } from "@lucide/astro";
 import Container from "../components/layout/Container.astro";
-import HeroSection from "../components/layout/HeroSection.astro";
+import PageSection from "../components/layout/PageSection.astro";
 import Button from "../components/ui/Button.astro";
-import SectionHeading from "../components/layout/SectionHeading.astro";
 import RichTextBlock from "../components/ui/RichTextBlock.astro";
-import Divider from "../components/ui/Divider.astro";
+import StepList from "../components/content/StepList.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -15,103 +14,81 @@ const base = import.meta.env.BASE_URL;
   title="Ås Tennis Club – English"
   description="Welcome to Ås Tennis Club. Information about courts, membership and courses in English."
   lang="en"
+  pageTitle="Welcome to Ås Tennis Club"
+  pageDescription="Three clay courts at Ås stadion – open from April to November."
   languageAlternates={[
     { href: new URL(Astro.url.pathname, Astro.site).href, hrefLang: "en" },
     { href: new URL("/", Astro.site).href, hrefLang: "no" },
     { href: new URL("/", Astro.site).href, hrefLang: "x-default" },
   ]}
 >
-  <!-- Hero -->
-  <HeroSection size="content">
-    <h1 class="mb-2 text-3xl font-bold md:text-4xl">Welcome to Ås Tennis Club</h1>
-    <p class="max-w-xl text-base text-brand-200 md:text-lg">
-      Tennis for everyone – regardless of age or skill level.
-    </p>
-  </HeroSection>
+  <Container padded>
+    <PageSection title="Getting started">
+      <RichTextBlock class="mb-6">
+        <p>Information in English about courts, membership and activities.</p>
+      </RichTextBlock>
+      <StepList
+        steps={[
+          { title: "Become a member", text: "Register via Min Idrett and pay the annual fee." },
+          {
+            title: "Book a court",
+            text: "Reserve up to 7 days in advance via our booking system.",
+          },
+          {
+            title: "Play",
+            text: "Show up and play – rackets and balls can be borrowed for free.",
+          },
+        ]}
+        class="mb-6"
+      />
+      <div class="flex flex-wrap gap-4">
+        <Button href={`${base}medlemskap`}>Become a member →</Button>
+        <Button
+          variant="outline"
+          href={import.meta.env.PUBLIC_BOOKING_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <CalendarCheck class="h-5 w-5" />
+          Go to booking →
+        </Button>
+      </div>
+    </PageSection>
 
-  <Container padded class="space-y-10">
-    <!-- Tennis Courts -->
-    <section>
-      <SectionHeading title="Tennis courts" />
-      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
+    <PageSection title="Membership">
+      <RichTextBlock>
         <p>
-          We have 3 outdoor clay courts at Ås stadion, available from April to November. Reserve a
-          court using our online booking system:
+          Membership is required to use the courts. Prices start from NOK 500 per year.
+        </p>
+        <p>
+          After registering, you will need to send an email to
+          <a href="mailto:aas.tbk@gmail.com" class="link">aas.tbk@gmail.com</a>
+          with your name and mobile number. You will receive access to the courts and clubhouse via the <strong>Yale Home app</strong>.
         </p>
       </RichTextBlock>
       <Button
-        href={import.meta.env.PUBLIC_BOOKING_URL}
+        href="https://medlemskap.nif.no/19967"
         target="_blank"
         rel="noopener noreferrer"
-        class="my-6"
-      >
-        <CalendarCheck class="h-5 w-5" />
-        Book a court
-      </Button>
-      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
-        <p>
-          As a member you may freely borrow rackets and balls from the club house. We recommend that
-          regular players use their own rackets.
-        </p>
-        <p>During winter we cooperate with Drøbak Tennisklubb.</p>
-      </RichTextBlock>
-    </section>
+        class="mt-6"
+      >Register via Min Idrett (Norwegian Sports Federation) →</Button>
+    </PageSection>
 
-    <Divider />
-
-    <!-- Membership -->
-    <section>
-      <SectionHeading title="Membership" />
-      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
+    <PageSection title="Events and courses">
+      <RichTextBlock>
         <p>
-          Register as a member via Min Idrett (Norwegian Sports Federation). You can also view
-          membership fees on our membership page:
-        </p>
-        <p>
-          <a href={`${base}medlemskap`} class="link font-semibold">
-            View membership fees and registration →
-          </a>
-        </p>
-        <p>
-          After paying, send an email to
-          <a href="mailto:aas.tbk@gmail.com" class="link"> aas.tbk@gmail.com </a>
-          with your name and mobile number to receive access.
-        </p>
-        <p>
-          Members get access to the courts and club house via the <strong>Yale Home app</strong>.
-          Access is activated after the membership fee is paid and we have received your details.
+          We offer courses, training sessions, tournaments and social events throughout the
+          season.
         </p>
       </RichTextBlock>
-    </section>
+      <Button variant="outline" href={`${base}arrangementer`} class="mt-6">View events →</Button>
+    </PageSection>
 
-    <Divider />
-
-    <!-- Courses -->
-    <section>
-      <SectionHeading title="Courses and training" />
-      <RichTextBlock class="space-y-4 text-gray-700 dark:text-gray-300">
-        <p>Ås Tennis Club offers training and courses for all ages and levels.</p>
-        <p>
-          <a href={`${base}arrangementer`} class="link font-semibold">
-            View events, courses and training →
-          </a>
-        </p>
-        <p>
-          For more information, contact our coach at
-          <a href="mailto:im@aastk.no" class="link"> im@aastk.no </a>
-        </p>
+    <PageSection title="Contact">
+      <RichTextBlock>
+        <p>Questions about membership, courts or events? Get in touch with us.</p>
       </RichTextBlock>
-    </section>
-
-    <Divider />
-
-    <!-- Contact -->
-    <section>
-      <SectionHeading title="Contact" />
-      <p class="text-gray-700 dark:text-gray-300">
-        Need more information?
-        <a href={`${base}om-klubben`} class="link font-semibold"> View our contact details → </a>
-      </p>
-    </section>
+      <Button variant="outline" href={`${base}kontakt`} class="mt-4">View contact details →</Button>
+    </PageSection>
   </Container>
 </Layout>

@@ -32,7 +32,7 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
 
 <Layout title={`${post.data.title} – Ås Tennisklubb`} description={ingress}>
   <Container size="narrow" padded class="pt-10">
-    <BackLink href={`${base}nyheter`}>← Tilbake til nyheter</BackLink>
+    <BackLink href={`${base}nyheter`}>← Alle nyheter</BackLink>
     <article>
       <ArticleHeading>{post.data.title}</ArticleHeading>
 
@@ -76,5 +76,20 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
         )
       }
     </article>
+
+    <nav class="mt-10 flex flex-wrap items-center gap-4 border-t border-gray-100 pt-6 dark:border-gray-700">
+      <a
+        href={`${base}nyheter`}
+        class="link inline-flex min-h-[44px] items-center text-sm"
+      >
+        ← Alle nyheter
+      </a>
+      <a
+        href={base}
+        class="link inline-flex min-h-[44px] items-center text-sm"
+      >
+        Til forsiden
+      </a>
+    </nav>
   </Container>
 </Layout>

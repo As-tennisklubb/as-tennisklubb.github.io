@@ -25,9 +25,7 @@ const cleanDescription = renderTiptapJson(event.description);
 ---
 
 <article class={cn(className)}>
-  {backLink && (
-    <BackLink href={`${base}arrangementer`}>← Tilbake til arrangementer</BackLink>
-  )}
+  {backLink && <BackLink href={`${base}arrangementer`}>← Tilbake til arrangementer</BackLink>}
 
   <ArticleHeading level={headingLevel}>{event.title}</ArticleHeading>
 
@@ -38,30 +36,42 @@ const cleanDescription = renderTiptapJson(event.description);
       {showCategory && <Badge variant="category">{event.category}</Badge>}
     </div>
     <div class="space-y-0.5 text-sm text-gray-600 dark:text-gray-400">
-      {pLines.schedule && (
-        <p>{pLines.schedule}{event.presentation.hasDeviatingSlots && " (varierer)"}</p>
-      )}
+      {
+        pLines.schedule && (
+          <p>
+            {pLines.schedule}
+            {event.presentation.hasDeviatingSlots && " (varierer)"}
+          </p>
+        )
+      }
       {pLines.courts && <p>{pLines.courts}</p>}
-      {event.allowsSignup
-        ? <p class="text-brand-600 dark:text-brand-400">{signupStatus}</p>
-        : <p>{signupStatus}</p>
+      {
+        event.allowsSignup ? (
+          <p class="text-brand-600 dark:text-brand-400">{signupStatus}</p>
+        ) : (
+          <p>{signupStatus}</p>
+        )
       }
     </div>
   </div>
 
   <!-- Beskrivelse -->
-  {cleanDescription && (
-    <RichTextBlock>
-      <Fragment set:html={cleanDescription} />
-    </RichTextBlock>
-  )}
+  {
+    cleanDescription && (
+      <RichTextBlock>
+        <Fragment set:html={cleanDescription} />
+      </RichTextBlock>
+    )
+  }
 
   <!-- CTA -->
-  {event.allowsSignup && (
-    <div class="mt-8 border-t border-gray-100 pt-6 dark:border-gray-700">
-      <Button href={event.bookingUrl} target="_blank" rel="noopener noreferrer">
-        Meld deg på
-      </Button>
-    </div>
-  )}
+  {
+    event.allowsSignup && (
+      <div class="mt-8 border-t border-gray-100 pt-6 dark:border-gray-700">
+        <Button href={event.bookingUrl} target="_blank" rel="noopener noreferrer">
+          Meld deg på
+        </Button>
+      </div>
+    )
+  }
 </article>

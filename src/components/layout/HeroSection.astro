@@ -4,14 +4,20 @@ import Container from "./Container.astro";
 
 interface Props {
   size?: "content" | "wide" | "narrow";
+  title?: string;
+  description?: string;
   class?: string;
 }
 
-const { size = "wide", class: className } = Astro.props;
+const { size = "wide", title, description, class: className } = Astro.props;
 ---
 
 <section class={cn("bg-brand-800 dark:bg-brand-700 text-white py-8 md:py-12", className)}>
   <Container size={size}>
+    {title && <h1 class="mb-2 text-3xl font-bold md:text-4xl">{title}</h1>}
+    {description && (
+      <p class="max-w-2xl text-base text-brand-200 md:text-lg">{description}</p>
+    )}
     <slot />
   </Container>
 </section>
