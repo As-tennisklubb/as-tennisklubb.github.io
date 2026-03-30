@@ -29,7 +29,9 @@ Allowed when explicitly requested:
 The project uses an Aksel-inspired component system with two layers:
 
 - **Primitives** (`src/components/primitives/`): Layout building blocks (Page, PageBlock, VStack, HStack, HGrid, Box)
-- **Aksel components** (`src/components/aksel/`): UI components (Button, Link, Heading, BodyLong, Card, etc.)
+- **UI components** (`src/components/ui/`): General presentation components (Button, Link, Heading, BodyLong, Card, DataTable, etc.)
+- **Content components** (`src/components/content/`): Domain/content components (NewsCard, EventCard, ArticleMeta, etc.)
+- **Layout components** (`src/components/layout/`): Page-level layout components (PageHeader)
 
 AI must always check these component folders before generating markup.
 
@@ -41,7 +43,7 @@ If a component exists it **must be used instead of recreating the pattern with T
 
 When generating UI follow this order strictly.
 
-1. Use an existing component from COMPONENTS.md
+1. Use an existing component from `src/components/`
 2. Use documented utility classes from global.css
 3. Reuse an existing layout pattern used elsewhere in the project
 4. Only then write minimal Tailwind markup
@@ -64,18 +66,18 @@ Horizontal stacking → <HStack>
 Responsive grid → <HGrid>
 Surface/container → <Box>
 Page header/hero → <PageHeader>
-Buttons → <Button> (aksel)
-Links → <Link> (aksel)
-Headings → <Heading> (aksel)
-Body text → <BodyLong> (aksel)
+Buttons → <Button>
+Links → <Link>
+Headings → <Heading>
+Body text → <BodyLong>
 Rich text content → <Prose>
-Highlight box → <Callout> (aksel)
+Highlight box → <Callout>
 Data tables → <DataTable>
 Info cards → <InfoCard>
-News items → <NewsCard> (aksel)
-Navigation cards → <LinkCard> (aksel)
-Event cards → <EventCard> (aksel)
-Map embed → <LazyMapAksel>
+News items → <NewsCard>
+Navigation cards → <LinkCard>
+Event cards → <EventCard>
+Map embed → <LazyMap>
 Step process → <Process> + <ProcessEvent>
 Ordered/unordered lists → <List> + <ListItem>
 
@@ -87,14 +89,8 @@ Do not recreate these patterns using raw Tailwind markup.
 
 The following utilities may be used directly in markup.
 
-.link
-Brand styled inline links
-
-.data-table
-Standard table styling
-
-.data-card
-Mobile card layout for structured data
+.text-heading / .text-body / .text-muted
+Semantic text-color classes mapped to design tokens.
 
 These utilities should be preferred over manually reproducing the same styling.
 
@@ -146,7 +142,7 @@ PageHeader (optional, variant="compact" or full)
 PageBlock width="lg" gutters
   VStack gap="…"
     Heading / BodyLong
-    Content (Prose / HGrid / DataTable / CardGrid)
+    Content (Prose / HGrid / DataTable)
 
 CTA section (Button)
 

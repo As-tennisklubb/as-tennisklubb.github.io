@@ -61,7 +61,6 @@
   --aastk-text-body: var(--color-gray-600);
   --aastk-text-muted: var(--color-gray-500);
   --aastk-text-brand: var(--color-brand-700); /* Brand-fargede aksenter: ikoner, labels, metadata */
-  --aastk-text-on-brand: #fff; /* Tekst på brand/inverted-flater */
   --aastk-text-on-brand-muted: var(--color-brand-200);
 
   /* Surface */
@@ -69,7 +68,6 @@
   --aastk-surface-raised: #fff;
   --aastk-surface-subtle: var(--color-gray-50);
   --aastk-surface-brand-soft: var(--color-brand-50);
-  --aastk-surface-brand-strong: var(--color-brand-700); /* Sterk brand-fill: badges, indikatorer */
   --aastk-surface-accent-soft: var(--color-accent-50);
   --aastk-surface-inverted: var(--color-brand-800); /* Mørk layout-krom: header, footer, hero */
   --aastk-surface-inverted-hover: var(--color-brand-700);
@@ -144,7 +142,6 @@
     --aastk-surface-raised: var(--color-gray-900);
     --aastk-surface-subtle: var(--color-gray-900);
     --aastk-surface-brand-soft: color-mix(in srgb, var(--color-brand-950) 20%, transparent);
-    --aastk-surface-brand-strong: var(--color-brand-800);
     --aastk-surface-accent-soft: color-mix(in srgb, var(--color-accent-950) 20%, transparent);
     --aastk-surface-inverted: var(--color-brand-700);
     --aastk-surface-inverted-hover: var(--color-brand-800);
@@ -268,69 +265,6 @@ body {
   }
   .text-muted {
     color: var(--aastk-text-muted);
-  }
-
-  /* Brand link – standard tekstlenke */
-  .link {
-    color: var(--aastk-link-default);
-    &:hover {
-      color: var(--aastk-link-hover);
-      text-decoration: underline;
-    }
-  }
-
-  /* Accent link – for oransje lenker i feature-flater */
-  .link-accent {
-    color: var(--aastk-link-accent);
-    &:hover {
-      color: var(--aastk-link-accent-hover);
-      text-decoration: underline;
-    }
-  }
-
-  /* Kompakt datakort (mobil ResponsiveDataList) */
-  .data-card {
-    @apply rounded-xl border p-4;
-    border-color: var(--aastk-border-subtle);
-    background-color: var(--aastk-surface-raised);
-  }
-
-  /* Datatabell – felles stil for alle responsive tabeller */
-  .data-table {
-    @apply w-full text-sm;
-  }
-  .data-table thead tr {
-    @apply border-b-2;
-    border-color: var(--aastk-border-brand-subtle);
-  }
-  .data-table th {
-    @apply py-3 pr-6 text-left font-semibold;
-    color: var(--aastk-text-body);
-  }
-  .data-table th:last-child {
-    @apply pr-0;
-  }
-  .data-table tbody tr {
-    @apply border-b transition-colors;
-    border-color: var(--aastk-border-subtle);
-    &:hover {
-      background-color: var(--aastk-surface-brand-soft);
-    }
-  }
-  .data-table td {
-    @apply py-3 pr-6;
-    color: var(--aastk-text-body);
-  }
-  .data-table td:last-child {
-    @apply pr-0;
-  }
-
-  /* Surface-utilities for fargede bakgrunnsflater */
-  .surface-brand {
-    background-color: var(--aastk-surface-brand-soft);
-  }
-  .surface-accent {
-    background-color: var(--aastk-surface-accent-soft);
   }
 }
 

@@ -1,6 +1,6 @@
 ---
 /**
- * LazyMapAksel – Aksel-lane kartkomponent med lazy-loading.
+ * LazyMap – Kartkomponent med lazy-loading.
  *
  * Viser en placeholder med adresse og «Vis kart»-knapp.
  * Google Maps-iframe lastes først ved brukerinteraksjon.
@@ -17,9 +17,9 @@
 import { MapPin } from "@lucide/astro";
 import Box from "../primitives/Box.astro";
 import VStack from "../primitives/VStack.astro";
-import Button from "./Button.astro";
-import Link from "./Link.astro";
-import BodyLong from "./BodyLong.astro";
+import Button from "../ui/Button.astro";
+import Link from "../ui/Link.astro";
+import BodyLong from "../ui/BodyLong.astro";
 
 interface Props {
   address: string;

@@ -4,7 +4,7 @@
  * Design Lint � �s Tennisklubb
  *
  * Scans Astro files for patterns that violate the component-based design system
- * documented in src/components/COMPONENTS.md.
+ * defined in src/components/ (primitives/, ui/, content/, layout/).
  *
  * Usage:
  *   node scripts/design-lint.js                        # scan all pages + layouts
@@ -31,7 +31,7 @@ const SCAN_DIRS = ["src/pages", "src/layouts"];
 /**
  * Files that are part of the design system itself and may use raw Tailwind.
  * Layout.astro is the site shell (header, nav, footer) where component
- * abstractions like <Container> and <HeroSection> do not apply.
+ * abstractions like <PageBlock> and <PageHeader> do not apply.
  */
 const IGNORE_PATHS = ["src/components/", "src/styles/", "src/layouts/"];
 
@@ -61,13 +61,13 @@ const rules = [
   {
     id: "inline-container",
     pattern: /class\s*=\s*["'][^"']*max-w-(?:3xl|4xl|6xl)[^"']*mx-auto[^"']*/,
-    message: "Inline container detected. Use <Container> instead.",
+    message: "Inline container detected. Use <PageBlock> instead.",
     severity: "warning",
   },
   {
     id: "inline-container-reverse",
     pattern: /class\s*=\s*["'][^"']*mx-auto[^"']*max-w-(?:3xl|4xl|6xl)[^"']*/,
-    message: "Inline container detected. Use <Container> instead.",
+    message: "Inline container detected. Use <PageBlock> instead.",
     severity: "warning",
   },
 
@@ -97,7 +97,7 @@ const rules = [
   {
     id: "direct-brand-bg",
     pattern: /class\s*=\s*["'][^"']*\bbg-brand-\d+\b/,
-    message: "Direct bg-brand-* usage. Use <HeroSection>, <Callout>, or .surface-brand instead.",
+    message: "Direct bg-brand-* usage. Use <PageHeader>, <Box>, or semantic tokens instead.",
     severity: "warning",
   },
   {
@@ -108,48 +108,48 @@ const rules = [
     severity: "warning",
   },
 
-  // 5. Inline grid that should be CardGrid
+  // 5. Inline grid that should be HGrid
   {
     id: "inline-grid",
     pattern: /class\s*=\s*["'][^"']*\bgrid\b[^"']*gap-6[^"']*md:grid-cols/,
-    message: "Inline card grid detected. Use <CardGrid> instead.",
+    message: "Inline card grid detected. Use <HGrid> instead.",
     severity: "warning",
   },
   {
     id: "inline-grid-alt",
     pattern: /class\s*=\s*["'][^"']*\bgrid\b[^"']*md:grid-cols[^"']*gap-6/,
-    message: "Inline card grid detected. Use <CardGrid> instead.",
+    message: "Inline card grid detected. Use <HGrid> instead.",
     severity: "warning",
   },
 
-  // 6. Inline prose styling (should use RichTextBlock)
+  // 6. Inline prose styling (should use Prose)
   {
     id: "inline-prose",
     pattern: /class\s*=\s*["'][^"']*\bprose\b[^"']*prose-brand/,
-    message: "Inline prose classes detected. Use <RichTextBlock> instead.",
+    message: "Inline prose classes detected. Use <Prose> instead.",
     severity: "warning",
   },
 
-  // 7. Inline section spacing (should use PageSection)
+  // 7. Inline section spacing (should use VStack with gap)
   //    Catches common large bottom-margins (mb-12 and above) on <section> elements.
   {
     id: "inline-section-mb",
     pattern: /<section[^>]*class\s*=\s*["'][^"']*\bmb-(?:12|16|20|24)\b/,
-    message: "Inline section with large bottom margin. Use <PageSection> for consistent spacing.",
+    message: "Inline section with large bottom margin. Use <VStack> with gap for consistent spacing.",
     severity: "warning",
   },
 
-  // 8. Inline link colors (should use .link or .link-accent)
+  // 8. Inline link colors (should use <Link> component)
   {
     id: "inline-link-color",
     pattern: /class\s*=\s*["'][^"']*\btext-brand-700[^"']*hover:underline/,
-    message: "Inline link styling detected. Use the .link utility class instead.",
+    message: "Inline link styling detected. Use the <Link> component instead.",
     severity: "warning",
   },
   {
     id: "inline-link-color-accent",
     pattern: /class\s*=\s*["'][^"']*\btext-accent-700[^"']*hover:underline/,
-    message: "Inline accent link styling detected. Use the .link-accent utility class instead.",
+    message: "Inline accent link styling detected. Use the <Link> component instead.",
     severity: "warning",
   },
 
@@ -172,21 +172,21 @@ const rules = [
     severity: "error",
   },
 
-  // 10. Inline table styling (should use .data-table)
+  // 10. Inline table styling (should use <DataTable> component)
   //     Uses [^"']* in the lookahead so the check stays within the attribute
   //     value and works correctly for multiline class attributes.
   {
     id: "inline-table",
     pattern: /<table[^>]*class\s*=\s*["'](?![^"']*\bdata-table\b)/,
-    message: "Table without .data-table class. Use .data-table utility instead.",
+    message: "Table without <DataTable> component. Use <DataTable> instead.",
     severity: "warning",
   },
 
-  // 11. Manual bullet list (should use BulletList)
+  // 11. Manual bullet list (should use List + ListItem)
   {
     id: "inline-bullet-list",
     pattern: /<ul[^>]*class\s*=\s*["'][^"']*list-disc/,
-    message: "Manual bullet list styling detected. Use <BulletList> instead.",
+    message: "Manual bullet list styling detected. Use <List> + <ListItem> instead.",
     severity: "warning",
   },
 ];
