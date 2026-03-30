@@ -1,15 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import HeroSection from "../components/layout/HeroSection.astro";
-import Container from "../components/layout/Container.astro";
-import PageSection from "../components/layout/PageSection.astro";
-import CardGrid from "../components/layout/CardGrid.astro";
-import Button from "../components/ui/Button.astro";
-import LinkCard from "../components/content/LinkCard.astro";
-import NewsCard from "../components/content/NewsCard.astro";
-import EventCard from "../components/events/EventCard.astro";
+import Button from "../components/aksel/Button.astro";
+import NewsCard from "../components/aksel/NewsCard.astro";
+import EventCard from "../components/aksel/EventCard.astro";
 import { fetchUpcomingEvents } from "../lib/events/fetchEvents";
+import PageHeader from "../components/aksel/PageHeader.astro";
+import PageBlock from "../components/primitives/PageBlock.astro";
+import VStack from "../components/primitives/VStack.astro";
+import HGrid from "../components/primitives/HGrid.astro";
+import HStack from "../components/primitives/HStack.astro";
+import Heading from "../components/aksel/Heading.astro";
+import BodyLong from "../components/aksel/BodyLong.astro";
 
 const latestNews = (await getCollection("news"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -28,95 +30,81 @@ const base = import.meta.env.BASE_URL;
     { href: new URL(Astro.url.pathname, Astro.site).href, hrefLang: "x-default" },
   ]}
 >
-  <!-- Hero -->
-  <HeroSection
+  {/* ───── Toppseksjon ───── */}
+  <PageHeader
+    variant="hero"
     title="Spill tennis i Ås"
     description="Tre grusbaner ved Ås stadion – åpne fra april til november."
   >
-    <div class="mt-6 flex flex-wrap gap-4">
-      <Button variant="ghost" href={`${base}medlemskap`}>Bli medlem</Button>
+    <HStack slot="actions" gap="4" wrap class="pt-2">
+      <Button variant="secondary" dataColor="inverted" href={`${base}medlemskap`}>Bli medlem</Button>
       <Button
-        variant="secondary"
+        variant="primary"
+        dataColor="inverted"
         href={import.meta.env.PUBLIC_BOOKING_URL}
         target="_blank"
-        rel="noopener noreferrer">Book bane</Button
+        rel="noopener noreferrer"
       >
-    </div>
-  </HeroSection>
+        Book bane
+      </Button>
+    </HStack>
+  </PageHeader>
 
-  <!-- Tre veier inn -->
-  <Container size="wide" class="py-12">
-    <CardGrid cols={3}>
-      <LinkCard
-        href={import.meta.env.PUBLIC_BOOKING_URL}
-        title="Spill tennis"
-        description="Bli medlem og reserver bane – enkelt og raskt."
-        linkText="Gå til booking →"
-      />
-      <LinkCard
-        href={`${base}medlemskap`}
-        title="Bli medlem"
-        description="Spill så mye du vil hele sesongen. Fra kr 500,-."
-        linkText="Se priser og meld deg inn →"
-      />
-      <LinkCard
-        href={`${base}arrangementer`}
-        title="Arrangementer og kurs"
-        description="Kurs, turneringer og aktiviteter gjennom sesongen."
-        linkText="Se hva som skjer →"
-      />
-    </CardGrid>
-  </Container>
-
-  <!-- Kommende arrangementer -->
-  {
-    upcomingEvents.length > 0 && (
-      <Container size="wide" class="py-12">
-        <PageSection title="Kommende arrangementer">
-          <CardGrid cols={3}>
+  {/* ───── Kommende arrangementer ───── */}
+  {upcomingEvents.length > 0 && (
+    <section class="bg-(--aastk-surface-subtle) py-12 md:py-20">
+      <PageBlock width="2xl" gutters>
+        <VStack gap="8">
+          <VStack gap="2">
+            <Heading level={2} size="medium" dataColor="brand">Kommende arrangementer</Heading>
+            <BodyLong size="small" class="text-(--aastk-text-muted)">Kurs, turneringer og aktiviteter du kan delta på.</BodyLong>
+          </VStack>
+          <HGrid columns={{ sm: 1, md: 3 }} gap="6">
             {upcomingEvents.map((event) => (
               <EventCard event={event} />
             ))}
-          </CardGrid>
-          <div class="mt-6 text-center">
+          </HGrid>
+          <HStack justify="center">
             <Button href={`${base}arrangementer`}>Se alle arrangementer →</Button>
-          </div>
-        </PageSection>
-      </Container>
-    )
-  }
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+  )}
 
-  <!-- Nytt fra klubben -->
-  {
-    latestNews.length > 0 && (
-      <section class="bg-gray-50 py-12 dark:bg-gray-900">
-        <Container size="wide">
-          <PageSection title="Nytt fra klubben">
-            <CardGrid cols={3}>
-              {latestNews.map((post) => {
-                const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
-                return (
-                  <NewsCard
-                    href={`${base}nyheter/${post.id}`}
-                    title={post.data.title}
-                    date={post.data.date.toLocaleDateString("no-NO", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    })}
-                    categories={categories}
-                    excerpt={post.data.ingress ?? post.data.description}
-                  />
-                );
-              })}
-            </CardGrid>
-            <div class="mt-6 text-center">
-              <Button href={`${base}nyheter`}>Se alle nyheter →</Button>
-            </div>
-          </PageSection>
-        </Container>
-      </section>
-    )
-  }
+  {/* ───── Nytt fra klubben ───── */}
+  {latestNews.length > 0 && (
+    <section class="py-12 md:py-20">
+      <PageBlock width="2xl" gutters>
+        <VStack gap="8">
+          <VStack gap="2">
+            <Heading level={2} size="medium" dataColor="brand">Nytt fra klubben</Heading>
+            <BodyLong size="small" class="text-(--aastk-text-muted)">Oppdateringer og informasjon fra Ås Tennisklubb.</BodyLong>
+          </VStack>
+          <HGrid columns={{ sm: 1, md: 3 }} gap="6">
+            {latestNews.map((post) => {
+              const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
+              return (
+                <NewsCard
+                  href={`${base}nyheter/${post.id}`}
+                  title={post.data.title}
+                  date={post.data.date.toLocaleDateString("no-NO", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                  categories={categories}
+                  excerpt={post.data.ingress ?? post.data.description}
+                />
+              );
+            })}
+          </HGrid>
+          <HStack justify="center">
+            <Button href={`${base}nyheter`}>Se alle nyheter →</Button>
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+  )}
 
 </Layout>

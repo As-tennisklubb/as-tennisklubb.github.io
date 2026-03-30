@@ -1,10 +1,14 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
 import { Rss } from "@lucide/astro";
-import Container from "../../components/layout/Container.astro";
-import CardGrid from "../../components/layout/CardGrid.astro";
-import NewsCard from "../../components/content/NewsCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/aksel/PageHeader.astro";
+import NewsCard from "../../components/aksel/NewsCard.astro";
+import Link from "../../components/aksel/Link.astro";
+import PageBlock from "../../components/primitives/PageBlock.astro";
+import VStack from "../../components/primitives/VStack.astro";
+import HStack from "../../components/primitives/HStack.astro";
+import HGrid from "../../components/primitives/HGrid.astro";
 
 const posts = await getCollection("news");
 const sortedPosts = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
@@ -13,42 +17,49 @@ const base = import.meta.env.BASE_URL;
 
 <Layout
   title="Nyheter - Ås Tennisklubb"
-  description="Siste nyheter fra Ås Tennisklubb."
-  pageTitle="Nyheter"
-  pageDescription={`${sortedPosts.length} innlegg fra Ås Tennisklubb`}
+  description="Siste nytt fra Ås Tennisklubb."
 >
-  <Container size="wide" padded>
-    <div class="mb-6 flex items-center justify-end">
-      <a
-        href={`${base}rss.xml`}
-        class="inline-flex min-h-[44px] items-center gap-2 text-sm text-gray-500 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
-        title="Abonner på nyheter via RSS"
-      >
-        <Rss size={16} />
-        RSS
-      </a>
-    </div>
-    <CardGrid cols={3}>
-      {
-        sortedPosts.map((post) => {
-          const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
-          return (
-            <NewsCard
-              href={`${base}nyheter/${post.id}`}
-              title={post.data.title}
-              date={post.data.date.toLocaleDateString("no-NO", {
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-              categories={categories}
-              excerpt={post.data.ingress ?? post.data.description}
-              headingLevel="h2"
-              clampLines={3}
-            />
-          );
-        })
-      }
-    </CardGrid>
-  </Container>
+  <PageHeader
+    variant="compact"
+    title="Nyheter"
+    description={`${sortedPosts.length} innlegg fra Ås Tennisklubb`}
+  />
+
+  <section>
+    <PageBlock width="xl" gutters>
+      <VStack gap="6">
+        <HStack justify="end">
+          <Link href={`${base}rss.xml`} dataColor="subtle">
+            <HStack gap="2" align="center" as="span">
+              <Rss size={16} />
+              RSS
+            </HStack>
+          </Link>
+        </HStack>
+
+        <HGrid columns={{ sm: 1, md: 3 }} gap="6">
+          {
+            sortedPosts.map((post) => {
+              const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
+              return (
+                <NewsCard
+                  href={`${base}nyheter/${post.id}`}
+                  title={post.data.title}
+                  date={post.data.date.toLocaleDateString("no-NO", {
+                    day: "numeric",
+                    month: "long",
+                    year: "numeric",
+                  })}
+                  categories={categories}
+                  excerpt={post.data.ingress ?? post.data.description}
+                  headingLevel={2}
+                  clampLines={3}
+                />
+              );
+            })
+          }
+        </HGrid>
+      </VStack>
+    </PageBlock>
+  </section>
 </Layout>

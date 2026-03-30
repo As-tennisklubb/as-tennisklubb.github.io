@@ -48,6 +48,159 @@
 }
 
 /* =========================================================
+ * Semantic color tokens (lag 2)
+ *
+ * Rollebaserte designtokens som kobler UI-roller til base palette.
+ * Brukes av komponenter, utility-klasser og prose-overrides.
+ * Dark mode overrides via @media (prefers-color-scheme: dark).
+ * Base palette (brand-*, accent-*, gray-*) beholdes urørt.
+ * ========================================================= */
+:root {
+  /* Text */
+  --aastk-text-default: var(--color-gray-900);
+  --aastk-text-body: var(--color-gray-600);
+  --aastk-text-muted: var(--color-gray-500);
+  --aastk-text-brand: var(--color-brand-700); /* Brand-fargede aksenter: ikoner, labels, metadata */
+  --aastk-text-on-brand: #fff; /* Tekst på brand/inverted-flater */
+  --aastk-text-on-brand-muted: var(--color-brand-200);
+
+  /* Surface */
+  --aastk-surface-default: #fff;
+  --aastk-surface-raised: #fff;
+  --aastk-surface-subtle: var(--color-gray-50);
+  --aastk-surface-brand-soft: var(--color-brand-50);
+  --aastk-surface-brand-strong: var(--color-brand-700); /* Sterk brand-fill: badges, indikatorer */
+  --aastk-surface-accent-soft: var(--color-accent-50);
+  --aastk-surface-inverted: var(--color-brand-800); /* Mørk layout-krom: header, footer, hero */
+  --aastk-surface-inverted-hover: var(--color-brand-700);
+  --aastk-surface-inverted-active: var(--color-brand-900);
+
+  /* Border */
+  --aastk-border-default: var(--color-gray-200);
+  --aastk-border-subtle: var(--color-gray-100);
+  --aastk-border-brand-subtle: var(--color-brand-200); /* Brand-aksentert border: thead, callout */
+  --aastk-border-brand-muted: var(--color-brand-100); /* Lett brand-separator: tabellrader */
+  --aastk-border-brand-strong: var(--color-brand-600);
+  --aastk-border-inverted: var(--color-brand-700);
+
+  /* Link / Action */
+  --aastk-link-default: var(--color-brand-700);
+  --aastk-link-hover: var(--color-brand-800);
+  --aastk-link-accent: var(--color-accent-700);
+  --aastk-link-accent-hover: var(--color-accent-800);
+  --aastk-action-primary-bg: var(--color-brand-700);
+  --aastk-action-primary-bg-hover: var(--color-brand-800);
+  --aastk-action-primary-bg-active: var(--color-brand-900);
+  --aastk-action-primary-text: #fff;
+  --aastk-action-secondary-text: var(--color-brand-700);
+  --aastk-action-secondary-border: var(--color-brand-700);
+  --aastk-action-secondary-bg-hover: var(--color-brand-50);
+  --aastk-action-secondary-bg-active: var(--color-brand-100);
+
+  /* Neutral action */
+  --aastk-action-neutral-bg: var(--color-gray-800);
+  --aastk-action-neutral-bg-hover: var(--color-gray-900);
+  --aastk-action-neutral-bg-active: var(--color-gray-950);
+  --aastk-action-neutral-text: #fff;
+  --aastk-action-neutral-secondary-text: var(--color-gray-800);
+  --aastk-action-neutral-secondary-border: var(--color-gray-600);
+  --aastk-action-neutral-secondary-bg-hover: var(--color-gray-50);
+  --aastk-action-neutral-secondary-bg-active: var(--color-gray-100);
+
+  /* Danger action */
+  --aastk-action-danger-bg: var(--color-red-600);
+  --aastk-action-danger-bg-hover: var(--color-red-700);
+  --aastk-action-danger-bg-active: var(--color-red-800);
+  --aastk-action-danger-text: #fff;
+  --aastk-action-danger-secondary-text: var(--color-red-600);
+  --aastk-action-danger-secondary-border: var(--color-red-600);
+  --aastk-action-danger-secondary-bg-hover: var(--color-red-50);
+  --aastk-action-danger-secondary-bg-active: var(--color-red-100);
+
+  /* Process */
+  --aastk-process-completed-bg: var(--color-brand-700);
+  --aastk-process-completed-text: #fff;
+  --aastk-process-active-bg: var(--color-brand-100);
+  --aastk-process-active-text: var(--color-brand-800);
+  --aastk-process-active-ring: var(--color-brand-700);
+  --aastk-process-line-done: var(--color-brand-700);
+  --aastk-process-line-pending: var(--color-brand-200);
+
+  /* Focus */
+  --aastk-focus-ring: var(--color-brand-500);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Text */
+    --aastk-text-default: var(--color-gray-100);
+    --aastk-text-body: var(--color-gray-300);
+    --aastk-text-muted: var(--color-gray-400);
+    --aastk-text-brand: var(--color-brand-400);
+    --aastk-text-on-brand-muted: var(--color-brand-300);
+
+    /* Surface */
+    --aastk-surface-default: var(--color-gray-950);
+    --aastk-surface-raised: var(--color-gray-900);
+    --aastk-surface-subtle: var(--color-gray-900);
+    --aastk-surface-brand-soft: color-mix(in srgb, var(--color-brand-950) 20%, transparent);
+    --aastk-surface-brand-strong: var(--color-brand-800);
+    --aastk-surface-accent-soft: color-mix(in srgb, var(--color-accent-950) 20%, transparent);
+    --aastk-surface-inverted: var(--color-brand-700);
+    --aastk-surface-inverted-hover: var(--color-brand-800);
+    --aastk-surface-inverted-active: var(--color-brand-600);
+
+    /* Border */
+    --aastk-border-default: var(--color-gray-700);
+    --aastk-border-subtle: var(--color-gray-800);
+    --aastk-border-brand-subtle: var(--color-brand-800);
+    --aastk-border-brand-muted: var(--color-brand-900);
+    --aastk-border-brand-strong: var(--color-brand-500);
+    --aastk-border-inverted: var(--color-brand-600);
+
+    /* Link / Action */
+    --aastk-link-default: var(--color-brand-400);
+    --aastk-link-hover: var(--color-brand-300);
+    --aastk-link-accent: var(--color-accent-400);
+    --aastk-link-accent-hover: var(--color-accent-300);
+    --aastk-action-primary-bg: var(--color-brand-600);
+    --aastk-action-primary-bg-hover: var(--color-brand-500);
+    --aastk-action-primary-bg-active: var(--color-brand-800);
+    --aastk-action-secondary-text: var(--color-brand-300);
+    --aastk-action-secondary-border: var(--color-brand-400);
+    --aastk-action-secondary-bg-hover: var(--color-brand-950);
+    --aastk-action-secondary-bg-active: var(--color-brand-900);
+
+    /* Neutral action */
+    --aastk-action-neutral-bg: var(--color-gray-200);
+    --aastk-action-neutral-bg-hover: var(--color-gray-300);
+    --aastk-action-neutral-bg-active: var(--color-gray-400);
+    --aastk-action-neutral-text: var(--color-gray-900);
+    --aastk-action-neutral-secondary-text: var(--color-gray-200);
+    --aastk-action-neutral-secondary-border: var(--color-gray-400);
+    --aastk-action-neutral-secondary-bg-hover: var(--color-gray-900);
+    --aastk-action-neutral-secondary-bg-active: var(--color-gray-800);
+
+    /* Danger action */
+    --aastk-action-danger-bg: var(--color-red-500);
+    --aastk-action-danger-bg-hover: var(--color-red-600);
+    --aastk-action-danger-bg-active: var(--color-red-700);
+    --aastk-action-danger-secondary-text: var(--color-red-400);
+    --aastk-action-danger-secondary-border: var(--color-red-400);
+    --aastk-action-danger-secondary-bg-hover: var(--color-red-950);
+    --aastk-action-danger-secondary-bg-active: var(--color-red-900);
+
+    /* Process */
+    --aastk-process-completed-bg: var(--color-brand-500);
+    --aastk-process-active-bg: var(--color-brand-900);
+    --aastk-process-active-text: var(--color-brand-300);
+    --aastk-process-active-ring: var(--color-brand-400);
+    --aastk-process-line-done: var(--color-brand-500);
+    --aastk-process-line-pending: var(--color-brand-700);
+  }
+}
+
+/* =========================================================
  * Base typography
  * ========================================================= */
 html {
@@ -62,7 +215,7 @@ body {
  * Accessibility – synlig tastaturfokus
  * ========================================================= */
 :focus-visible {
-  outline: 2px solid var(--color-brand-500);
+  outline: 2px solid var(--aastk-focus-ring);
   outline-offset: 2px;
   border-radius: 2px;
 }
@@ -100,19 +253,46 @@ body {
  * Components / utilities
  * ========================================================= */
 @layer components {
+  /* =======================================================
+   * Typography tokens
+   *
+   * Semantic text-color classes that replace hardcoded gray
+   * values. Centralising them here allows global changes
+   * without editing every component.
+   * ======================================================= */
+  .text-heading {
+    color: var(--aastk-text-default);
+  }
+  .text-body {
+    color: var(--aastk-text-body);
+  }
+  .text-muted {
+    color: var(--aastk-text-muted);
+  }
+
   /* Brand link – standard tekstlenke */
   .link {
-    @apply text-brand-700 hover:underline dark:text-brand-400;
+    color: var(--aastk-link-default);
+    &:hover {
+      color: var(--aastk-link-hover);
+      text-decoration: underline;
+    }
   }
 
   /* Accent link – for oransje lenker i feature-flater */
   .link-accent {
-    @apply text-accent-700 hover:underline dark:text-accent-400;
+    color: var(--aastk-link-accent);
+    &:hover {
+      color: var(--aastk-link-accent-hover);
+      text-decoration: underline;
+    }
   }
 
   /* Kompakt datakort (mobil ResponsiveDataList) */
   .data-card {
-    @apply rounded-xl border border-gray-100 bg-white p-4 dark:border-gray-700 dark:bg-gray-800;
+    @apply rounded-xl border p-4;
+    border-color: var(--aastk-border-subtle);
+    background-color: var(--aastk-surface-raised);
   }
 
   /* Datatabell – felles stil for alle responsive tabeller */
@@ -120,19 +300,26 @@ body {
     @apply w-full text-sm;
   }
   .data-table thead tr {
-    @apply border-b-2 border-brand-200 dark:border-brand-800;
+    @apply border-b-2;
+    border-color: var(--aastk-border-brand-subtle);
   }
   .data-table th {
-    @apply py-3 pr-6 text-left font-semibold text-gray-700 dark:text-gray-300;
+    @apply py-3 pr-6 text-left font-semibold;
+    color: var(--aastk-text-body);
   }
   .data-table th:last-child {
     @apply pr-0;
   }
   .data-table tbody tr {
-    @apply border-b border-gray-100 transition-colors hover:bg-brand-50 dark:border-gray-800 dark:hover:bg-gray-800;
+    @apply border-b transition-colors;
+    border-color: var(--aastk-border-subtle);
+    &:hover {
+      background-color: var(--aastk-surface-brand-soft);
+    }
   }
   .data-table td {
-    @apply py-3 pr-6 text-gray-600 dark:text-gray-400;
+    @apply py-3 pr-6;
+    color: var(--aastk-text-body);
   }
   .data-table td:last-child {
     @apply pr-0;
@@ -140,10 +327,10 @@ body {
 
   /* Surface-utilities for fargede bakgrunnsflater */
   .surface-brand {
-    @apply bg-brand-50 dark:bg-brand-950/20;
+    background-color: var(--aastk-surface-brand-soft);
   }
   .surface-accent {
-    @apply bg-accent-50 dark:bg-accent-950/20;
+    background-color: var(--aastk-surface-accent-soft);
   }
 }
 
@@ -152,13 +339,13 @@ body {
  *
  * Satt utenfor @layer slik at de matcher spesifisiteten til
  * @tailwindcss/typography (som også er unlayered).
- * Alle .prose-elementer bruker brand-farger som default.
- * Endres automatisk når --color-brand-* oppdateres i @theme.
+ * Bruker semantic tokens slik at prose automatisk følger
+ * dark mode og brand-oppdateringer.
  * ========================================================= */
 .prose {
-  --tw-prose-links: var(--color-brand-700);
-  --tw-prose-quote-borders: var(--color-brand-600);
-  --tw-prose-th-borders: var(--color-brand-200);
+  --tw-prose-links: var(--aastk-link-default);
+  --tw-prose-quote-borders: var(--aastk-border-brand-strong);
+  --tw-prose-th-borders: var(--aastk-border-brand-subtle);
 }
 
 /* Blockquote – matcher Blockquote.astro */
@@ -167,9 +354,9 @@ body {
   font-weight: normal;
   font-size: 1.125rem;
   line-height: 1.6;
-  color: var(--color-gray-700, #374151);
+  color: var(--aastk-text-body);
   border-left-width: 4px;
-  border-left-color: var(--color-brand-600);
+  border-left-color: var(--aastk-border-brand-strong);
   padding-left: 1.25rem;
   padding-inline-start: 1.25rem;
   quotes: none;
@@ -187,33 +374,34 @@ body {
   content: none;
 }
 
-/* Tabell – matcher .data-table */
+/* Tabell – harmonisert med aksel/DataTable, men lettere for innholdskontekst */
 .prose :where(thead):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   border-bottom-width: 2px;
-  border-bottom-color: var(--color-brand-200);
+  border-bottom-color: var(--aastk-border-brand-subtle);
+}
+.prose :where(th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  font-weight: 600;
+  color: var(--aastk-text-body);
+}
+.prose :where(td, th):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  padding-right: 1rem;
+}
+.prose :where(td:last-child, th:last-child):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  padding-right: 0;
 }
 .prose :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  border-bottom-color: var(--color-gray-100, #f3f4f6);
+  border-bottom-color: var(--aastk-border-brand-muted);
 }
 .prose :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
-  background-color: var(--color-brand-50);
+  background-color: var(--aastk-surface-brand-soft);
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark) {
-  .prose {
-    --tw-prose-links: var(--color-brand-400);
-    --tw-prose-quote-borders: var(--color-brand-500);
-    --tw-prose-th-borders: var(--color-brand-800);
-  }
-  .prose :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    color: var(--color-gray-300, #d1d5db);
-    border-left-color: var(--color-brand-500);
-  }
-  .prose :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-    border-bottom-color: var(--color-gray-800, #1f2937);
-  }
-  .prose :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
-    background-color: var(--color-gray-800, #1f2937);
-  }
+/* Listemarkører – brand-harmonisert */
+.prose :where(ul > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
+  color: var(--aastk-border-brand-strong);
+}
+.prose :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
+  color: var(--aastk-text-brand);
 }

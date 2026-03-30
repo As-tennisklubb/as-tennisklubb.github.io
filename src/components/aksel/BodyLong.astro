@@ -1,0 +1,42 @@
+---
+/**
+ * BodyLong – Aksel-inspirert brødtekstkomponent for løpende tekst.
+ *
+ * Speiler Aksel BodyLong: generøs linjehøyde for god lesbarhet
+ * i lengre tekstblokker. Grunnstørrelse 18px per Aksel-retning.
+ *
+ * Props:
+ *   size – "large" | "medium" | "small". Default "medium".
+ *          large (20/28) – erstatter deprecated Ingress-konseptet.
+ *          medium (18/28) – standard brødtekst.
+ *          small (16/24) – sekundær tekst.
+ *   as   – HTML-element å rendre som. Default "p".
+ *
+ * Aksel-skala:
+ *   large   20/28
+ *   medium  18/28
+ *   small   16/24
+ */
+import { cn } from "@/lib/cn";
+import type { HTMLTag } from "astro/types";
+
+type BodySize = "large" | "medium" | "small";
+
+interface Props {
+  size?: BodySize;
+  as?: HTMLTag;
+  class?: string;
+}
+
+const { size = "medium", as: Tag = "p", class: className } = Astro.props;
+
+const sizeClasses: Record<BodySize, string> = {
+  large: "text-xl leading-7",
+  medium: "text-lg leading-7",
+  small: "text-base leading-6",
+};
+---
+
+<Tag class={cn(sizeClasses[size as BodySize], className)}>
+  <slot />
+</Tag>

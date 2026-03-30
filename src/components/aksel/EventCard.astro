@@ -1,0 +1,65 @@
+---
+/**
+ * EventCard – Aksel-lane arrangementkort.
+ *
+ * Parallell kopi av events/EventCard.astro.
+ * Bruker aksel/Card som surface og aksel-typografi for innhold.
+ * Hele kortet er klikkbart via en ytre <a>.
+ *
+ * Props:
+ *   event – PublicClubEvent-objekt fra API.
+ *   class – Tilpassinger.
+ */
+import { cn } from "@/lib/cn";
+import Card from "./Card.astro";
+import Heading from "./Heading.astro";
+import type { PublicClubEvent } from "../../lib/events/mapPublicEvent";
+import { formatPresentation, formatSignupStatus } from "../../lib/events/formatEvent";
+
+interface Props {
+  event: PublicClubEvent;
+  class?: string;
+}
+
+const { event, class: className } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pLines = formatPresentation(event.presentation);
+const showCategory = event.category !== event.title;
+const signupStatus = formatSignupStatus(event.allowsSignup, event.signupCount);
+---
+
+<Card class={cn("h-full", className)}>
+  <a
+    href={`${base}arrangementer/${event.arrangementId}`}
+    class="group flex h-full flex-col"
+  >
+    <p class="text-xs font-medium text-muted">
+      {pLines.date}{showCategory && ` · ${event.category}`}
+    </p>
+    <Heading
+      level={2}
+      size="xsmall"
+      class="mt-2 transition-colors group-hover:text-[var(--aastk-text-brand)]"
+    >
+      {event.title}
+    </Heading>
+    {pLines.schedule && (
+      <p class="mt-2 text-sm text-body">{pLines.schedule}</p>
+    )}
+    <div class="mt-auto flex items-center justify-between gap-4 pt-4">
+      <p
+        class={cn(
+          "text-sm",
+          event.allowsSignup
+            ? "font-medium text-[var(--aastk-text-brand)]"
+            : "text-muted",
+        )}
+      >
+        {signupStatus}
+      </p>
+      <p class="text-sm font-medium text-[var(--aastk-link-default)] transition-colors group-hover:text-[var(--aastk-link-hover)]">
+        Se arrangement →
+      </p>
+    </div>
+  </a>
+</Card>

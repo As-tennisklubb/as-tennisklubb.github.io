@@ -1,0 +1,42 @@
+---
+/**
+ * ArticleMeta – Aksel-lane artikkelmetadata.
+ *
+ * Viser dato, forfatter og kategorier for en nyhetsartikkel.
+ * Erstatter content/ArticleMeta som bygget på gammel Badge-komponent.
+ *
+ * Props:
+ *   date        – Formatert datostreng.
+ *   author      – Valgfritt forfatternavn.
+ *   categories  – Valgfri liste med kategorier.
+ *   class       – Tilpassinger.
+ */
+import { cn } from "@/lib/cn";
+
+interface Props {
+  date: string;
+  author?: string;
+  categories?: string[];
+  class?: string;
+}
+
+const { date, author, categories = [], class: className } = Astro.props;
+---
+
+<div class={cn("flex flex-wrap items-center gap-x-2 gap-y-1 text-sm", className)}>
+  <time class="font-medium text-[var(--aastk-text-brand)]">{date}</time>
+  {author && (
+    <>
+      <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">·</span>
+      <span class="text-muted">av {author}</span>
+    </>
+  )}
+  {categories.length > 0 && (
+    <>
+      <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">·</span>
+      <span class="text-muted">
+        {categories.join(", ")}
+      </span>
+    </>
+  )}
+</div>

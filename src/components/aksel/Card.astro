@@ -1,0 +1,42 @@
+---
+/**
+ * Card – Aksel-inspirert surface-komponent bygget på Box.
+ *
+ * Tynn spesialisering over Box for kort-overflater.
+ * Eier padding, bakgrunn, border, radius og hover/focus-state.
+ * Styrer ikke grid, marginer eller innholdstypografi.
+ *
+ * Props:
+ *   as        – HTML-element å rendre som. Default "div".
+ *   class     – Tilpassinger via cn().
+ *
+ * Defaults:
+ *   bg-white / dark:bg-gray-900
+ *   border border-gray-200 / dark:border-gray-700
+ *   rounded-xl
+ *   px-6 py-5
+ *   shadow-sm → hover:shadow-md
+ *   transition-shadow
+ */
+import { cn } from "@/lib/cn";
+import Box from "../primitives/Box.astro";
+import type { HTMLTag } from "astro/types";
+
+interface Props {
+  as?: HTMLTag;
+  class?: string;
+}
+
+const { as = "div", class: className } = Astro.props;
+---
+
+<Box
+  as={as}
+  borderRadius="xl"
+  class={cn(
+    "border bg-[var(--aastk-surface-raised)] [border-color:var(--aastk-border-default)] px-6 py-5 shadow-sm transition-shadow hover:shadow-md",
+    className,
+  )}
+>
+  <slot />
+</Box>

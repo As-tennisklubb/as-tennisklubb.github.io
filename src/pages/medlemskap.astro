@@ -1,13 +1,23 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { UserPlus, RefreshCw } from "@lucide/astro";
-import Container from "../components/layout/Container.astro";
-import PageSection from "../components/layout/PageSection.astro";
-import Button from "../components/ui/Button.astro";
-import Callout from "../components/ui/Callout.astro";
-import RichTextBlock from "../components/ui/RichTextBlock.astro";
-import ResponsiveDataList from "../components/content/ResponsiveDataList.astro";
-import StepList from "../components/content/StepList.astro";
+import { UserPlus } from "@lucide/astro";
+import Button from "../components/aksel/Button.astro";
+import Link from "../components/aksel/Link.astro";
+import PageHeader from "../components/aksel/PageHeader.astro";
+import Heading from "../components/aksel/Heading.astro";
+import BodyLong from "../components/aksel/BodyLong.astro";
+import PageBlock from "../components/primitives/PageBlock.astro";
+import VStack from "../components/primitives/VStack.astro";
+import HStack from "../components/primitives/HStack.astro";
+import HGrid from "../components/primitives/HGrid.astro";
+import DataTable from "../components/aksel/DataTable.astro";
+import Process from "../components/aksel/Process.astro";
+import ProcessEvent from "../components/aksel/ProcessEvent.astro";
+import InfoCard from "../components/aksel/InfoCard.astro";
+import List from "../components/aksel/List.astro";
+import ListItem from "../components/aksel/ListItem.astro";
+
+const base = import.meta.env.BASE_URL;
 
 const priser = [
   { type: "Barn/junior (inntil 19 år)", pris: "500,-" },
@@ -20,106 +30,110 @@ const priser = [
 <Layout
   title="Medlemskap – Ås Tennisklubb"
   description="Bli medlem av Ås Tennisklubb. Se priser, betalingsinfo og prøvespill."
-  pageTitle="Medlemskap"
-  pageDescription="Alle er velkomne – uansett alder, kjønn og nivå."
 >
-  <Container padded>
-    <RichTextBlock class="mb-4">
-      <p>Er du ny eller allerede medlem? Finn din vei videre.</p>
-    </RichTextBlock>
+  {/* ───── Toppseksjon ───── */}
+  <PageHeader
+    title="Medlemskap"
+    description="Alle er velkomne – uansett alder, kjønn og nivå."
+  />
 
-    <!-- Prisliste -->
-    <PageSection title="Medlemskontingent 2026">
-      <ResponsiveDataList>
-        <Fragment slot="mobile">
-          {
-            priser.map(({ type, pris }) => (
-              <div class="data-card flex items-center justify-between">
-                <span class="text-sm text-gray-700 dark:text-gray-300">{type}</span>
-                <span class="font-bold text-brand-700 dark:text-brand-400">kr {pris}</span>
+  {/* ───── Sideinnhold ───── */}
+  <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
+
+    {/* Hva får du som medlem */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Hva får du som medlem?</Heading>
+          <BodyLong>Medlemskapet gir deg tilgang til alt klubben har å tilby – hele sesongen.</BodyLong>
+          <List as="ul" size="small">
+            <ListItem>Spill så mye du vil på tre grusbaner fra april til november.</ListItem>
+            <ListItem>Lån racketer og baller gratis i klubbhuset.</ListItem>
+            <ListItem>Delta i kurs, turneringer og sosiale samlinger – fra nybegynnerkurs til klubbmesterskap.</ListItem>
+            <ListItem>Et inkluderende miljø der barn, voksne og seniorer spiller side om side.</ListItem>
+          </List>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Priser og betaling */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="6">
+          <Heading level={2} size="medium" dataColor="brand">Medlemskontingent 2026</Heading>
+          <HGrid columns={{ sm: 1, md: 2 }} gap="8" class="md:grid-cols-[3fr_2fr]">
+            <DataTable
+              rows={priser.map(({ type, pris }) => ({ label: type, value: `kr ${pris}` }))}
+              labelHeader="Medlemstype"
+              valueHeader="Pris"
+            />
+            <InfoCard dataColor="brand" title="Betaling">
+              <p>
+                Betal til <strong class="text-heading">konto 1100 44 76109</strong> eller
+                <strong class="text-heading">Vipps Ås Tennisklubb #14506</strong>.
+                Merk med <em>Navn og type medlemskap</em>.
+              </p>
+              <p>Du får også tilgang til banebooking og klubbhus via Yale Home-appen.</p>
+            </InfoCard>
+          </HGrid>
+          <BodyLong size="small" class="text-muted">
+            Familiemedlemskap gjelder for alle i samme husstand.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Ny medlem */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="6">
+          <HStack gap="3" align="center">
+            <UserPlus class="size-6 text-[var(--aastk-text-brand)]" />
+            <Heading level={2} size="medium" dataColor="brand">Kom i gang</Heading>
+          </HStack>
+          <BodyLong>Det tar bare noen minutter å bli medlem. Slik gjør du:</BodyLong>
+          <Process>
+            <ProcessEvent title="Registrer deg" status="active">
+              <Fragment slot="bullet">1</Fragment>
+              <p>Opprett profil via Min Idrett.</p>
+              <div>
+                <Button
+                  href="https://medlemskap.nif.no/19967"
+                  size="small"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Registrer på Min Idrett →
+                </Button>
               </div>
-            ))
-          }
-        </Fragment>
-        <Fragment slot="desktop">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Medlemstype</th>
-                <th class="text-right">Pris</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                priser.map(({ type, pris }) => (
-                  <tr>
-                    <td class="font-medium text-gray-900 dark:text-gray-100">{type}</td>
-                    <td class="text-right font-semibold text-brand-700 dark:text-brand-400">
-                      kr {pris}
-                    </td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </Fragment>
-      </ResponsiveDataList>
-    </PageSection>
+            </ProcessEvent>
+            <ProcessEvent title="Betal kontingent">
+              <Fragment slot="bullet">2</Fragment>
+              Betal via konto eller Vipps – se betalingsinfo over.
+            </ProcessEvent>
+            <ProcessEvent title="Få tilgang">
+              <Fragment slot="bullet">3</Fragment>
+              <p>
+                Send navn og mobilnummer til <Link href="mailto:aas.tbk@gmail.com" inlineText>aas.tbk@gmail.com</Link>,
+                så gir vi deg tilgang via <strong>Yale Home-appen</strong>.
+              </p>
+            </ProcessEvent>
+          </Process>
+        </VStack>
+      </PageBlock>
+    </section>
 
-    <!-- Betaling -->
-    <PageSection title="Betaling">
-      <Callout variant="success" class="space-y-2">
-        <p class="font-semibold text-gray-900 dark:text-gray-100">Betal slik:</p>
-        <p>
-          Betal til <strong class="text-gray-900 dark:text-gray-100">konto 1100 44 76109</strong> eller
-          <strong class="text-gray-900 dark:text-gray-100">Vipps Ås Tennisklubb #14506</strong>.
-          Merk med <em>Navn og type medlemskap</em>.
-        </p>
-        <p>Betaling gir full tilgang til banebooking og klubbhus.</p>
-      </Callout>
-    </PageSection>
+    {/* Forny medlemskap */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="2">
+          <Heading level={2} size="small" dataColor="brand">Forny medlemskap</Heading>
+          <BodyLong size="small">
+            Allerede medlem? Betal kontingent for å fornye – Yale Home-tilgangen oppdateres automatisk.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
 
-    <!-- Ny medlem -->
-    <PageSection title="Ny medlem" icon={UserPlus}>
-      <StepList
-        steps={[
-          {
-            title: "Registrer deg",
-            text: "Opprett profil via Min Idrett – det tar bare noen minutter.",
-          },
-          {
-            title: "Betal kontingent",
-            text: "Se betalingsinformasjon over.",
-          },
-        ]}
-        class="md:grid-cols-2"
-      />
-      <Button
-        href="https://medlemskap.nif.no/19967"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-6 text-sm"
-      >
-        Registrer på Min Idrett →
-      </Button>
-      <RichTextBlock class="mt-6">
-        <p class="text-sm text-gray-600 dark:text-gray-400">
-          Etter betaling får du tilgang via <strong>Yale Home-appen</strong>.
-          Send e-post til <a href="mailto:aas.tbk@gmail.com" class="link">aas.tbk@gmail.com</a> med navn og mobilnummer for alle som skal ha tilgang.
-        </p>
-      </RichTextBlock>
-    </PageSection>
-
-    <!-- Eksisterende medlem -->
-    <PageSection title="Allerede medlem?" icon={RefreshCw}>
-      <RichTextBlock>
-        <p>
-          Du trenger ikke registrere deg på nytt – betal kontingent for å fornye.
-        </p>
-        <p class="mt-2 text-sm text-gray-500 dark:text-gray-500">
-          Har du Yale Home-tilgang fra i fjor? Tilgangen fornyes automatisk etter betaling.
-        </p>
-      </RichTextBlock>
-    </PageSection>
-  </Container>
+  </VStack>
 </Layout>

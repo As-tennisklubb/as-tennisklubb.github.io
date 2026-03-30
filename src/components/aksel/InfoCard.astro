@@ -1,0 +1,75 @@
+---
+/**
+ * InfoCard – Aksel-inspirert fremhevet informasjonsflate.
+ *
+ * Brukes for viktig innhold som skal skille seg fra vanlig brødtekst
+ * uten å være en alert eller et klikkbart kort.
+ * Bygget direkte på Box-primitiven.
+ *
+ * Props:
+ *   title     – Valgfri overskrift øverst.
+ *   dataColor – "accent" | "neutral" | "brand" (default "accent")
+ *   size      – "small" | "medium" (default "medium")
+ *   as        – "div" | "section" (default "div")
+ *   class     – Ekstra klasser.
+ *
+ * Slots:
+ *   default – Innholdet i kortet.
+ */
+import { cn } from "@/lib/cn";
+import Box from "../primitives/Box.astro";
+import VStack from "../primitives/VStack.astro";
+import Heading from "./Heading.astro";
+
+type DataColor = "accent" | "neutral" | "brand";
+type Size = "small" | "medium";
+
+interface Props {
+  title?: string;
+  dataColor?: DataColor;
+  size?: Size;
+  as?: "div" | "section";
+  class?: string;
+}
+
+const {
+  title,
+  dataColor = "accent",
+  size = "medium",
+  as = "div",
+  class: className,
+} = Astro.props;
+
+const colorClasses: Record<DataColor, string> = {
+  accent:
+    "bg-[var(--aastk-surface-brand-soft)] [border-color:var(--aastk-border-brand-subtle)]",
+  neutral:
+    "bg-[var(--aastk-surface-subtle)] [border-color:var(--aastk-border-default)]",
+  brand:
+    "bg-[var(--aastk-surface-brand-soft)] [border-color:var(--aastk-border-brand-subtle)]",
+};
+
+const sizeConfig: Record<Size, { padding: string; gap: string }> = {
+  small: { padding: "4", gap: "2" },
+  medium: { padding: "6", gap: "3" },
+};
+
+const { padding, gap } = sizeConfig[size as Size];
+
+const sectionAttrs =
+  as === "section" && title ? { "aria-label": title } : {};
+---
+
+<Box
+  as={as}
+  padding={padding}
+  borderRadius="xl"
+  borderWidth="1"
+  class={cn("text-sm text-body", colorClasses[dataColor as DataColor], className)}
+  {...sectionAttrs}
+>
+  <VStack gap={gap}>
+    {title && <Heading level={3} size="xsmall">{title}</Heading>}
+    <slot />
+  </VStack>
+</Box>

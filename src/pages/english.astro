@@ -1,11 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import { CalendarCheck } from "@lucide/astro";
-import Container from "../components/layout/Container.astro";
-import PageSection from "../components/layout/PageSection.astro";
-import Button from "../components/ui/Button.astro";
-import RichTextBlock from "../components/ui/RichTextBlock.astro";
-import StepList from "../components/content/StepList.astro";
+import Button from "../components/aksel/Button.astro";
+import Link from "../components/aksel/Link.astro";
+import PageHeader from "../components/aksel/PageHeader.astro";
+import Heading from "../components/aksel/Heading.astro";
+import BodyLong from "../components/aksel/BodyLong.astro";
+import PageBlock from "../components/primitives/PageBlock.astro";
+import VStack from "../components/primitives/VStack.astro";
+import HStack from "../components/primitives/HStack.astro";
+import Process from "../components/aksel/Process.astro";
+import ProcessEvent from "../components/aksel/ProcessEvent.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -14,81 +19,140 @@ const base = import.meta.env.BASE_URL;
   title="Ås Tennis Club – English"
   description="Welcome to Ås Tennis Club. Information about courts, membership and courses in English."
   lang="en"
-  pageTitle="Welcome to Ås Tennis Club"
-  pageDescription="Three clay courts at Ås stadion – open from April to November."
   languageAlternates={[
     { href: new URL(Astro.url.pathname, Astro.site).href, hrefLang: "en" },
     { href: new URL("/", Astro.site).href, hrefLang: "no" },
     { href: new URL("/", Astro.site).href, hrefLang: "x-default" },
   ]}
 >
-  <Container padded>
-    <PageSection title="Getting started">
-      <RichTextBlock class="mb-6">
-        <p>Information in English about courts, membership and activities.</p>
-      </RichTextBlock>
-      <StepList
-        steps={[
-          { title: "Become a member", text: "Register via Min Idrett and pay the annual fee." },
-          {
-            title: "Book a court",
-            text: "Reserve up to 7 days in advance via our booking system.",
-          },
-          {
-            title: "Play",
-            text: "Show up and play – rackets and balls can be borrowed for free.",
-          },
-        ]}
-        class="mb-6"
-      />
-      <div class="flex flex-wrap gap-4">
-        <Button href={`${base}medlemskap`}>Become a member →</Button>
-        <Button
-          variant="outline"
-          href={import.meta.env.PUBLIC_BOOKING_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <CalendarCheck class="h-5 w-5" />
-          Go to booking →
-        </Button>
-      </div>
-    </PageSection>
+  {/* ───── Header ───── */}
+  <PageHeader
+    variant="compact"
+    title="Welcome to Ås Tennis Club"
+    description="Three clay courts at Ås stadion – open from April to November."
+  />
 
-    <PageSection title="Membership">
-      <RichTextBlock>
-        <p>
-          Membership is required to use the courts. Prices start from NOK 500 per year.
-        </p>
-        <p>
-          After registering, you will need to send an email to
-          <a href="mailto:aas.tbk@gmail.com" class="link">aas.tbk@gmail.com</a>
-          with your name and mobile number. You will receive access to the courts and clubhouse via the <strong>Yale Home app</strong>.
-        </p>
-      </RichTextBlock>
-      <Button
-        href="https://medlemskap.nif.no/19967"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="mt-6"
-      >Register via Min Idrett (Norwegian Sports Federation) →</Button>
-    </PageSection>
+  {/* ───── Page content ───── */}
+  <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
 
-    <PageSection title="Events and courses">
-      <RichTextBlock>
-        <p>
-          We offer courses, training sessions, tournaments and social events throughout the
-          season.
-        </p>
-      </RichTextBlock>
-      <Button variant="outline" href={`${base}arrangementer`} class="mt-6">View events →</Button>
-    </PageSection>
+    {/* About the club */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">About the club</Heading>
+          <BodyLong>
+            Ås Tennis Club was founded in 1976 and is a community-driven outdoor club
+            located next to Ås stadion. Our members range from young children to retirees,
+            and you do not need to speak Norwegian to join or play.
+          </BodyLong>
+          <BodyLong>
+            We have three clay courts open from April to November, with two courts equipped
+            with floodlights for evening play. Rackets and balls can be borrowed for free,
+            so you do not need your own equipment to get started.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
 
-    <PageSection title="Contact">
-      <RichTextBlock>
-        <p>Questions about membership, courts or events? Get in touch with us.</p>
-      </RichTextBlock>
-      <Button variant="outline" href={`${base}kontakt`} class="mt-4">View contact details →</Button>
-    </PageSection>
-  </Container>
+    {/* Getting started */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="6">
+          <Heading level={2} size="medium" dataColor="brand">Getting started</Heading>
+          <BodyLong>It only takes a few minutes to become a member:</BodyLong>
+          <Process>
+            <ProcessEvent title="Become a member" status="active">
+              <Fragment slot="bullet">1</Fragment>
+              <p>Register via Min Idrett and pay the annual fee.</p>
+              <div>
+                <Button
+                  href={`${base}medlemskap`}
+                  size="small"
+                >
+                  Membership page →
+                </Button>
+              </div>
+            </ProcessEvent>
+            <ProcessEvent title="Book a court">
+              <Fragment slot="bullet">2</Fragment>
+              <p>Reserve up to 7 days in advance via our booking system.</p>
+              <div>
+                <Button
+                  variant="secondary"
+                  href={import.meta.env.PUBLIC_BOOKING_URL}
+                  size="small"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <CalendarCheck class="h-5 w-5" slot="icon" />
+                  Go to booking →
+                </Button>
+              </div>
+            </ProcessEvent>
+            <ProcessEvent title="Play">
+              <Fragment slot="bullet">3</Fragment>
+              <p>Show up and play – rackets and balls can be borrowed for free.</p>
+            </ProcessEvent>
+          </Process>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Membership */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="6">
+          <Heading level={2} size="medium" dataColor="brand">Membership</Heading>
+          <BodyLong>
+            Membership is required to use the courts. Annual fees start from NOK 500.
+            After paying, send your name and mobile number to
+            <Link href="mailto:aas.tbk@gmail.com" inlineText>aas.tbk@gmail.com</Link>
+            – we will set up your access through the <strong>Yale Home app</strong>.
+          </BodyLong>
+          <HStack gap="4" wrap>
+            <Button
+              href="https://medlemskap.nif.no/19967"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Register via Min Idrett →
+            </Button>
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Events and courses */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Events and courses</Heading>
+          <BodyLong>
+            Throughout the season we arrange courses for all levels, club tournaments
+            and social gatherings. All members are welcome to join.
+          </BodyLong>
+          <HStack gap="4" wrap>
+            <Button variant="secondary" href={`${base}arrangementer`}>View events →</Button>
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Contact */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Contact</Heading>
+          <BodyLong>
+            Questions about membership, courts or events? Feel free to get in touch –
+            we are happy to help, also in English.
+          </BodyLong>
+          <HStack gap="4" wrap>
+            <Button variant="secondary" href={`${base}kontakt`}>Contact details →</Button>
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+  </VStack>
 </Layout>

@@ -1,0 +1,65 @@
+---
+/**
+ * VStack – Flex-basert vertikal grouping.
+ *
+ * Speiler Aksel VStack: display:flex, flex-direction:column.
+ *
+ * Props:
+ *   gap          – Tailwind spacing-skala. Mapper til gap-klasser.
+ *   align        – CSS align-items.
+ *   justify      – CSS justify-content.
+ *   padding      – Tailwind spacing-skala. Mapper til p-klasser.
+ *   paddingInline– Tailwind spacing-skala. Mapper til px-klasser.
+ *   paddingBlock – Tailwind spacing-skala. Mapper til py-klasser.
+ *   as           – HTML-element å rendre som.
+ *
+ * Alle klasser bruker eksplisitte oppslagskart for å sikre at Tailwind plukker dem opp.
+ */
+import { cn } from "@/lib/cn";
+import type { HTMLTag } from "astro/types";
+import {
+  gapClass,
+  alignItemsClass,
+  justifyContentClass,
+  paddingClass,
+  paddingInlineClass,
+  paddingBlockClass,
+} from "@/lib/ui/classMaps";
+
+interface Props {
+  gap?: string;
+  align?: "start" | "center" | "end" | "baseline" | "stretch";
+  justify?: "start" | "center" | "end" | "space-between" | "space-around" | "space-evenly";
+  padding?: string;
+  paddingInline?: string;
+  paddingBlock?: string;
+  as?: HTMLTag;
+  class?: string;
+}
+
+const {
+  gap,
+  align,
+  justify,
+  padding,
+  paddingInline,
+  paddingBlock,
+  as: Tag = "div",
+  class: className,
+} = Astro.props;
+---
+
+<Tag
+  class={cn(
+    "flex flex-col",
+    gap && gapClass[gap],
+    align && alignItemsClass[align],
+    justify && justifyContentClass[justify],
+    padding && paddingClass[padding],
+    paddingInline && paddingInlineClass[paddingInline],
+    paddingBlock && paddingBlockClass[paddingBlock],
+    className,
+  )}
+>
+  <slot />
+</Tag>

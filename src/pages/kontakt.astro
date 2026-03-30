@@ -1,10 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { Users, Mail } from "@lucide/astro";
-import Container from "../components/layout/Container.astro";
-import PageSection from "../components/layout/PageSection.astro";
-import RichTextBlock from "../components/ui/RichTextBlock.astro";
-import ResponsiveDataList from "../components/content/ResponsiveDataList.astro";
+import { Mail, Users } from "@lucide/astro";
+import PageHeader from "../components/aksel/PageHeader.astro";
+import Heading from "../components/aksel/Heading.astro";
+import BodyLong from "../components/aksel/BodyLong.astro";
+import Link from "../components/aksel/Link.astro";
+import DataTable from "../components/aksel/DataTable.astro";
+import PageBlock from "../components/primitives/PageBlock.astro";
+import VStack from "../components/primitives/VStack.astro";
+import HStack from "../components/primitives/HStack.astro";
 
 const styret = [
   { navn: "Øyvind Engøy", rolle: "Leder", epost: "leder@aastk.no", tlf: "950 55 078" },
@@ -18,89 +22,65 @@ const styret = [
   { navn: "James Randall Fennell", rolle: "Anlegg", epost: "anlegg@aastk.no", tlf: "997 98 972" },
   { navn: "Rune Sundbø", rolle: "Dugnad / anlegg", epost: "anlegg@aastk.no", tlf: "922 83 185" },
 ];
+
+const styretData = styret.map(({ navn, rolle, epost, tlf }) => [
+  navn,
+  rolle,
+  { text: epost, href: `mailto:${epost}` },
+  { text: tlf, href: `tel:+47${tlf.replace(/\s/g, "")}` },
+]);
 ---
 
 <Layout
   title="Kontakt – Ås Tennisklubb"
   description="Kontaktinformasjon for Ås Tennisklubb. Styret, e-post og telefon."
-  pageTitle="Kontakt"
-  pageDescription="Ta kontakt med oss – vi hjelper deg gjerne."
 >
-  <Container padded>
-    <PageSection title="Generelle henvendelser" icon={Mail}>
-      <RichTextBlock>
-        <p>
-          Har du spørsmål om medlemskap, booking eller arrangementer?<br />
-          Send oss en e-post – vi svarer så raskt vi kan.
-        </p>
-        <p>
-          <a href="mailto:administrasjon@aastk.no" class="link text-lg font-semibold">
-            administrasjon@aastk.no
-          </a>
-        </p>
-      </RichTextBlock>
-    </PageSection>
+  {/* ───── Toppseksjon ───── */}
+  <PageHeader
+    title="Kontakt"
+    description="Ta kontakt med oss – vi hjelper deg gjerne."
+  />
 
-    <PageSection title="Styret (for spesifikke henvendelser)" icon={Users}>
-      <RichTextBlock>
-        <p>Har du en spesifikk henvendelse? Ta direkte kontakt med riktig person i styret.</p>
-      </RichTextBlock>
-      <ResponsiveDataList>
-        <Fragment slot="mobile">
-          {
-            styret.map(({ navn, rolle, epost, tlf }) => (
-              <div class="data-card">
-                <p class="font-semibold text-gray-900 dark:text-gray-100">{navn}</p>
-                <p class="mb-2 text-sm text-brand-700 dark:text-brand-400">{rolle}</p>
-                <a
-                  href={`mailto:${epost}`}
-                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
-                >
-                  {epost}
-                </a>
-                <a
-                  href={`tel:+47${tlf.replace(/\s/g, "")}`}
-                  class="block text-sm text-gray-600 transition-colors hover:text-brand-700 dark:text-gray-400 dark:hover:text-brand-400"
-                >
-                  {tlf}
-                </a>
-              </div>
-            ))
-          }
-        </Fragment>
-        <Fragment slot="desktop">
-          <table class="data-table">
-            <thead>
-              <tr>
-                <th>Navn</th>
-                <th>Rolle</th>
-                <th>E-post</th>
-                <th>Telefon</th>
-              </tr>
-            </thead>
-            <tbody>
-              {
-                styret.map(({ navn, rolle, epost, tlf }) => (
-                  <tr>
-                    <td class="font-medium text-gray-900 dark:text-gray-100">{navn}</td>
-                    <td>{rolle}</td>
-                    <td>
-                      <a href={`mailto:${epost}`} class="link">
-                        {epost}
-                      </a>
-                    </td>
-                    <td>
-                      <a href={`tel:+47${tlf.replace(/\s/g, "")}`} class="link">
-                        {tlf}
-                      </a>
-                    </td>
-                  </tr>
-                ))
-              }
-            </tbody>
-          </table>
-        </Fragment>
-      </ResponsiveDataList>
-    </PageSection>
-  </Container>
+  {/* ───── Sideinnhold ───── */}
+  <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
+
+    {/* Generelle henvendelser */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4" class="max-w-prose">
+          <HStack gap="3" align="center">
+            <Mail class="size-6 text-[var(--aastk-text-brand)]" />
+            <Heading level={2} size="medium" dataColor="brand">Generelle henvendelser</Heading>
+          </HStack>
+          <BodyLong>
+            Har du spørsmål om medlemskap, booking eller arrangementer?
+            Send oss en e-post – vi svarer så raskt vi kan.
+          </BodyLong>
+          <Link href="mailto:administrasjon@aastk.no" class="text-lg font-semibold">
+            administrasjon@aastk.no
+          </Link>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Styret */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="6">
+          <HStack gap="3" align="center">
+            <Users class="size-6 text-[var(--aastk-text-brand)]" />
+            <Heading level={2} size="medium" dataColor="brand">Styret</Heading>
+          </HStack>
+          <BodyLong>
+            Har du en spesifikk henvendelse? Ta direkte kontakt med riktig person i styret.
+          </BodyLong>
+          <DataTable
+            headers={["Navn", "Rolle", "E-post", "Telefon"]}
+            data={styretData}
+          />
+        </VStack>
+      </PageBlock>
+    </section>
+
+  </VStack>
 </Layout>

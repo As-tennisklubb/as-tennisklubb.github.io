@@ -1,10 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Container from "../components/layout/Container.astro";
-import PageSection from "../components/layout/PageSection.astro";
-import Button from "../components/ui/Button.astro";
-import RichTextBlock from "../components/ui/RichTextBlock.astro";
-import LazyMap from "../components/content/LazyMap.astro";
+import Button from "../components/aksel/Button.astro";
+import PageHeader from "../components/aksel/PageHeader.astro";
+import Heading from "../components/aksel/Heading.astro";
+import BodyLong from "../components/aksel/BodyLong.astro";
+import PageBlock from "../components/primitives/PageBlock.astro";
+import VStack from "../components/primitives/VStack.astro";
+import HStack from "../components/primitives/HStack.astro";
+import LazyMap from "../components/aksel/LazyMapAksel.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -12,43 +15,107 @@ const base = import.meta.env.BASE_URL;
 <Layout
   title="Om klubben – Ås Tennisklubb"
   description="Ås Tennisklubb ble grunnlagt i 1976 og holder til ved Ås stadion. Les mer om klubben."
-  pageTitle="Om Ås Tennisklubb"
-  pageDescription="Tennisklubb for alle i Ås – stiftet i 1976."
 >
-  <Container padded>
-    <PageSection title="Om oss">
-      <RichTextBlock>
-        <p>
-          Ås Tennisklubb ble grunnlagt i 1976 og holder til i Idrettsveien, rett ved Ås stadion. Vi
-          er en klubb for alle – uansett alder og nivå.
-        </p>
-        <p>
-          Med tre grusbaner, kurs og arrangementer gjennom sesongen, og et aktivt klubbmiljø er det
-          alltid noe å være med på.
-        </p>
-      </RichTextBlock>
-    </PageSection>
+  {/* ───── Toppseksjon ───── */}
+  <PageHeader
+    title="Om Ås Tennisklubb"
+    description="Tennisklubb for alle i Ås – stiftet i 1976."
+  />
 
-    <PageSection title="Klubbens beliggenhet">
-      <RichTextBlock class="mb-6">
-        <p>Banene ligger sentralt ved Ås stadion.</p>
-      </RichTextBlock>
-      <LazyMap
-        address="Idrettsveien 1"
-        city="1430 Ås"
-        embedQuery="Idrettsveien 1, 1430 Ås, Norway"
-        mapsUrl="https://maps.google.com/maps?q=Idrettsveien+1,+1430+Ås,+Norway"
-      />
-    </PageSection>
+  {/* ───── Sideinnhold ───── */}
+  <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
 
-    <PageSection title="Bli med">
-      <RichTextBlock class="mb-6">
-        <p>Bli en del av klubben – spill tennis hele sesongen fra kr 500,-.</p>
-      </RichTextBlock>
-      <div class="flex flex-wrap gap-4">
-        <Button href={`${base}medlemskap`}>Bli medlem →</Button>
-        <Button variant="outline" href={`${base}kontakt`}>Kontakt oss →</Button>
-      </div>
-    </PageSection>
-  </Container>
+    {/* Om oss */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Om oss</Heading>
+          <BodyLong>
+            Ås Tennisklubb ble stiftet i 1976 og har siden vært en del av idretts- og nærmiljøet
+            i Ås. Klubben holder til i Idrettsveien, rett ved Ås stadion, med tre grusbaner som er
+            åpne fra april til november.
+          </BodyLong>
+          <BodyLong>
+            I snart femti år har klubben samlet spillere i alle aldre – fra barn som slår sine
+            første baller over nettet, til seniorer som har holdt det gående i flere tiår.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Klubbmiljø */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Klubbmiljø</Heading>
+          <BodyLong>
+            Det som kjennetegner klubben er bredden. Medlemmene spenner fra skolebarn til
+            pensjonister, og flere familier spiller på tvers av generasjonene. Turneringer og
+            sosiale samlinger gir jevnlig anledning til å møtes på og utenfor banen.
+          </BodyLong>
+          <BodyLong>
+            Klubben drives i stor grad på dugnad. Banevedlikehold, arrangementer og det meste
+            av det daglige gjøres av medlemmene selv – det gir kort avstand mellom de som
+            spiller og de som styrer.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Aktiviteter gjennom året */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Aktiviteter gjennom året</Heading>
+          <BodyLong>
+            Gjennom sesongen arrangeres kurs for barn, ungdom og voksne på ulike nivåer.
+            Racketer og baller kan lånes gratis, slik at terskelen for å prøve er lav.
+          </BodyLong>
+          <BodyLong>
+            Hvert år holdes Ås Open og klubbmesterskapet, og på nyåret spilles den tradisjonsrike
+            Ribbeturneringen – en uhøytidelig mixed double-turnering som markerer starten på et
+            nytt tennisår. Også mellom turneringene er det rom for uformelt spill og sosialt samvær.
+          </BodyLong>
+          <BodyLong>
+            Klubben drives av et valgt styre, og årsmøtet holdes hver vinter med alle medlemmer
+            velkomne.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Klubbens beliggenhet */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Klubbens beliggenhet</Heading>
+          <BodyLong>Banene ligger i Idrettsveien, like ved Ås stadion og et kort stykke fra sentrum.</BodyLong>
+          <LazyMap
+            address="Idrettsveien 1"
+            city="1430 Ås"
+            embedQuery="Idrettsveien 1, 1430 Ås, Norway"
+            mapsUrl="https://maps.google.com/maps?q=Idrettsveien+1,+1430+Ås,+Norway"
+          />
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Bli med */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Bli med</Heading>
+          <BodyLong>
+            Bli en del av klubben – spill tennis hele sesongen fra kr 500,-.
+            Alle er velkomne, uansett erfaring.
+          </BodyLong>
+          <HStack gap="4" wrap>
+            <Button href={`${base}medlemskap`}>Bli medlem →</Button>
+            <Button variant="secondary" href={`${base}kontakt`}>Kontakt oss →</Button>
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+  </VStack>
 </Layout>

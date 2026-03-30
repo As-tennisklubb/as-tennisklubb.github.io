@@ -1,0 +1,22 @@
+---
+/**
+ * Prose – Aksel-lane wrapper for rendret rich text.
+ *
+ * Tynn wrapper som gir Tailwind Typography-styling til innhold fra
+ * CMS, Markdown, WordPress-import eller rendret Tiptap-HTML.
+ *
+ * Props:
+ *   class – Valgfri ekstra klasse.
+ */
+import { cn } from "@/lib/cn";
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<div class={cn("prose prose-brand max-w-none dark:prose-invert", className)}>
+  <slot />
+</div>

@@ -1,0 +1,85 @@
+---
+/**
+ * HGrid – CSS Grid-basert layout for kolonner og horisontal struktur.
+ *
+ * Speiler Aksel HGrid: bruker CSS Grid med columns og gap.
+ *
+ * Props:
+ *   columns – Antall kolonner, CSS grid-template-columns, eller responsivt objekt.
+ *             number → "repeat(n, minmax(0, 1fr))"
+ *             string → brukes direkte som grid-template-columns
+ *             object → { sm?: n, md?: n, lg?: n, xl?: n } for responsive kolonner
+ *   gap     – Tailwind spacing-skala. Mapper til gap-klasser.
+ *   align   – Vertikal alignment av children: "start" | "center" | "end".
+ *   as      – HTML-element å rendre som.
+ *
+ * Responsive columns følger Aksel-mønsteret der columns kan settes per breakpoint.
+ * Alle klasser bruker eksplisitte oppslagskart for å sikre at Tailwind plukker dem opp.
+ */
+import { cn } from "@/lib/cn";
+import type { HTMLTag } from "astro/types";
+import {
+  gapClass,
+  alignItemsClass,
+  gridColsClass,
+  mdGridColsClass,
+  lgGridColsClass,
+  xlGridColsClass,
+} from "@/lib/ui/classMaps";
+
+type ResponsiveColumns = {
+  sm?: number;
+  md?: number;
+  lg?: number;
+  xl?: number;
+};
+
+interface Props {
+  columns?: number | string | ResponsiveColumns;
+  gap?: string;
+  align?: "start" | "center" | "end";
+  as?: HTMLTag;
+  class?: string;
+}
+
+const {
+  columns,
+  gap,
+  align,
+  as: Tag = "div",
+  class: className,
+} = Astro.props;
+
+// Resolve columns to either inline style (number/string) or Tailwind classes (responsive object)
+let columnsStyle: string | undefined;
+let columnsClasses: string | undefined;
+
+if (columns !== undefined && columns !== null) {
+  if (typeof columns === "number") {
+    columnsStyle = `repeat(${columns}, minmax(0, 1fr))`;
+  } else if (typeof columns === "string") {
+    columnsStyle = columns;
+  } else {
+    // Responsive object → lookup from explicit class maps
+    const parts: string[] = [];
+    if (columns.sm !== undefined) parts.push(gridColsClass[columns.sm] ?? "");
+    if (columns.md !== undefined) parts.push(mdGridColsClass[columns.md] ?? "");
+    if (columns.lg !== undefined) parts.push(lgGridColsClass[columns.lg] ?? "");
+    if (columns.xl !== undefined) parts.push(xlGridColsClass[columns.xl] ?? "");
+    columnsClasses = parts.filter(Boolean).join(" ");
+  }
+}
+---
+
+<Tag
+  class={cn(
+    "grid",
+    gap && gapClass[gap],
+    align && alignItemsClass[align],
+    columnsClasses,
+    className,
+  )}
+  style={columnsStyle ? `grid-template-columns: ${columnsStyle}` : undefined}
+>
+  <slot />
+</Tag>

@@ -1,0 +1,67 @@
+---
+/**
+ * Heading – Aksel-inspirert overskriftskomponent.
+ *
+ * Speiler Aksel Heading: semantisk nivå (h1–h6) og visuell størrelse
+ * er uavhengige. Bruker Aksel-typografiskala direkte.
+ *
+ * Props:
+ *   level     – 1–6. Bestemmer HTML-tag (h1–h6). Default 2.
+ *   size      – "xlarge" | "large" | "medium" | "small" | "xsmall".
+ *               Default avledes fra level: 1→large, 2→medium, 3→small, 4–6→xsmall.
+ *   dataColor – "default" | "brand" | "subtle" | "inverted" (default "default")
+ *               Styrer fargetone for overskriften.
+ *
+ * Aksel-skala:
+ *   xlarge  40/52  (brukes sjelden – svært store overskrifter)
+ *   large   32/40
+ *   medium  24/32
+ *   small   20/28
+ *   xsmall  18/24
+ */
+import { cn } from "@/lib/cn";
+
+type HeadingSize = "xlarge" | "large" | "medium" | "small" | "xsmall";
+type DataColor = "default" | "brand" | "subtle" | "inverted";
+
+interface Props {
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+  size?: HeadingSize;
+  dataColor?: DataColor;
+  class?: string;
+}
+
+const { level = 2, size, dataColor = "default", class: className } = Astro.props;
+
+const Tag = `h${level}` as "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+const defaultSize: Record<number, HeadingSize> = {
+  1: "large",
+  2: "medium",
+  3: "small",
+  4: "xsmall",
+  5: "xsmall",
+  6: "xsmall",
+};
+
+const resolved = size ?? defaultSize[level];
+
+const sizeClasses: Record<HeadingSize, string> = {
+  xlarge: "text-[2.5rem] leading-[3.25rem]",
+  large: "text-[2rem] leading-[2.5rem]",
+  medium: "text-2xl leading-8",
+  small: "text-xl leading-7",
+  xsmall: "text-lg leading-6",
+};
+
+const colorClasses: Record<DataColor, string> = {
+  default: "text-heading",
+  brand: "text-[var(--aastk-text-brand)]",
+  subtle: "text-body",
+  inverted: "text-white",
+};
+---
+
+<Tag class={cn("font-semibold", sizeClasses[resolved], colorClasses[dataColor], className)}>
+  <slot />
+</Tag>

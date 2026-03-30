@@ -1,8 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import Container from "../../components/layout/Container.astro";
-import EventArticle from "../../components/events/EventArticle.astro";
+import Heading from "../../components/aksel/Heading.astro";
+import Link from "../../components/aksel/Link.astro";
+import Button from "../../components/aksel/Button.astro";
+import PageBlock from "../../components/primitives/PageBlock.astro";
+import VStack from "../../components/primitives/VStack.astro";
+import Prose from "../../components/aksel/Prose.astro";
 import { fetchUpcomingEvents } from "../../lib/events/fetchEvents";
+import { formatPresentation, formatSignupStatus } from "../../lib/events/formatEvent";
+import { renderTiptapJson } from "../../lib/events/renderTiptapJson";
 
 export async function getStaticPaths() {
   const events = await fetchUpcomingEvents();
@@ -13,13 +19,80 @@ export async function getStaticPaths() {
 }
 
 const { event } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const pLines = formatPresentation(event.presentation);
+const showCategory = event.category !== event.title;
+const signupStatus = formatSignupStatus(event.allowsSignup, event.signupCount);
+const cleanDescription = renderTiptapJson(event.description);
 ---
 
 <Layout
   title={`${event.title} – Ås Tennisklubb`}
   description={`${event.category} – ${event.title}`}
 >
-  <Container size="narrow" padded class="pt-10">
-    <EventArticle event={event} backLink headingLevel="h1" />
-  </Container>
+  <PageBlock width="md" gutters>
+    <VStack gap="6" class="py-10">
+      {/* ───── Tilbake-lenke ───── */}
+      <Link href={`${base}arrangementer`} class="text-sm">
+        ← Tilbake til arrangementer
+      </Link>
+
+      {/* ───── Overskrift ───── */}
+      <Heading level={1} size="xlarge">{event.title}</Heading>
+
+      {/* ───── Metadata ───── */}
+      <div class="border-b pb-6 [border-color:var(--aastk-border-subtle)]">
+        <div class="mb-3 flex flex-wrap items-center gap-3">
+          <span class="rounded-full bg-brand-100 px-3 py-1 text-sm font-medium text-brand-800 dark:bg-brand-900 dark:text-brand-200">
+            {pLines.date}
+          </span>
+          {showCategory && (
+            <span class="rounded-full bg-[var(--aastk-surface-subtle)] px-3 py-1 text-sm font-medium text-[var(--aastk-text-body)]">
+              {event.category}
+            </span>
+          )}
+        </div>
+        <VStack gap="1" class="text-sm text-muted">
+          {pLines.schedule && (
+            <p>
+              {pLines.schedule}
+              {event.presentation.hasDeviatingSlots && " (varierer)"}
+            </p>
+          )}
+          {pLines.courts && <p>{pLines.courts}</p>}
+          {event.allowsSignup ? (
+            <p class="text-[var(--aastk-text-brand)]">{signupStatus}</p>
+          ) : (
+            <p>{signupStatus}</p>
+          )}
+        </VStack>
+      </div>
+
+      {/* ───── Beskrivelse ───── */}
+      {cleanDescription && (
+        <Prose>
+          <Fragment set:html={cleanDescription} />
+        </Prose>
+      )}
+
+      {/* ───── Påmelding ───── */}
+      {event.allowsSignup && (
+        <div class="border-t pt-6 [border-color:var(--aastk-border-subtle)]">
+          <Button href={event.bookingUrl} target="_blank" rel="noopener noreferrer">
+            Meld deg på
+          </Button>
+        </div>
+      )}
+
+      {/* ───── Navigasjon ───── */}
+      <nav class="flex flex-wrap items-center gap-4 border-t pt-6 [border-color:var(--aastk-border-subtle)]">
+        <Link href={`${base}arrangementer`} class="text-sm">
+          ← Alle arrangementer
+        </Link>
+        <Link href={base} class="text-sm">
+          Til forsiden
+        </Link>
+      </nav>
+    </VStack>
+  </PageBlock>
 </Layout>

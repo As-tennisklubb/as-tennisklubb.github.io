@@ -1,0 +1,58 @@
+---
+/**
+ * PageBlock – Max-width, sentrering og gutters.
+ *
+ * Speiler Aksel Page.Block: kontrollerer innholdsbredde med predefinerte
+ * max-width-verdier og valgfrie responsive gutters.
+ *
+ * Breddemapping (tett på Aksel):
+ *   text → max-w-prose  (65ch ≈ 576px anbefalt linjelengde)
+ *   md   → max-w-3xl    (768px)
+ *   lg   → max-w-5xl    (1024px)
+ *   xl   → max-w-7xl    (1280px)
+ *   2xl  → max-w-[1440px]
+ *
+ * Gutters (Aksel: 1rem < md, 3rem ≥ md):
+ *   px-4 md:px-12 – tilsvarer 1rem / 3rem responsivt.
+ *
+ * Astro-avvik fra Aksel:
+ * - `as` prop aksepterer HTML-tag-streng i stedet for React.ElementType.
+ */
+import { cn } from "@/lib/cn";
+import type { HTMLTag } from "astro/types";
+
+type Width = "text" | "md" | "lg" | "xl" | "2xl";
+
+interface Props {
+  width?: Width;
+  gutters?: boolean;
+  as?: HTMLTag;
+  class?: string;
+}
+
+const {
+  width,
+  gutters = false,
+  as: Tag = "div",
+  class: className,
+} = Astro.props;
+
+const widthClasses: Record<Width, string> = {
+  text: "max-w-prose",
+  md: "max-w-3xl",
+  lg: "max-w-5xl",
+  xl: "max-w-7xl",
+  "2xl": "max-w-[1440px]",
+};
+---
+
+<Tag
+  class={cn(
+    "mx-auto w-full",
+    width && widthClasses[width as Width],
+    gutters && "px-4 md:px-12",
+    className,
+  )}
+>
+  <slot />
+</Tag>

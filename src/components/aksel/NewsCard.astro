@@ -1,0 +1,70 @@
+---
+/**
+ * NewsCard – Aksel-lane nyhetskort.
+ *
+ * Parallell kopi av content/NewsCard.astro.
+ * Bruker aksel/Card som surface og aksel-typografi for innhold.
+ * Hele kortet er klikkbart via en ytre <a>.
+ *
+ * Props:
+ *   href         – URL til nyhetssaken.
+ *   title        – Tittel.
+ *   date         – Formatert datostreng.
+ *   categories   – Eventuelle kategorier.
+ *   excerpt      – Utdrag/ingress.
+ *   headingLevel – 2 | 3 for semantisk nivå. Default 3.
+ *   clampLines   – 2 | 3 linjer for excerpt. Default 2.
+ *   class        – Tilpassinger.
+ */
+import { cn } from "@/lib/cn";
+import Card from "./Card.astro";
+import Heading from "./Heading.astro";
+import BodyLong from "./BodyLong.astro";
+
+interface Props {
+  href: string;
+  title: string;
+  date: string;
+  categories?: string[];
+  excerpt?: string;
+  headingLevel?: 2 | 3;
+  clampLines?: 2 | 3;
+  class?: string;
+}
+
+const {
+  href,
+  title,
+  date,
+  categories = [],
+  excerpt,
+  headingLevel = 3,
+  clampLines = 2,
+  class: className,
+} = Astro.props;
+
+const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
+---
+
+<Card class={cn("h-full", className)}>
+  <a href={href} class="group flex h-full flex-col">
+    <p class="text-xs font-medium text-muted">
+      {date}{categories.length > 0 && ` · ${categories.join(", ")}`}
+    </p>
+    <Heading
+      level={headingLevel}
+      size="xsmall"
+      class="mt-2 transition-colors group-hover:text-[var(--aastk-text-brand)]"
+    >
+      {title}
+    </Heading>
+    {excerpt && (
+      <BodyLong size="small" class={cn("mt-3 text-body", clampClass)}>
+        {excerpt}
+      </BodyLong>
+    )}
+    <p class="mt-auto pt-4 text-sm font-medium text-[var(--aastk-link-default)] transition-colors group-hover:text-[var(--aastk-link-hover)]">
+      Les mer →
+    </p>
+  </a>
+</Card>

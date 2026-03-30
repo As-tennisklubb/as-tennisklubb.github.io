@@ -1,15 +1,27 @@
 ---
+/**
+ * Layout – Standard layout basert på Aksel-inspirert primitive-system.
+ *
+ * Body: primitives (Page, PageBlock, HStack, VStack, HGrid, Box).
+ * UI:   aksel/Button og aksel/Link for knapper og lenker.
+ */
 import "../styles/global.css";
 import { Globe, Menu, X } from "@lucide/astro";
 import { ClientRouter, slide } from "astro:transitions";
-import HeroSection from "../components/layout/HeroSection.astro";
+import Page from "../components/primitives/Page.astro";
+import PageBlock from "../components/primitives/PageBlock.astro";
+import HStack from "../components/primitives/HStack.astro";
+import VStack from "../components/primitives/VStack.astro";
+import HGrid from "../components/primitives/HGrid.astro";
+import Box from "../components/primitives/Box.astro";
+import Button from "../components/aksel/Button.astro";
+import Link from "../components/aksel/Link.astro";
+import Heading from "../components/aksel/Heading.astro";
 
 interface Props {
   title?: string;
   description?: string;
   lang?: string;
-  pageTitle?: string;
-  pageDescription?: string;
   ogImage?: string;
   ogImageAlt?: string;
   noindex?: boolean;
@@ -20,8 +32,6 @@ const {
   title = "Ås Tennisklubb",
   description = "Ås Tennisklubb – tennis for alle i Ås",
   lang = "no",
-  pageTitle,
-  pageDescription,
   ogImage,
   ogImageAlt,
   noindex = false,
@@ -33,8 +43,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const navLinks = [
   { href: "baner", label: "Spill tennis" },
   { href: "arrangementer", label: "Arrangementer" },
+  { href: "nyheter", label: "Nyheter" },
   { href: "kontakt", label: "Kontakt" },
-  { href: "om-klubben", label: "Om klubben" },
 ];
 
 const footerLinks = [
@@ -112,171 +122,214 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
     />
   </head>
 
-  <body
-    class="flex min-h-screen flex-col bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100"
-  >
-    <header
-      transition:name="site-header"
-      transition:animate="none"
-      class="bg-brand-800 text-white shadow-md dark:bg-brand-700"
-    >
-      <div class="mx-auto flex h-20 max-w-6xl items-center justify-between px-4">
-        <a
-          href={base}
-          class="flex shrink-0 items-center gap-3 hover:opacity-90"
-          aria-label="Ås Tennisklubb – til forsiden"
-        >
-          <img
-            src={`${base}logo.svg`}
-            alt="Ås Tennisklubb"
-            class="h-16 w-auto"
-            width="66"
-            height="64"
-            fetchpriority="high"
-          />
-          <div class="flex flex-col leading-none">
-            <span class="text-lg font-bold tracking-wide text-white">Ås</span>
-            <span class="text-xs font-medium tracking-[0.18em] text-brand-200 uppercase"
-              >Tennisklubb</span
-            >
-          </div>
-        </a>
+  <body class="bg-[var(--aastk-surface-default)] text-[var(--aastk-text-default)]">
+    <Page>
 
-        <!-- Desktop nav -->
-        <nav class="hidden items-center gap-1 text-sm font-medium md:flex" aria-label="Hovedmeny">
-          {
-            navLinks.map(({ href, label }) => (
-              <a
-                href={`${base}${href}`}
-                aria-current={isActive(href) ? "page" : undefined}
-                class={`rounded-lg px-3 py-3 transition-colors ${isActive(href) ? "bg-brand-700 font-semibold dark:bg-brand-800" : "hover:bg-brand-700 dark:hover:bg-brand-800"}`}
-              >
-                {label}
-              </a>
-            ))
-          }
-          <a
-            href={`${base}medlemskap`}
-            aria-current={isActive("medlemskap") ? "page" : undefined}
-            class={`ml-2 font-bold px-4 py-2 rounded-full transition-colors min-h-[44px] flex items-center whitespace-nowrap ${isActive("medlemskap") ? "bg-accent-600 text-white" : "bg-accent-500 text-white hover:bg-accent-600"}`}
-          >
-            Bli medlem
-          </a>
-        </nav>
-
-        <!-- Hamburger (§1 §7 §8: synlig mobil, 44px touch target) -->
-        <button
-          id="menu-btn"
-          class="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 transition-colors hover:bg-brand-700 md:hidden"
-          aria-label="Åpne meny"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <Menu id="icon-open" class="h-6 w-6" />
-          <X id="icon-close" class="hidden h-6 w-6" />
-        </button>
-      </div>
-
-      <!-- Mobile meny -->
-      <nav
-        id="mobile-menu"
-        class="hidden border-t border-brand-700 dark:border-brand-600"
-        aria-label="Mobilmeny"
+      {/* ───── Header ───── */}
+      <header
+        transition:name="site-header"
+        transition:animate="none"
+        class="bg-[var(--aastk-surface-inverted)] text-white shadow-md"
       >
-        <div class="border-b border-brand-700 px-4 py-3 dark:border-brand-600">
-          <a
-            href={`${base}medlemskap`}
-            aria-current={isActive("medlemskap") ? "page" : undefined}
-            class="flex min-h-[44px] items-center justify-center rounded-full bg-accent-500 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-accent-600"
-          >
-            Bli medlem
-          </a>
-        </div>
-        <ul class="flex flex-col px-4 py-2">
-          {
-            navLinks.map(({ href, label }) => (
-              <li>
-                <a
-                  href={`${base}${href}`}
-                  aria-current={isActive(href) ? "page" : undefined}
-                  class={`flex min-h-[44px] items-center border-b border-brand-700 text-sm font-medium transition-colors last:border-0 dark:border-brand-600 ${isActive(href) ? "font-semibold text-yellow-300" : "hover:text-brand-300"}`}
-                >
-                  {label}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </header>
+        <PageBlock width="2xl" gutters class="h-20">
+          <HStack align="center" justify="space-between" class="h-full">
+            <Link
+              href={base}
+              underline={false}
+              class="flex shrink-0 items-center gap-3 hover:opacity-90"
+              aria-label="Ås Tennisklubb – til forsiden"
+            >
+              <img
+                src={`${base}logo.svg`}
+                alt="Ås Tennisklubb"
+                class="h-16 w-auto"
+                width="66"
+                height="64"
+                fetchpriority="high"
+              />
+              <VStack class="leading-none">
+                <span class="text-lg font-bold tracking-wide text-white">Ås</span>
+                <span class="text-xs font-medium tracking-[0.18em] text-[var(--aastk-text-on-brand-muted)] uppercase">
+                  Tennisklubb
+                </span>
+              </VStack>
+            </Link>
 
-    <main transition:animate={slide({ duration: "0.3s" })} class="flex-1">
-      {pageTitle && <HeroSection size="content" title={pageTitle} description={pageDescription} />}
-      <slot />
-    </main>
-
-    <footer class="mt-6 bg-brand-900 text-brand-200 dark:bg-brand-800">
-      <div class="mx-auto grid max-w-6xl gap-8 px-4 py-10 md:grid-cols-3">
-        <div>
-          <img
-            src={`${base}logo.svg`}
-            alt="Ås Tennisklubb"
-            class="mb-3 h-10 w-auto"
-            width="41"
-            height="40"
-          />
-          <p class="text-sm leading-relaxed">Tennis for alle i Ås, siden 1976.</p>
-        </div>
-        <nav aria-label="Snarveier">
-          <p class="mb-3 font-semibold text-white">Lenker</p>
-          <ul class="space-y-2 text-sm">
-            {
-              footerLinks.map(({ href, label }) => (
-                <li>
+            {/* Desktop nav */}
+            <HStack as="nav" gap="1" align="center" class="hidden text-sm font-medium md:flex" aria-label="Hovedmeny">
+              {
+                navLinks.map(({ href, label }) => (
                   <a
                     href={`${base}${href}`}
-                    class="flex min-h-[44px] items-center transition-colors hover:text-white"
+                    aria-current={isActive(href) ? "page" : undefined}
+                    class={`rounded-lg px-3 py-3 text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${isActive(href) ? "bg-white/15 font-semibold hover:bg-white/20" : "hover:bg-white/10"}`}
                   >
                     {label}
                   </a>
+                ))
+              }
+              <Button
+                href={`${base}medlemskap`}
+                variant="primary"
+                size="small"
+                aria-current={isActive("medlemskap") ? "page" : undefined}
+                class={`ml-2 whitespace-nowrap rounded-full ${isActive("medlemskap") ? "bg-accent-600" : "bg-accent-500 hover:bg-accent-600 active:bg-accent-700"}`}
+              >
+                Bli medlem
+              </Button>
+            </HStack>
+
+            {/* Hamburger */}
+            <button
+              id="menu-btn"
+              class="flex min-h-[44px] min-w-[44px] items-center justify-center rounded-lg p-2 transition-colors hover:bg-[var(--aastk-surface-inverted-hover)] md:hidden"
+              aria-label="Åpne meny"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+            >
+              <Menu id="icon-open" class="h-6 w-6" />
+              <X id="icon-close" class="hidden h-6 w-6" />
+            </button>
+          </HStack>
+        </PageBlock>
+
+        {/* Mobilmeny */}
+        <nav
+          id="mobile-menu"
+          class="hidden border-t [border-color:var(--aastk-border-inverted)]"
+          aria-label="Mobilmeny"
+        >
+          <Box paddingInline="4" paddingBlock="3" class="border-b [border-color:var(--aastk-border-inverted)]">
+            <Button
+              href={`${base}medlemskap`}
+              variant="primary"
+              size="small"
+              aria-current={isActive("medlemskap") ? "page" : undefined}
+              class="w-full justify-center rounded-full bg-accent-500 hover:bg-accent-600"
+            >
+              Bli medlem
+            </Button>
+          </Box>
+          <VStack as="ul" paddingInline="4" paddingBlock="2">
+            {
+              navLinks.map(({ href, label }) => (
+                <li>
+                  <Link
+                    href={`${base}${href}`}
+                    underline={false}
+                    aria-current={isActive(href) ? "page" : undefined}
+                    class={`flex min-h-[44px] items-center border-b text-sm font-medium last:border-0 [border-color:var(--aastk-border-inverted)] ${isActive(href) ? "font-semibold text-yellow-300" : "text-[var(--aastk-text-on-brand-muted)] hover:text-white"}`}
+                  >
+                    {label}
+                  </Link>
                 </li>
               ))
             }
-          </ul>
+          </VStack>
         </nav>
-        <div>
-          <p class="mb-3 font-semibold text-white">Kontakt</p>
-          <a
-            href={`${base}kontakt`}
-            class="flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
-            >Se kontaktinformasjon</a
-          >
-          <a
-            href="mailto:administrasjon@aastk.no"
-            class="flex min-h-[44px] items-center text-sm transition-colors hover:text-white"
-            >administrasjon@aastk.no</a
-          >
-          <a
-            href={`${base}english`}
-            class="mt-4 inline-flex min-h-[44px] items-center gap-1 text-sm text-brand-400 transition-colors hover:text-white"
-          >
-            <Globe class="h-4 w-4" /> English
-          </a>
-        </div>
-      </div>
-      <div
-        class="flex items-center justify-center gap-3 border-t border-brand-800 py-4 text-center text-xs text-brand-500"
-      >
-        <span>© {new Date().getFullYear()} Ås Tennisklubb</span>
-        <span aria-hidden="true">·</span>
-        <a
-          href="https://app.pagescms.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="transition-colors hover:text-brand-300">Redaktør</a
-        >
-      </div>
-    </footer>
+      </header>
+
+      {/* ───── Main ───── */}
+      <main transition:animate={slide({ duration: "0.3s" })} class="flex-1">
+        <slot />
+      </main>
+
+      {/* ───── Footer ───── */}
+      <Box as="footer" class="bg-[var(--aastk-surface-inverted-active)] text-[var(--aastk-text-on-brand-muted)]">
+        <PageBlock width="2xl" gutters>
+          <Box paddingBlock="10">
+            <HGrid columns={{ sm: 1, md: 3 }} gap="8">
+
+            {/* Kolonne 1: Brand-blokk */}
+            <VStack gap="3">
+              <HStack gap="3" align="center">
+                <img
+                  src={`${base}logo.svg`}
+                  alt=""
+                  class="h-10 w-auto shrink-0"
+                  width="41"
+                  height="40"
+                />
+                <Heading level={3} size="xsmall" class="text-white">Ås Tennisklubb</Heading>
+              </HStack>
+              <p class="text-sm leading-relaxed">Tennis for alle i Ås, siden 1976.</p>
+            </VStack>
+
+            {/* Kolonne 2: Lenker */}
+            <nav aria-label="Snarveier">
+              <VStack gap="2">
+                <Heading level={3} size="xsmall" class="text-white">Lenker</Heading>
+                <VStack as="ul" gap="2" class="text-sm">
+                  {
+                    footerLinks.map(({ href, label }) => (
+                      <li>
+                        <Link
+                          href={`${base}${href}`}
+                          underline={false}
+                          dataColor="subtle"
+                          class="flex min-h-[44px] items-center text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+                        >
+                          {label}
+                        </Link>
+                      </li>
+                    ))
+                  }
+                </VStack>
+              </VStack>
+            </nav>
+
+            {/* Kolonne 3: Kontakt */}
+            <VStack gap="3">
+              <Heading level={3} size="xsmall" class="text-white">Kontakt</Heading>
+              <Link
+                href={`${base}kontakt`}
+                underline={false}
+                dataColor="subtle"
+                class="flex min-h-[44px] items-center text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+              >
+                Se kontaktinformasjon
+              </Link>
+              <Link
+                href="mailto:administrasjon@aastk.no"
+                underline={false}
+                dataColor="subtle"
+                class="flex min-h-[44px] items-center text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+              >
+                administrasjon@aastk.no
+              </Link>
+              <Link
+                href={`${base}english`}
+                underline={false}
+                dataColor="subtle"
+                class="min-h-[44px] text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+              >
+                <Globe class="h-4 w-4" /> English
+              </Link>
+            </VStack>
+
+          </HGrid>
+          </Box>
+        </PageBlock>
+
+        <Box class="border-t text-center text-xs text-[var(--aastk-text-on-brand-muted)] [border-color:var(--aastk-border-inverted)]">
+          <HStack justify="center" align="center" gap="3" paddingBlock="4">
+            <span>© {new Date().getFullYear()} Ås Tennisklubb</span>
+            <span aria-hidden="true">·</span>
+            <Link
+              href="https://app.pagescms.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              underline={false}
+              dataColor="subtle"
+              class="text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+            >
+              Redaktør
+            </Link>
+          </HStack>
+        </Box>
+      </Box>
+
+    </Page>
   </body>
 </html>
 

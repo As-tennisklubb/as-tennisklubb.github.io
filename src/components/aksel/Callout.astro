@@ -1,0 +1,47 @@
+---
+/**
+ * Callout – Aksel-inspirert informasjonsboks bygget på Box.
+ *
+ * En liten content surface for fremhevet informasjon.
+ * Bruker Box som fundament for padding, border og bakgrunn.
+ *
+ * Props:
+ *   variant  – "info" | "success" | "warning" (default "info")
+ *   title    – Valgfri overskrift øverst i boksen.
+ *   class    – Ekstra klasser for ytre wrapper.
+ *
+ * Slots:
+ *   default – Innholdet i boksen.
+ */
+import { cn } from "@/lib/cn";
+import Box from "../primitives/Box.astro";
+import VStack from "../primitives/VStack.astro";
+
+type Variant = "info" | "success" | "warning";
+
+interface Props {
+  variant?: Variant;
+  title?: string;
+  class?: string;
+}
+
+const { variant = "info", title, class: className } = Astro.props;
+
+const variantClasses: Record<Variant, string> = {
+  info: "bg-[var(--aastk-surface-brand-soft)] [border-color:var(--aastk-border-brand-subtle)]",
+  success: "bg-[var(--aastk-surface-brand-soft)] [border-color:var(--aastk-border-brand-subtle)]",
+  warning: "bg-yellow-50 border-yellow-200 dark:bg-gray-800 dark:border-yellow-700",
+};
+---
+
+<Box
+  padding="6"
+  borderRadius="xl"
+  borderWidth="1"
+  class={cn("text-sm text-body", variantClasses[variant], className)}
+>
+  <VStack gap="3">
+    {title && <p class="text-base font-semibold text-heading">{title}</p>}
+    <slot />
+  </VStack>
+</Box>

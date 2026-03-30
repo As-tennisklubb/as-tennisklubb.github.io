@@ -1,0 +1,31 @@
+---
+/**
+ * RuleList – Aksel-inspirert nummerert regelliste.
+ *
+ * Rendrer en ordnet liste med nummerboble og regeltekst.
+ * Bygget for kortfattede instruksjoner/reglementer.
+ *
+ * Props:
+ *   rules – Tekststrenger som utgjør reglene (påkrevd).
+ *   class – Ekstra klasser på ytre <ol>.
+ */
+import { cn } from "@/lib/cn";
+
+interface Props {
+  rules: string[];
+  class?: string;
+}
+
+const { rules, class: className } = Astro.props;
+---
+
+<ol class={cn("flex flex-col gap-4", className)}>
+  {rules.map((rule, i) => (
+    <li class="flex gap-4 text-body">
+      <span class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[var(--aastk-surface-brand-soft)] text-sm font-semibold text-[var(--aastk-text-brand)]">
+        {i + 1}
+      </span>
+      <span class="text-base leading-6">{rule}</span>
+    </li>
+  ))}
+</ol>

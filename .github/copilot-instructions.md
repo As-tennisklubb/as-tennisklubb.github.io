@@ -26,15 +26,14 @@ Allowed when explicitly requested:
 
 # 2. Source of Truth
 
-Reusable UI components and patterns are documented in:
+The project uses an Aksel-inspired component system with two layers:
 
-src/components/COMPONENTS.md
+- **Primitives** (`src/components/primitives/`): Layout building blocks (Page, PageBlock, VStack, HStack, HGrid, Box)
+- **Aksel components** (`src/components/aksel/`): UI components (Button, Link, Heading, BodyLong, Card, etc.)
 
-This file is the **primary reference for UI implementation**.
+AI must always check these component folders before generating markup.
 
-AI must always check this file before generating markup.
-
-If a documented component exists it **must be used instead of recreating the pattern with Tailwind.**
+If a component exists it **must be used instead of recreating the pattern with Tailwind.**
 
 ---
 
@@ -59,19 +58,26 @@ Prefer these components when applicable.
 
 Purpose → Component
 
-Page container → <Container padded>
-Section layout → <PageSection>
-Section heading → <SectionHeading>
-Hero banner → <HeroSection>
-CTA buttons → <Button>
-Highlight box → <Callout>
-Long form text → <RichTextBlock>
-Bullet lists → <BulletList>
-Card grids → <CardGrid>
-Structured data → <ResponsiveDataList>
-News items → <NewsCard>
-Navigation cards → <LinkCard>
-Map embed → <LazyMap>
+Page width constraint → <PageBlock>
+Vertical stacking → <VStack>
+Horizontal stacking → <HStack>
+Responsive grid → <HGrid>
+Surface/container → <Box>
+Page header/hero → <PageHeader>
+Buttons → <Button> (aksel)
+Links → <Link> (aksel)
+Headings → <Heading> (aksel)
+Body text → <BodyLong> (aksel)
+Rich text content → <Prose>
+Highlight box → <Callout> (aksel)
+Data tables → <DataTable>
+Info cards → <InfoCard>
+News items → <NewsCard> (aksel)
+Navigation cards → <LinkCard> (aksel)
+Event cards → <EventCard> (aksel)
+Map embed → <LazyMapAksel>
+Step process → <Process> + <ProcessEvent>
+Ordered/unordered lists → <List> + <ListItem>
 
 Do not recreate these patterns using raw Tailwind markup.
 
@@ -135,16 +141,16 @@ layout options
 
 Pages should follow this hierarchy.
 
-HeroSection (optional)
+PageHeader (optional, variant="compact" or full)
 
-Container padded
-PageSection
-SectionHeading
-Content (RichTextBlock / CardGrid / ResponsiveDataList)
+PageBlock width="lg" gutters
+  VStack gap="…"
+    Heading / BodyLong
+    Content (Prose / HGrid / DataTable / CardGrid)
 
-CTA section
+CTA section (Button)
 
-Footer
+Footer (handled by Layout)
 
 Avoid inventing new layout hierarchies if existing components already express the structure.
 
@@ -200,11 +206,11 @@ Breakpoints
 
 Desktop layouts conceptually follow a 12 column grid.
 
-Implementation should rely on project components:
+Implementation should rely on project primitives:
 
-Container
-CardGrid
-PageSection
+PageBlock (width constraint + gutters)
+HGrid (responsive column grid)
+VStack / HStack (flex stacking)
 
 Avoid manually recreating container patterns.
 
@@ -225,11 +231,11 @@ Allowed values
 64
 96
 
-Primary spacing is controlled by components such as
+Primary spacing is controlled by primitives such as
 
-Container
-PageSection
-CardGrid
+PageBlock
+VStack / HStack (gap prop)
+HGrid (gap prop)
 
 Do not introduce new spacing systems.
 
@@ -562,8 +568,6 @@ introduce unnecessary complexity
 # Final Rules
 
 Touch targets must always be
-
-min-h-[44px]
 
 Dark mode must exist for all colors.
 

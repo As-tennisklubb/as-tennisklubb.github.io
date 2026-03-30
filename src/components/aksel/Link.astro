@@ -1,0 +1,61 @@
+---
+/**
+ * Link – Aksel-inspirert lenke-komponent.
+ *
+ * Speiler Aksel Link med underline- og inlineText-props.
+ * Rendrer alltid <a>. Kun for navigasjon, aldri handlinger.
+ *
+ * Props:
+ *   href         – URL/sti lenken peker til.
+ *   underline    – Alltid understreket (default true). Hvis false: kun understreket ved hover.
+ *   inlineText   – Hvis true → display:inline (for løpende tekst). Default false.
+ *   dataColor    – "accent" | "neutral" | "subtle" (default "accent")
+ *
+ * Slots:
+ *   default – Lenketekst.
+ */
+import { cn } from "@/lib/cn";
+
+type DataColor = "accent" | "neutral" | "subtle";
+
+interface Props {
+  href: string;
+  underline?: boolean;
+  inlineText?: boolean;
+  dataColor?: DataColor;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  href,
+  underline = true,
+  inlineText = false,
+  dataColor = "accent",
+  class: className,
+  ...rest
+} = Astro.props;
+
+const colorClasses: Record<DataColor, string> = {
+  accent:
+    "text-[var(--aastk-link-default)] hover:text-[var(--aastk-link-hover)]",
+  neutral:
+    "text-[var(--aastk-text-default)] hover:text-[var(--aastk-text-default)]",
+  subtle:
+    "text-[var(--aastk-text-muted)] hover:text-[var(--aastk-text-body)]",
+};
+
+const classes = cn(
+  "transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:[outline-color:var(--aastk-focus-ring)]",
+  colorClasses[dataColor],
+  underline
+    ? "underline underline-offset-2 hover:no-underline"
+    : "no-underline hover:underline hover:underline-offset-2",
+  inlineText ? "inline" : "inline-flex items-center gap-1",
+  className,
+);
+---
+
+<a href={href} class={classes} {...rest}>
+  <slot />
+</a>

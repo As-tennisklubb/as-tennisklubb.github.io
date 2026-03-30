@@ -1,0 +1,69 @@
+---
+/**
+ * PageHeader – Standardisert sidetopp for ny Aksel-lane.
+ *
+ * Grønn toppseksjon med tittel, ingress og valgfrie actions.
+ * To varianter styrer vertikal tyngde:
+ *
+ *   "hero"    – Forsiden. Mer luft, større gap, plass til CTA.
+ *   "compact" – Undersider. Strammere padding, tettere gap.
+ *
+ * Props:
+ *   title       – H1-tekst (påkrevd).
+ *   description – Ingresstekst under tittelen (maks 65ch bredde).
+ *   variant     – "hero" | "compact". Default "compact".
+ *   class       – Ekstra klasser på ytre Box (spacing, layout-justeringer).
+ *
+ * Slots:
+ *   actions – CTA-knapper eller ekstrainnhold under ingressen.
+ *             Rendres kun når slottet er fylt.
+ */
+import { cn } from "@/lib/cn";
+import Heading from "./Heading.astro";
+import BodyLong from "./BodyLong.astro";
+import PageBlock from "../primitives/PageBlock.astro";
+import VStack from "../primitives/VStack.astro";
+import Box from "../primitives/Box.astro";
+
+type Variant = "hero" | "compact";
+
+interface Props {
+  title: string;
+  description?: string;
+  variant?: Variant;
+  class?: string;
+}
+
+const { title, description, variant = "compact", class: className } = Astro.props;
+const hasActions = Astro.slots.has("actions");
+
+const variantStyles: Record<Variant, { box: string; gap: string }> = {
+  hero: {
+    box: "py-16 md:py-24",
+    gap: "6",
+  },
+  compact: {
+    box: "py-10 md:py-14",
+    gap: "3",
+  },
+};
+
+const styles = variantStyles[variant];
+---
+
+<Box
+  as="section"
+  class={cn("bg-[var(--aastk-surface-inverted)] text-white", styles.box, className)}
+>
+  <PageBlock width="xl" gutters>
+    <VStack gap={styles.gap} align="start">
+      <Heading level={1} size="large" dataColor="inverted">{title}</Heading>
+      {description && (
+        <BodyLong size="large" class="max-w-[65ch] text-[var(--aastk-text-on-brand-muted)]">
+          {description}
+        </BodyLong>
+      )}
+      {hasActions && <slot name="actions" />}
+    </VStack>
+  </PageBlock>
+</Box>

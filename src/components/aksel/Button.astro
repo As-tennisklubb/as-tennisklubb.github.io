@@ -1,0 +1,130 @@
+---
+/**
+ * Button – Aksel-inspirert knapp/lenke-komponent.
+ *
+ * Speiler Aksel Button med variant, size og dataColor.
+ * Rendrer <a> hvis href er satt, ellers <button>.
+ *
+ * Props:
+ *   variant       – "primary" | "secondary" | "tertiary" (default "primary")
+ *   size          – "medium" | "small" | "xsmall" (default "medium")
+ *   disabled      – Deaktiverer knappen.
+ *   loading       – Viser at handlingen pågår (disabled + opacity).
+ *   iconPosition  – "left" | "right" (default "left"). Brukes med icon-slot.
+ *   dataColor     – "accent" | "neutral" | "danger" (default "accent")
+ *   href          – Dersom satt, rendres som <a> (knapp-stylet lenke).
+ *   as            – HTML-element å rendre som (overstyrer auto-deteksjon).
+ *
+ * Slots:
+ *   default – Knapptekst.
+ *   icon    – Valgfritt ikon (plasseres via iconPosition).
+ */
+import { cn } from "@/lib/cn";
+import type { HTMLTag } from "astro/types";
+
+type Variant = "primary" | "secondary" | "tertiary";
+type Size = "medium" | "small" | "xsmall";
+type DataColor = "accent" | "neutral" | "danger" | "inverted";
+
+interface Props {
+  variant?: Variant;
+  size?: Size;
+  disabled?: boolean;
+  loading?: boolean;
+  iconPosition?: "left" | "right";
+  dataColor?: DataColor;
+  href?: string;
+  as?: HTMLTag;
+  class?: string;
+  [key: string]: any;
+}
+
+const {
+  variant = "primary",
+  size = "medium",
+  disabled = false,
+  loading = false,
+  iconPosition = "left",
+  dataColor = "accent",
+  href,
+  as,
+  class: className,
+  ...rest
+} = Astro.props;
+
+const Tag = as ?? (href ? "a" : "button");
+const isDisabled = disabled || loading;
+
+const hasIcon = Astro.slots.has("icon");
+
+/* ── Size classes ── */
+const sizeClasses: Record<Size, string> = {
+  medium: "min-h-[48px] px-5 py-2.5 text-base",
+  small: "min-h-[40px] px-4 py-2 text-sm",
+  xsmall: "min-h-[32px] px-3 py-1.5 text-xs",
+};
+
+/* ── Variant × DataColor classes ── */
+const variantClasses: Record<DataColor, Record<Variant, string>> = {
+  accent: {
+    primary:
+      "bg-[var(--aastk-action-primary-bg)] text-[var(--aastk-action-primary-text)] hover:bg-[var(--aastk-action-primary-bg-hover)] active:bg-[var(--aastk-action-primary-bg-active)]",
+    secondary:
+      "border-2 [border-color:var(--aastk-action-secondary-border)] text-[var(--aastk-action-secondary-text)] hover:bg-[var(--aastk-action-secondary-bg-hover)] active:bg-[var(--aastk-action-secondary-bg-active)]",
+    tertiary:
+      "text-[var(--aastk-action-secondary-text)] hover:bg-[var(--aastk-action-secondary-bg-hover)] active:bg-[var(--aastk-action-secondary-bg-active)]",
+  },
+  neutral: {
+    primary:
+      "bg-[var(--aastk-action-neutral-bg)] text-[var(--aastk-action-neutral-text)] hover:bg-[var(--aastk-action-neutral-bg-hover)] active:bg-[var(--aastk-action-neutral-bg-active)]",
+    secondary:
+      "border-2 [border-color:var(--aastk-action-neutral-secondary-border)] text-[var(--aastk-action-neutral-secondary-text)] hover:bg-[var(--aastk-action-neutral-secondary-bg-hover)] active:bg-[var(--aastk-action-neutral-secondary-bg-active)]",
+    tertiary:
+      "text-[var(--aastk-action-neutral-secondary-text)] hover:bg-[var(--aastk-action-neutral-secondary-bg-hover)] active:bg-[var(--aastk-action-neutral-secondary-bg-active)]",
+  },
+  danger: {
+    primary:
+      "bg-[var(--aastk-action-danger-bg)] text-[var(--aastk-action-danger-text)] hover:bg-[var(--aastk-action-danger-bg-hover)] active:bg-[var(--aastk-action-danger-bg-active)]",
+    secondary:
+      "border-2 [border-color:var(--aastk-action-danger-secondary-border)] text-[var(--aastk-action-danger-secondary-text)] hover:bg-[var(--aastk-action-danger-secondary-bg-hover)] active:bg-[var(--aastk-action-danger-secondary-bg-active)]",
+    tertiary:
+      "text-[var(--aastk-action-danger-secondary-text)] hover:bg-[var(--aastk-action-danger-secondary-bg-hover)] active:bg-[var(--aastk-action-danger-secondary-bg-active)]",
+  },
+  inverted: {
+    primary:
+      "bg-white text-brand-800 hover:bg-brand-100 active:bg-brand-200 dark:bg-brand-200 dark:text-brand-900 dark:hover:bg-brand-300 dark:active:bg-brand-400",
+    secondary:
+      "border-2 border-white/70 text-white hover:bg-white/10 active:bg-white/20 dark:border-white/50 dark:text-white dark:hover:bg-white/10 dark:active:bg-white/20",
+    tertiary:
+      "text-white hover:bg-white/10 active:bg-white/20 dark:text-white dark:hover:bg-white/10 dark:active:bg-white/20",
+  },
+};
+
+const classes = cn(
+  "inline-flex items-center justify-center gap-2 rounded-lg font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:[outline-color:var(--aastk-focus-ring)]",
+  sizeClasses[size as Size],
+  variantClasses[dataColor as DataColor][variant as Variant],
+  isDisabled && "pointer-events-none opacity-50",
+  hasIcon && iconPosition === "right" && "flex-row-reverse",
+  className,
+);
+
+/* ── Element-specific attrs ── */
+const tagAttrs: Record<string, any> = {};
+if (Tag === "a") {
+  tagAttrs.href = href;
+} else {
+  tagAttrs.type = rest.type ?? "button";
+  if (isDisabled) tagAttrs.disabled = true;
+}
+if (isDisabled && Tag === "a") {
+  tagAttrs["aria-disabled"] = "true";
+  tagAttrs.tabindex = "-1";
+}
+---
+
+<Tag class={classes} {...tagAttrs} {...rest}>
+  {hasIcon && <slot name="icon" />}
+  <slot />
+  {loading && <span class="ml-1 animate-spin" aria-hidden="true">⏳</span>}
+</Tag>

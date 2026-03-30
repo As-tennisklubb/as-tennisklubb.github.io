@@ -1,0 +1,71 @@
+---
+/**
+ * ProcessEvent – Ett steg/hendelse i en Aksel-inspirert Process.
+ *
+ * Rendrer som <li> med bullet, vertikal linje og innhold.
+ * Speiler Aksel Process.Event-konseptet.
+ *
+ * Props:
+ *   title     – Overskrift for steget (påkrevd).
+ *   status    – "active" | "completed" | "uncompleted" (default "uncompleted")
+ *   class     – Ekstra klasser.
+ *
+ * Slots:
+ *   default   – Innhold under tittelen.
+ *   bullet    – Valgfri erstatning for default bullet-innhold.
+ */
+import { cn } from "@/lib/cn";
+
+type Status = "active" | "completed" | "uncompleted";
+
+interface Props {
+  title: string;
+  status?: Status;
+  class?: string;
+}
+
+const { title, status = "uncompleted", class: className } = Astro.props;
+
+const hasBulletSlot = Astro.slots.has("bullet");
+
+const bulletColors: Record<Status, string> = {
+  completed:
+    "bg-[var(--aastk-process-completed-bg)] text-[var(--aastk-process-completed-text)]",
+  active:
+    "bg-[var(--aastk-process-active-bg)] text-[var(--aastk-process-active-text)] ring-2 [ring-color:var(--aastk-process-active-ring)]",
+  uncompleted:
+    "bg-[var(--aastk-process-active-bg)] text-[var(--aastk-process-active-text)]",
+};
+
+const lineColors: Record<Status, string> = {
+  completed: "bg-[var(--aastk-process-line-done)]",
+  active: "bg-[var(--aastk-process-line-pending)]",
+  uncompleted: "bg-[var(--aastk-process-line-pending)]",
+};
+---
+
+<li class={cn("relative flex gap-4", className)}>
+  {/* Bullet + vertikal linje */}
+  <div class="flex flex-col items-center">
+    <div
+      class={cn(
+        "flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold",
+        bulletColors[status],
+      )}
+    >
+      {hasBulletSlot ? <slot name="bullet" /> : null}
+    </div>
+    <div
+      class={cn("process-line mt-1 w-0.5 grow", lineColors[status])}
+      aria-hidden="true"
+    ></div>
+  </div>
+
+  {/* Innhold */}
+  <div class="pb-8">
+    <p class="font-semibold text-heading">{title}</p>
+    <div class="mt-1 flex flex-col gap-3 text-sm text-body">
+      <slot />
+    </div>
+  </div>
+</li>

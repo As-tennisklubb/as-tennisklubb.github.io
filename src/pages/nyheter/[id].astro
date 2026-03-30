@@ -1,13 +1,15 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import Container from "../../components/layout/Container.astro";
-import RichTextBlock from "../../components/ui/RichTextBlock.astro";
-import Blockquote from "../../components/ui/Blockquote.astro";
-import ArticleMeta from "../../components/content/ArticleMeta.astro";
-import AttachmentList from "../../components/content/AttachmentList.astro";
-import BackLink from "../../components/content/BackLink.astro";
-import ArticleHeading from "../../components/content/ArticleHeading.astro";
+import Heading from "../../components/aksel/Heading.astro";
+import BodyLong from "../../components/aksel/BodyLong.astro";
+import Link from "../../components/aksel/Link.astro";
+import PageBlock from "../../components/primitives/PageBlock.astro";
+import VStack from "../../components/primitives/VStack.astro";
+import HStack from "../../components/primitives/HStack.astro";
+import Prose from "../../components/aksel/Prose.astro";
+import ArticleMeta from "../../components/aksel/ArticleMeta.astro";
+import AttachmentList from "../../components/aksel/AttachmentList.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("news");
@@ -31,65 +33,65 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
 ---
 
 <Layout title={`${post.data.title} – Ås Tennisklubb`} description={ingress}>
-  <Container size="narrow" padded class="pt-10">
-    <BackLink href={`${base}nyheter`}>← Alle nyheter</BackLink>
-    <article>
-      <ArticleHeading>{post.data.title}</ArticleHeading>
+  <PageBlock width="md" gutters>
+    <VStack gap="6" class="py-10">
+      {/* ───── Tilbake-lenke ───── */}
+      <Link href={`${base}nyheter`} class="text-sm">
+        ← Alle nyheter
+      </Link>
 
-      <!-- Metadata -->
+      {/* ───── Overskrift ───── */}
+      <Heading level={1} size="xlarge">{post.data.title}</Heading>
+
+      {/* ───── Metadata ───── */}
       <ArticleMeta
         date={formattedDate}
         author={post.data.author}
         categories={categories}
-        class="mb-6 border-b border-gray-100 pb-6 dark:border-gray-700"
+        class="border-b pb-6 [border-color:var(--aastk-border-subtle)]"
       />
 
-      <!-- Cover-bilde -->
-      {
-        post.data.cover && (
-          <div class="mb-6 overflow-hidden rounded-xl">
-            <img
-              src={post.data.cover}
-              alt={post.data.title}
-              class="max-h-96 w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        )
-      }
+      {/* ───── Cover-bilde ───── */}
+      {post.data.cover && (
+        <div class="overflow-hidden rounded-xl">
+          <img
+            src={post.data.cover}
+            alt={post.data.title}
+            class="max-h-96 w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      )}
 
-      <!-- Ingress -->
-      {ingress && <Blockquote class="mb-8">{ingress}</Blockquote>}
+      {/* ───── Ingress ───── */}
+      {ingress && (
+        <BodyLong class="text-lg text-body">
+          {ingress}
+        </BodyLong>
+      )}
 
-      <!-- Innhold -->
-      <RichTextBlock>
+      {/* ───── Innhold ───── */}
+      <Prose>
         <Content />
-      </RichTextBlock>
+      </Prose>
 
-      <!-- Vedlegg -->
-      {
-        post.data.attachments && post.data.attachments.length > 0 && (
-          <div class="mt-8 border-t border-gray-100 pt-6 dark:border-gray-700">
-            <h2 class="mb-4 text-lg font-bold text-gray-800 dark:text-gray-200">Vedlegg</h2>
-            <AttachmentList attachments={post.data.attachments.map((url) => ({ url }))} />
-          </div>
-        )
-      }
-    </article>
+      {/* ───── Vedlegg ───── */}
+      {post.data.attachments && post.data.attachments.length > 0 && (
+        <div class="border-t pt-6 [border-color:var(--aastk-border-subtle)]">
+          <Heading level={2} size="small" class="mb-4">Vedlegg</Heading>
+          <AttachmentList attachments={post.data.attachments.map((url) => ({ url }))} />
+        </div>
+      )}
 
-    <nav class="mt-10 flex flex-wrap items-center gap-4 border-t border-gray-100 pt-6 dark:border-gray-700">
-      <a
-        href={`${base}nyheter`}
-        class="link inline-flex min-h-[44px] items-center text-sm"
-      >
-        ← Alle nyheter
-      </a>
-      <a
-        href={base}
-        class="link inline-flex min-h-[44px] items-center text-sm"
-      >
-        Til forsiden
-      </a>
-    </nav>
-  </Container>
+      {/* ───── Navigasjon ───── */}
+      <nav class="flex flex-wrap items-center gap-4 border-t pt-6 [border-color:var(--aastk-border-subtle)]">
+        <Link href={`${base}nyheter`} class="text-sm">
+          ← Alle nyheter
+        </Link>
+        <Link href={base} class="text-sm">
+          Til forsiden
+        </Link>
+      </nav>
+    </VStack>
+  </PageBlock>
 </Layout>

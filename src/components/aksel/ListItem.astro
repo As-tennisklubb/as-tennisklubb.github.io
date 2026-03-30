@@ -1,0 +1,40 @@
+---
+/**
+ * ListItem – Aksel-inspirert listepunkt.
+ *
+ * Rendrer <li> med valgfri title og ikon-slot.
+ * Markørtype styres automatisk av parent List:
+ *   ul → bullet-dot (eller egendefinert ikon via icon-slot)
+ *   ol → løpenummer via CSS counter
+ *
+ * Props:
+ *   title – Valgfri overskrift for punktet (rendres som <strong>).
+ *
+ * Slots:
+ *   default – Hovedinnhold.
+ *   icon    – Valgfritt ikon (erstatter standard markør).
+ */
+import { cn } from "@/lib/cn";
+
+interface Props {
+  title?: string;
+  class?: string;
+}
+
+const { title, class: className } = Astro.props;
+const hasIcon = Astro.slots.has("icon");
+---
+
+<li class={cn("flex gap-3 text-body", className)}>
+  {hasIcon ? (
+    <span class="mt-0.5 flex shrink-0 items-start">
+      <slot name="icon" />
+    </span>
+  ) : (
+    <span class="aksel-list-marker shrink-0" />
+  )}
+  <span>
+    {title && <strong class="text-heading">{title} </strong>}
+    <slot />
+  </span>
+</li>

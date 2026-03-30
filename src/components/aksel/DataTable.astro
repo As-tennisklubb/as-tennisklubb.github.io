@@ -1,0 +1,195 @@
+---
+/**
+ * DataTable – Aksel-inspirert responsiv datapresentasjon.
+ *
+ * Enkel modus (label/verdi):
+ *   rows         – Array med { label, value } for hver rad.
+ *   labelHeader  – Kolonneoverskrift for label (default "Type").
+ *   valueHeader  – Kolonneoverskrift for verdi (default "Verdi").
+ *
+ * Fler-kolonne-modus:
+ *   headers      – Array med kolonneoverskrifter.
+ *   data         – Array med rader, hver rad er Array med celler.
+ *                  Celle er enten string eller { text, href? }.
+ *                  Første celle vises som tittel på mobil-kort.
+ *
+ * Felles:
+ *   class        – Ekstra klasser for ytre wrapper.
+ */
+import { cn } from "@/lib/cn";
+import Box from "../primitives/Box.astro";
+import Link from "./Link.astro";
+
+interface Row {
+  label: string;
+  value: string;
+}
+
+type Cell = string | { text: string; href?: string };
+
+interface SimpleProps {
+  rows: Row[];
+  labelHeader?: string;
+  valueHeader?: string;
+  headers?: undefined;
+  data?: undefined;
+  class?: string;
+}
+
+interface MultiColumnProps {
+  headers: string[];
+  data: Cell[][];
+  rows?: undefined;
+  labelHeader?: undefined;
+  valueHeader?: undefined;
+  class?: string;
+}
+
+type Props = SimpleProps | MultiColumnProps;
+
+const props = Astro.props;
+const className = props.class;
+const isMultiColumn = Array.isArray(props.headers);
+
+/* Hjelpefunksjoner for celle-rendering */
+function cellText(cell: Cell): string {
+  return typeof cell === "string" ? cell : cell.text;
+}
+
+function cellHref(cell: Cell): string | undefined {
+  return typeof cell === "object" ? cell.href : undefined;
+}
+---
+
+<div class={cn(className)}>
+  {isMultiColumn ? (
+    <>
+      {/* ── Fler-kolonne: Mobil – stacked kort ── */}
+      <div class="flex flex-col gap-3 md:hidden">
+        {(props as MultiColumnProps).data.map((row) => (
+          <Box
+            padding="5"
+            borderRadius="lg"
+            borderWidth="1"
+            class="border-[var(--aastk-border-brand-muted)] bg-[var(--aastk-surface-raised)]"
+          >
+            <div class="flex flex-col gap-2.5">
+              {/* Navn + rolle */}
+              <div class="flex flex-col gap-0.5">
+                {row[0] != null && (
+                  <p class="font-semibold leading-snug text-heading">
+                    {cellText(row[0])}
+                  </p>
+                )}
+                {row[1] != null && (
+                  <p class="text-sm leading-snug text-muted">
+                    {cellText(row[1])}
+                  </p>
+                )}
+              </div>
+
+              {/* Kontaktfelter */}
+              <div class="flex flex-col gap-2">
+                {row.slice(2).map((cell, i) => {
+                  const href = cellHref(cell);
+                  const header = (props as MultiColumnProps).headers[i + 2];
+                  return (
+                    <dl class="flex flex-col gap-0.5">
+                      <dt class="text-xs font-medium text-muted">{header}</dt>
+                      <dd class="text-sm leading-snug">
+                        {href ? (
+                          <Link href={href} inlineText>{cellText(cell)}</Link>
+                        ) : (
+                          <span class="text-body">{cellText(cell)}</span>
+                        )}
+                      </dd>
+                    </dl>
+                  );
+                })}
+              </div>
+            </div>
+          </Box>
+        ))}
+      </div>
+
+      {/* ── Fler-kolonne: Desktop – semantisk tabell ── */}
+      <div class="hidden overflow-x-auto md:block">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 [border-color:var(--aastk-border-brand-subtle)]">
+              {(props as MultiColumnProps).headers.map((h) => (
+                <th
+                  scope="col"
+                  class="py-3 pr-6 text-left text-sm font-semibold text-body last:pr-0"
+                >
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {(props as MultiColumnProps).data.map((row) => (
+              <tr class="border-b [border-color:var(--aastk-border-brand-muted)]">
+                {row.map((cell, i) => {
+                  const href = cellHref(cell);
+                  return (
+                    <td class={cn("py-3 pr-6 last:pr-0", i === 0 && "font-medium text-heading")}>
+                      {href ? (
+                        <Link href={href} inlineText>{cellText(cell)}</Link>
+                      ) : (
+                        cellText(cell)
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  ) : (
+    <>
+      {/* ── Enkel modus: Mobil – stacked liste ── */}
+      <div class="flex flex-col gap-2 md:hidden">
+        {(props as SimpleProps).rows.map(({ label, value }) => (
+          <Box
+            padding="4"
+            borderRadius="lg"
+            borderWidth="1"
+            class="flex items-center justify-between border-[var(--aastk-border-brand-muted)] bg-[var(--aastk-surface-raised)]"
+          >
+            <span class="text-sm text-body">{label}</span>
+            <span class="text-sm font-semibold text-[var(--aastk-text-brand)]">{value}</span>
+          </Box>
+        ))}
+      </div>
+
+      {/* ── Enkel modus: Desktop – semantisk tabell ── */}
+      <div class="hidden overflow-x-auto md:block">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="border-b-2 [border-color:var(--aastk-border-brand-subtle)]">
+              <th scope="col" class="py-3 pr-6 text-left text-sm font-semibold text-body">
+                {(props as SimpleProps).labelHeader ?? "Type"}
+              </th>
+              <th scope="col" class="py-3 text-right text-sm font-semibold text-body">
+                {(props as SimpleProps).valueHeader ?? "Verdi"}
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {(props as SimpleProps).rows.map(({ label, value }) => (
+              <tr class="border-b [border-color:var(--aastk-border-brand-muted)]">
+                <td class="py-3 pr-6 font-medium text-heading">{label}</td>
+                <td class="py-3 text-right font-semibold text-[var(--aastk-text-brand)]">
+                  {value}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
+  )}
+</div>
