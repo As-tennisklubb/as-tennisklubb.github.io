@@ -40,6 +40,12 @@ content:
         options:
           multiple: true
           values:
+            - value: tennis
+              label: Tennis
+            - value: padel
+              label: Padel
+            - value: bordtennis
+              label: Bordtennis
             - value: aarsmote
               label: Årsmøte
             - value: arrangementer
