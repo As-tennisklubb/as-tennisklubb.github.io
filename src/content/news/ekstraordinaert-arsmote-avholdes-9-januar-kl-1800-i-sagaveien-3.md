@@ -4,7 +4,6 @@ ingress: "Det er anledning til å sende inn innspill til vedtektene per e-post t
 date: 2016-12-05
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

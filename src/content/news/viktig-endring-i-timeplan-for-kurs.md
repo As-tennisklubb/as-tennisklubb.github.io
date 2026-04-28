@@ -3,6 +3,7 @@ title: "Viktig: Endring i timeplan for kurs"
 ingress: "NB: På grunn av stor pågang på kurs for voksne har vi endret timeplanen for kursene:"
 date: 2016-05-08
 categories:
+  - "tennis"
   - "kurstrening"
 ---
 

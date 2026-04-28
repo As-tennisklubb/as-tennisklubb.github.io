@@ -3,6 +3,7 @@ title: "Sommerturnering"
 ingress: "Lørdag 2. juni arrangerer vi igjen vår tradisjonelle sommerturnering."
 date: 2018-05-27
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

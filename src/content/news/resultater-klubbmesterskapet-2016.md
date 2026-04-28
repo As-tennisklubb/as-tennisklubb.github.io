@@ -3,6 +3,7 @@ title: "Resultater klubbmesterskapet 2016"
 ingress: "Vi gratulerer årets klubbmestere Gro Thorup, Øyvind Engøy, Lena Lohmann og Sigurd Nagoda."
 date: 2016-09-05
 categories:
+  - "tennis"
   - "arrangementer"
 ---
 

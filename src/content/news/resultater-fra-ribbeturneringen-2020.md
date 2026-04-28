@@ -3,6 +3,7 @@ title: "Resultater fra Ribbeturneringen 2020"
 ingress: "Ås tennisklubbs tradisjonelle Ribbeturnering blir stadig mer populær! På tiårets første helg hadde vi hele 8 double-lag og måtte ty til innledende gruppespill for å gjennomføre alle kampene, selv med to baner og en lang dag i Drøbak."
 date: 2020-01-05
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

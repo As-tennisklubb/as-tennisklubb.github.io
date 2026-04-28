@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import Heading from "../../components/ui/Heading.astro";
 import Link from "../../components/ui/Link.astro";
 import Button from "../../components/ui/Button.astro";
+import SportBadge from "../../components/ui/SportBadge.astro";
 import PageBlock from "../../components/primitives/PageBlock.astro";
 import VStack from "../../components/primitives/VStack.astro";
 import Prose from "../../components/ui/Prose.astro";
@@ -24,6 +25,9 @@ const pLines = formatPresentation(event.presentation);
 const showCategory = event.category !== event.title;
 const signupStatus = formatSignupStatus(event.allowsSignup, event.signupCount);
 const cleanDescription = renderTiptapJson(event.description);
+const sport = (["tennis", "bordtennis", "padel"] as const).includes(event.grenSlug as any)
+  ? (event.grenSlug as "tennis" | "bordtennis" | "padel")
+  : undefined;
 ---
 
 <Layout
@@ -33,65 +37,74 @@ const cleanDescription = renderTiptapJson(event.description);
   <PageBlock width="md" gutters>
     <VStack gap="6" class="py-10">
       {/* ───── Tilbake-lenke ───── */}
-      <Link href={`${base}arrangementer`} class="text-sm">
-        ← Tilbake til arrangementer
-      </Link>
+      <Link href={`${base}arrangementer`} class="text-sm"> ← Tilbake til arrangementer </Link>
 
       {/* ───── Overskrift ───── */}
       <Heading level={1} size="xlarge">{event.title}</Heading>
 
       {/* ───── Metadata ───── */}
-      <div class="border-b pb-6 [border-color:var(--aastk-border-subtle)]">
+      <div class="border-b [border-color:var(--aastk-border-subtle)] pb-6">
         <div class="mb-3 flex flex-wrap items-center gap-3">
-          <span class="rounded-full bg-brand-100 px-3 py-1 text-sm font-medium text-brand-800 dark:bg-brand-900 dark:text-brand-200">
+          {sport && <SportBadge sport={sport} />}
+          <span
+            class="rounded-full bg-brand-100 px-3 py-1 text-sm font-medium text-brand-800 dark:bg-brand-900 dark:text-brand-200"
+          >
             {pLines.date}
           </span>
-          {showCategory && (
-            <span class="rounded-full bg-[var(--aastk-surface-subtle)] px-3 py-1 text-sm font-medium text-[var(--aastk-text-body)]">
-              {event.category}
-            </span>
-          )}
+          {
+            showCategory && (
+              <span class="rounded-full bg-[var(--aastk-surface-subtle)] px-3 py-1 text-sm font-medium text-[var(--aastk-text-body)]">
+                {event.category}
+              </span>
+            )
+          }
         </div>
-        <VStack gap="1" class="text-sm text-muted">
-          {pLines.schedule && (
-            <p>
-              {pLines.schedule}
-              {event.presentation.hasDeviatingSlots && " (varierer)"}
-            </p>
-          )}
+        <VStack gap="1" class="text-muted text-sm">
+          {
+            pLines.schedule && (
+              <p>
+                {pLines.schedule}
+                {event.presentation.hasDeviatingSlots && " (varierer)"}
+              </p>
+            )
+          }
           {pLines.courts && <p>{pLines.courts}</p>}
-          {event.allowsSignup ? (
-            <p class="text-[var(--aastk-text-brand)]">{signupStatus}</p>
-          ) : (
-            <p>{signupStatus}</p>
-          )}
+          {
+            event.allowsSignup ? (
+              <p class="text-[var(--aastk-text-brand)]">{signupStatus}</p>
+            ) : (
+              <p>{signupStatus}</p>
+            )
+          }
         </VStack>
       </div>
 
       {/* ───── Beskrivelse ───── */}
-      {cleanDescription && (
-        <Prose>
-          <Fragment set:html={cleanDescription} />
-        </Prose>
-      )}
+      {
+        cleanDescription && (
+          <Prose>
+            <Fragment set:html={cleanDescription} />
+          </Prose>
+        )
+      }
 
       {/* ───── Påmelding ───── */}
-      {event.allowsSignup && (
-        <div class="border-t pt-6 [border-color:var(--aastk-border-subtle)]">
-          <Button href={event.bookingUrl} target="_blank" rel="noopener noreferrer">
-            Meld deg på
-          </Button>
-        </div>
-      )}
+      {
+        event.allowsSignup && (
+          <div class="border-t [border-color:var(--aastk-border-subtle)] pt-6">
+            <Button href={event.bookingUrl} target="_blank" rel="noopener noreferrer">
+              Meld deg på
+            </Button>
+          </div>
+        )
+      }
 
       {/* ───── Navigasjon ───── */}
-      <nav class="flex flex-wrap items-center gap-4 border-t pt-6 [border-color:var(--aastk-border-subtle)]">
-        <Link href={`${base}arrangementer`} class="text-sm">
-          ← Alle arrangementer
-        </Link>
-        <Link href={base} class="text-sm">
-          Til forsiden
-        </Link>
+      <nav
+        class="flex flex-wrap items-center gap-4 border-t [border-color:var(--aastk-border-subtle)] pt-6"
+      >
+        <Link href={`${base}arrangementer`} class="text-sm"> ← Alle arrangementer </Link>
+        <Link href={base} class="text-sm"> Til forsiden </Link>
       </nav>
     </VStack>
   </PageBlock>

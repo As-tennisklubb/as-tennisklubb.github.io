@@ -41,7 +41,7 @@ const variantClasses: Record<Variant, string> = {
   class={cn("text-sm text-body", variantClasses[variant], className)}
 >
   <VStack gap="3">
-    {title && <p class="text-base font-semibold text-heading">{title}</p>}
+    {title && <p class="text-heading text-base font-semibold">{title}</p>}
     <slot />
   </VStack>
 </Box>

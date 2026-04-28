@@ -3,7 +3,8 @@ title: "Koronavettregler for tennis og padel per 6. april 2020:"
 ingress: "• Kun friske personer uten symptomer kan spille og generelle smittevernsregler skal følges • Totalt kan det kun være 5 personer i en gruppe inkludert ansvarlig voksen, trener/leder • Ved flere grupper samtidig bør det være minimum 5 meter mellom hver gruppe (annenhver bane) •…"
 date: 2020-04-20
 categories:
-  - "ukategorisert"
+  - "tennis"
+  - "padel"
 ---
 
 • Kun friske personer uten symptomer kan spille og generelle smittevernsregler skal følges  

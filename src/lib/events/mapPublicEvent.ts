@@ -20,6 +20,8 @@ export type PublicClubEvent = {
   bookingUrl: string;
   title: string;
   description?: string;
+  grenNavn: string;
+  grenSlug: string;
   category: string;
   startDate: string;
   endDate: string;
@@ -40,6 +42,8 @@ type ApiEvent = {
   arrangementId: string;
   tittel: string;
   beskrivelse?: string;
+  grenNavn?: string;
+  grenSlug?: string;
   kategori: string;
   startDato: string;
   sluttDato: string;
@@ -73,6 +77,8 @@ export function mapPublicEvent(api: ApiEvent): PublicClubEvent {
     bookingUrl,
     title: api.tittel,
     description: api.beskrivelse,
+    grenNavn: api.grenNavn ?? "Tennis",
+    grenSlug: api.grenSlug ?? "tennis",
     category: api.kategori,
     startDate: api.startDato,
     endDate: api.sluttDato,

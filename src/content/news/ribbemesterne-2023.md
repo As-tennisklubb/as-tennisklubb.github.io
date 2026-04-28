@@ -3,6 +3,7 @@ title: "RIBBEMESTERNE 2023"
 ingress: "Årets mixed double-turnering for medlemmene i Ås tennisklubb- også kjent som ribbeturneringen - ble gjennomført lørdag 14. Januar."
 date: 2023-01-15
 categories:
+  - "tennis"
   - "turneringer"
 ---
 

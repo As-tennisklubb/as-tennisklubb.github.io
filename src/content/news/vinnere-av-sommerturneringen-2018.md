@@ -3,6 +3,7 @@ title: "Vinnere av sommerturneringen 2018"
 ingress: "Vi gratulerer Albert Talmo-Rønn i juniorklassen, Gro Thorup i dameklassen og Andreas Lotarev i herreklassen med seier i årets klubbturnering."
 date: 2018-06-03
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

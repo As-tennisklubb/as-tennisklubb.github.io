@@ -59,7 +59,7 @@ const btnId = `kart-btn-${uid}`;
   >
     <MapPin class="h-10 w-10 text-brand-700 dark:text-brand-400" aria-hidden="true" />
     <VStack gap="0" align="center">
-      <BodyLong as="span" class="font-semibold text-heading">{address}</BodyLong>
+      <BodyLong as="span" class="text-heading font-semibold">{address}</BodyLong>
       <BodyLong as="span" size="small" class="text-muted">{city}</BodyLong>
     </VStack>
     <Button id={btnId} size="small">{buttonText}</Button>
@@ -72,8 +72,7 @@ const btnId = `kart-btn-${uid}`;
     width="100%"
     height="400"
     referrerpolicy="no-referrer-when-downgrade"
-    class="hidden w-full"
-  ></iframe>
+    class="hidden w-full"></iframe>
 </Box>
 
 <Link

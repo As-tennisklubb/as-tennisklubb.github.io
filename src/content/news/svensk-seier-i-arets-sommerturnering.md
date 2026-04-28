@@ -3,6 +3,7 @@ title: "Svensk seier i årets sommerturnering"
 ingress: "Vi gratulerer Andreas Lotarev med seieren i årets uformelle sommerturning. I år var det 11 spillere (fra hele fem nasjoner!) som stilte til start. Tilsammen ble det spilt over 25 1-setts kamper denne lørdagen. I tillegg hadde vi mange besøkende publikummere, barn og…"
 date: 2017-07-02
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

@@ -3,7 +3,7 @@ title: "Drop-in"
 ingress: "Hver onsdag kl. 18:00 - 20:00 har vi satt av banene til drop-in."
 date: 2016-05-11
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Hver onsdag kl. 18:00 - 20:00 har vi satt av banene til drop-in.

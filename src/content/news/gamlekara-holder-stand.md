@@ -3,7 +3,7 @@ title: "De eldste er fortsatt eldst"
 ingress: "— Du får ikke mer moro enn tennisklubben og det du selv lager. Det uttaler seniorene i klubben. — Ja, energien er som når kalvene slippes på vårbeite, føyer de til."
 date: 2021-09-13
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 — Du får ikke mer moro enn tennisklubben og det du selv lager. Det uttaler seniorene i klubben. — Ja, energien er som når kalvene slippes på vårbeite, føyer de til.

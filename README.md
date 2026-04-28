@@ -67,11 +67,11 @@ Sider som baner, medlemskap, om klubben og kontakt redigeres direkte i filene i 
 
 Avhengig av hva du skal gjøre, trenger du ulik tilgang:
 
-| Oppgave | Hva du trenger |
-| :--- | :--- |
-| Opprette eller redigere arrangementer | Administrasjonstilgang i Banebooking |
-| Publisere nyheter | Tilgang til Pages CMS (krever GitHub-bruker med tilgang til dette repoet) |
-| Endre nettsiden ellers | Skrivetilgang til dette GitHub-repoet |
+| Oppgave                               | Hva du trenger                                                            |
+| :------------------------------------ | :------------------------------------------------------------------------ |
+| Opprette eller redigere arrangementer | Administrasjonstilgang i Banebooking                                      |
+| Publisere nyheter                     | Tilgang til Pages CMS (krever GitHub-bruker med tilgang til dette repoet) |
+| Endre nettsiden ellers                | Skrivetilgang til dette GitHub-repoet                                     |
 
 ---
 

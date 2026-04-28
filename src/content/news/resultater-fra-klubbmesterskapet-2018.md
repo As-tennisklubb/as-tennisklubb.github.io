@@ -3,6 +3,7 @@ title: "Endelige resultater fra klubbmesterskapet 2018"
 ingress: "Juniorene spilte 1-sett alle-mot-alle og til slutt var det Ulf Viken som vant 7-5 foran fjorårsmester Sigurd Nagoda i et forrykende oppgjør. Disse gutta ville helst spille på full bane og med gule baller - noe de behersket veldig bra. Glimrende tennis og topp underholdning."
 date: 2018-09-17
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

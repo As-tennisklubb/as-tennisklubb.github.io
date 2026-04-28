@@ -36,14 +36,10 @@ const styretData = styret.map(({ navn, rolle, epost, tlf }) => [
   description="Kontaktinformasjon for Ås Tennisklubb. Styret, e-post og telefon."
 >
   {/* ───── Toppseksjon ───── */}
-  <PageHeader
-    title="Kontakt"
-    description="Ta kontakt med oss – vi hjelper deg gjerne."
-  />
+  <PageHeader title="Kontakt" description="Ta kontakt med oss – vi hjelper deg gjerne." />
 
   {/* ───── Sideinnhold ───── */}
   <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
-
     {/* Generelle henvendelser */}
     <section>
       <PageBlock width="xl" gutters>
@@ -53,8 +49,8 @@ const styretData = styret.map(({ navn, rolle, epost, tlf }) => [
             <Heading level={2} size="medium" dataColor="brand">Generelle henvendelser</Heading>
           </HStack>
           <BodyLong>
-            Har du spørsmål om medlemskap, booking eller arrangementer?
-            Send oss en e-post – vi svarer så raskt vi kan.
+            Har du spørsmål om medlemskap, baner, booking eller arrangementer? Send oss en e-post –
+            vi svarer så raskt vi kan.
           </BodyLong>
           <Link href="mailto:administrasjon@aastk.no" class="text-lg font-semibold">
             administrasjon@aastk.no
@@ -74,13 +70,9 @@ const styretData = styret.map(({ navn, rolle, epost, tlf }) => [
           <BodyLong>
             Har du en spesifikk henvendelse? Ta direkte kontakt med riktig person i styret.
           </BodyLong>
-          <DataTable
-            headers={["Navn", "Rolle", "E-post", "Telefon"]}
-            data={styretData}
-          />
+          <DataTable headers={["Navn", "Rolle", "E-post", "Telefon"]} data={styretData} />
         </VStack>
       </PageBlock>
     </section>
-
   </VStack>
 </Layout>

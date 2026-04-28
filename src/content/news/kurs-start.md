@@ -3,6 +3,7 @@ title: "Kurs-start"
 ingress: "Vi har gjort litt endringer i tidene siden i fjor. Se her for timeplan og mer informasjon."
 date: 2018-05-02
 categories:
+  - "tennis"
   - "kurstrening"
 ---
 

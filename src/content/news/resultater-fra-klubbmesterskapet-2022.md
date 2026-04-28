@@ -3,7 +3,7 @@ title: "Resultater fra Klubbmesterskapet 2022"
 ingress: "Damer: Klubbmester Marianne Bråthen etter seier over Anne Hexeberg i to sett 6-2, 6-4"
 date: 2022-09-11
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Damer: Klubbmester **Marianne Bråthen** etter seier over Anne Hexeberg i to sett 6-2, 6-4

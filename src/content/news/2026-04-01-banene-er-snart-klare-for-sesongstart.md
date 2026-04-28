@@ -6,7 +6,10 @@ ingress: "Dette er ikke en aprilspøk: Etter en rask dugnadsinnsats fra klubben
   2. påskedag."
 cover: /uploads/aa5cc9847d34fdf833918f4ddd57a55e.jpeg
 draft: false
+categories:
+  - "tennis"
 ---
+
 En altfor lang vinter går endelig mot slutten, og nå ser det ut til at vi snart kan ønske velkommen til en ny sesong på grusen.
 
 På kort varsel stilte en god gjeng fra klubben opp til dugnad og gjorde en rask og imponerende innsats for å klargjøre anlegget til 2026-sesongen. Med rive, kost og godt humør fikk vi gjort mye på kort tid, og det er akkurat slike bidrag som gjør at klubben kommer tidlig i gang hver vår.

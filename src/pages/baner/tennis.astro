@@ -1,0 +1,110 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { CalendarCheck, MapPin } from "@lucide/astro";
+import Button from "../../components/ui/Button.astro";
+import PageHeader from "../../components/layout/PageHeader.astro";
+import Heading from "../../components/ui/Heading.astro";
+import BodyLong from "../../components/ui/BodyLong.astro";
+import Link from "../../components/ui/Link.astro";
+import PageBlock from "../../components/primitives/PageBlock.astro";
+import VStack from "../../components/primitives/VStack.astro";
+import HStack from "../../components/primitives/HStack.astro";
+import LazyMap from "../../components/content/LazyMap.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Tennis – Ås stadion – Ås Tennisklubb"
+  description="Tre grusbaner med kveldslys ved Ås stadion. Booking, banereglement og praktisk informasjon."
+>
+  <PageHeader
+    variant="compact"
+    title="Tennis – Ås stadion"
+    description="Tre grusbaner med kveldslys – sesong april til november."
+  />
+
+  <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
+    {/* Baneoversikt */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="6">
+          <Heading level={2} size="medium" dataColor="brand">Grus og kveldslys</Heading>
+          <BodyLong>
+            Tre grusbaner i Idrettsveien, rett ved Ås stadion. Som medlem kan du spille så ofte du
+            vil fra april til november. Samtlige baner har kveldslys. Booking er gratis og kan
+            gjøres opptil 7 dager i forveien. Tilgang til bane og klubbhus skjer via Yale
+            Home-appen, og racketer og baller kan lånes gratis i klubbhuset.
+          </BodyLong>
+          <BodyLong>
+            I sesongen arrangeres kurs for ulike nivåer, og banene er arena for Ås Open,
+            klubbmesterskapet og den tradisjonsrike Ribbeturneringen på nyåret.
+          </BodyLong>
+          <HStack gap="4" wrap>
+            <Button href={`${base}medlemskap`}>Bli medlem →</Button>
+            <Button
+              variant="secondary"
+              href={import.meta.env.PUBLIC_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CalendarCheck class="h-5 w-5" slot="icon" />
+              Book bane
+            </Button>
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Ta vare på banene */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Ta vare på banene</Heading>
+          <BodyLong>
+            Grusbanene trenger litt omsorg for å holde seg fine. Vann banen før du spiller når
+            grusen er tørr, og kost den etterpå – start ytterst langs gjerdet og jobb deg innover.
+            Bruk sko med jevn såle, siden grov såle river opp grusen.
+          </BodyLong>
+          <BodyLong>
+            Banen er spillbar så lenge det ikke står vann på den. Dersom en linje løsner, vann den
+            og bank den ned med stamperen. Kast søppel og tomme ballrør i søppelkassene, og den som
+            forlater anlegget sist slår av lyset og låser port og klubbhus.
+          </BodyLong>
+          <BodyLong> Oppdager du feil på banene, gi beskjed til klubben. </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Kart */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <HStack gap="3" align="center">
+            <MapPin class="size-6 text-[var(--aastk-text-brand)]" />
+            <Heading level={2} size="medium" dataColor="brand">Finn oss</Heading>
+          </HStack>
+          <LazyMap
+            address="Idrettsveien 1"
+            city="1430 Ås"
+            embedQuery="Idrettsveien 1, 1430 Ås, Norway"
+            mapsUrl="https://maps.google.com/maps?q=Idrettsveien+1,+1430+Ås,+Norway"
+          />
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Utenom sesongen */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="2">
+          <Heading level={2} size="small" dataColor="brand">Spille om vinteren?</Heading>
+          <BodyLong size="small">
+            Grusbanene er normalt stengt fra november til april. Se
+            <Link href={`${base}baner/bordtennis`} inlineText>bordtennis</Link> for spill hele året.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
+  </VStack>
+</Layout>

@@ -17,14 +17,13 @@ const base = import.meta.env.BASE_URL;
   noindex
 >
   {/* ───── Hovedblokk ───── */}
-  <Box
-    as="section"
-    class="bg-[var(--aastk-surface-inverted)] py-16 text-white md:py-24"
-  >
+  <Box as="section" class="bg-[var(--aastk-surface-inverted)] py-16 text-white md:py-24">
     <PageBlock width="xl" gutters>
       <VStack gap="6" align="center" class="text-center">
         <div class="flex items-center gap-3">
-          <p class="text-5xl font-bold text-[var(--aastk-text-on-brand-muted)]" aria-hidden="true">404</p>
+          <p class="text-5xl font-bold text-[var(--aastk-text-on-brand-muted)]" aria-hidden="true">
+            404
+          </p>
           <SearchX class="h-12 w-12 text-[var(--aastk-text-on-brand-muted)]" aria-hidden="true" />
         </div>
         <Heading level={1} size="large" dataColor="inverted">Siden finnes ikke</Heading>
@@ -40,8 +39,10 @@ const base = import.meta.env.BASE_URL;
   <section>
     <PageBlock width="xl" gutters>
       <VStack gap="3" align="center" class="py-12 text-center md:py-16">
-        <blockquote class="max-w-xl border-l-4 pl-5 [border-color:var(--aastk-border-brand-strong)]">
-          <p id="quote-text" class="text-lg leading-relaxed italic text-body"></p>
+        <blockquote
+          class="max-w-xl border-l-4 [border-color:var(--aastk-border-brand-strong)] pl-5"
+        >
+          <p id="quote-text" class="text-body text-lg leading-relaxed italic"></p>
         </blockquote>
         <p id="quote-author" class="text-sm font-medium text-[var(--aastk-text-brand)]"></p>
       </VStack>

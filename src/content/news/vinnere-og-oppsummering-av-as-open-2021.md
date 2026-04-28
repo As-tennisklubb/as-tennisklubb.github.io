@@ -3,6 +3,7 @@ title: "Vinnere og oppsummering av Ås Open 2021"
 ingress: "Ås Open 2021 ble en veldig varm og våt tennisfest med rekordmange deltakere og antall kamper."
 date: 2021-07-04
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

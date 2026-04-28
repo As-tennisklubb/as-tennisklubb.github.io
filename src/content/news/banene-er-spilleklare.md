@@ -2,7 +2,7 @@
 title: "Banene er spilleklare!"
 date: 2022-04-20
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Book time på: https://banebooking.rtfm1.com/

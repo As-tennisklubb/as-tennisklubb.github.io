@@ -3,6 +3,7 @@ title: "Åsmart'n 2017"
 ingress: "Ås tennisklubb hadde også i år egen stand på Åsmart'n - denne gang med en mini-bane hvor forbipasserende barn fikk låne racket og prøve seg på tennis - mange for aller første gang. I perioder var pågangen så stor at vi måtte kjøre double og venteliste!"
 date: 2017-06-12
 categories:
+  - "tennis"
   - "arrangementer"
 ---
 

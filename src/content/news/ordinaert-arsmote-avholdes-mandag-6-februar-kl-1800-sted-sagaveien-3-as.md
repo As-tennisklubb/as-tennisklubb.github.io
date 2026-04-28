@@ -4,7 +4,6 @@ ingress: "Årsmelding, regnskap, budsjett og øvrige sakspapirer gjøres tilgjen
 date: 2017-01-09
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

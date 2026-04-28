@@ -21,7 +21,7 @@
     "@astrojs/compiler-rs": "^0.1.4",
     "@astrojs/rss": "^4.0.17",
     "@astrojs/sitemap": "^3.7.1",
-    "@lucide/astro": "^0.577.0",
+    "@lucide/astro": "^1.11.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.1",
     "astro": "^6.0.3",
@@ -30,6 +30,7 @@
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
+    "@lucide/lab": "^0.1.2",
     "@typescript-eslint/parser": "^8.57.0",
     "eslint": "^10.0.3",
     "eslint-config-prettier": "^10.1.8",
@@ -37,6 +38,6 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "typescript": "^5.9.3"
+    "typescript": "^6.0.3"
   }
 }

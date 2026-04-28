@@ -126,5 +126,11 @@ if (isDisabled && Tag === "a") {
 <Tag class={classes} {...tagAttrs} {...rest}>
   {hasIcon && <slot name="icon" />}
   <slot />
-  {loading && <span class="ml-1 animate-spin" aria-hidden="true">⏳</span>}
+  {
+    loading && (
+      <span class="ml-1 animate-spin" aria-hidden="true">
+        ⏳
+      </span>
+    )
+  }
 </Tag>

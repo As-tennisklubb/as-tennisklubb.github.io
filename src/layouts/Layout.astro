@@ -41,14 +41,18 @@ const base = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const navLinks = [
-  { href: "baner", label: "Spill tennis" },
+  { href: "baner/tennis", label: "Tennis", group: "sport" },
+  { href: "baner/padel", label: "Padel", group: "sport" },
+  { href: "baner/bordtennis", label: "Bordtennis", group: "sport" },
   { href: "arrangementer", label: "Arrangementer" },
   { href: "nyheter", label: "Nyheter" },
-  { href: "kontakt", label: "Kontakt" },
+  { href: "om-klubben", label: "Om klubben" },
 ];
 
 const footerLinks = [
-  { href: "baner", label: "Spill tennis" },
+  { href: "baner/tennis", label: "Tennis" },
+  { href: "baner/padel", label: "Padel" },
+  { href: "baner/bordtennis", label: "Bordtennis" },
   { href: "medlemskap", label: "Bli medlem" },
   { href: "arrangementer", label: "Arrangementer" },
   { href: "nyheter", label: "Nyheter" },
@@ -124,7 +128,6 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
 
   <body class="bg-[var(--aastk-surface-default)] text-[var(--aastk-text-default)]">
     <Page>
-
       {/* ───── Header ───── */}
       <header
         transition:name="site-header"
@@ -149,24 +152,39 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
               />
               <VStack class="leading-none">
                 <span class="text-lg font-bold tracking-wide text-white">Ås</span>
-                <span class="text-xs font-medium tracking-[0.18em] text-[var(--aastk-text-on-brand-muted)] uppercase">
+                <span
+                  class="text-xs font-medium tracking-[0.18em] text-[var(--aastk-text-on-brand-muted)] uppercase"
+                >
                   Tennisklubb
                 </span>
               </VStack>
             </Link>
 
             {/* Desktop nav */}
-            <HStack as="nav" gap="1" align="center" class="hidden text-sm font-medium md:flex" aria-label="Hovedmeny">
+            <HStack
+              as="nav"
+              gap="1"
+              align="center"
+              class="hidden text-sm font-medium md:flex"
+              aria-label="Hovedmeny"
+            >
               {
-                navLinks.map(({ href, label }) => (
-                  <a
-                    href={`${base}${href}`}
-                    aria-current={isActive(href) ? "page" : undefined}
-                    class={`rounded-lg px-3 py-3 text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${isActive(href) ? "bg-white/15 font-semibold hover:bg-white/20" : "hover:bg-white/10"}`}
-                  >
-                    {label}
-                  </a>
-                ))
+                navLinks.map(({ href, label, group }, i) => {
+                  const prev = navLinks[i - 1];
+                  const showDivider = i > 0 && prev?.group === "sport" && group !== "sport";
+                  return (
+                    <>
+                      {showDivider && <span class="mx-1 h-5 w-px bg-white/25" aria-hidden="true" />}
+                      <a
+                        href={`${base}${href}`}
+                        aria-current={isActive(href) ? "page" : undefined}
+                        class={`rounded-lg px-3 py-3 text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white ${isActive(href) ? "bg-white/15 hover:bg-white/20" : "hover:bg-white/10"}`}
+                      >
+                        {label}
+                      </a>
+                    </>
+                  );
+                })
               }
               <Button
                 href={`${base}medlemskap`}
@@ -199,7 +217,11 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
           class="hidden border-t [border-color:var(--aastk-border-inverted)]"
           aria-label="Mobilmeny"
         >
-          <Box paddingInline="4" paddingBlock="3" class="border-b [border-color:var(--aastk-border-inverted)]">
+          <Box
+            paddingInline="4"
+            paddingBlock="3"
+            class="border-b [border-color:var(--aastk-border-inverted)]"
+          >
             <Button
               href={`${base}medlemskap`}
               variant="primary"
@@ -212,18 +234,30 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
           </Box>
           <VStack as="ul" paddingInline="4" paddingBlock="2">
             {
-              navLinks.map(({ href, label }) => (
-                <li>
-                  <Link
-                    href={`${base}${href}`}
-                    underline={false}
-                    aria-current={isActive(href) ? "page" : undefined}
-                    class={`flex min-h-[44px] items-center border-b text-sm font-medium last:border-0 [border-color:var(--aastk-border-inverted)] ${isActive(href) ? "font-semibold text-yellow-300" : "text-[var(--aastk-text-on-brand-muted)] hover:text-white"}`}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))
+              navLinks.map(({ href, label, group }, i) => {
+                const prev = navLinks[i - 1];
+                const showDivider = i > 0 && prev?.group === "sport" && group !== "sport";
+                return (
+                  <>
+                    {showDivider && (
+                      <li
+                        aria-hidden="true"
+                        class="my-1 border-b [border-color:var(--aastk-border-inverted)]"
+                      />
+                    )}
+                    <li>
+                      <Link
+                        href={`${base}${href}`}
+                        underline={false}
+                        aria-current={isActive(href) ? "page" : undefined}
+                        class={`flex min-h-[44px] items-center border-b [border-color:var(--aastk-border-inverted)] text-sm font-medium last:border-0 ${isActive(href) ? "font-semibold text-yellow-300" : "text-[var(--aastk-text-on-brand-muted)] hover:text-white"}`}
+                      >
+                        {label}
+                      </Link>
+                    </li>
+                  </>
+                );
+              })
             }
           </VStack>
         </nav>
@@ -235,83 +269,86 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
       </main>
 
       {/* ───── Footer ───── */}
-      <Box as="footer" class="bg-[var(--aastk-surface-inverted-active)] text-[var(--aastk-text-on-brand-muted)]">
+      <Box
+        as="footer"
+        class="bg-[var(--aastk-surface-inverted-active)] text-[var(--aastk-text-on-brand-muted)]"
+      >
         <PageBlock width="2xl" gutters>
           <Box paddingBlock="10">
             <HGrid columns={{ sm: 1, md: 3 }} gap="8">
-
-            {/* Kolonne 1: Brand-blokk */}
-            <VStack gap="3">
-              <HStack gap="3" align="center">
-                <img
-                  src={`${base}logo.svg`}
-                  alt=""
-                  class="h-10 w-auto shrink-0"
-                  width="41"
-                  height="40"
-                />
-                <Heading level={3} size="xsmall" class="text-white">Ås Tennisklubb</Heading>
-              </HStack>
-              <p class="text-sm leading-relaxed">Tennis for alle i Ås, siden 1976.</p>
-            </VStack>
-
-            {/* Kolonne 2: Lenker */}
-            <nav aria-label="Snarveier">
-              <VStack gap="2">
-                <Heading level={3} size="xsmall" class="text-white">Lenker</Heading>
-                <VStack as="ul" gap="2" class="text-sm">
-                  {
-                    footerLinks.map(({ href, label }) => (
-                      <li>
-                        <Link
-                          href={`${base}${href}`}
-                          underline={false}
-                          dataColor="subtle"
-                          class="flex min-h-[44px] items-center text-[var(--aastk-text-on-brand-muted)] hover:text-white"
-                        >
-                          {label}
-                        </Link>
-                      </li>
-                    ))
-                  }
-                </VStack>
+              {/* Kolonne 1: Brand-blokk */}
+              <VStack gap="3">
+                <HStack gap="3" align="center">
+                  <img
+                    src={`${base}logo.svg`}
+                    alt=""
+                    class="h-10 w-auto shrink-0"
+                    width="41"
+                    height="40"
+                  />
+                  <Heading level={3} size="xsmall" class="text-white">Ås Tennisklubb</Heading>
+                </HStack>
+                <p class="text-sm leading-relaxed">Rakketsport for alle i Ås.</p>
               </VStack>
-            </nav>
 
-            {/* Kolonne 3: Kontakt */}
-            <VStack gap="3">
-              <Heading level={3} size="xsmall" class="text-white">Kontakt</Heading>
-              <Link
-                href={`${base}kontakt`}
-                underline={false}
-                dataColor="subtle"
-                class="flex min-h-[44px] items-center text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
-              >
-                Se kontaktinformasjon
-              </Link>
-              <Link
-                href="mailto:administrasjon@aastk.no"
-                underline={false}
-                dataColor="subtle"
-                class="flex min-h-[44px] items-center text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
-              >
-                administrasjon@aastk.no
-              </Link>
-              <Link
-                href={`${base}english`}
-                underline={false}
-                dataColor="subtle"
-                class="min-h-[44px] text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
-              >
-                <Globe class="h-4 w-4" /> English
-              </Link>
-            </VStack>
+              {/* Kolonne 2: Lenker */}
+              <nav aria-label="Snarveier">
+                <VStack gap="2">
+                  <Heading level={3} size="xsmall" class="text-white">Lenker</Heading>
+                  <VStack as="ul" gap="2" class="text-sm">
+                    {
+                      footerLinks.map(({ href, label }) => (
+                        <li>
+                          <Link
+                            href={`${base}${href}`}
+                            underline={false}
+                            dataColor="subtle"
+                            class="flex min-h-[44px] items-center text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+                          >
+                            {label}
+                          </Link>
+                        </li>
+                      ))
+                    }
+                  </VStack>
+                </VStack>
+              </nav>
 
-          </HGrid>
+              {/* Kolonne 3: Kontakt */}
+              <VStack gap="3">
+                <Heading level={3} size="xsmall" class="text-white">Kontakt</Heading>
+                <Link
+                  href={`${base}kontakt`}
+                  underline={false}
+                  dataColor="subtle"
+                  class="flex min-h-[44px] items-center text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+                >
+                  Se kontaktinformasjon
+                </Link>
+                <Link
+                  href="mailto:administrasjon@aastk.no"
+                  underline={false}
+                  dataColor="subtle"
+                  class="flex min-h-[44px] items-center text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+                >
+                  administrasjon@aastk.no
+                </Link>
+                <Link
+                  href={`${base}english`}
+                  underline={false}
+                  dataColor="subtle"
+                  class="min-h-[44px] text-sm text-[var(--aastk-text-on-brand-muted)] hover:text-white"
+                >
+                  <Globe class="h-4 w-4" /> English
+                </Link>
+              </VStack>
+            </HGrid>
           </Box>
         </PageBlock>
 
-        <Box class="border-t text-center text-xs text-[var(--aastk-text-on-brand-muted)] [border-color:var(--aastk-border-inverted)]">
+        <Box
+          class="border-t [border-color:var(--aastk-border-inverted)] text-center text-xs text-[var(--aastk-text-on-brand-muted)]"
+        >
           <HStack justify="center" align="center" gap="3" paddingBlock="4">
             <span>© {new Date().getFullYear()} Ås Tennisklubb</span>
             <span aria-hidden="true">·</span>
@@ -328,7 +365,6 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
           </HStack>
         </Box>
       </Box>
-
     </Page>
   </body>
 </html>
@@ -339,6 +375,13 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
     const menu = document.getElementById("mobile-menu");
     const iconOpen = document.getElementById("icon-open");
     const iconClose = document.getElementById("icon-close");
+
+    // Reset menu state on page load (handles View Transitions)
+    menu?.classList.add("hidden");
+    iconOpen?.classList.remove("hidden");
+    iconClose?.classList.add("hidden");
+    btn?.setAttribute("aria-expanded", "false");
+    document.body.classList.remove("overflow-hidden");
 
     btn?.addEventListener("click", () => {
       const isOpen = btn.getAttribute("aria-expanded") === "true";

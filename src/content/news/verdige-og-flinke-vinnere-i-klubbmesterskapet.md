@@ -3,6 +3,7 @@ title: "Verdige og flinke vinnere i klubbmesterskapet"
 ingress: "Årets klubbmestere er kåret. Les resultatene og se bilder fra en fin-fin tennisuke med mange gode kamper."
 date: 2021-09-05
 categories:
+  - "tennis"
   - "turneringer"
 ---
 

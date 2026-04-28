@@ -45,6 +45,24 @@
   --color-accent-800: #7a3d12;
   --color-accent-900: #4e270b;
   --color-accent-950: #2b1405;
+
+  /* =========================================================
+   * Sport – bordtennis (blå)
+   * Brukes til sport-badges, kort-aksenter og visuell
+   * differensiering mellom grener.
+   * Tennis bruker brand-paletten, padel bruker accent-paletten.
+   * ========================================================= */
+  --color-sport-blue-50: #eff6ff;
+  --color-sport-blue-100: #dbeafe;
+  --color-sport-blue-200: #bfdbfe;
+  --color-sport-blue-300: #93c5fd;
+  --color-sport-blue-400: #60a5fa;
+  --color-sport-blue-500: #3b82f6;
+  --color-sport-blue-600: #2563eb;
+  --color-sport-blue-700: #1d4ed8;
+  --color-sport-blue-800: #1e40af;
+  --color-sport-blue-900: #1e3a8a;
+  --color-sport-blue-950: #172554;
 }
 
 /* =========================================================
@@ -126,6 +144,19 @@
 
   /* Focus */
   --aastk-focus-ring: var(--color-brand-500);
+
+  /* Sport – visuell differensiering mellom grener */
+  --aastk-sport-tennis-bg: var(--color-brand-100);
+  --aastk-sport-tennis-text: var(--color-brand-800);
+  --aastk-sport-tennis-border: var(--color-brand-300);
+
+  --aastk-sport-bordtennis-bg: var(--color-sport-blue-100);
+  --aastk-sport-bordtennis-text: var(--color-sport-blue-800);
+  --aastk-sport-bordtennis-border: var(--color-sport-blue-300);
+
+  --aastk-sport-padel-bg: var(--color-accent-100);
+  --aastk-sport-padel-text: var(--color-accent-800);
+  --aastk-sport-padel-border: var(--color-accent-300);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -194,6 +225,19 @@
     --aastk-process-active-ring: var(--color-brand-400);
     --aastk-process-line-done: var(--color-brand-500);
     --aastk-process-line-pending: var(--color-brand-700);
+
+    /* Sport */
+    --aastk-sport-tennis-bg: var(--color-brand-900);
+    --aastk-sport-tennis-text: var(--color-brand-200);
+    --aastk-sport-tennis-border: var(--color-brand-700);
+
+    --aastk-sport-bordtennis-bg: var(--color-sport-blue-900);
+    --aastk-sport-bordtennis-text: var(--color-sport-blue-200);
+    --aastk-sport-bordtennis-border: var(--color-sport-blue-700);
+
+    --aastk-sport-padel-bg: var(--color-accent-900);
+    --aastk-sport-padel-text: var(--color-accent-200);
+    --aastk-sport-padel-border: var(--color-accent-700);
   }
 }
 
@@ -322,7 +366,8 @@ body {
   padding-bottom: 0.625rem;
   padding-right: 1rem;
 }
-.prose :where(td:last-child, th:last-child):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+.prose
+  :where(td:last-child, th:last-child):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   padding-right: 0;
 }
 .prose :where(tbody tr):not(:where([class~="not-prose"], [class~="not-prose"] *)) {

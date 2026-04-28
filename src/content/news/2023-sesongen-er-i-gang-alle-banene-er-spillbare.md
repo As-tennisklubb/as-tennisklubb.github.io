@@ -2,7 +2,7 @@
 title: "2023 sesongen er i gang! Alle banene er spillbare."
 date: 2023-04-21
 categories:
-  - "ukategorisert"
+  - "tennis"
 tags:
   - "obs"
 ---

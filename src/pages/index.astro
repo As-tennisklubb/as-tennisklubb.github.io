@@ -12,6 +12,7 @@ import HGrid from "../components/primitives/HGrid.astro";
 import HStack from "../components/primitives/HStack.astro";
 import Heading from "../components/ui/Heading.astro";
 import BodyLong from "../components/ui/BodyLong.astro";
+import Link from "../components/ui/Link.astro";
 
 const latestNews = (await getCollection("news"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
@@ -33,11 +34,12 @@ const base = import.meta.env.BASE_URL;
   {/* ───── Toppseksjon ───── */}
   <PageHeader
     variant="hero"
-    title="Spill tennis i Ås"
-    description="Tre grusbaner ved Ås stadion – åpne fra april til november."
+    title="Ås Tennisklubb"
+    description="Rakketsport for alle i Ås – siden 1976."
   >
     <HStack slot="actions" gap="4" wrap class="pt-2">
-      <Button variant="secondary" dataColor="inverted" href={`${base}medlemskap`}>Bli medlem</Button>
+      <Button variant="secondary" dataColor="inverted" href={`${base}medlemskap`}>Bli medlem</Button
+      >
       <Button
         variant="primary"
         dataColor="inverted"
@@ -50,61 +52,87 @@ const base = import.meta.env.BASE_URL;
     </HStack>
   </PageHeader>
 
+  {/* ───── Våre idretter ───── */}
+  <section class="py-12 md:py-20">
+    <PageBlock width="2xl" gutters>
+      <VStack gap="4">
+        <Heading level={2} size="medium" dataColor="brand">Tre idretter, ett medlemskap</Heading>
+        <BodyLong>
+          <Link href={`${base}baner/tennis`} inlineText>Tre grusbaner med kveldslys</Link> ved Ås stadion,
+          <Link href={`${base}baner/padel`} inlineText>to nye padelbaner</Link> fra sommeren 2026 – og
+          <Link href={`${base}baner/bordtennis`} inlineText>innendørs bordtennis</Link>
+          hele året på Holstad skole. Alt inkludert fra kr 500 i året.
+        </BodyLong>
+      </VStack>
+    </PageBlock>
+  </section>
+
   {/* ───── Kommende arrangementer ───── */}
-  {upcomingEvents.length > 0 && (
-    <section class="bg-(--aastk-surface-subtle) py-12 md:py-20">
-      <PageBlock width="2xl" gutters>
-        <VStack gap="8">
-          <VStack gap="2">
-            <Heading level={2} size="medium" dataColor="brand">Kommende arrangementer</Heading>
-            <BodyLong size="small" class="text-(--aastk-text-muted)">Kurs, turneringer og aktiviteter du kan delta på.</BodyLong>
+  {
+    upcomingEvents.length > 0 && (
+      <section class="bg-(--aastk-surface-subtle) py-12 md:py-20">
+        <PageBlock width="2xl" gutters>
+          <VStack gap="8">
+            <VStack gap="2">
+              <Heading level={2} size="medium" dataColor="brand">
+                Kommende arrangementer
+              </Heading>
+              <BodyLong size="small" class="text-(--aastk-text-muted)">
+                Kurs, turneringer og aktiviteter du kan delta på.
+              </BodyLong>
+            </VStack>
+            <HGrid columns={{ sm: 1, md: 3 }} gap="6">
+              {upcomingEvents.map((event) => (
+                <EventCard event={event} />
+              ))}
+            </HGrid>
+            <HStack justify="center">
+              <Button href={`${base}arrangementer`}>Se alle arrangementer →</Button>
+            </HStack>
           </VStack>
-          <HGrid columns={{ sm: 1, md: 3 }} gap="6">
-            {upcomingEvents.map((event) => (
-              <EventCard event={event} />
-            ))}
-          </HGrid>
-          <HStack justify="center">
-            <Button href={`${base}arrangementer`}>Se alle arrangementer →</Button>
-          </HStack>
-        </VStack>
-      </PageBlock>
-    </section>
-  )}
+        </PageBlock>
+      </section>
+    )
+  }
 
   {/* ───── Nytt fra klubben ───── */}
-  {latestNews.length > 0 && (
-    <section class="py-12 md:py-20">
-      <PageBlock width="2xl" gutters>
-        <VStack gap="8">
-          <VStack gap="2">
-            <Heading level={2} size="medium" dataColor="brand">Nytt fra klubben</Heading>
-            <BodyLong size="small" class="text-(--aastk-text-muted)">Oppdateringer og informasjon fra Ås Tennisklubb.</BodyLong>
+  {
+    latestNews.length > 0 && (
+      <section class="py-12 md:py-20">
+        <PageBlock width="2xl" gutters>
+          <VStack gap="8">
+            <VStack gap="2">
+              <Heading level={2} size="medium" dataColor="brand">
+                Nytt fra klubben
+              </Heading>
+              <BodyLong size="small" class="text-(--aastk-text-muted)">
+                Siste nytt fra klubben.
+              </BodyLong>
+            </VStack>
+            <HGrid columns={{ sm: 1, md: 3 }} gap="6">
+              {latestNews.map((post) => {
+                const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
+                return (
+                  <NewsCard
+                    href={`${base}nyheter/${post.id}`}
+                    title={post.data.title}
+                    date={post.data.date.toLocaleDateString("no-NO", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                    })}
+                    categories={categories}
+                    excerpt={post.data.ingress ?? post.data.description}
+                  />
+                );
+              })}
+            </HGrid>
+            <HStack justify="center">
+              <Button href={`${base}nyheter`}>Se alle nyheter →</Button>
+            </HStack>
           </VStack>
-          <HGrid columns={{ sm: 1, md: 3 }} gap="6">
-            {latestNews.map((post) => {
-              const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
-              return (
-                <NewsCard
-                  href={`${base}nyheter/${post.id}`}
-                  title={post.data.title}
-                  date={post.data.date.toLocaleDateString("no-NO", {
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric",
-                  })}
-                  categories={categories}
-                  excerpt={post.data.ingress ?? post.data.description}
-                />
-              );
-            })}
-          </HGrid>
-          <HStack justify="center">
-            <Button href={`${base}nyheter`}>Se alle nyheter →</Button>
-          </HStack>
-        </VStack>
-      </PageBlock>
-    </section>
-  )}
-
+        </PageBlock>
+      </section>
+    )
+  }
 </Layout>

@@ -3,6 +3,7 @@ title: "Viktig info om kurs i høstferien"
 ingress: "I stedet erstattes denne tiden med et ekstra kurs for de voksne. Seniorgruppa får dermed to treninger - både mandag kl 17:00 og torsdag kl 18:30."
 date: 2015-09-26
 categories:
+  - "tennis"
   - "kurstrening"
 ---
 

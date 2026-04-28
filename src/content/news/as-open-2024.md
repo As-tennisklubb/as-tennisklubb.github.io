@@ -3,7 +3,7 @@ title: "Ås Open 2024"
 ingress: "I år stilte 10 herrer (fordelt på 2 grupper), 3 damer, 3 junior, 3 mixed lag og hele 4 lag i herre-double."
 date: 2024-06-24
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 I år stilte 10 herrer (fordelt på 2 grupper), 3 damer, 3 junior, 3 mixed lag og hele 4 lag i herre-double.

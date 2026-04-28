@@ -3,7 +3,7 @@ title: "Ribbeturneringen 2020"
 ingress: "Vi starter som vanlig det nye året med vår tradisjonelle Ribbeturnering, en uformell mixed/double turnering åpen for alle medlemmer i Ås tennisklubb."
 date: 2019-12-17
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Vi starter som vanlig det nye året med vår tradisjonelle Ribbeturnering, en uformell mixed/double turnering åpen for alle medlemmer i Ås tennisklubb.

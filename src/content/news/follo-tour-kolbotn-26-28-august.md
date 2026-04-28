@@ -2,6 +2,7 @@
 title: "Follo Tour - Kolbotn 26.-28. august"
 date: 2016-08-15
 categories:
+  - "tennis"
   - "arrangementer"
 ---
 

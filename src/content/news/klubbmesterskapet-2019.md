@@ -3,6 +3,7 @@ title: "Klubbmesterskapet 2019"
 ingress: "NB: Årets klubbmesterskap flyttes til lørdag 14.9 og søndag 15.9."
 date: 2019-08-25
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

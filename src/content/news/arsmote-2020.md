@@ -4,7 +4,6 @@ ingress: "Tid: Tirsdag 25. februar 2020 kl 19:00. Sted: Klubbhuset til Ås IL."
 date: 2020-02-18
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

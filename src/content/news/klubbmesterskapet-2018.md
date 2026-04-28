@@ -3,6 +3,7 @@ title: "Klubbmesterskapet 2018 - flyttet til lørdag 15.9"
 ingress: "Årets klubbmesterskap i Ås tennisklubb er flyttet til lørdag 15.9 - med finaler søndag 16.9. Alle klubbens medlemmer er hjertelig velkommen."
 date: 2018-08-24
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

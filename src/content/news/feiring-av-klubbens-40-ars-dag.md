@@ -2,8 +2,6 @@
 title: "Feiring av klubbens 40-års dag"
 ingress: "Ås tennisklubb ble grunnlagt i mars 2016. Dette ble feiret på kulturhuset i November med tenniskamp på storskjerm og en gjennomgang av klubbens historie av tidligere leder og æresmedlem Geir Goffeng."
 date: 2016-12-01
-categories:
-  - "ukategorisert"
 ---
 
 Ås tennisklubb ble grunnlagt i mars 2016. Dette ble feiret på kulturhuset i November med tenniskamp på storskjerm og en gjennomgang av klubbens historie av tidligere leder og æresmedlem Geir Goffeng.

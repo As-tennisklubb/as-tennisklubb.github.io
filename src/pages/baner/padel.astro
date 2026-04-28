@@ -1,0 +1,55 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { CalendarCheck } from "@lucide/astro";
+import Button from "../../components/ui/Button.astro";
+import PageHeader from "../../components/layout/PageHeader.astro";
+import Heading from "../../components/ui/Heading.astro";
+import BodyLong from "../../components/ui/BodyLong.astro";
+import PageBlock from "../../components/primitives/PageBlock.astro";
+import VStack from "../../components/primitives/VStack.astro";
+import HStack from "../../components/primitives/HStack.astro";
+import Callout from "../../components/ui/Callout.astro";
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Padel – Ås Tennisklubb"
+  description="To utendørs padelbaner for medlemmer av Ås Tennisklubb. Klare for spill juni/juli 2026."
+>
+  <PageHeader
+    variant="compact"
+    title="Padel – Ås stadion"
+    description="To utendørs padelbaner ved Ås stadion – fritt tilgjengelige for medlemmer."
+  />
+
+  <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
+    {/* Om tilbudet */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="6">
+          <Heading level={2} size="medium" dataColor="brand">Nye baner i 2026</Heading>
+          <BodyLong>
+            To utendørs padelbaner ved Ås stadion er på vei. Banene blir fritt tilgjengelige for
+            alle medlemmer gjennom sesongen.
+          </BodyLong>
+          <Callout variant="info" title="Kommer snart">
+            Padelbanene er under oppføring og forventes klare i løpet av sommeren 2026.
+          </Callout>
+          <HStack gap="4" wrap>
+            <Button href={`${base}medlemskap`}>Bli medlem →</Button>
+            <Button
+              variant="secondary"
+              href={import.meta.env.PUBLIC_BOOKING_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <CalendarCheck class="h-5 w-5" slot="icon" />
+              Book bane
+            </Button>
+          </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+  </VStack>
+</Layout>

@@ -2,7 +2,7 @@
 title: "Invitasjon til Østfoldkarusellen"
 date: 2017-09-18
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 ØstfoldKarusell Mini/Midi -- Moss TK – 24. september 2017.

@@ -4,7 +4,6 @@ ingress: "Vi varsler herved om årsmøtet 2021 til Ås tennisklubb blir tirsdag 
 date: 2021-01-13
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

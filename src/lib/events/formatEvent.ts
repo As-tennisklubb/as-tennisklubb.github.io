@@ -46,7 +46,7 @@ export function formatNaturalList(items: string[]): string {
 }
 
 export function formatSignupStatus(allowsSignup: boolean, signupCount: number): string {
-  if (!allowsSignup) return "Ingen påmelding";
+  if (!allowsSignup) return "";
   if (signupCount === 0) return "Påmelding åpen";
   if (signupCount === 1) return "1 påmeldt";
   return `${signupCount} påmeldte`;

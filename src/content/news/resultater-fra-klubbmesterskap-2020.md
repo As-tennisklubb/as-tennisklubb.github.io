@@ -3,6 +3,7 @@ title: "Resultater fra klubbmesterskap 2020"
 ingress: "Lørdag 5. og søndag 6. september var det klubbmesterskap med rekordmange deltakere, åpning av flunkende nytt lysanlegg og første klubbmesterfinale i flomlys."
 date: 2020-09-07
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

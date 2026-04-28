@@ -3,6 +3,7 @@ title: "Velkommen til barn og ungdom i lynkurs i tennis!"
 ingress: "Oppdatering 10. juni: Barn 7-12 år er fulltegnet! Det er fortsatt plasser for Ungdom 13-19 år."
 date: 2020-06-08
 categories:
+  - "tennis"
   - "kurstrening"
 tags:
   - "obs"

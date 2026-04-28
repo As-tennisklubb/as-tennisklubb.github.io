@@ -37,12 +37,9 @@ const {
 } = Astro.props;
 
 const colorClasses: Record<DataColor, string> = {
-  accent:
-    "text-[var(--aastk-link-default)] hover:text-[var(--aastk-link-hover)]",
-  neutral:
-    "text-[var(--aastk-text-default)] hover:text-[var(--aastk-text-default)]",
-  subtle:
-    "text-[var(--aastk-text-muted)] hover:text-[var(--aastk-text-body)]",
+  accent: "text-[var(--aastk-link-default)] hover:text-[var(--aastk-link-hover)]",
+  neutral: "text-[var(--aastk-text-default)] hover:text-[var(--aastk-text-default)]",
+  subtle: "text-[var(--aastk-text-muted)] hover:text-[var(--aastk-text-body)]",
 };
 
 const classes = cn(

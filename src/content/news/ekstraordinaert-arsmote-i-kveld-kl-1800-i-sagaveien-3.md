@@ -3,7 +3,6 @@ title: "Ekstraordinært årsmøte i kveld kl 1800 i Sagaveien 3"
 date: 2017-01-09
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

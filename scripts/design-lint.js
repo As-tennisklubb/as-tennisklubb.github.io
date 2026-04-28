@@ -135,7 +135,8 @@ const rules = [
   {
     id: "inline-section-mb",
     pattern: /<section[^>]*class\s*=\s*["'][^"']*\bmb-(?:12|16|20|24)\b/,
-    message: "Inline section with large bottom margin. Use <VStack> with gap for consistent spacing.",
+    message:
+      "Inline section with large bottom margin. Use <VStack> with gap for consistent spacing.",
     severity: "warning",
   },
 

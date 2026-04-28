@@ -2,7 +2,7 @@
 title: "Husk ved booking av baner:"
 date: 2020-09-07
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Bane A og B har kveldslys

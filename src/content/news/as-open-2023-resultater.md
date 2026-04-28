@@ -3,7 +3,7 @@ title: "Ås Open 2023 - resultater"
 ingress: "Ås Open (som vi nå kaller den tidligere så uformelle sommerturneringen) ble avviklet helgen 17-18 juni 2023. Lørdagen bød på strålende sol, nesten 30 graders varme (!) og lite vind - et vær som kanskje favoriserer våre medlemmer fra sørlige breddegrader?, mens søndagen var mer…"
 date: 2023-06-18
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Ås Open (som vi nå kaller den tidligere så uformelle sommerturneringen) ble avviklet helgen 17-18 juni 2023. Lørdagen bød på strålende sol, nesten 30 graders varme (!) og lite vind - et vær som kanskje favoriserer våre medlemmer fra sørlige breddegrader?, mens søndagen var mer mer "norsk" med lett sommer-regn.

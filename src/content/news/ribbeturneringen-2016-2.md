@@ -3,6 +3,7 @@ title: "Årets første vinnere"
 ingress: "Ribbeturneringen 2016 ble også i år gjennomført i hallen i Drøbak. Fem lag stilte opp i mixed double hvor alle spilte mot alle (ett sett round-robin). Årets vinnere ble Anne Bentzrød og Andreas Lotarev som imponerte med et glitrende samspill som ga seier i alle fire kampene."
 date: 2016-01-09
 categories:
+  - "tennis"
   - "turneringer"
 ---
 

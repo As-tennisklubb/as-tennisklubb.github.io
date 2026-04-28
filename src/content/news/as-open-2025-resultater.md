@@ -3,7 +3,7 @@ title: "Ås Open 2025 - resultater"
 ingress: "Helga 20-22 juni ble det gjennomført hele 75 tenniskamper fordelt på de 3 banene til Ås tennisklubb. Som vanlig ved større tennisturneringer så ble det dessverre litt ventetid for både spillere og publikum, men vi kompenserte med strålende sommervær, gode campingstoler og fyr på…"
 date: 2025-06-23
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Helga 20-22 juni ble det gjennomført hele 75 tenniskamper fordelt på de 3 banene til Ås tennisklubb. Som vanlig ved større tennisturneringer så ble det dessverre litt ventetid for både spillere og publikum, men vi kompenserte med strålende sommervær, gode campingstoler og fyr på grillen - vi har fortært til sammen 100 pølser!

@@ -3,6 +3,7 @@ title: "Klubbturneringen 2016"
 ingress: "Lørdag ble det spilt innledende gruppespill og semifinaler, mens finalen gikk ble spilt søndag ettermiddag."
 date: 2016-06-06
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

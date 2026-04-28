@@ -3,6 +3,7 @@ title: "Tenniskurs høsten 2022"
 ingress: "Meld deg på kurs med klubbens dyktige trener. Oppstart i uke 33. (første kursdag onsdag 17. august)"
 date: 2022-04-23
 categories:
+  - "tennis"
   - "kurstrening"
 ---
 

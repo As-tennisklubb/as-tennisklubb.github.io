@@ -3,6 +3,7 @@ title: "Ååååsome klubbmesterskap!"
 ingress: "Klubbmesterskapet i Ås tenniskeklubb hadde nyyydelig høstvær som rammer for mange tette og spennende oppgjør i alle klasser helgen 13. til 15. september 2024. Blant årets vinnere er flere gjengangere, men også noen hyggelige overraskelser."
 date: 2024-09-15
 categories:
+  - "tennis"
   - "turneringer"
 ---
 

@@ -3,6 +3,7 @@ title: "Invitasjon til Follo Tour i Nesodden 21. - 23. oktober"
 ingress: "Vedlagt invitasjon fra Nesodden tennisklubb. Vi oppfordrer alle barn og juniorer i Ås tennisklubb til å bli med."
 date: 2016-10-12
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

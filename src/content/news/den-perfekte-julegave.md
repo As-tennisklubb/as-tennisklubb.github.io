@@ -3,7 +3,7 @@ title: "Den perfekte julegave!"
 ingress: "Vi lager personlige gavekort helt fram til jul! Gavekortet inkluderer 3-timers kræsjkurs i mai."
 date: 2015-12-11
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 ### **Gi et gavekort på 2016 medlemskap i Ås tennisklubb?**  

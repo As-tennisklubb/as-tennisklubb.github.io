@@ -3,6 +3,7 @@ title: "Tenniskurs for  barn og ungdom i Ås høst 2021 avlyst"
 ingress: "På grunn av liten påmelding må vi dessverre avlyse høstens kurs for barn og ungdom. Dette gjelder også SFO-tennis."
 date: 2021-07-31
 categories:
+  - "tennis"
   - "kurstrening"
 ---
 

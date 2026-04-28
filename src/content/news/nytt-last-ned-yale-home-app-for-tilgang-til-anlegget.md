@@ -2,8 +2,6 @@
 title: "Nytt: Last ned Yale Home app for tilgang til anlegget"
 ingress: "3. Send mail til aas.tbk@gmail.com. Oppgi navn og mobilnummer for de som skal ha tilgang."
 date: 2024-04-20
-categories:
-  - "ukategorisert"
 tags:
   - "obs"
 ---

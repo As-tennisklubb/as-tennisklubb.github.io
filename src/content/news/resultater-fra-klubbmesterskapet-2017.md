@@ -3,6 +3,7 @@ title: "Resultater fra klubbmesterskapet 2017"
 ingress: "I den yngste klassen (under 12 år) forsvarte Sigurd Nagoda fjorårets tittel og ble også i år klubbmester etter seier over Bjørn Pollen og Albert Talmo-Rønn."
 date: 2017-09-03
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

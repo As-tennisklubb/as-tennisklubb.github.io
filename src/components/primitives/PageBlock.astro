@@ -30,12 +30,7 @@ interface Props {
   class?: string;
 }
 
-const {
-  width,
-  gutters = false,
-  as: Tag = "div",
-  class: className,
-} = Astro.props;
+const { width, gutters = false, as: Tag = "div", class: className } = Astro.props;
 
 const widthClasses: Record<Width, string> = {
   text: "max-w-prose",

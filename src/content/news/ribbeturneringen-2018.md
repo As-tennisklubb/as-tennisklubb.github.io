@@ -3,6 +3,7 @@ title: "Ribbeturneringen 2018"
 ingress: "Vi gratulerer Jørgen Engøy og Thomas Viken med seieren i årets ribbeturnering. Mange gode og jevne double-kamper i år, men med seier i 5 av 5 kamper var det til slutt ingen tvil om hvem som skulle ta med seg vandrepokalen:"
 date: 2018-01-13
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

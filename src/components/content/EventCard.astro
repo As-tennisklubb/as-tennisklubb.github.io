@@ -13,6 +13,7 @@
 import { cn } from "@/lib/cn";
 import Card from "../ui/Card.astro";
 import Heading from "../ui/Heading.astro";
+import SportBadge from "../ui/SportBadge.astro";
 import type { PublicClubEvent } from "../../lib/events/mapPublicEvent";
 import { formatPresentation, formatSignupStatus } from "../../lib/events/formatEvent";
 
@@ -26,16 +27,19 @@ const base = import.meta.env.BASE_URL;
 const pLines = formatPresentation(event.presentation);
 const showCategory = event.category !== event.title;
 const signupStatus = formatSignupStatus(event.allowsSignup, event.signupCount);
+const sport = (["tennis", "bordtennis", "padel"] as const).includes(event.grenSlug as any)
+  ? (event.grenSlug as "tennis" | "bordtennis" | "padel")
+  : undefined;
 ---
 
 <Card class={cn("h-full", className)}>
-  <a
-    href={`${base}arrangementer/${event.arrangementId}`}
-    class="group flex h-full flex-col"
-  >
-    <p class="text-xs font-medium text-muted">
-      {pLines.date}{showCategory && ` · ${event.category}`}
-    </p>
+  <a href={`${base}arrangementer/${event.arrangementId}`} class="group flex h-full flex-col">
+    <div class="flex flex-wrap items-center gap-2">
+      {sport && <SportBadge sport={sport} />}
+      <p class="text-muted text-xs font-medium">
+        {pLines.date}{showCategory && ` · ${event.category}`}
+      </p>
+    </div>
     <Heading
       level={2}
       size="xsmall"
@@ -43,21 +47,19 @@ const signupStatus = formatSignupStatus(event.allowsSignup, event.signupCount);
     >
       {event.title}
     </Heading>
-    {pLines.schedule && (
-      <p class="mt-2 text-sm text-body">{pLines.schedule}</p>
-    )}
+    {pLines.schedule && <p class="text-body mt-2 text-sm">{pLines.schedule}</p>}
     <div class="mt-auto flex items-center justify-between gap-4 pt-4">
       <p
         class={cn(
           "text-sm",
-          event.allowsSignup
-            ? "font-medium text-[var(--aastk-text-brand)]"
-            : "text-muted",
+          event.allowsSignup ? "font-medium text-[var(--aastk-text-brand)]" : "text-muted",
         )}
       >
         {signupStatus}
       </p>
-      <p class="text-sm font-medium text-[var(--aastk-link-default)] transition-colors group-hover:text-[var(--aastk-link-hover)]">
+      <p
+        class="text-sm font-medium text-[var(--aastk-link-default)] transition-colors group-hover:text-[var(--aastk-link-hover)]"
+      >
         Se arrangement →
       </p>
     </div>

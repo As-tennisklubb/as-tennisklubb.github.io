@@ -5,8 +5,6 @@ ingress: Klubben har tatt i bruk en ny versjon av bookingsystemet for
   banereservasjon. Den nye løsningen erstatter det tidligere systemet, som etter
   mange år i drift begynte å bli teknisk utdatert og vanskelig å videreutvikle.
 cover: /uploads/banebooking-v2.png
-categories:
-  - ukategorisert
 draft: false
 ---
 

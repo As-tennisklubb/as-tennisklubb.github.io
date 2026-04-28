@@ -12,6 +12,10 @@
  *   class       – Tilpassinger.
  */
 import { cn } from "@/lib/cn";
+import SportBadge from "../ui/SportBadge.astro";
+
+const sportSlugs = ["tennis", "bordtennis", "padel"] as const;
+type Sport = (typeof sportSlugs)[number];
 
 interface Props {
   date: string;
@@ -21,22 +25,45 @@ interface Props {
 }
 
 const { date, author, categories = [], class: className } = Astro.props;
+
+const sportCategories = categories.filter((c): c is Sport =>
+  (sportSlugs as readonly string[]).includes(c.toLowerCase()),
+);
+const otherCategories = categories.filter(
+  (c) => !(sportSlugs as readonly string[]).includes(c.toLowerCase()),
+);
 ---
 
 <div class={cn("flex flex-wrap items-center gap-x-2 gap-y-1 text-sm", className)}>
   <time class="font-medium text-[var(--aastk-text-brand)]">{date}</time>
-  {author && (
-    <>
-      <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">·</span>
-      <span class="text-muted">av {author}</span>
-    </>
-  )}
-  {categories.length > 0 && (
-    <>
-      <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">·</span>
-      <span class="text-muted">
-        {categories.join(", ")}
-      </span>
-    </>
-  )}
+  {
+    author && (
+      <>
+        <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">
+          ·
+        </span>
+        <span class="text-muted">av {author}</span>
+      </>
+    )
+  }
+  {
+    sportCategories.map((s) => (
+      <>
+        <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">
+          &middot;
+        </span>
+        <SportBadge sport={s} />
+      </>
+    ))
+  }
+  {
+    otherCategories.length > 0 && (
+      <>
+        <span class="text-gray-300 dark:text-gray-600" aria-hidden="true">
+          &middot;
+        </span>
+        <span class="text-muted">{otherCategories.join(", ")}</span>
+      </>
+    )
+  }
 </div>

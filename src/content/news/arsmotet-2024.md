@@ -4,7 +4,6 @@ ingress: "Vi varsler herved årsmøte 2024 blir tirsdag 5. mars kl.19.00 på Inn
 date: 2024-01-29
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

@@ -3,6 +3,7 @@ title: "Ås Open 3. juli og 4. juli"
 ingress: "Velkommen til en uhøytidelig tennisturnering med lav terskel for å spille mye tennis og ha det hyggelig😊"
 date: 2021-06-19
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 tags:

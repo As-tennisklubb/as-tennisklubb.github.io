@@ -3,7 +3,6 @@ title: "Sakspapirer til årsmøtet"
 date: 2017-01-30
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

@@ -17,7 +17,7 @@ const base = import.meta.env.BASE_URL;
 
 <Layout
   title="Ås Tennis Club – English"
-  description="Welcome to Ås Tennis Club. Information about courts, membership and courses in English."
+  description="Welcome to Ås Tennis Club. Tennis, table tennis and padel – membership, courts and courses in English."
   lang="en"
   languageAlternates={[
     { href: new URL(Astro.url.pathname, Astro.site).href, hrefLang: "en" },
@@ -29,26 +29,26 @@ const base = import.meta.env.BASE_URL;
   <PageHeader
     variant="compact"
     title="Welcome to Ås Tennis Club"
-    description="Three clay courts at Ås stadion – open from April to November."
+    description="Tennis, table tennis and padel – for all ages and levels."
   />
 
   {/* ───── Page content ───── */}
   <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
-
     {/* About the club */}
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
           <Heading level={2} size="medium" dataColor="brand">About the club</Heading>
           <BodyLong>
-            Ås Tennis Club was founded in 1976 and is a community-driven outdoor club
-            located next to Ås stadion. Our members range from young children to retirees,
-            and you do not need to speak Norwegian to join or play.
+            Ås Tennis Club was founded in 1976 and is a community-driven club located next to Ås
+            stadion. We offer tennis, table tennis and padel. Our members range from young children
+            to retirees, and you do not need to speak Norwegian to join or play.
           </BodyLong>
           <BodyLong>
-            We have three clay courts open from April to November, with two courts equipped
-            with floodlights for evening play. Rackets and balls can be borrowed for free,
-            so you do not need your own equipment to get started.
+            We have three clay courts open from April to November, with two courts equipped with
+            floodlights for evening play. Indoor table tennis is available year-round at Holstad
+            school, and two outdoor padel courts are open during summer. Rackets and balls can be
+            borrowed for free, so you do not need your own equipment to get started.
           </BodyLong>
         </VStack>
       </PageBlock>
@@ -65,12 +65,7 @@ const base = import.meta.env.BASE_URL;
               <Fragment slot="bullet">1</Fragment>
               <p>Register via Min Idrett and pay the annual fee.</p>
               <div>
-                <Button
-                  href={`${base}medlemskap`}
-                  size="small"
-                >
-                  Membership page →
-                </Button>
+                <Button href={`${base}medlemskap`} size="small"> Membership page → </Button>
               </div>
             </ProcessEvent>
             <ProcessEvent title="Book a court">
@@ -104,8 +99,8 @@ const base = import.meta.env.BASE_URL;
         <VStack gap="6">
           <Heading level={2} size="medium" dataColor="brand">Membership</Heading>
           <BodyLong>
-            Membership is required to use the courts. Annual fees start from NOK 500.
-            After paying, send your name and mobile number to
+            Membership is required to use the facilities. Annual fees start from NOK 500. After
+            paying, send your name and mobile number to
             <Link href="mailto:aas.tbk@gmail.com" inlineText>aas.tbk@gmail.com</Link>
             – we will set up your access through the <strong>Yale Home app</strong>.
           </BodyLong>
@@ -128,8 +123,8 @@ const base = import.meta.env.BASE_URL;
         <VStack gap="4">
           <Heading level={2} size="medium" dataColor="brand">Events and courses</Heading>
           <BodyLong>
-            Throughout the season we arrange courses for all levels, club tournaments
-            and social gatherings. All members are welcome to join.
+            Throughout the season we arrange courses for all levels, club tournaments and social
+            gatherings across tennis, table tennis and padel. All members are welcome to join.
           </BodyLong>
           <HStack gap="4" wrap>
             <Button variant="secondary" href={`${base}arrangementer`}>View events →</Button>
@@ -144,8 +139,8 @@ const base = import.meta.env.BASE_URL;
         <VStack gap="4">
           <Heading level={2} size="medium" dataColor="brand">Contact</Heading>
           <BodyLong>
-            Questions about membership, courts or events? Feel free to get in touch –
-            we are happy to help, also in English.
+            Questions about membership, facilities or events? Feel free to get in touch – we are
+            happy to help, also in English.
           </BodyLong>
           <HStack gap="4" wrap>
             <Button variant="secondary" href={`${base}kontakt`}>Contact details →</Button>
@@ -153,6 +148,5 @@ const base = import.meta.env.BASE_URL;
         </VStack>
       </PageBlock>
     </section>
-
   </VStack>
 </Layout>

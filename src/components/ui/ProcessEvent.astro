@@ -29,12 +29,10 @@ const { title, status = "uncompleted", class: className } = Astro.props;
 const hasBulletSlot = Astro.slots.has("bullet");
 
 const bulletColors: Record<Status, string> = {
-  completed:
-    "bg-[var(--aastk-process-completed-bg)] text-[var(--aastk-process-completed-text)]",
+  completed: "bg-[var(--aastk-process-completed-bg)] text-[var(--aastk-process-completed-text)]",
   active:
     "bg-[var(--aastk-process-active-bg)] text-[var(--aastk-process-active-text)] ring-2 [ring-color:var(--aastk-process-active-ring)]",
-  uncompleted:
-    "bg-[var(--aastk-process-active-bg)] text-[var(--aastk-process-active-text)]",
+  uncompleted: "bg-[var(--aastk-process-active-bg)] text-[var(--aastk-process-active-text)]",
 };
 
 const lineColors: Record<Status, string> = {
@@ -55,16 +53,13 @@ const lineColors: Record<Status, string> = {
     >
       {hasBulletSlot ? <slot name="bullet" /> : null}
     </div>
-    <div
-      class={cn("process-line mt-1 w-0.5 grow", lineColors[status])}
-      aria-hidden="true"
-    ></div>
+    <div class={cn("process-line mt-1 w-0.5 grow", lineColors[status])} aria-hidden="true"></div>
   </div>
 
   {/* Innhold */}
   <div class="pb-8">
-    <p class="font-semibold text-heading">{title}</p>
-    <div class="mt-1 flex flex-col gap-3 text-sm text-body">
+    <p class="text-heading font-semibold">{title}</p>
+    <div class="text-body mt-1 flex flex-col gap-3 text-sm">
       <slot />
     </div>
   </div>

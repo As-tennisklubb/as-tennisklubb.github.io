@@ -3,6 +3,7 @@ title: "Klubbturnering 1-2 juli 2017"
 ingress: "Vi kom litt sent i gang i år, men satser allikevel på å gjennomføre vår årlige klubbturnering helga 1.-2. juli."
 date: 2017-06-21
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

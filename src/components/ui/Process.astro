@@ -20,6 +20,12 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<ol class={cn("flex flex-col [&>li:last-of-type_.process-line]:hidden [&>li:last-of-type>div:last-child]:pb-0", className)} role="list">
+<ol
+  class={cn(
+    "flex flex-col [&>li:last-of-type_.process-line]:hidden [&>li:last-of-type>div:last-child]:pb-0",
+    className,
+  )}
+  role="list"
+>
   <slot />
 </ol>

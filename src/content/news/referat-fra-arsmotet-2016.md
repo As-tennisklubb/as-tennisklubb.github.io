@@ -3,7 +3,6 @@ title: "Referat fra årsmøtet 2016"
 date: 2016-03-08
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

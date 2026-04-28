@@ -3,7 +3,7 @@ title: "Banene er klare"
 ingress: "Årets dugnad er vel gjennomført og grusbanene er klare for spill. Stor takk til alle medlemmer som bidro til dette!"
 date: 2016-04-29
 categories:
-  - "ukategorisert"
+  - "tennis"
 ---
 
 Årets dugnad er vel gjennomført og grusbanene er klare for spill. Stor takk til alle medlemmer som bidro til dette!

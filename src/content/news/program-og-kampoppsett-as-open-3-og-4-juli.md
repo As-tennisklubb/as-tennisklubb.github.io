@@ -3,6 +3,7 @@ title: "Program og kampoppsett Ås Open 3. og 4. juli"
 ingress: "Her følger praktisk informasjon, kampoppsett og tidsplan for lørdag og søndag. Med rekordmange påmeldte (37), blir det en laaang og hyggelig tennishelg hvor lørdag i hovedsak består av gruppespill, mens søndagen blir kvartfinaler, semifinaler og finaler."
 date: 2021-07-02
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

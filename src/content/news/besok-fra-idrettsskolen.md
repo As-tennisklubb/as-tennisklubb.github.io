@@ -3,6 +3,7 @@ title: "Besøk fra idrettsskolen"
 ingress: "Onsdagene 24. mai og 31. mai får vi besøk av Ås IL's idrettsskole i tidsrommet 16:45 - 18:00."
 date: 2017-05-23
 categories:
+  - "tennis"
   - "arrangementer"
   - "kurstrening"
 ---

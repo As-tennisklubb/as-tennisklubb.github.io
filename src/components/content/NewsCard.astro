@@ -20,6 +20,7 @@ import { cn } from "@/lib/cn";
 import Card from "../ui/Card.astro";
 import Heading from "../ui/Heading.astro";
 import BodyLong from "../ui/BodyLong.astro";
+import SportBadge from "../ui/SportBadge.astro";
 
 interface Props {
   href: string;
@@ -44,13 +45,25 @@ const {
 } = Astro.props;
 
 const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
+
+const sportSlugs = ["tennis", "bordtennis", "padel"] as const;
+type Sport = (typeof sportSlugs)[number];
+const sportCategories = categories.filter((c): c is Sport =>
+  (sportSlugs as readonly string[]).includes(c.toLowerCase()),
+);
+const otherCategories = categories.filter(
+  (c) => !(sportSlugs as readonly string[]).includes(c.toLowerCase()),
+);
 ---
 
 <Card class={cn("h-full", className)}>
   <a href={href} class="group flex h-full flex-col">
-    <p class="text-xs font-medium text-muted">
-      {date}{categories.length > 0 && ` · ${categories.join(", ")}`}
-    </p>
+    <div class="flex flex-wrap items-center gap-2">
+      {sportCategories.map((s) => <SportBadge sport={s} />)}
+      <p class="text-muted text-xs font-medium">
+        {date}{otherCategories.length > 0 && ` \u00B7 ${otherCategories.join(", ")}`}
+      </p>
+    </div>
     <Heading
       level={headingLevel}
       size="xsmall"
@@ -58,12 +71,16 @@ const clampClass = clampLines === 3 ? "line-clamp-3" : "line-clamp-2";
     >
       {title}
     </Heading>
-    {excerpt && (
-      <BodyLong size="small" class={cn("mt-3 text-body", clampClass)}>
-        {excerpt}
-      </BodyLong>
-    )}
-    <p class="mt-auto pt-4 text-sm font-medium text-[var(--aastk-link-default)] transition-colors group-hover:text-[var(--aastk-link-hover)]">
+    {
+      excerpt && (
+        <BodyLong size="small" class={cn("text-body mt-3", clampClass)}>
+          {excerpt}
+        </BodyLong>
+      )
+    }
+    <p
+      class="mt-auto pt-4 text-sm font-medium text-[var(--aastk-link-default)] transition-colors group-hover:text-[var(--aastk-link-hover)]"
+    >
       Les mer →
     </p>
   </a>

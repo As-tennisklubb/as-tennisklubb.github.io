@@ -3,6 +3,7 @@ title: "Klubbturneringen 2015"
 ingress: "Årets klubbturnering ble gjennomført i strålende sommervær denne helgen."
 date: 2015-06-14
 categories:
+  - "tennis"
   - "arrangementer"
 ---
 

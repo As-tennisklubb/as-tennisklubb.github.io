@@ -29,28 +29,33 @@ const priser = [
 
 <Layout
   title="Medlemskap – Ås Tennisklubb"
-  description="Bli medlem av Ås Tennisklubb. Se priser, betalingsinfo og prøvespill."
+  description="Bli medlem av Ås Tennisklubb – se priser, fordeler og betalingsinfo."
 >
   {/* ───── Toppseksjon ───── */}
-  <PageHeader
-    title="Medlemskap"
-    description="Alle er velkomne – uansett alder, kjønn og nivå."
-  />
+  <PageHeader title="Medlemskap" description="Alle er velkomne – uansett alder, kjønn og nivå." />
 
   {/* ───── Sideinnhold ───── */}
   <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
-
     {/* Hva får du som medlem */}
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
           <Heading level={2} size="medium" dataColor="brand">Hva får du som medlem?</Heading>
-          <BodyLong>Medlemskapet gir deg tilgang til alt klubben har å tilby – hele sesongen.</BodyLong>
+          <BodyLong
+            >Medlemskapet gir deg tilgang til alle klubbens idretter og aktiviteter.</BodyLong
+          >
           <List as="ul" size="small">
-            <ListItem>Spill så mye du vil på tre grusbaner fra april til november.</ListItem>
+            <ListItem>Spill tennis på tre grusbaner fra april til november.</ListItem>
+            <ListItem>Spill bordtennis innendørs på Holstad skole – hele året.</ListItem>
+            <ListItem>Bruk to utendørs padelbaner fritt i sommerhalvåret.</ListItem>
             <ListItem>Lån racketer og baller gratis i klubbhuset.</ListItem>
-            <ListItem>Delta i kurs, turneringer og sosiale samlinger – fra nybegynnerkurs til klubbmesterskap.</ListItem>
-            <ListItem>Et inkluderende miljø der barn, voksne og seniorer spiller side om side.</ListItem>
+            <ListItem
+              >Delta i kurs, turneringer og sosiale samlinger – fra nybegynnerkurs til
+              klubbmesterskap.</ListItem
+            >
+            <ListItem
+              >Et inkluderende miljø der barn, voksne og seniorer spiller side om side.</ListItem
+            >
           </List>
         </VStack>
       </PageBlock>
@@ -70,8 +75,9 @@ const priser = [
             <InfoCard dataColor="brand" title="Betaling">
               <p>
                 Betal til <strong class="text-heading">konto 1100 44 76109</strong> eller
-                <strong class="text-heading">Vipps Ås Tennisklubb #14506</strong>.
-                Merk med <em>Navn og type medlemskap</em>.
+                <strong class="text-heading">Vipps Ås Tennisklubb #14506</strong>. Merk med <em
+                  >Navn og type medlemskap</em
+                >.
               </p>
               <p>Du får også tilgang til banebooking og klubbhus via Yale Home-appen.</p>
             </InfoCard>
@@ -114,8 +120,9 @@ const priser = [
             <ProcessEvent title="Få tilgang">
               <Fragment slot="bullet">3</Fragment>
               <p>
-                Send navn og e-mail adresse til <Link href="mailto:aas.tbk@gmail.com" inlineText>aas.tbk@gmail.com</Link>,
-                så gir vi deg tilgang via <strong>Yale Home-appen</strong>.
+                Send navn og e-mail adresse til <Link href="mailto:aas.tbk@gmail.com" inlineText
+                  >aas.tbk@gmail.com</Link
+                >, så gir vi deg tilgang via <strong>Yale Home-appen</strong>.
               </p>
             </ProcessEvent>
           </Process>
@@ -129,11 +136,11 @@ const priser = [
         <VStack gap="2">
           <Heading level={2} size="small" dataColor="brand">Forny medlemskap</Heading>
           <BodyLong size="small">
-            Allerede medlem? Betal kontingent for å fornye – Yale Home-tilgangen oppdateres automatisk.
+            Allerede medlem? Betal kontingent for å fornye – Yale Home-tilgangen oppdateres
+            automatisk.
           </BodyLong>
         </VStack>
       </PageBlock>
     </section>
-
   </VStack>
 </Layout>

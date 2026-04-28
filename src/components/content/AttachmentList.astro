@@ -25,22 +25,24 @@ interface Props {
 const { attachments, class: className } = Astro.props;
 ---
 
-{attachments.length > 0 && (
-  <div class={cn("flex flex-col gap-3", className)}>
-    {attachments.map((a) => {
-      const raw = a.name ?? a.url.split("?")[0].split("/").pop() ?? a.url;
-      const filename = decodeURIComponent(raw);
-      return (
-        <a
-          href={a.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex min-h-11 items-center gap-3 rounded-lg border px-4 py-3 text-sm font-medium transition-colors [border-color:var(--aastk-border-default)] bg-[var(--aastk-surface-subtle)] text-[var(--aastk-text-default)] hover:bg-[var(--color-gray-100)] dark:hover:bg-[var(--color-gray-700)]"
-        >
-          <FileDown class="h-5 w-5 shrink-0 text-[var(--aastk-text-brand)]" />
-          {filename}
-        </a>
-      );
-    })}
-  </div>
-)}
+{
+  attachments.length > 0 && (
+    <div class={cn("flex flex-col gap-3", className)}>
+      {attachments.map((a) => {
+        const raw = a.name ?? a.url.split("?")[0].split("/").pop() ?? a.url;
+        const filename = decodeURIComponent(raw);
+        return (
+          <a
+            href={a.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex min-h-11 items-center gap-3 rounded-lg border [border-color:var(--aastk-border-default)] bg-[var(--aastk-surface-subtle)] px-4 py-3 text-sm font-medium text-[var(--aastk-text-default)] transition-colors hover:bg-[var(--color-gray-100)] dark:hover:bg-[var(--color-gray-700)]"
+          >
+            <FileDown class="h-5 w-5 shrink-0 text-[var(--aastk-text-brand)]" />
+            {filename}
+          </a>
+        );
+      })}
+    </div>
+  )
+}

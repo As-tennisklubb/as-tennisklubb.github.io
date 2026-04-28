@@ -140,9 +140,9 @@ Pages should follow this hierarchy.
 PageHeader (optional, variant="compact" or full)
 
 PageBlock width="lg" gutters
-  VStack gap="…"
-    Heading / BodyLong
-    Content (Prose / HGrid / DataTable)
+VStack gap="…"
+Heading / BodyLong
+Content (Prose / HGrid / DataTable)
 
 CTA section (Button)
 

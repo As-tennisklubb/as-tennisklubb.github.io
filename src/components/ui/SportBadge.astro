@@ -1,0 +1,58 @@
+---
+/**
+ * SportBadge – Fargekodet badge for idrettstype.
+ *
+ * Viser en pill-formet tag med sport-spesifikk farge og Lucide Lab-ikon.
+ * Bruker semantic sport-tokens fra global.css.
+ *
+ * Props:
+ *   sport – "tennis" | "bordtennis" | "padel".
+ *   class – Layout-justeringer (spacing, alignment).
+ */
+import { cn } from "@/lib/cn";
+import { Icon } from "@lucide/astro";
+import { tennisBall, batBall, tennisRacket } from "@lucide/lab";
+
+type Sport = "tennis" | "bordtennis" | "padel";
+
+interface Props {
+  sport: Sport;
+  class?: string;
+}
+
+const { sport, class: className } = Astro.props;
+
+const config: Record<Sport, { label: string; iconNode: any; colors: string }> = {
+  tennis: {
+    label: "Tennis",
+    iconNode: tennisBall,
+    colors:
+      "bg-[var(--aastk-sport-tennis-bg)] text-[var(--aastk-sport-tennis-text)] [border-color:var(--aastk-sport-tennis-border)]",
+  },
+  bordtennis: {
+    label: "Bordtennis",
+    iconNode: batBall,
+    colors:
+      "bg-[var(--aastk-sport-bordtennis-bg)] text-[var(--aastk-sport-bordtennis-text)] [border-color:var(--aastk-sport-bordtennis-border)]",
+  },
+  padel: {
+    label: "Padel",
+    iconNode: tennisRacket,
+    colors:
+      "bg-[var(--aastk-sport-padel-bg)] text-[var(--aastk-sport-padel-text)] [border-color:var(--aastk-sport-padel-border)]",
+  },
+};
+
+const { label, iconNode, colors } = config[sport];
+---
+
+<span
+  class={cn(
+    "inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium leading-normal",
+    colors,
+    className,
+  )}
+>
+  <Icon iconNode={iconNode} size={14} aria-hidden="true" />
+  {label}
+</span>

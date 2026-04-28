@@ -3,6 +3,7 @@ title: "Meld deg på klubbmesterskap i tennis - helgen 15. - 17. september"
 ingress: "Vi ønsker alle medlemmer hjertelig velkommen til hyggelige tennisdager i klubbmesterskapet tredje helgen i september."
 date: 2023-08-31
 categories:
+  - "tennis"
   - "turneringer"
 tags:
   - "obs"

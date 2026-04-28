@@ -3,6 +3,7 @@ title: "Vårdugnad 22. - 24. april"
 ingress: "Velg den tiden som passer best. Vær vennlig og møt opp presis da arbeidsoppgaver og instruksjon tas i starten av hver gruppe. Varighet på dugnad er ca. 2 timer. Det er en fordel at de som har lagt linjer før møter på lørdag!"
 date: 2016-04-21
 categories:
+  - "tennis"
   - "arrangementer"
 ---
 

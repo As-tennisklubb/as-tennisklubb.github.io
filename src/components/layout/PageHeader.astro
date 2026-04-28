@@ -58,11 +58,13 @@ const styles = variantStyles[variant];
   <PageBlock width="xl" gutters>
     <VStack gap={styles.gap} align="start">
       <Heading level={1} size="large" dataColor="inverted">{title}</Heading>
-      {description && (
-        <BodyLong size="large" class="max-w-[65ch] text-[var(--aastk-text-on-brand-muted)]">
-          {description}
-        </BodyLong>
-      )}
+      {
+        description && (
+          <BodyLong size="large" class="max-w-[65ch] text-[var(--aastk-text-on-brand-muted)]">
+            {description}
+          </BodyLong>
+        )
+      }
       {hasActions && <slot name="actions" />}
     </VStack>
   </PageBlock>

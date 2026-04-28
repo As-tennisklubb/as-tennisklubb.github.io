@@ -3,6 +3,7 @@ title: "Resultater fra Klubbmesterskapet 2019"
 ingress: "Junior 10 år: Ny klubbmester: Albert Talmo-Rønn etter seier 6-4 over Kristoffer Haug"
 date: 2019-09-15
 categories:
+  - "tennis"
   - "arrangementer"
   - "turneringer"
 ---

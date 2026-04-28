@@ -3,7 +3,6 @@ title: "Sakspapirer til årsmøtet 2024"
 date: 2024-02-27
 categories:
   - "aarsmote"
-  - "ukategorisert"
 tags:
   - "arsmote"
 ---

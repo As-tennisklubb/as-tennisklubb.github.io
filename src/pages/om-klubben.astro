@@ -14,29 +14,25 @@ const base = import.meta.env.BASE_URL;
 
 <Layout
   title="Om klubben – Ås Tennisklubb"
-  description="Ås Tennisklubb ble grunnlagt i 1976 og holder til ved Ås stadion. Les mer om klubben."
+  description="Ås Tennisklubb feirer 50 år i 2026 – les om historie, miljø og aktiviteter."
 >
   {/* ───── Toppseksjon ───── */}
-  <PageHeader
-    title="Om Ås Tennisklubb"
-    description="Tennisklubb for alle i Ås – stiftet i 1976."
-  />
+  <PageHeader title="Om Ås Tennisklubb" description="Klubben feirer 50 år i 2026." />
 
   {/* ───── Sideinnhold ───── */}
   <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
-
     {/* Om oss */}
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
-          <Heading level={2} size="medium" dataColor="brand">Om oss</Heading>
+          <Heading level={2} size="medium" dataColor="brand">50 år i Ås</Heading>
           <BodyLong>
-            Ås Tennisklubb ble stiftet i 1976 og har siden vært en del av idretts- og nærmiljøet
-            i Ås. Klubben holder til i Idrettsveien, rett ved Ås stadion, med tre grusbaner som er
-            åpne fra april til november.
+            Ås Tennisklubb ble stiftet i 1976 og feirer 50-årsjubileum i 2026. Klubben har tre
+            grusbaner i Idrettsveien ved Ås stadion, innendørs bordtennis på Holstad skole – og i
+            jubileumsåret åpner to splitter nye padelbaner.
           </BodyLong>
           <BodyLong>
-            I snart femti år har klubben samlet spillere i alle aldre – fra barn som slår sine
+            I et halvt århundre har klubben samlet spillere i alle aldre – fra barn som slår sine
             første baller over nettet, til seniorer som har holdt det gående i flere tiår.
           </BodyLong>
         </VStack>
@@ -49,14 +45,14 @@ const base = import.meta.env.BASE_URL;
         <VStack gap="4">
           <Heading level={2} size="medium" dataColor="brand">Klubbmiljø</Heading>
           <BodyLong>
-            Det som kjennetegner klubben er bredden. Medlemmene spenner fra skolebarn til
-            pensjonister, og flere familier spiller på tvers av generasjonene. Turneringer og
-            sosiale samlinger gir jevnlig anledning til å møtes på og utenfor banen.
+            Det som kjennetegner klubben er bredden – både i alder og idretter. Medlemmene spenner
+            fra skolebarn til pensjonister, og flere familier spiller på tvers av generasjonene.
+            Turneringer og sosiale samlinger gir jevnlig anledning til å møtes på og utenfor banen.
           </BodyLong>
           <BodyLong>
-            Klubben drives i stor grad på dugnad. Banevedlikehold, arrangementer og det meste
-            av det daglige gjøres av medlemmene selv – det gir kort avstand mellom de som
-            spiller og de som styrer.
+            Klubben drives i stor grad på dugnad. Banevedlikehold, arrangementer og det meste av det
+            daglige gjøres av medlemmene selv – det gir kort avstand mellom de som spiller og de som
+            styrer. Årsmøtet holdes hver vinter, og alle medlemmer er velkomne.
           </BodyLong>
         </VStack>
       </PageBlock>
@@ -66,19 +62,16 @@ const base = import.meta.env.BASE_URL;
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
-          <Heading level={2} size="medium" dataColor="brand">Aktiviteter gjennom året</Heading>
+          <Heading level={2} size="medium" dataColor="brand">Året rundt</Heading>
           <BodyLong>
-            Gjennom sesongen arrangeres kurs for barn, ungdom og voksne på ulike nivåer.
-            Racketer og baller kan lånes gratis, slik at terskelen for å prøve er lav.
+            Gjennom tennissesongen arrangeres kurs for barn, ungdom og voksne på ulike nivåer.
+            Racketer og baller kan lånes gratis, slik at terskelen for å prøve er lav. Bordtennis
+            spilles hele året på Holstad skole, og padel blir tilgjengelig fra sommeren 2026.
           </BodyLong>
           <BodyLong>
-            Hvert år holdes Ås Open og klubbmesterskapet, og på nyåret spilles den tradisjonsrike
-            Ribbeturneringen – en uhøytidelig mixed double-turnering som markerer starten på et
-            nytt tennisår. Også mellom turneringene er det rom for uformelt spill og sosialt samvær.
-          </BodyLong>
-          <BodyLong>
-            Klubben drives av et valgt styre, og årsmøtet holdes hver vinter med alle medlemmer
-            velkomne.
+            Hvert år spilles Ås Open og klubbmesterskapet, og på nyåret den tradisjonsrike
+            Ribbeturneringen – en uhøytidelig mixed double-turnering som markerer starten på et nytt
+            tennisår.
           </BodyLong>
         </VStack>
       </PageBlock>
@@ -88,8 +81,11 @@ const base = import.meta.env.BASE_URL;
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
-          <Heading level={2} size="medium" dataColor="brand">Klubbens beliggenhet</Heading>
-          <BodyLong>Banene ligger i Idrettsveien, like ved Ås stadion og et kort stykke fra sentrum.</BodyLong>
+          <Heading level={2} size="medium" dataColor="brand">Finn oss</Heading>
+          <BodyLong>
+            Tennisbanene og de nye padelbanene ligger i Idrettsveien ved Ås stadion. Bordtennis
+            spilles på Holstad skole ved Steinerskolen i Ås.
+          </BodyLong>
           <LazyMap
             address="Idrettsveien 1"
             city="1430 Ås"
@@ -104,10 +100,9 @@ const base = import.meta.env.BASE_URL;
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
-          <Heading level={2} size="medium" dataColor="brand">Bli med</Heading>
+          <Heading level={2} size="medium" dataColor="brand">Kom og spill</Heading>
           <BodyLong>
-            Bli en del av klubben – spill tennis hele sesongen fra kr 500,-.
-            Alle er velkomne, uansett erfaring.
+            Bli en del av klubben – spill fra kr 500,- i året. Alle er velkomne, uansett erfaring.
           </BodyLong>
           <HStack gap="4" wrap>
             <Button href={`${base}medlemskap`}>Bli medlem →</Button>
@@ -116,6 +111,5 @@ const base = import.meta.env.BASE_URL;
         </VStack>
       </PageBlock>
     </section>
-
   </VStack>
 </Layout>
