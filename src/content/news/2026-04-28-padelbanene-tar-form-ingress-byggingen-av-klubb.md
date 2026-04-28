@@ -1,5 +1,5 @@
 ---
-title: "Padelbanene tar form  Ingress: Byggingen av klubb"
+title: "Padelbanene tar form "
 date: 2026-04-28
 ingress: Byggingen av klubbens to padelbaner ved Ås stadion er godt i gang – nå
   starter støpingen.
