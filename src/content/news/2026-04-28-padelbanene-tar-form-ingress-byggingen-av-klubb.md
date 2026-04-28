@@ -5,7 +5,7 @@ ingress: yggingen av klubbens to padelbaner ved Ås stadion er godt i gang – n
   starter støpingen.
 cover: /uploads/padelbaner.jpg
 categories:
-  - ukategorisert
+  - padel
 draft: false
 ---
 Det skjer store ting i Idrettsveien. Etter måneder med planlegging og grunnarbeid er vi nå klare for neste steg: støping av baneunderlaget for de to nye padelbanene.
