@@ -12,6 +12,12 @@ export default defineConfig({
     prefetchAll: true,
   },
 
+  security: {
+    csp: {
+      directives: ["frame-src 'self' https://maps.google.com"],
+    },
+  },
+
   integrations: [
     sitemap({
       namespaces: {

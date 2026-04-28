@@ -23,7 +23,7 @@ const priser = [
   { type: "Barn/junior (inntil 19 år)", pris: "500,-" },
   { type: "Student / vernepliktig", pris: "700,-" },
   { type: "Voksen", pris: "1 200,-" },
-  { type: "Familiemedlemskap", pris: "2 100,-" },
+  { type: "Familiemedlemskap (alle i samme husstand)", pris: "2 100,-" },
 ];
 ---
 
@@ -66,25 +66,20 @@ const priser = [
       <PageBlock width="xl" gutters>
         <VStack gap="6">
           <Heading level={2} size="medium" dataColor="brand">Medlemskontingent 2026</Heading>
-          <HGrid columns={{ sm: 1, md: 2 }} gap="8" class="md:grid-cols-[3fr_2fr]">
-            <DataTable
-              rows={priser.map(({ type, pris }) => ({ label: type, value: `kr ${pris}` }))}
-              labelHeader="Medlemstype"
-              valueHeader="Pris"
-            />
-            <InfoCard dataColor="brand" title="Betaling">
-              <p>
-                Betal til <strong class="text-heading">konto 1100 44 76109</strong> eller
-                <strong class="text-heading">Vipps Ås Tennisklubb #14506</strong>. Merk med <em
-                  >Navn og type medlemskap</em
-                >.
-              </p>
-              <p>Du får også tilgang til banebooking og klubbhus via Yale Home-appen.</p>
-            </InfoCard>
-          </HGrid>
-          <BodyLong size="small" class="text-muted">
-            Familiemedlemskap gjelder for alle i samme husstand.
-          </BodyLong>
+          <DataTable
+            rows={priser.map(({ type, pris }) => ({ label: type, value: `kr ${pris}` }))}
+            labelHeader="Medlemstype"
+            valueHeader="Pris"
+          />
+          <InfoCard dataColor="brand" title="Betaling">
+            <p>
+              Betal til <strong class="text-heading">konto 1100 44 76109</strong> eller
+              <strong class="text-heading">Vipps Ås Tennisklubb #14506</strong>. Merk med <em
+                >Navn og type medlemskap</em
+              >.
+            </p>
+            <p>Du får også tilgang til banebooking og klubbhus via Yale Home-appen.</p>
+          </InfoCard>
         </VStack>
       </PageBlock>
     </section>
