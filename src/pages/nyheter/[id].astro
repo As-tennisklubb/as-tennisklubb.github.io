@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/layout/PageHeader.astro";
 import Heading from "../../components/ui/Heading.astro";
 import BodyLong from "../../components/ui/BodyLong.astro";
 import Link from "../../components/ui/Link.astro";
@@ -33,13 +34,11 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
 ---
 
 <Layout title={`${post.data.title} – Ås Tennisklubb`} description={ingress}>
+  <PageHeader title={post.data.title} description={ingress} heroCategory="tennis" />
   <PageBlock width="md" gutters>
     <VStack gap="6" class="py-10">
       {/* ───── Tilbake-lenke ───── */}
       <Link href={`${base}nyheter`} class="text-sm"> ← Alle nyheter </Link>
-
-      {/* ───── Overskrift ───── */}
-      <Heading level={1} size="xlarge">{post.data.title}</Heading>
 
       {/* ───── Metadata ───── */}
       <ArticleMeta

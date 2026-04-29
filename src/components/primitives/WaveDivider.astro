@@ -1,0 +1,37 @@
+---
+/**
+ * WaveDivider – Dekorativ SVG-bølge for seksjon-overganger.
+ *
+ * Plasseres typisk i bunnen av en seksjon (absolute positioned)
+ * for å bryte opp rette kanter med en organisk kurve.
+ *
+ * Props:
+ *   color – CSS-farge/variabel for bølgen. Default: current section bg.
+ *   flip  – Speiler bølgen vertikalt (for topp-plassering).
+ *   class – Ekstra klasser.
+ */
+import { cn } from "@/lib/cn";
+
+interface Props {
+  color?: string;
+  flip?: boolean;
+  class?: string;
+}
+
+const { color = "var(--aastk-surface-inverted)", flip = false, class: className } = Astro.props;
+---
+
+<div
+  class={cn("pointer-events-none select-none leading-[0]", flip && "rotate-180", className)}
+  aria-hidden="true"
+>
+  <svg
+    viewBox="0 0 1440 120"
+    preserveAspectRatio="none"
+    xmlns="http://www.w3.org/2000/svg"
+    class="block h-[clamp(3rem,7vw,7rem)] w-full"
+    fill={color}
+  >
+    <path d="M0,0 C240,100 480,20 720,80 S1200,30 1440,90 L1440,0 L0,0 Z"></path>
+  </svg>
+</div>

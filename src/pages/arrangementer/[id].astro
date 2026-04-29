@@ -1,5 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/layout/PageHeader.astro";
 import Heading from "../../components/ui/Heading.astro";
 import Link from "../../components/ui/Link.astro";
 import Button from "../../components/ui/Button.astro";
@@ -34,13 +35,15 @@ const sport = (["tennis", "bordtennis", "padel"] as const).includes(event.grenSl
   title={`${event.title} – Ås Tennisklubb`}
   description={`${event.category} – ${event.title}`}
 >
+  <PageHeader
+    title={event.title}
+    description={`${event.category}`}
+    heroCategory={sport ?? "tennis"}
+  />
   <PageBlock width="md" gutters>
     <VStack gap="6" class="py-10">
       {/* ───── Tilbake-lenke ───── */}
       <Link href={`${base}arrangementer`} class="text-sm"> ← Tilbake til arrangementer </Link>
-
-      {/* ───── Overskrift ───── */}
-      <Heading level={1} size="xlarge">{event.title}</Heading>
 
       {/* ───── Metadata ───── */}
       <div class="border-b [border-color:var(--aastk-border-subtle)] pb-6">

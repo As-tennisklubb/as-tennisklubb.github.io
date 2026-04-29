@@ -176,7 +176,7 @@
     --aastk-surface-accent-soft: color-mix(in srgb, var(--color-accent-950) 20%, transparent);
     --aastk-surface-inverted: var(--color-brand-700);
     --aastk-surface-inverted-hover: var(--color-brand-800);
-    --aastk-surface-inverted-active: var(--color-brand-600);
+    --aastk-surface-inverted-active: var(--color-gray-900);
 
     /* Border */
     --aastk-border-default: var(--color-gray-700);
@@ -383,4 +383,25 @@ body {
 }
 .prose :where(ol > li):not(:where([class~="not-prose"], [class~="not-prose"] *))::marker {
   color: var(--aastk-text-brand);
+}
+
+/* Dot pattern overlay for hero sections */
+.pattern-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.12) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Radial vignette – subtle darkening toward viewport edges */
+.bg-vignette {
+  background-image: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.12) 100%);
+}
+@media (prefers-color-scheme: dark) {
+  .bg-vignette {
+    background-image: radial-gradient(ellipse at center, transparent 20%, rgba(0, 0, 0, 0.3) 100%);
+  }
 }

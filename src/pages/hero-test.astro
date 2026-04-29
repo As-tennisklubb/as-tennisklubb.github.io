@@ -1,0 +1,135 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PageHeader from "../components/layout/PageHeader.astro";
+import PageBlock from "../components/primitives/PageBlock.astro";
+import fs from "node:fs";
+import path from "node:path";
+
+const base = import.meta.env.BASE_URL;
+
+const categories = ["tennis", "padel", "bordtennis"];
+const allImages: string[] = [];
+
+for (const cat of categories) {
+  const dir = path.join(process.cwd(), "public", "heroes", cat);
+  if (fs.existsSync(dir)) {
+    const files = fs.readdirSync(dir).filter((f) => /\.(webp|jpg|avif|png)$/i.test(f));
+    for (const file of files) {
+      allImages.push(`${base}heroes/${cat}/${file}`);
+    }
+  }
+}
+---
+
+<Layout title="Hero Image Tester" noindex>
+  <PageHeader
+    title="Ås Tennisklubb"
+    description="Rakketsport for alle i Ås – siden 1976."
+    image={allImages[0]}
+  />
+
+  <PageBlock width="xl" gutters>
+    <div class="py-8 text-center">
+      <p class="mb-4 text-lg font-bold">Hero Image Tester</p>
+      <p class="mb-2 text-sm text-gray-500">
+        Klikk "Neste" eller bruk piltaster for å rotere bilder. Bildet i headeren endres.
+      </p>
+      <div class="mb-4 flex items-center justify-center gap-4">
+        <button id="prev-btn" class="rounded bg-brand-700 px-4 py-2 text-white hover:bg-brand-800"
+          >← Forrige</button
+        >
+        <span id="counter" class="font-mono text-sm">1 / {allImages.length}</span>
+        <button id="next-btn" class="rounded bg-brand-700 px-4 py-2 text-white hover:bg-brand-800"
+          >Neste →</button
+        >
+      </div>
+      <p id="image-name" class="mb-6 font-mono text-sm font-semibold text-brand-700"></p>
+
+      <p class="mb-2 text-sm font-medium text-gray-600">Pattern overlay:</p>
+      <div class="flex flex-wrap items-center justify-center gap-2">
+        <button
+          data-set-pattern="dots"
+          class="rounded border border-brand-200 bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-800 hover:bg-brand-100"
+          >Dots</button
+        >
+        <button
+          data-set-pattern="diagonal"
+          class="rounded border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100"
+          >Diagonal</button
+        >
+        <button
+          data-set-pattern="grid"
+          class="rounded border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100"
+          >Grid</button
+        >
+        <button
+          data-set-pattern="cross"
+          class="rounded border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100"
+          >Cross</button
+        >
+        <button
+          data-set-pattern="none"
+          class="rounded border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100"
+          >Ingen</button
+        >
+      </div>
+      <p id="pattern-name" class="mt-2 font-mono text-xs text-gray-500">Aktivt: dots</p>
+    </div>
+  </PageBlock>
+
+  <script define:vars={{ allImages }}>
+    let index = 0;
+    const images = allImages;
+
+    function update() {
+      const img = document.querySelector("[data-hero-img]");
+      const name = document.getElementById("image-name");
+      const counter = document.getElementById("counter");
+      if (img) img.src = images[index];
+      const fileName = images[index].split("/").pop();
+      name.textContent = fileName;
+      counter.textContent = `${index + 1} / ${images.length}`;
+    }
+
+    document.getElementById("next-btn").addEventListener("click", () => {
+      index = (index + 1) % images.length;
+      update();
+    });
+
+    document.getElementById("prev-btn").addEventListener("click", () => {
+      index = (index - 1 + images.length) % images.length;
+      update();
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") {
+        index = (index + 1) % images.length;
+        update();
+      }
+      if (e.key === "ArrowLeft") {
+        index = (index - 1 + images.length) % images.length;
+        update();
+      }
+    });
+
+    // Pattern switcher
+    document.querySelectorAll("[data-set-pattern]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const pattern = btn.getAttribute("data-set-pattern");
+        document.querySelectorAll(".pattern-overlay").forEach((el) => {
+          el.setAttribute("data-pattern", pattern);
+        });
+        document.getElementById("pattern-name").textContent = `Aktivt: ${pattern}`;
+        // Update button styles
+        document.querySelectorAll("[data-set-pattern]").forEach((b) => {
+          b.className =
+            "rounded border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100";
+        });
+        btn.className =
+          "rounded border border-brand-200 bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-800 hover:bg-brand-100";
+      });
+    });
+
+    update();
+  </script>
+</Layout>

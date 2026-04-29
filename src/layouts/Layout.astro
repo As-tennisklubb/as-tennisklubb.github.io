@@ -14,6 +14,7 @@ import HStack from "../components/primitives/HStack.astro";
 import VStack from "../components/primitives/VStack.astro";
 import HGrid from "../components/primitives/HGrid.astro";
 import Box from "../components/primitives/Box.astro";
+import WaveDivider from "../components/primitives/WaveDivider.astro";
 import Button from "../components/ui/Button.astro";
 import Link from "../components/ui/Link.astro";
 import Heading from "../components/ui/Heading.astro";
@@ -126,15 +127,15 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
     />
   </head>
 
-  <body class="bg-[var(--aastk-surface-default)] text-[var(--aastk-text-default)]">
+  <body class="bg-vignette bg-gray-100 text-[var(--aastk-text-default)] dark:bg-gray-950">
     <Page>
       {/* ───── Header ───── */}
       <header
         transition:name="site-header"
         transition:animate="none"
-        class="bg-[var(--aastk-surface-inverted)] text-white shadow-md"
+        class="relative z-10 bg-gray-900 text-white md:bg-transparent"
       >
-        <PageBlock width="2xl" gutters class="h-20">
+        <PageBlock width="2xl" gutters class="h-24">
           <HStack align="center" justify="space-between" class="h-full">
             <Link
               href={base}
@@ -145,15 +146,15 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
               <img
                 src={`${base}logo.svg`}
                 alt="Ås Tennisklubb"
-                class="h-16 w-auto"
-                width="66"
-                height="64"
+                class="h-20 w-auto"
+                width="82"
+                height="80"
                 fetchpriority="high"
               />
               <VStack class="leading-none">
-                <span class="text-lg font-bold tracking-wide text-white">Ås</span>
+                <span class="text-xl font-bold tracking-wide text-white">Ås</span>
                 <span
-                  class="text-xs font-medium tracking-[0.18em] text-[var(--aastk-text-on-brand-muted)] uppercase"
+                  class="text-sm font-medium tracking-[0.18em] text-[var(--aastk-text-on-brand-muted)] uppercase"
                 >
                   Tennisklubb
                 </span>
@@ -269,6 +270,7 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
       </main>
 
       {/* ───── Footer ───── */}
+      <WaveDivider color="var(--aastk-surface-inverted-active)" flip class="-mb-px" />
       <Box
         as="footer"
         class="bg-[var(--aastk-surface-inverted-active)] text-[var(--aastk-text-on-brand-muted)]"

@@ -8,6 +8,7 @@ categories:
   - padel
 draft: false
 ---
+
 Det skjer store ting i Idrettsveien. Etter måneder med planlegging og grunnarbeid er vi nå klare for neste steg: støping av baneunderlaget for de to nye padelbanene.
 
 Banene bygges rett ved tennisanlegget ved Ås stadion og blir fritt tilgjengelige for alle medlemmer gjennom sesongen. For klubben er dette en viktig milepæl – padel blir den tredje grenen i Ås Tennisklubb, og interessen har allerede vært stor.
