@@ -2,7 +2,7 @@ import sharp from "sharp";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-const categories = ["tennis", "padel", "bordtennis","404"];
+const categories = ["tennis", "padel", "bordtennis", "404"];
 const sizes = [480, 960, 1440, 1920];
 
 for (const category of categories) {
@@ -26,7 +26,7 @@ for (const category of categories) {
     const name = path.parse(file).name;
 
     for (const width of sizes) {
-      const height = Math.round(width * 9 / 16);
+      const height = Math.round((width * 9) / 16);
 
       const baseOutput = path.join(outputDir, `${name}-${width}`);
 

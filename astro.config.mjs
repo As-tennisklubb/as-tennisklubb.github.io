@@ -26,7 +26,11 @@ export default defineConfig({
         if (url === "https://aastk.no/") {
           item.priority = 1.0;
           item.changefreq = EnumChangefreq.WEEKLY;
-        } else if (/\/(baner|baner\/tennis|baner\/padel|baner\/bordtennis|nyheter|om-klubben|english|medlemskap|kontakt|arrangementer)\/$/.test(url)) {
+        } else if (
+          /\/(baner|baner\/tennis|baner\/padel|baner\/bordtennis|nyheter|om-klubben|english|medlemskap|kontakt|arrangementer)\/$/.test(
+            url,
+          )
+        ) {
           item.priority = 0.8;
           item.changefreq = EnumChangefreq.MONTHLY;
         } else {
