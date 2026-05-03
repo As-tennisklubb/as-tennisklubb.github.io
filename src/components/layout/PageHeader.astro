@@ -43,6 +43,7 @@ const {
   heroCategory,
   class: className,
 } = Astro.props;
+
 const heroImage = image ?? (heroCategory ? getRandomHeroImage(heroCategory) : undefined);
 const hasActions = Astro.slots.has("actions");
 
@@ -71,14 +72,39 @@ const styles = variantStyles[variant];
   {
     heroImage && (
       <>
-        <img
-          src={heroImage}
-          alt=""
-          aria-hidden="true"
-          data-hero-img
-          class="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
-          loading="eager"
-        />
+        <picture>
+          <source
+            type="image/avif"
+            srcset={`
+              ${heroImage}-480.avif 480w,
+              ${heroImage}-960.avif 960w,
+              ${heroImage}-1440.avif 1440w,
+              ${heroImage}-1920.avif 1920w
+            `}
+            sizes="100vw"
+          />
+          <source
+            type="image/webp"
+            srcset={`
+              ${heroImage}-480.webp 480w,
+              ${heroImage}-960.webp 960w,
+              ${heroImage}-1440.webp 1440w,
+              ${heroImage}-1920.webp 1920w
+            `}
+            sizes="100vw"
+          />
+          <img
+            src={`${heroImage}-1440.webp`}
+            alt=""
+            aria-hidden="true"
+            data-hero-img
+            class="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
+        </picture>
+
         <div class="absolute inset-0 bg-gray-900/20" aria-hidden="true" />
         <div
           class="absolute inset-0 bg-gradient-to-r from-gray-900 via-gray-900/60 to-transparent"
@@ -87,9 +113,11 @@ const styles = variantStyles[variant];
       </>
     )
   }
+
   <PageBlock width="xl" gutters class="relative">
     <VStack gap={styles.gap} align="start">
       <Heading level={1} size="xlarge" dataColor="inverted">{title}</Heading>
+
       {
         description && (
           <BodyLong size="large" class="max-w-[65ch] text-[var(--aastk-text-on-brand-muted)]">
@@ -97,6 +125,7 @@ const styles = variantStyles[variant];
           </BodyLong>
         )
       }
+
       {hasActions && <slot name="actions" />}
     </VStack>
   </PageBlock>

@@ -14,7 +14,8 @@
     "lint:design": "node scripts/design-lint.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "eslint . && prettier --check . && node scripts/design-lint.js"
+    "check": "eslint . && prettier --check . && node scripts/design-lint.js",
+    "images:hero": "node scripts/build-hero-images.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.7",
@@ -38,6 +39,7 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
+    "sharp": "^0.34.5",
     "typescript": "^6.0.3"
   }
 }

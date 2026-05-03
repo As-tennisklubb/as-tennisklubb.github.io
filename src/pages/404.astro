@@ -4,9 +4,9 @@ import { SearchX } from "@lucide/astro";
 import Button from "../components/ui/Button.astro";
 import Heading from "../components/ui/Heading.astro";
 import BodyLong from "../components/ui/BodyLong.astro";
+import PageHeader from "../components/layout/PageHeader.astro";
 import PageBlock from "../components/primitives/PageBlock.astro";
 import VStack from "../components/primitives/VStack.astro";
-import Box from "../components/primitives/Box.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -16,34 +16,29 @@ const base = import.meta.env.BASE_URL;
   description="Siden du leter etter finnes ikke. Finn frem til riktig sted på Ås Tennisklubb."
   noindex
 >
-  {/* ───── Hovedblokk ───── */}
-  <Box as="section" class="bg-[var(--aastk-surface-inverted)] py-16 text-white md:py-24">
-    <PageBlock width="xl" gutters>
-      <VStack gap="6" align="center" class="text-center">
-        <div class="flex items-center gap-3">
-          <p class="text-5xl font-bold text-[var(--aastk-text-on-brand-muted)]" aria-hidden="true">
-            404
-          </p>
-          <SearchX class="h-12 w-12 text-[var(--aastk-text-on-brand-muted)]" aria-hidden="true" />
-        </div>
-        <Heading level={1} size="large" dataColor="inverted">Siden finnes ikke</Heading>
-        <BodyLong size="large" class="max-w-md text-[var(--aastk-text-on-brand-muted)]">
-          Ballen havnet utenfor banen. Siden du leter etter eksisterer ikke eller har blitt flyttet.
-        </BodyLong>
-        <Button href={base} variant="secondary" dataColor="inverted">Gå til forsiden →</Button>
-      </VStack>
-    </PageBlock>
-  </Box>
+  {/* ───── Toppseksjon ───── */}
+  <PageHeader
+    title="Siden finnes ikke"
+    description="Ballen havnet utenfor banen. Siden du leter etter eksisterer ikke eller har blitt flyttet."
+    heroCategory="404"
+  >
+    <div slot="actions" class="flex flex-wrap items-center gap-4">
+      <Button href={base} variant="secondary" dataColor="inverted">Gå til forsiden →</Button>
+    </div>
+  </PageHeader>
 
   {/* ───── Sitat ───── */}
   <section>
     <PageBlock width="xl" gutters>
       <VStack gap="3" align="center" class="py-12 text-center md:py-16">
+        <Heading level={2} size="medium" dataColor="brand">Et lite tennisord på veien</Heading>
+
         <blockquote
           class="max-w-xl border-l-4 [border-color:var(--aastk-border-brand-strong)] pl-5"
         >
           <p id="quote-text" class="text-body text-lg leading-relaxed italic"></p>
         </blockquote>
+
         <p id="quote-author" class="text-sm font-medium text-[var(--aastk-text-brand)]"></p>
       </VStack>
     </PageBlock>
@@ -51,7 +46,7 @@ const base = import.meta.env.BASE_URL;
 </Layout>
 
 <script>
-  const quotes = [
+const quotes = [
     {
       text: "Tennis is 90% mental. You win or lose the match before you even go out there.",
       author: "Venus Williams",
