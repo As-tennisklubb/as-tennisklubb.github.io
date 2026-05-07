@@ -41,8 +41,6 @@ const formattedDate = post.data.date.toLocaleDateString("nb-NO", {
 
 <Layout title={`${post.data.title} – Ås Tennisklubb`} description={ingress}>
   <DetailPageLayout>
-    <Link slot="back" href={`${base}nyheter`} class="text-muted text-sm"> ← Alle nyheter </Link>
-
     {/* ───── Badges + tittel ───── */}
     <div>
       <div class="mb-3 flex flex-wrap items-center gap-2">
@@ -92,13 +90,5 @@ const formattedDate = post.data.date.toLocaleDateString("nb-NO", {
         </div>
       )
     }
-
-    {/* ───── Navigasjon ───── */}
-    <nav
-      class="flex flex-wrap items-center gap-4 border-t [border-color:var(--aastk-border-subtle)] pt-6"
-    >
-      <Link href={`${base}nyheter`} class="text-sm"> ← Alle nyheter </Link>
-      <Link href={base} class="text-sm"> Til forsiden </Link>
-    </nav>
   </DetailPageLayout>
 </Layout>
