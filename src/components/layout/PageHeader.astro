@@ -49,11 +49,11 @@ const hasActions = Astro.slots.has("actions");
 
 const variantStyles: Record<Variant, { box: string; gap: string }> = {
   hero: {
-    box: "py-16 md:py-40",
+    box: "min-h-[420px] py-16 md:min-h-[560px] md:py-32",
     gap: "6",
   },
   compact: {
-    box: "py-16 md:py-40",
+    box: "min-h-[340px] py-14 md:min-h-[460px] md:py-28",
     gap: "6",
   },
 };
@@ -98,7 +98,7 @@ const styles = variantStyles[variant];
             alt=""
             aria-hidden="true"
             data-hero-img
-            class="pointer-events-none absolute inset-0 h-full w-full object-cover select-none"
+            class="pointer-events-none absolute inset-0 h-full w-full object-cover object-[65%_50%] select-none"
             loading="eager"
             decoding="async"
             fetchpriority="high"
