@@ -1,16 +1,13 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import PageHeader from "../../components/layout/PageHeader.astro";
 import Heading from "../../components/ui/Heading.astro";
-import Link from "../../components/ui/Link.astro";
-import Button from "../../components/ui/Button.astro";
 import SportBadge from "../../components/ui/SportBadge.astro";
-import PageBlock from "../../components/primitives/PageBlock.astro";
-import VStack from "../../components/primitives/VStack.astro";
 import Prose from "../../components/ui/Prose.astro";
+import DetailPageLayout from "../../components/layout/DetailPageLayout.astro";
 import { fetchUpcomingEvents } from "../../lib/events/fetchEvents";
-import { formatPresentation, formatSignupStatus } from "../../lib/events/formatEvent";
+import { formatDateRange } from "../../lib/events/formatEvent";
 import { renderTiptapJson } from "../../lib/events/renderTiptapJson";
+import type { PublicClubEvent } from "../../lib/events/mapPublicEvent";
 
 export async function getStaticPaths() {
   const events = await fetchUpcomingEvents();
@@ -21,94 +18,166 @@ export async function getStaticPaths() {
 }
 
 const { event } = Astro.props;
-const base = import.meta.env.BASE_URL;
-const pLines = formatPresentation(event.presentation);
-const showCategory = event.category !== event.title;
-const signupStatus = formatSignupStatus(event.allowsSignup, event.signupCount);
 const cleanDescription = renderTiptapJson(event.description);
 const sport = (["tennis", "bordtennis", "padel"] as const).includes(event.grenSlug as any)
   ? (event.grenSlug as "tennis" | "bordtennis" | "padel")
   : undefined;
+const showCategory = event.category !== event.title;
+const dateRange = formatDateRange(event.startDate, event.endDate);
+
+// ── Generer programliste fra weekday-mønster ──────────────────────────────
+const WEEKDAY_ISO: Record<string, number> = {
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+  Sunday: 0,
+};
+
+function parseLocalDate(s: string): Date {
+  const [y, m, d] = s.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+
+function formatDatoMedUkedag(date: Date): string {
+  return date.toLocaleDateString("nb-NO", { weekday: "long", day: "numeric", month: "long" });
+}
+
+type ProgramDay = { label: string; slots: { tid: string; baner: string }[] };
+type BaneGruppe = { baner: string; tider: string[] };
+
+function grupperSlots(slots: { tid: string; baner: string }[]): BaneGruppe[] {
+  const map = new Map<string, string[]>();
+  for (const { tid, baner } of slots) {
+    if (!map.has(baner)) map.set(baner, []);
+    map.get(baner)!.push(tid);
+  }
+  return Array.from(map.entries()).map(([baner, tider]) => ({ baner, tider }));
+}
+
+function byggProgram(event: PublicClubEvent): ProgramDay[] {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const end = parseLocalDate(event.endDate);
+
+  const weekdayIsos = new Set(event.weekdays.map((w) => WEEKDAY_ISO[w] ?? -1));
+
+  // Collect all upcoming matching dates
+  const days: ProgramDay[] = [];
+  const cursor = new Date(Math.max(today.getTime(), parseLocalDate(event.startDate).getTime()));
+
+  while (cursor <= end && days.length < 12) {
+    const dow = cursor.getDay(); // 0=Sun
+    if (weekdayIsos.has(dow)) {
+      const label = formatDatoMedUkedag(new Date(cursor));
+
+      // Build slots per court group
+      const slots: { tid: string; baner: string }[] = [];
+      for (const g of event.courtGroups) {
+        const baneNavn = g.courtNames.sort().join(", ");
+        for (const t of g.times) {
+          const [h, m] = t.split(":").map(Number);
+          const sluttH = Math.floor((h * 60 + m + g.slotLengthMinutes) / 60);
+          const sluttM = (h * 60 + m + g.slotLengthMinutes) % 60;
+          const sluttStr = `${String(sluttH).padStart(2, "0")}:${String(sluttM).padStart(2, "0")}`;
+          slots.push({
+            tid: `${t.slice(0, 5)}–${sluttStr}`,
+            baner: baneNavn,
+          });
+        }
+      }
+      slots.sort((a, b) => a.tid.localeCompare(b.tid));
+
+      if (slots.length > 0) days.push({ label, slots });
+    }
+    cursor.setDate(cursor.getDate() + 1);
+  }
+
+  return days;
+}
+
+// For single-date or irregular events just show one entry
+const program: ProgramDay[] = event.weekdays.length > 0 ? byggProgram(event) : [];
+const harAvvik = event.hasDeviatingSlots;
 ---
 
 <Layout
   title={`${event.title} – Ås Tennisklubb`}
   description={`${event.category} – ${event.title}`}
 >
-  <PageHeader
-    title={event.title}
-    description={`${event.category}`}
-    heroCategory={sport ?? "tennis"}
-  />
-  <PageBlock width="md" gutters>
-    <VStack gap="6" class="py-10">
-      {/* ───── Tilbake-lenke ───── */}
-      <Link href={`${base}arrangementer`} class="text-sm"> ← Tilbake til arrangementer </Link>
-
-      {/* ───── Metadata ───── */}
-      <div class="border-b [border-color:var(--aastk-border-subtle)] pb-6">
-        <div class="mb-3 flex flex-wrap items-center gap-3">
-          {sport && <SportBadge sport={sport} />}
-          <span
-            class="rounded-full bg-brand-100 px-3 py-1 text-sm font-medium text-brand-800 dark:bg-brand-900 dark:text-brand-200"
-          >
-            {pLines.date}
-          </span>
-          {
-            showCategory && (
-              <span class="rounded-full bg-[var(--aastk-surface-subtle)] px-3 py-1 text-sm font-medium text-[var(--aastk-text-body)]">
-                {event.category}
-              </span>
-            )
-          }
-        </div>
-        <VStack gap="1" class="text-muted text-sm">
-          {
-            pLines.schedule && (
-              <p>
-                {pLines.schedule}
-                {event.presentation.hasDeviatingSlots && " (varierer)"}
-              </p>
-            )
-          }
-          {pLines.courts && <p>{pLines.courts}</p>}
-          {
-            event.allowsSignup ? (
-              <p class="text-[var(--aastk-text-brand)]">{signupStatus}</p>
-            ) : (
-              <p>{signupStatus}</p>
-            )
-          }
-        </VStack>
+  <DetailPageLayout>
+    {/* ── Badges + tittel ── */}
+    <div>
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        {sport && <SportBadge sport={sport} />}
+        {
+          showCategory && (
+            <span class="rounded-full bg-[var(--aastk-surface-subtle)] px-3 py-1 text-xs font-medium text-[var(--aastk-text-muted)]">
+              {event.category}
+            </span>
+          )
+        }
       </div>
+      <Heading level={1} size="large">{event.title}</Heading>
+      <p class="text-muted mt-2 text-sm">{dateRange}</p>
+    </div>
 
-      {/* ───── Beskrivelse ───── */}
-      {
-        cleanDescription && (
-          <Prose>
-            <Fragment set:html={cleanDescription} />
-          </Prose>
-        )
-      }
+    {/* ── Program ── */}
+    {
+      program.length > 0 && (
+        <section class="border-t [border-color:var(--aastk-border-subtle)] pt-6">
+          <details class="group rounded-xl border [border-color:var(--aastk-border-subtle)] bg-[var(--aastk-surface-subtle)] transition-colors">
+            <summary class="flex cursor-pointer list-none items-start justify-between gap-4 px-5 py-4 [&::-webkit-details-marker]:hidden">
+              <div>
+                <p class="text-muted text-xs font-semibold tracking-wide uppercase">Program</p>
+                <p class="text-body mt-1 text-sm">Se kommende tider og baner for arrangementet.</p>
+              </div>
 
-      {/* ───── Påmelding ───── */}
-      {
-        event.allowsSignup && (
-          <div class="border-t [border-color:var(--aastk-border-subtle)] pt-6">
-            <Button href={event.bookingUrl} target="_blank" rel="noopener noreferrer">
-              Meld deg på
-            </Button>
-          </div>
-        )
-      }
+              <span class="shrink-0 text-sm font-semibold [color:var(--aastk-link-default)] hover:[color:var(--aastk-link-hover)]">
+                <span class="group-open:hidden">Vis tider</span>
+                <span class="hidden group-open:inline">Skjul tider</span>
+              </span>
+            </summary>
 
-      {/* ───── Navigasjon ───── */}
-      <nav
-        class="flex flex-wrap items-center gap-4 border-t [border-color:var(--aastk-border-subtle)] pt-6"
-      >
-        <Link href={`${base}arrangementer`} class="text-sm"> ← Alle arrangementer </Link>
-        <Link href={base} class="text-sm"> Til forsiden </Link>
-      </nav>
-    </VStack>
-  </PageBlock>
+            <div class="border-t [border-color:var(--aastk-border-subtle)] px-5 pt-4 pb-5">
+              {harAvvik && <p class="text-muted mb-5 text-sm">Noen tidspunkter kan avvike.</p>}
+
+              <div class="grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
+                {program.map(({ label, slots }) => (
+                  <section>
+                    <h3 class="text-heading text-sm font-semibold capitalize">{label}</h3>
+
+                    <div class="mt-3 space-y-4">
+                      {grupperSlots(slots).map(({ baner, tider }) => (
+                        <div>
+                          <p class="text-muted text-xs font-medium">{baner}</p>
+
+                          <div class="mt-1 space-y-0.5">
+                            {tider.map((tid) => (
+                              <p class="text-body text-sm leading-snug tabular-nums">{tid}</p>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            </div>
+          </details>
+        </section>
+      )
+    }
+
+    {/* ── Beskrivelse ── */}
+    {
+      cleanDescription && (
+        <Prose>
+          <Fragment set:html={cleanDescription} />
+        </Prose>
+      )
+    }
+  </DetailPageLayout>
 </Layout>

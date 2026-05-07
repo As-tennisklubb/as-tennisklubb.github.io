@@ -1,5 +1,3 @@
-import type { EventPresentation } from "./mapPublicEvent";
-
 function parseLocalDate(dateStr: string): Date {
   const [year, month, day] = dateStr.split("-").map(Number);
   return new Date(year, month - 1, day);
@@ -43,13 +41,6 @@ export function formatNaturalList(items: string[]): string {
   if (items.length === 0) return "";
   if (items.length === 1) return items[0];
   return items.slice(0, -1).join(", ") + " og " + items[items.length - 1];
-}
-
-export function formatSignupStatus(allowsSignup: boolean, signupCount: number): string {
-  if (!allowsSignup) return "";
-  if (signupCount === 0) return "Påmelding åpen";
-  if (signupCount === 1) return "1 påmeldt";
-  return `${signupCount} påmeldte`;
 }
 
 // ─────────── Presentasjon-basert formatering ───────────
@@ -107,29 +98,4 @@ function formatWeekdayRange(weekdays: string[]): string {
   }
 
   return formatNaturalList(names);
-}
-
-export type PresentationLines = {
-  date: string;
-  schedule: string;
-  courts: string;
-};
-
-export function formatPresentation(p: EventPresentation): PresentationLines {
-  const date = formatCompactDateRange(p.startDate, p.endDate);
-
-  const weekdayPart = formatWeekdayRange(p.weekdays);
-  const times = p.times.map((t) => t.substring(0, 5));
-  const timePart = times.length > 0 ? "kl.\u00a0" + formatNaturalList(times) : "";
-
-  let schedule: string;
-  if (weekdayPart && timePart) {
-    schedule = `${weekdayPart} \u00b7 ${timePart}`;
-  } else {
-    schedule = weekdayPart || timePart;
-  }
-
-  const courts = formatNaturalList(p.courtNames);
-
-  return { date, schedule, courts };
 }

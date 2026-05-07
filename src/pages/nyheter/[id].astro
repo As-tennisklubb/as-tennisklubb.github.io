@@ -1,16 +1,13 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import PageHeader from "../../components/layout/PageHeader.astro";
 import Heading from "../../components/ui/Heading.astro";
 import BodyLong from "../../components/ui/BodyLong.astro";
 import Link from "../../components/ui/Link.astro";
-import PageBlock from "../../components/primitives/PageBlock.astro";
-import VStack from "../../components/primitives/VStack.astro";
-import HStack from "../../components/primitives/HStack.astro";
+import SportBadge from "../../components/ui/SportBadge.astro";
 import Prose from "../../components/ui/Prose.astro";
-import ArticleMeta from "../../components/content/ArticleMeta.astro";
 import AttachmentList from "../../components/content/AttachmentList.astro";
+import DetailPageLayout from "../../components/layout/DetailPageLayout.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("news");
@@ -24,9 +21,18 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 const base = import.meta.env.BASE_URL;
-const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
 const ingress = post.data.ingress ?? post.data.description;
-const formattedDate = post.data.date.toLocaleDateString("no-NO", {
+
+const sportSlugs = ["tennis", "bordtennis", "padel"] as const;
+type Sport = (typeof sportSlugs)[number];
+const categories = post.data.categories?.filter((c) => c !== "ukategorisert") ?? [];
+const sport = categories.find((c): c is Sport =>
+  (sportSlugs as readonly string[]).includes(c.toLowerCase()),
+);
+const otherCategories = categories.filter(
+  (c) => !(sportSlugs as readonly string[]).includes(c.toLowerCase()),
+);
+const formattedDate = post.data.date.toLocaleDateString("nb-NO", {
   day: "numeric",
   month: "long",
   year: "numeric",
@@ -34,61 +40,65 @@ const formattedDate = post.data.date.toLocaleDateString("no-NO", {
 ---
 
 <Layout title={`${post.data.title} – Ås Tennisklubb`} description={ingress}>
-  <PageHeader title={post.data.title} description={ingress} heroCategory="tennis" />
-  <PageBlock width="md" gutters>
-    <VStack gap="6" class="py-10">
-      {/* ───── Tilbake-lenke ───── */}
+  <DetailPageLayout>
+    <Link slot="back" href={`${base}nyheter`} class="text-muted text-sm"> ← Alle nyheter </Link>
+
+    {/* ───── Badges + tittel ───── */}
+    <div>
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        {sport && <SportBadge sport={sport} />}
+        {
+          otherCategories.map((c) => (
+            <span class="rounded-full bg-[var(--aastk-surface-subtle)] px-3 py-1 text-xs font-medium text-[var(--aastk-text-muted)]">
+              {c}
+            </span>
+          ))
+        }
+      </div>
+      <Heading level={1} size="large">{post.data.title}</Heading>
+      <p class="text-muted mt-2 text-sm">{formattedDate}</p>
+    </div>
+
+    {/* ───── Cover-bilde ───── */}
+    {
+      post.data.cover && (
+        <div class="overflow-hidden rounded-xl">
+          <img
+            src={post.data.cover}
+            alt={post.data.title}
+            class="max-h-96 w-full object-cover"
+            loading="lazy"
+          />
+        </div>
+      )
+    }
+
+    {/* ───── Ingress ───── */}
+    {ingress && <BodyLong class="text-body text-lg">{ingress}</BodyLong>}
+
+    {/* ───── Innhold ───── */}
+    <Prose>
+      <Content />
+    </Prose>
+
+    {/* ───── Vedlegg ───── */}
+    {
+      post.data.attachments && post.data.attachments.length > 0 && (
+        <div class="border-t [border-color:var(--aastk-border-subtle)] pt-6">
+          <Heading level={2} size="small" class="mb-4">
+            Vedlegg
+          </Heading>
+          <AttachmentList attachments={post.data.attachments.map((url) => ({ url }))} />
+        </div>
+      )
+    }
+
+    {/* ───── Navigasjon ───── */}
+    <nav
+      class="flex flex-wrap items-center gap-4 border-t [border-color:var(--aastk-border-subtle)] pt-6"
+    >
       <Link href={`${base}nyheter`} class="text-sm"> ← Alle nyheter </Link>
-
-      {/* ───── Metadata ───── */}
-      <ArticleMeta
-        date={formattedDate}
-        author={post.data.author}
-        categories={categories}
-        class="border-b [border-color:var(--aastk-border-subtle)] pb-6"
-      />
-
-      {/* ───── Cover-bilde ───── */}
-      {
-        post.data.cover && (
-          <div class="overflow-hidden rounded-xl">
-            <img
-              src={post.data.cover}
-              alt={post.data.title}
-              class="max-h-96 w-full object-cover"
-              loading="lazy"
-            />
-          </div>
-        )
-      }
-
-      {/* ───── Ingress ───── */}
-      {ingress && <BodyLong class="text-body text-lg">{ingress}</BodyLong>}
-
-      {/* ───── Innhold ───── */}
-      <Prose>
-        <Content />
-      </Prose>
-
-      {/* ───── Vedlegg ───── */}
-      {
-        post.data.attachments && post.data.attachments.length > 0 && (
-          <div class="border-t [border-color:var(--aastk-border-subtle)] pt-6">
-            <Heading level={2} size="small" class="mb-4">
-              Vedlegg
-            </Heading>
-            <AttachmentList attachments={post.data.attachments.map((url) => ({ url }))} />
-          </div>
-        )
-      }
-
-      {/* ───── Navigasjon ───── */}
-      <nav
-        class="flex flex-wrap items-center gap-4 border-t [border-color:var(--aastk-border-subtle)] pt-6"
-      >
-        <Link href={`${base}nyheter`} class="text-sm"> ← Alle nyheter </Link>
-        <Link href={base} class="text-sm"> Til forsiden </Link>
-      </nav>
-    </VStack>
-  </PageBlock>
+      <Link href={base} class="text-sm"> Til forsiden </Link>
+    </nav>
+  </DetailPageLayout>
 </Layout>

@@ -321,6 +321,9 @@ body {
  * dark mode og brand-oppdateringer.
  * ========================================================= */
 .prose {
+  --tw-prose-body: var(--aastk-text-body);
+  --tw-prose-headings: var(--aastk-text-default);
+  --tw-prose-bold: var(--aastk-text-default);
   --tw-prose-links: var(--aastk-link-default);
   --tw-prose-quote-borders: var(--aastk-border-brand-strong);
   --tw-prose-th-borders: var(--aastk-border-brand-subtle);

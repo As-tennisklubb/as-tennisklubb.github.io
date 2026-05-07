@@ -1,0 +1,40 @@
+---
+/**
+ * DetailPageLayout – Felles layout for nyhets- og arrangementdetaljsider.
+ *
+ * Tilbyr:
+ * - PageBlock width="lg" med gutters
+ * - Valgfri tilbake-lenke utenfor kortflaten (slot="back")
+ * - Lett raised content-flate (surface-raised + subtil border)
+ * - VStack gap-8 for innholdsblokkene
+ *
+ * Slots:
+ *   back    – Tilbake-lenke (valgfri, vises utenfor kortflaten)
+ *   default – Sidens innhold
+ */
+import PageBlock from "../primitives/PageBlock.astro";
+import VStack from "../primitives/VStack.astro";
+
+const hasBack = Astro.slots.has("back");
+---
+
+<PageBlock width="lg" gutters>
+  <div class="py-6 md:py-10">
+    {
+      hasBack && (
+        <div class="mb-5">
+          <slot name="back" />
+        </div>
+      )
+    }
+
+    {/* Raised content-flate */}
+    <div
+      class="rounded-xl border [border-color:var(--aastk-border-default)] bg-[var(--aastk-surface-raised)] p-6 md:p-10"
+    >
+      <VStack gap="8">
+        <slot />
+      </VStack>
+    </div>
+  </div>
+</PageBlock>

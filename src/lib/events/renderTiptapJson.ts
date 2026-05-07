@@ -140,6 +140,11 @@ function renderNode(node: TiptapNode): string {
       return `<th>${renderCellContent(node)}</th>`;
     case "tableCell":
       return `<td>${renderCellContent(node)}</td>`;
+    case "heading": {
+      const level = Math.min(Math.max((node.attrs?.level as number) ?? 2, 1), 6);
+      const tag = `h${level}`;
+      return `<${tag}>${renderChildren(node)}</${tag}>`;
+    }
     case "hardBreak":
       return "<br>";
     default:
@@ -157,6 +162,32 @@ export function renderTiptapJson(json: string | undefined | null): string {
   try {
     const doc = JSON.parse(json) as TiptapNode;
     return renderNode(doc);
+  } catch {
+    return "";
+  }
+}
+
+/**
+ * Extracts a plain-text teaser from a Tiptap JSON string.
+ * Returns the first non-empty paragraph node's text, stripped of marks.
+ * Skips blockquotes, lists, tables, and empty paragraphs.
+ */
+function plainText(node: TiptapNode): string {
+  if (node.type === "text") return node.text ?? "";
+  return (node.content ?? []).map(plainText).join("");
+}
+
+export function extractTiptapTeaser(json: string | undefined | null): string {
+  if (!json) return "";
+  try {
+    const doc = JSON.parse(json) as TiptapNode;
+    for (const node of doc.content ?? []) {
+      if (node.type === "paragraph") {
+        const text = plainText(node).trim();
+        if (text) return text;
+      }
+    }
+    return "";
   } catch {
     return "";
   }

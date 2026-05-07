@@ -27,6 +27,13 @@ interface Props {
   ogImageAlt?: string;
   noindex?: boolean;
   languageAlternates?: Array<{ href: string; hrefLang: string }>;
+  /**
+   * heroLayout – sett til true på sider som bruker PageHeader.
+   * Gjør headeren gjennomsiktig på desktop slik at hero-bildet
+   * kan vises bak navigasjonslinjen.
+   * Default false = solid mørk header på alle skjermstørrelser.
+   */
+  heroLayout?: boolean;
 }
 
 const {
@@ -37,6 +44,7 @@ const {
   ogImageAlt,
   noindex = false,
   languageAlternates,
+  heroLayout = false,
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
@@ -133,7 +141,7 @@ const isActive = (href: string) => pathname.startsWith(`/${href}`);
       <header
         transition:name="site-header"
         transition:animate="none"
-        class="relative z-10 bg-gray-900 text-white md:bg-transparent"
+        class={`relative z-10 bg-gray-900 text-white${heroLayout ? " md:bg-transparent" : ""}`}
       >
         <PageBlock width="2xl" gutters class="h-24">
           <HStack align="center" justify="space-between" class="h-full">
