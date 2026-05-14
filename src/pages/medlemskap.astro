@@ -79,19 +79,23 @@ const priser = [
             valueHeader="Pris"
           />
 
-          <InfoCard dataColor="brand" title="Betaling">
-            <p>
-              Betal til <strong class="text-heading">konto 1100 44 76109</strong>
-              eller
-              <strong class="text-heading">
-                Vipps Ås Tennisklubb #14506
-              </strong>.
-            </p>
-
-            <p>
-              Merk betalingen med navn og type medlemskap.
-              For familiemedlemskap: skriv navn på alle i familien.
-            </p>
+           <InfoCard dataColor="brand" title="Betaling">
+            <VStack gap="3">
+              <div>
+                <strong class="text-heading">Vipps</strong><br />
+                #14506 – Ås Tennisklubb
+              </div>
+          
+              <div>
+                <strong class="text-heading">Konto</strong><br />
+                1100 44 76109
+              </div>
+          
+              <div class="text-sm text-muted">
+                Merk betalingen med navn og type medlemskap.
+                Ved familiemedlemskap: skriv navn på alle i familien.
+              </div>
+            </VStack>
           </InfoCard>
         </VStack>
       </PageBlock>
