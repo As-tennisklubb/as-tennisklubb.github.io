@@ -28,16 +28,13 @@ const priser = [
   description="Bli medlem av Ås Tennisklubb – se priser, fordeler og betalingsinfo."
   heroLayout
 >
-  {/* ───── Toppseksjon ───── */}
   <PageHeader
     title="Medlemskap"
     description="Alle er velkomne – uansett alder, kjønn og nivå."
     heroCategory="tennis"
   />
 
-  {/* ───── Sideinnhold ───── */}
   <VStack gap="12" paddingBlock="6" class="md:gap-16 md:pb-16">
-    {/* Hva får du som medlem */}
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
@@ -66,7 +63,6 @@ const priser = [
       </PageBlock>
     </section>
 
-    {/* Priser og betaling */}
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="6">
@@ -90,18 +86,17 @@ const priser = [
               <strong class="text-heading">
                 Vipps Ås Tennisklubb #14506
               </strong>.
-              Merk med <em>navn og type medlemskap</em>.
             </p>
 
             <p>
-              Du får også tilgang til banebooking og klubbhus via Yale Home-appen.
+              Merk betalingen med navn og type medlemskap.
+              For familiemedlemskap: skriv navn på alle i familien.
             </p>
           </InfoCard>
         </VStack>
       </PageBlock>
     </section>
 
-    {/* Ny medlem */}
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="6">
@@ -117,24 +112,9 @@ const priser = [
             <ProcessEvent title="Betal kontingenten" status="active">
               <Fragment slot="bullet">1</Fragment>
 
-              <p>Velg Vipps eller bankoverføring:</p>
-
-              <List as="ul" size="small">
-                <ListItem>
-                  Vipps: <strong>#14506</strong> til Ås Tennisklubb
-                </ListItem>
-
-                <ListItem>
-                  Konto: <strong>1100 44 76109</strong>
-                </ListItem>
-              </List>
-
               <p>
-                Husk å merke betalingen med navn og type medlemskap.
-              </p>
-
-              <p>
-                For familiemedlemskap: skriv navn på alle i familien.
+                Betal medlemskontingenten med Vipps eller bankoverføring,
+                se betalingsinformasjon over.
               </p>
             </ProcessEvent>
 
@@ -142,7 +122,7 @@ const priser = [
               <Fragment slot="bullet">2</Fragment>
 
               <p>
-                Dette er obligatorisk for alle medlemmer.
+                Innmelding i Min idrett er obligatorisk for alle medlemmer.
               </p>
 
               <p>
@@ -179,7 +159,6 @@ const priser = [
       </PageBlock>
     </section>
 
-    {/* Forny medlemskap */}
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="2">
@@ -188,8 +167,7 @@ const priser = [
           </Heading>
 
           <BodyLong size="small">
-            Allerede medlem? Betal kontingent for å fornye – Yale Home-tilgangen
-            oppdateres automatisk.
+            Allerede medlem? Betal kontingent for å fornye medlemskapet.
           </BodyLong>
         </VStack>
       </PageBlock>
