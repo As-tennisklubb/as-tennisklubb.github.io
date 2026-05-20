@@ -12,7 +12,7 @@ Klubben har nylig tatt i bruk **Banebooking v2**, en ny versjon av bookingsystem
 
 Den gamle løsningen hadde vært i bruk i mange år og fungerte i praksis bra, men teknologien den var bygget på begynte etter hvert å bli utdatert. Det gjorde det mer krevende å gjøre endringer, rette feil og legge til nye funksjoner. Derfor ble det besluttet å utvikle en ny løsning basert på mer moderne teknologi.
 
-Den nye løsningen er bygget på en moderne teknologistakk. Nettsiden kjører på **GitHub Pages**, som gjør at selve websiden publiseres direkte fra kildekoden i GitHub. Backend-tjenestene som håndterer bookinglogikk og API-kall kjøres på [**Fly.io**](http://Fly.io), mens data som brukere, baner og reservasjoner lagres i **Supabase**, som er en skybasert databaseplattform.
+Den nye løsningen er bygget på en moderne teknologistakk. Bookingappen kjører på **Cloudflare Pages** med egendefinert domene [banebooking.aastk.no](https://banebooking.aastk.no/aas-tennisklubb). Backend-tjenestene som håndterer bookinglogikk og API-kall kjøres på [**Fly.io**](http://Fly.io), mens data som brukere, baner og reservasjoner lagres i **Supabase**, som er en skybasert databaseplattform.
 
 Denne oppdelingen gjør systemet enklere å drifte og videreutvikle fremover. Samtidig gjør det det mulig å bygge videre på løsningen dersom klubben på sikt ønsker nye funksjoner eller integrasjoner.
 
