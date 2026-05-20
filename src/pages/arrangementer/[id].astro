@@ -25,28 +25,55 @@ const sport = (["tennis", "bordtennis", "padel"] as const).includes(event.grenSl
 const showCategory = event.category !== event.title;
 const dateRange = formatDateRange(event.startDate, event.endDate);
 
-// ── Generer programliste fra weekday-mønster ──────────────────────────────
-const WEEKDAY_ISO: Record<string, number> = {
-  Monday: 1,
-  Tuesday: 2,
-  Wednesday: 3,
-  Thursday: 4,
-  Friday: 5,
-  Saturday: 6,
-  Sunday: 0,
-};
-
-function parseLocalDate(s: string): Date {
-  const [y, m, d] = s.split("-").map(Number);
-  return new Date(y, m - 1, d);
-}
-
-function formatDatoMedUkedag(date: Date): string {
-  return date.toLocaleDateString("nb-NO", { weekday: "long", day: "numeric", month: "long" });
+// ── Bygg programliste fra faktiske bookinger per dag ──────────────────────
+function formatDatoMedUkedag(isoDate: string): string {
+  const [y, m, d] = isoDate.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("nb-NO", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
 }
 
 type ProgramDay = { label: string; slots: { tid: string; baner: string }[] };
 type BaneGruppe = { baner: string; tider: string[] };
+
+// Fallback: reconstruct schedule from weekday pattern (used when API hasn't been redeployed yet)
+const WEEKDAY_ISO: Record<string, number> = {
+  Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6, Sunday: 0,
+};
+
+function byggProgramFraUkedager(ev: PublicClubEvent): ProgramDay[] {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const [ey, em, ed] = ev.endDate.split("-").map(Number);
+  const end = new Date(ey, em - 1, ed);
+  const [sy, sm, sd] = ev.startDate.split("-").map(Number);
+  const startDate = new Date(sy, sm - 1, sd);
+  const weekdayIsos = new Set(ev.weekdays.map((w) => WEEKDAY_ISO[w] ?? -1));
+  const days: ProgramDay[] = [];
+  const cursor = new Date(Math.max(today.getTime(), startDate.getTime()));
+  while (cursor <= end && days.length < 12) {
+    if (weekdayIsos.has(cursor.getDay())) {
+      const isoDate = `${cursor.getFullYear()}-${String(cursor.getMonth() + 1).padStart(2, "0")}-${String(cursor.getDate()).padStart(2, "0")}`;
+      const label = formatDatoMedUkedag(isoDate);
+      const slots: { tid: string; baner: string }[] = [];
+      for (const g of ev.courtGroups) {
+        const baneNavn = [...g.courtNames].sort().join(", ");
+        for (const t of g.times) {
+          const [h, m] = t.split(":").map(Number);
+          const endMin = h * 60 + m + g.slotLengthMinutes;
+          const sluttStr = `${String(Math.floor(endMin / 60)).padStart(2, "0")}:${String(endMin % 60).padStart(2, "0")}`;
+          slots.push({ tid: `${t.slice(0, 5)}\u2013${sluttStr}`, baner: baneNavn });
+        }
+      }
+      slots.sort((a, b) => a.tid.localeCompare(b.tid));
+      if (slots.length > 0) days.push({ label, slots });
+    }
+    cursor.setDate(cursor.getDate() + 1);
+  }
+  return days;
+}
 
 function grupperSlots(slots: { tid: string; baner: string }[]): BaneGruppe[] {
   const map = new Map<string, string[]>();
@@ -57,50 +84,16 @@ function grupperSlots(slots: { tid: string; baner: string }[]): BaneGruppe[] {
   return Array.from(map.entries()).map(([baner, tider]) => ({ baner, tider }));
 }
 
-function byggProgram(event: PublicClubEvent): ProgramDay[] {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const end = parseLocalDate(event.endDate);
+const program: ProgramDay[] = (event.slotsByDay ?? []).length > 0
+  ? (event.slotsByDay ?? []).slice(0, 12).map((dag) => ({
+      label: formatDatoMedUkedag(dag.date),
+      slots: dag.slots.map((s) => ({
+        tid: `${s.startTime.slice(0, 5)}–${s.endTime.slice(0, 5)}`,
+        baner: s.courtNames.join(", "),
+      })),
+    }))
+  : byggProgramFraUkedager(event);
 
-  const weekdayIsos = new Set(event.weekdays.map((w) => WEEKDAY_ISO[w] ?? -1));
-
-  // Collect all upcoming matching dates
-  const days: ProgramDay[] = [];
-  const cursor = new Date(Math.max(today.getTime(), parseLocalDate(event.startDate).getTime()));
-
-  while (cursor <= end && days.length < 12) {
-    const dow = cursor.getDay(); // 0=Sun
-    if (weekdayIsos.has(dow)) {
-      const label = formatDatoMedUkedag(new Date(cursor));
-
-      // Build slots per court group
-      const slots: { tid: string; baner: string }[] = [];
-      for (const g of event.courtGroups) {
-        const baneNavn = g.courtNames.sort().join(", ");
-        for (const t of g.times) {
-          const [h, m] = t.split(":").map(Number);
-          const sluttH = Math.floor((h * 60 + m + g.slotLengthMinutes) / 60);
-          const sluttM = (h * 60 + m + g.slotLengthMinutes) % 60;
-          const sluttStr = `${String(sluttH).padStart(2, "0")}:${String(sluttM).padStart(2, "0")}`;
-          slots.push({
-            tid: `${t.slice(0, 5)}–${sluttStr}`,
-            baner: baneNavn,
-          });
-        }
-      }
-      slots.sort((a, b) => a.tid.localeCompare(b.tid));
-
-      if (slots.length > 0) days.push({ label, slots });
-    }
-    cursor.setDate(cursor.getDate() + 1);
-  }
-
-  return days;
-}
-
-// For single-date or irregular events just show one entry
-const program: ProgramDay[] = event.weekdays.length > 0 ? byggProgram(event) : [];
-const harAvvik = event.hasDeviatingSlots;
 ---
 
 <Layout
@@ -142,8 +135,6 @@ const harAvvik = event.hasDeviatingSlots;
             </summary>
 
             <div class="border-t [border-color:var(--aastk-border-subtle)] px-5 pt-4 pb-5">
-              {harAvvik && <p class="text-muted mb-5 text-sm">Noen tidspunkter kan avvike.</p>}
-
               <div class="grid grid-cols-1 gap-x-8 gap-y-7 sm:grid-cols-2 lg:grid-cols-3">
                 {program.map(({ label, slots }) => (
                   <section>

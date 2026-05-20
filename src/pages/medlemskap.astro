@@ -38,9 +38,7 @@ const priser = [
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="4">
-          <Heading level={2} size="medium" dataColor="brand">
-            Hva får du som medlem?
-          </Heading>
+          <Heading level={2} size="medium" dataColor="brand"> Hva får du som medlem? </Heading>
 
           <BodyLong>
             Medlemskapet gir deg tilgang til alle klubbens idretter og aktiviteter.
@@ -66,9 +64,7 @@ const priser = [
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="6">
-          <Heading level={2} size="medium" dataColor="brand">
-            Medlemskontingent 2026
-          </Heading>
+          <Heading level={2} size="medium" dataColor="brand"> Medlemskontingent 2026 </Heading>
 
           <DataTable
             rows={priser.map(({ type, pris }) => ({
@@ -79,21 +75,21 @@ const priser = [
             valueHeader="Pris"
           />
 
-           <InfoCard dataColor="brand" title="Betaling">
+          <InfoCard dataColor="brand" title="Betaling">
             <VStack gap="3">
               <div>
                 <strong class="text-heading">Vipps</strong><br />
                 #14506 – Ås Tennisklubb
               </div>
-          
+
               <div>
                 <strong class="text-heading">Konto</strong><br />
                 1100 44 76109
               </div>
-          
-              <div class="text-sm text-muted">
-                Merk betalingen med navn og type medlemskap.
-                Ved familiemedlemskap: skriv navn på alle i familien.
+
+              <div class="text-muted text-sm">
+                Merk betalingen med navn og type medlemskap. Ved familiemedlemskap: skriv navn på
+                alle i familien.
               </div>
             </VStack>
           </InfoCard>
@@ -107,9 +103,7 @@ const priser = [
           <HStack gap="3" align="center">
             <UserPlus class="size-6 text-[var(--aastk-text-brand)]" />
 
-            <Heading level={2} size="medium" dataColor="brand">
-              Slik blir du medlem
-            </Heading>
+            <Heading level={2} size="medium" dataColor="brand"> Slik blir du medlem </Heading>
           </HStack>
 
           <Process>
@@ -117,21 +111,17 @@ const priser = [
               <Fragment slot="bullet">1</Fragment>
 
               <p>
-                Betal medlemskontingenten med Vipps eller bankoverføring,
-                se betalingsinformasjon over.
+                Betal medlemskontingenten med Vipps eller bankoverføring, se betalingsinformasjon
+                over.
               </p>
             </ProcessEvent>
 
             <ProcessEvent title="Meld deg inn i Min idrett">
               <Fragment slot="bullet">2</Fragment>
 
-              <p>
-                Innmelding i Min idrett er obligatorisk for alle medlemmer.
-              </p>
+              <p>Innmelding i Min idrett er obligatorisk for alle medlemmer.</p>
 
-              <p>
-                For familiemedlemskap må alle familiemedlemmer meldes inn individuelt.
-              </p>
+              <p>For familiemedlemskap må alle familiemedlemmer meldes inn individuelt.</p>
 
               <div>
                 <Button
@@ -149,16 +139,14 @@ const priser = [
               <Fragment slot="bullet">3</Fragment>
 
               <p>
-                Når både betaling og innmelding er registrert for alle,
-                får du tilgang til banene via
+                Når både betaling og innmelding er registrert for alle, får du tilgang til banene
+                via
                 <strong>Yale Home-appen</strong>.
               </p>
             </ProcessEvent>
           </Process>
 
-          <BodyLong size="small">
-            Velkommen til spill!
-          </BodyLong>
+          <BodyLong size="small"> Velkommen til spill! </BodyLong>
         </VStack>
       </PageBlock>
     </section>
@@ -166,9 +154,7 @@ const priser = [
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="2">
-          <Heading level={2} size="small" dataColor="brand">
-            Forny medlemskap
-          </Heading>
+          <Heading level={2} size="small" dataColor="brand"> Forny medlemskap </Heading>
 
           <BodyLong size="small">
             Allerede medlem? Betal kontingent for å fornye medlemskapet.

@@ -16,7 +16,14 @@ export type PublicClubEvent = {
   }[];
   weekdays: string[];
   isPast: boolean;
-  hasDeviatingSlots: boolean;
+  slotsByDay: {
+    date: string;
+    slots: {
+      startTime: string;
+      endTime: string;
+      courtNames: string[];
+    }[];
+  }[];
 };
 
 type ApiEvent = {
@@ -36,7 +43,14 @@ type ApiEvent = {
   }[];
   ukedager: string[];
   erPassert: boolean;
-  harAvvikendeSlots: boolean;
+  slotsPrDag: {
+    dato: string;
+    slots: {
+      startTid: string;
+      sluttTid: string;
+      baneNavn: string[];
+    }[];
+  }[];
 };
 
 export function mapPublicEvent(api: ApiEvent): PublicClubEvent {
@@ -58,6 +72,13 @@ export function mapPublicEvent(api: ApiEvent): PublicClubEvent {
     })),
     weekdays: api.ukedager,
     isPast: api.erPassert,
-    hasDeviatingSlots: api.harAvvikendeSlots,
+    slotsByDay: (api.slotsPrDag ?? []).map((dag) => ({
+      date: dag.dato,
+      slots: dag.slots.map((s) => ({
+        startTime: s.startTid,
+        endTime: s.sluttTid,
+        courtNames: s.baneNavn,
+      })),
+    })),
   };
 }
