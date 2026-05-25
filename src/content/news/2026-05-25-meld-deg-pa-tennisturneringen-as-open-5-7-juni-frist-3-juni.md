@@ -7,6 +7,9 @@ ingress: Bli med på en sosial og uhøytidelig tennishelg når Ås Tennisklubb
   markerer klubben også sitt 50-årsjubileum med gratis aktiviteter, offisiell
   åpning av de nye padelbanene og finalen i French Open på storskjerm.
 cover: /uploads/IMG_9244-1.webp
+categories:
+  - turneringer
+  - arrangementer
 draft: false
 ---
 Velkommen til Ås Open 5. – 7. juni! Ås Open er en uhøytidelig tennisturnering med lav terskel for å spille mye tennis og ha det hyggelig! Søndag 7. juni blir det også markering av at Ås tennisklubb er 50 år og offisiell åpning av nye padelbaner ved ordfører Bengt Nøst-Klemmetsen. 
