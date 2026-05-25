@@ -5,6 +5,7 @@ ingress: "Velkommen til Ås Open 5. – 7. juni! Ås Open er en uhøytidelig
   tennisturnering med lav terskel for å spille mye tennis og ha det hyggelig!
   Søndag 7. juni blir det også markering av at Ås tennisklubb er 50 år og
   offisiell åpning av nye padelbaner ved ordfører Bengt Nøst-Klemmetsen. "
+cover: /uploads/IMG_9244.webp
 categories:
   - turneringer
   - arrangementer
@@ -22,7 +23,9 @@ Klasser:
 - Herrer single 
 - Herrer Doubel 
 - Junior 13-19 år single 
-- Barn 8-12 år single 
+- Barn 8-12 år single
+
+
 
 Avhengig av hvor mange påmeldte i de forskjellige klassene, vil vi legge opp til enten cup, gruppespill eller å dele inn i grupper som spiller round robin med 1-set kamper før semifinaler og finale.
 
