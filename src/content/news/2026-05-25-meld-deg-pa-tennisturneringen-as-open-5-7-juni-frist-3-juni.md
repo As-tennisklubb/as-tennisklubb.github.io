@@ -45,8 +45,4 @@ Kl. 15.00 – Jubileumsmarkering og offisiell åpning av de nye padelbanene ved 
 - Arrangementet foregår utendørs på anlegget.
 - Ved dårlig vær flyttes arrangementet til Ås IL klubbhus (Plan B).
 
-Beste hilsen
-
-Ås tennisklubb
-
 Kontaktperson for Ås Open: Håkon Straume
