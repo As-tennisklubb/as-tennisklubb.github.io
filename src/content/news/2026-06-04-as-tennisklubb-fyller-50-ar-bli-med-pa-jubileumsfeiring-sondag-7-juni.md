@@ -9,6 +9,7 @@ categories:
   - arrangementer
 draft: false
 ---
+
 Det blir en sosial dag med finaler i Ås Open, gratis «kom og prøv» for både tennis og padel, jubileumsmarkering, servering og French Open-finale på storskjerm.
 
 **Program for dagen**

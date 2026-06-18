@@ -11,6 +11,8 @@ import VStack from "../components/primitives/VStack.astro";
 import HStack from "../components/primitives/HStack.astro";
 import Process from "../components/ui/Process.astro";
 import ProcessEvent from "../components/ui/ProcessEvent.astro";
+import List from "../components/ui/List.astro";
+import ListItem from "../components/ui/ListItem.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -48,9 +50,9 @@ const base = import.meta.env.BASE_URL;
           </BodyLong>
           <BodyLong>
             We have three clay courts open from April to November, with two courts equipped with
-            floodlights for evening play. Indoor table tennis is available year-round at Holstad
-            school, and two outdoor padel courts are open during summer. Rackets and balls can be
-            borrowed for free, so you do not need your own equipment to get started.
+            floodlights for evening play. Indoor table tennis is available year-round at Gamle
+            Holstad school, and two outdoor padel courts are open during summer. Rackets and balls
+            can be borrowed for free, so you do not need your own equipment to get started.
           </BodyLong>
         </VStack>
       </PageBlock>
@@ -115,6 +117,26 @@ const base = import.meta.env.BASE_URL;
               Register via Min Idrett →
             </Button>
           </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Booking rules */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Booking rules</Heading>
+          <BodyLong>
+            All courts are for members only. You can book through our online booking system.
+          </BodyLong>
+          <List size="small">
+            <ListItem title="Tennis & padel"
+              >Open 07:00–22:00 – max 2 active bookings, max 2 per day, up to 7 days in advance.</ListItem
+            >
+            <ListItem title="Table tennis"
+              >Open 06:00–23:00 – no booking limit at this time.</ListItem
+            >
+          </List>
         </VStack>
       </PageBlock>
     </section>

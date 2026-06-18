@@ -61,12 +61,7 @@ const formattedDate = post.data.date.toLocaleDateString("nb-NO", {
     {
       post.data.cover && (
         <div class="overflow-hidden rounded-xl">
-          <img
-            src={post.data.cover}
-            alt={post.data.title}
-            class="w-full h-auto"
-            loading="lazy"
-          />
+          <img src={post.data.cover} alt={post.data.title} class="h-auto w-full" loading="lazy" />
         </div>
       )
     }

@@ -9,13 +9,15 @@ import PageBlock from "../../components/primitives/PageBlock.astro";
 import VStack from "../../components/primitives/VStack.astro";
 import HStack from "../../components/primitives/HStack.astro";
 import Callout from "../../components/ui/Callout.astro";
+import List from "../../components/ui/List.astro";
+import ListItem from "../../components/ui/ListItem.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
   title="Padel – Ås Tennisklubb"
-  description="To utendørs padelbaner for medlemmer av Ås Tennisklubb. Klare for spill juni/juli 2026."
+  description="To utendørs padelbaner for medlemmer av Ås Tennisklubb ved Ås stadion."
   heroLayout
 >
   <PageHeader
@@ -30,14 +32,12 @@ const base = import.meta.env.BASE_URL;
     <section>
       <PageBlock width="xl" gutters>
         <VStack gap="6">
-          <Heading level={2} size="medium" dataColor="brand">Nye baner i 2026</Heading>
+          <Heading level={2} size="medium" dataColor="brand">To padelbaner ved Ås stadion</Heading>
           <BodyLong>
-            To utendørs padelbaner ved Ås stadion er på vei. Banene blir fritt tilgjengelige for
-            alle medlemmer gjennom sesongen.
+            To utendørs padelbaner i direkte tilknytning til tennisbanene ved Ås stadion er
+            tilgjengelige for alle medlemmer gjennom sesongen. Booking er gratis for medlemmer og
+            gjøres i samme system som for tennisbanene.
           </BodyLong>
-          <Callout variant="info" title="Kommer snart">
-            Padelbanene er under oppføring og forventes klare i løpet av sommeren 2026.
-          </Callout>
           <HStack gap="4" wrap>
             <Button href={`${base}medlemskap`}>Bli medlem →</Button>
             <Button
@@ -50,6 +50,37 @@ const base = import.meta.env.BASE_URL;
               Book bane
             </Button>
           </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Bookingreglement */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Bookingreglement</Heading>
+          <List size="small">
+            <ListItem>Kun medlemmer kan booke og spille på padelbanene</ListItem>
+            <ListItem>Booking er mulig mellom 07:00 og 22:00</ListItem>
+            <ListItem>Maks 2 aktive bookinger totalt</ListItem>
+            <ListItem>Maks 2 bookinger per dag</ListItem>
+            <ListItem>Booking kan gjøres opptil 7 dager frem i tid</ListItem>
+          </List>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Ta vare på banene */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Ta vare på banene</Heading>
+          <BodyLong>
+            Bruk sko beregnet på padel – sko med riktig såle gir bedre grep og beskytter banen. Kast
+            søppel, og legg tilbake lånt utstyr i klubbhuset etter bruk. Den som forlater anlegget
+            sist slår av lyset og låser.
+          </BodyLong>
+          <BodyLong>Oppdager du feil på banene, gi beskjed til klubben.</BodyLong>
         </VStack>
       </PageBlock>
     </section>

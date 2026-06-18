@@ -10,18 +10,20 @@ import PageBlock from "../../components/primitives/PageBlock.astro";
 import VStack from "../../components/primitives/VStack.astro";
 import HStack from "../../components/primitives/HStack.astro";
 import LazyMap from "../../components/content/LazyMap.astro";
+import List from "../../components/ui/List.astro";
+import ListItem from "../../components/ui/ListItem.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
 
 <Layout
-  title="Bordtennis – Holstad skole – Ås Tennisklubb"
-  description="Innendørs bordtennis hele året på Holstad skole i Ås. Tilgang for medlemmer."
+  title="Bordtennis – Gamle Holstad skole – Ås Tennisklubb"
+  description="Innendørs bordtennis hele året på Gamle Holstad skole i Ås. Tilgang for medlemmer."
   heroLayout
 >
   <PageHeader
     variant="compact"
-    title="Bordtennis – Holstad skole"
+    title="Bordtennis – Gamle Holstad skole"
     description="Innendørs bordtennis hele året – for alle medlemmer."
     heroCategory="bordtennis"
   />
@@ -33,9 +35,9 @@ const base = import.meta.env.BASE_URL;
         <VStack gap="6">
           <Heading level={2} size="medium" dataColor="brand">Spill hele året</Heading>
           <BodyLong>
-            Klubben har bordtennis innendørs på Holstad skole, ved Steinerskolen i Ås. Tilbudet er
-            åpent hele året og krever medlemskap. For tilgang til lokalet, kontakt Rolf Otto
-            Østenstad på telefon
+            Klubben har bordtennis innendørs på Gamle Holstad skole, ved Steinerskolen i Ås.
+            Tilbudet er åpent hele året og krever medlemskap. For tilgang til lokalet, kontakt Rolf
+            Otto Østenstad på telefon
             <Link href="tel:+4741414955" inlineText>414 14 955</Link>
           </BodyLong>
           <HStack gap="4" wrap>
@@ -54,6 +56,33 @@ const base = import.meta.env.BASE_URL;
       </PageBlock>
     </section>
 
+    {/* Bookingreglement */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Bookingreglement</Heading>
+          <List size="small">
+            <ListItem>Kun medlemmer kan booke og spille på bordtennisbordet</ListItem>
+            <ListItem>Booking er mulig mellom 06:00 og 23:00</ListItem>
+            <ListItem>Antall aktive bookinger er ikke begrenset per nå</ListItem>
+          </List>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Rydd etter deg */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Rydd etter deg</Heading>
+          <BodyLong>
+            Legg tilbake bøller og utstyr på plass etter bruk, og rydd bordet så det er klart for
+            neste. Den som forlater lokalet sist slår av lyset og låser døren.
+          </BodyLong>
+        </VStack>
+      </PageBlock>
+    </section>
+
     {/* Kart */}
     <section>
       <PageBlock width="xl" gutters>
@@ -63,10 +92,10 @@ const base = import.meta.env.BASE_URL;
             <Heading level={2} size="medium" dataColor="brand">Finn oss</Heading>
           </HStack>
           <LazyMap
-            address="Holstadveien 25"
-            city="1440 Drøbak"
-            embedQuery="Holstad skole, Ås, Norway"
-            mapsUrl="https://maps.google.com/maps?q=Holstad+skole,+Ås,+Norway"
+            address="Haugerudveien 23"
+            city="1434 Ås"
+            embedQuery="Haugerudveien 23, 1434 Ås, Norway"
+            mapsUrl="https://maps.google.com/maps?q=Haugerudveien+23,+1434+Ås,+Norway"
           />
         </VStack>
       </PageBlock>

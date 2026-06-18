@@ -10,6 +10,8 @@ import PageBlock from "../../components/primitives/PageBlock.astro";
 import VStack from "../../components/primitives/VStack.astro";
 import HStack from "../../components/primitives/HStack.astro";
 import LazyMap from "../../components/content/LazyMap.astro";
+import List from "../../components/ui/List.astro";
+import ListItem from "../../components/ui/ListItem.astro";
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -54,6 +56,22 @@ const base = import.meta.env.BASE_URL;
               Book bane
             </Button>
           </HStack>
+        </VStack>
+      </PageBlock>
+    </section>
+
+    {/* Bookingreglement */}
+    <section>
+      <PageBlock width="xl" gutters>
+        <VStack gap="4">
+          <Heading level={2} size="medium" dataColor="brand">Bookingreglement</Heading>
+          <List size="small">
+            <ListItem>Kun medlemmer kan booke og spille på tennisbanene</ListItem>
+            <ListItem>Booking er mulig mellom 07:00 og 22:00</ListItem>
+            <ListItem>Maks 2 aktive bookinger totalt</ListItem>
+            <ListItem>Maks 2 bookinger per dag</ListItem>
+            <ListItem>Booking kan gjøres opptil 7 dager frem i tid</ListItem>
+          </List>
         </VStack>
       </PageBlock>
     </section>

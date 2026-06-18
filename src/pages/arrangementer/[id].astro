@@ -40,7 +40,13 @@ type BaneGruppe = { baner: string; tider: string[] };
 
 // Fallback: reconstruct schedule from weekday pattern (used when API hasn't been redeployed yet)
 const WEEKDAY_ISO: Record<string, number> = {
-  Monday: 1, Tuesday: 2, Wednesday: 3, Thursday: 4, Friday: 5, Saturday: 6, Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+  Sunday: 0,
 };
 
 function byggProgramFraUkedager(ev: PublicClubEvent): ProgramDay[] {
@@ -84,16 +90,16 @@ function grupperSlots(slots: { tid: string; baner: string }[]): BaneGruppe[] {
   return Array.from(map.entries()).map(([baner, tider]) => ({ baner, tider }));
 }
 
-const program: ProgramDay[] = (event.slotsByDay ?? []).length > 0
-  ? (event.slotsByDay ?? []).slice(0, 12).map((dag) => ({
-      label: formatDatoMedUkedag(dag.date),
-      slots: dag.slots.map((s) => ({
-        tid: `${s.startTime.slice(0, 5)}–${s.endTime.slice(0, 5)}`,
-        baner: s.courtNames.join(", "),
-      })),
-    }))
-  : byggProgramFraUkedager(event);
-
+const program: ProgramDay[] =
+  (event.slotsByDay ?? []).length > 0
+    ? (event.slotsByDay ?? []).slice(0, 12).map((dag) => ({
+        label: formatDatoMedUkedag(dag.date),
+        slots: dag.slots.map((s) => ({
+          tid: `${s.startTime.slice(0, 5)}–${s.endTime.slice(0, 5)}`,
+          baner: s.courtNames.join(", "),
+        })),
+      }))
+    : byggProgramFraUkedager(event);
 ---
 
 <Layout
