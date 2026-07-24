@@ -3,9 +3,10 @@ title: Geir Goffeng er død
 date: 2026-07-24
 ingress: Det er med stor sorg vi har mottatt budskapet om at vårt æresmedlem
   Geir har gått bort.
+cover: /uploads/Geir_Goffeng_i_tennishallen_web.jpg
 categories:
   - tennis
-draft: true
+draft: false
 ---
 Geir var med å stifte Ås tennisklubb. Han var styreleder i mange år og var æresmedlem.
 
