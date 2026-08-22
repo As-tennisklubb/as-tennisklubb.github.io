@@ -3,6 +3,5 @@
  * /baner → redirect til /baner/tennis.
  * Fanger opp direktelenker og søkemotorer som bruker den gamle URLen.
  */
-const base = import.meta.env.BASE_URL;
-return Astro.redirect(`${base}baner/tennis`);
+return Astro.redirect(`${import.meta.env.BASE_URL}baner/tennis`);
 ---

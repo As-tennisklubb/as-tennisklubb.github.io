@@ -16,7 +16,7 @@ Spillere og publikum koste seg med til sammen 8 kilo pølser (cirka 80 pølser),
 
 ![](/uploads/Ås-Open-2021-Regn-1024x576.jpg)
 
-*FRA VARMT TIL VÅTT: Lørdag var årets hittills varmeste dag med over 30 grader i skyggen. Søndag var det mer behagelig å spille rent temperaturmessig, men i 14-tiden var alle kraner åpen og omgjorde tennisbanen til svømmebasseng. God drenering og flott innsats fra banemannskapet gjorde banene spillbare fra kl 17.* 
+_FRA VARMT TIL VÅTT: Lørdag var årets hittills varmeste dag med over 30 grader i skyggen. Søndag var det mer behagelig å spille rent temperaturmessig, men i 14-tiden var alle kraner åpen og omgjorde tennisbanen til svømmebasseng. God drenering og flott innsats fra banemannskapet gjorde banene spillbare fra kl 17._ 
 
 ## Vinnere
 
@@ -28,7 +28,7 @@ Vinner Ås Open - klasse barn: **Live Viken.**
 
 ![](/uploads/Ås-Open-2021-Vinnere-Barn-1024x576.jpg)
 
-*SPILLER ÅRET RUNDT: Live Viken vant til slutt et jevnt og tett oppgjør over tre sett mot Albert Julian Talmo-Rønn. Flott spill av begge og en rekke gode vekslinger ga en veldig severdig kamp.* ﻿
+_SPILLER ÅRET RUNDT: Live Viken vant til slutt et jevnt og tett oppgjør over tre sett mot Albert Julian Talmo-Rønn. Flott spill av begge og en rekke gode vekslinger ga en veldig severdig kamp._ ﻿
 
 ### Juniorer
 
@@ -42,7 +42,7 @@ Vinner Ås Open - klasse junior: **Sondre Lundquist.**
 
 ![](/uploads/Ås-Open-2021-Vinnere-Junior-1024x576.jpg)
 
-*OGSÅ KLUBBMESTER: I en nervepirrende og velspilt finale, var det Sondre Lundquist som til slutt vant oppgjøret. Sondre er også regjerende klubbmester i klassen junior.* ﻿
+_OGSÅ KLUBBMESTER: I en nervepirrende og velspilt finale, var det Sondre Lundquist som til slutt vant oppgjøret. Sondre er også regjerende klubbmester i klassen junior._ ﻿
 
 ### Damer
 
@@ -64,7 +64,7 @@ Vinner Ås Open - klasse damer: **Øyvind Engøy**
 
 ![](/uploads/Ås-Open-2021-Vinnere-Herrer-1024x576.jpg)
 
-*DOBBELTMESTER: Patrick Marques-Smith gjorde en formidabel debut i Ås Open ved å spille seg fram til finalen og kjempe mot regjerende klubbmester Øyvind Engøy. Marques-Smith presset Engøy i mye av spillet, men det var den regjerende klubbmesteren som dro i land seieren.* 
+_DOBBELTMESTER: Patrick Marques-Smith gjorde en formidabel debut i Ås Open ved å spille seg fram til finalen og kjempe mot regjerende klubbmester Øyvind Engøy. Marques-Smith presset Engøy i mye av spillet, men det var den regjerende klubbmesteren som dro i land seieren._ 
 
 ### Poengmester Ås Open 2021
 

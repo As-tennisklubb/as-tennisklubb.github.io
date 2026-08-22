@@ -42,6 +42,8 @@ interface Props {
   class?: string;
 }
 
+Astro.props satisfies Props;
+
 const { columns, gap, align, as: Tag = "div", class: className } = Astro.props;
 
 // Resolve columns to either inline style (number/string) or Tailwind classes (responsive object)

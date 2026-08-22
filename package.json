@@ -2,8 +2,10 @@
   "name": "as-tennisklubb-website",
   "type": "module",
   "version": "0.0.1",
+  "packageManager": "npm@10.9.4",
   "engines": {
-    "node": ">=22.12.0"
+    "node": ">=22.12.0",
+    "npm": ">=10.8.2"
   },
   "scripts": {
     "dev": "astro dev",
@@ -14,32 +16,31 @@
     "lint:design": "node scripts/design-lint.js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "check": "eslint . && prettier --check . && node scripts/design-lint.js",
+    "check": "astro check && eslint . && prettier --check . && node scripts/design-lint.js",
     "images:hero": "node scripts/build-hero-images.mjs"
   },
   "dependencies": {
-    "@astrojs/check": "^0.9.7",
-    "@astrojs/compiler-rs": "^0.1.4",
-    "@astrojs/rss": "^4.0.17",
-    "@astrojs/sitemap": "^3.7.1",
-    "@lucide/astro": "^1.11.0",
-    "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.2.1",
-    "astro": "^6.0.3",
+    "@astrojs/check": "^0.9.10",
+    "@astrojs/rss": "^4.0.19",
+    "@astrojs/sitemap": "^3.7.3",
+    "@lucide/astro": "^1.33.0",
+    "@tailwindcss/typography": "^0.5.20",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.2.4",
     "clsx": "^2.1.1",
-    "tailwind-merge": "^3.5.0",
-    "tailwindcss": "^4.2.1"
+    "tailwind-merge": "^3.6.0",
+    "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@lucide/lab": "^0.1.2",
-    "@typescript-eslint/parser": "^8.57.0",
-    "eslint": "^10.0.3",
+    "@lucide/lab": "^0.2.0",
+    "@typescript-eslint/parser": "^8.67.0",
+    "eslint": "^10.9.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-astro": "^1.6.0",
-    "prettier": "^3.8.1",
+    "eslint-plugin-astro": "^3.1.0",
+    "prettier": "^3.9.6",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.7.2",
-    "sharp": "^0.34.5",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "sharp": "^0.35.3",
     "typescript": "^6.0.3"
   }
 }

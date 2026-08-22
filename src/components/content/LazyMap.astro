@@ -62,7 +62,16 @@ const btnId = `kart-btn-${uid}`;
       <BodyLong as="span" class="text-heading font-semibold">{address}</BodyLong>
       <BodyLong as="span" size="small" class="text-muted">{city}</BodyLong>
     </VStack>
-    <Button id={btnId} size="small">{buttonText}</Button>
+    <Button
+      id={btnId}
+      size="small"
+      data-lazy-map-button
+      data-placeholder-id={placeholderId}
+      data-iframe-id={iframeId}
+      data-embed-query={embedQuery}
+    >
+      {buttonText}
+    </Button>
   </div>
 
   {/* Iframe – lastes kun ved klikk */}
@@ -85,17 +94,26 @@ const btnId = `kart-btn-${uid}`;
   {linkText}
 </Link>
 
-<script define:vars={{ placeholderId, iframeId, btnId, embedQuery }}>
-  document.addEventListener("astro:page-load", () => {
-    const btn = document.getElementById(btnId);
-    const placeholder = document.getElementById(placeholderId);
-    const iframe = document.getElementById(iframeId);
+<script>
+  function initLazyMaps() {
+    document.querySelectorAll<HTMLElement>("[data-lazy-map-button]").forEach((button) => {
+      if (button.dataset.lazyMapInitialized === "true") return;
 
-    btn?.addEventListener("click", () => {
-      if (!iframe) return;
-      iframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(embedQuery)}&output=embed`;
-      placeholder?.classList.add("hidden");
-      iframe.classList.remove("hidden");
+      const { placeholderId, iframeId, embedQuery } = button.dataset;
+      if (!placeholderId || !iframeId || !embedQuery) return;
+
+      const placeholder = document.getElementById(placeholderId);
+      const iframe = document.getElementById(iframeId);
+      if (!(iframe instanceof HTMLIFrameElement)) return;
+
+      button.dataset.lazyMapInitialized = "true";
+      button.addEventListener("click", () => {
+        iframe.src = `https://maps.google.com/maps?q=${encodeURIComponent(embedQuery)}&output=embed`;
+        placeholder?.classList.add("hidden");
+        iframe.classList.remove("hidden");
+      });
     });
-  });
+  }
+
+  document.addEventListener("astro:page-load", initLazyMaps);
 </script>

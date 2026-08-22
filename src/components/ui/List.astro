@@ -27,6 +27,8 @@ interface Props {
   class?: string;
 }
 
+Astro.props satisfies Props;
+
 const { as: Tag = "ul", size = "medium", class: className } = Astro.props;
 
 const sizeClasses: Record<ListSize, string> = {

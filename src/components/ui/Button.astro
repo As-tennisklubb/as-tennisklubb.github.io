@@ -39,6 +39,8 @@ interface Props {
   [key: string]: any;
 }
 
+Astro.props satisfies Props;
+
 const {
   variant = "primary",
   size = "medium",
