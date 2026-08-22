@@ -8,6 +8,7 @@ categories:
   - kurstrening
 draft: false
 ---
+
 Medlemmer i Ås Tennisklubb kan delta på kurs og trening hos Drøbak Tennisklubb på samme vilkår som klubbens egne medlemmer.
 
 Drøbak Tennisklubb har profesjonelle trenere og et bredt treningstilbud for ulike aldre og nivåer gjennom hele året.
