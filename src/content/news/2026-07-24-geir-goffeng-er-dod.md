@@ -8,6 +8,7 @@ categories:
   - tennis
 draft: false
 ---
+
 Geir var med å stifte Ås tennisklubb. Han var styreleder i mange år og var æresmedlem.
 
 Tennis betydde mye for Geir, og han holdt på til det siste, 90 år gammel.
