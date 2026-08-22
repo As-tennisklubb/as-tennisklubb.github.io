@@ -32,6 +32,8 @@ interface Props {
   class?: string;
 }
 
+Astro.props satisfies Props;
+
 const { title, dataColor = "accent", size = "medium", as = "div", class: className } = Astro.props;
 
 const colorClasses: Record<DataColor, string> = {

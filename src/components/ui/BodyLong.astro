@@ -28,6 +28,8 @@ interface Props {
   class?: string;
 }
 
+Astro.props satisfies Props;
+
 const { size = "medium", as: Tag = "p", class: className } = Astro.props;
 
 const sizeClasses: Record<BodySize, string> = {

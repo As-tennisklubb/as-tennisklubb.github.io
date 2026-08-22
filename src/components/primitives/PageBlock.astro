@@ -30,6 +30,8 @@ interface Props {
   class?: string;
 }
 
+Astro.props satisfies Props;
+
 const { width, gutters = false, as: Tag = "div", class: className } = Astro.props;
 
 const widthClasses: Record<Width, string> = {

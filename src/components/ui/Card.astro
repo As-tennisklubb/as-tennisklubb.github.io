@@ -27,6 +27,8 @@ interface Props {
   class?: string;
 }
 
+Astro.props satisfies Props;
+
 const { as = "div", class: className } = Astro.props;
 ---
 

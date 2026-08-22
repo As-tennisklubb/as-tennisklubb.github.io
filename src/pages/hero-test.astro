@@ -29,17 +29,21 @@ for (const cat of categories) {
   />
 
   <PageBlock width="xl" gutters>
-    <div class="py-8 text-center">
+    <div id="hero-tester" class="py-8 text-center" data-images={JSON.stringify(allImages)}>
       <p class="mb-4 text-lg font-bold">Hero Image Tester</p>
       <p class="mb-2 text-sm text-gray-500">
         Klikk "Neste" eller bruk piltaster for å rotere bilder. Bildet i headeren endres.
       </p>
       <div class="mb-4 flex items-center justify-center gap-4">
-        <button id="prev-btn" class="rounded bg-brand-700 px-4 py-2 text-white hover:bg-brand-800"
+        <button
+          id="prev-btn"
+          class="rounded bg-[var(--aastk-action-primary-bg)] px-4 py-2 text-[var(--aastk-action-primary-text)] hover:bg-[var(--aastk-action-primary-bg-hover)]"
           >← Forrige</button
         >
         <span id="counter" class="font-mono text-sm">1 / {allImages.length}</span>
-        <button id="next-btn" class="rounded bg-brand-700 px-4 py-2 text-white hover:bg-brand-800"
+        <button
+          id="next-btn"
+          class="rounded bg-[var(--aastk-action-primary-bg)] px-4 py-2 text-[var(--aastk-action-primary-text)] hover:bg-[var(--aastk-action-primary-bg-hover)]"
           >Neste →</button
         >
       </div>
@@ -49,7 +53,7 @@ for (const cat of categories) {
       <div class="flex flex-wrap items-center justify-center gap-2">
         <button
           data-set-pattern="dots"
-          class="rounded border border-brand-200 bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-800 hover:bg-brand-100"
+          class="rounded border [border-color:var(--aastk-border-brand-subtle)] bg-[var(--aastk-surface-brand-soft)] px-3 py-1.5 text-sm font-medium text-[var(--aastk-text-brand)] hover:bg-[var(--aastk-action-secondary-bg-hover)]"
           >Dots</button
         >
         <button
@@ -77,59 +81,79 @@ for (const cat of categories) {
     </div>
   </PageBlock>
 
-  <script define:vars={{ allImages }}>
-    let index = 0;
-    const images = allImages;
+  <script>
+    function initHeroTester() {
+      const tester = document.getElementById("hero-tester");
+      if (!tester || tester.dataset.heroTesterInitialized === "true") return;
 
-    function update() {
-      const img = document.querySelector("[data-hero-img]");
+      const images = JSON.parse(tester.dataset.images ?? "[]") as string[];
+      if (images.length === 0) return;
+
+      const image = document.querySelector<HTMLImageElement>("[data-hero-img]");
       const name = document.getElementById("image-name");
       const counter = document.getElementById("counter");
-      if (img) img.src = images[index];
-      const fileName = images[index].split("/").pop();
-      name.textContent = fileName;
-      counter.textContent = `${index + 1} / ${images.length}`;
-    }
+      const nextButton = document.getElementById("next-btn");
+      const previousButton = document.getElementById("prev-btn");
+      const patternName = document.getElementById("pattern-name");
+      if (!image || !name || !counter || !nextButton || !previousButton || !patternName) return;
 
-    document.getElementById("next-btn").addEventListener("click", () => {
-      index = (index + 1) % images.length;
-      update();
-    });
+      const heroImage = image;
+      const imageName = name;
+      const imageCounter = counter;
 
-    document.getElementById("prev-btn").addEventListener("click", () => {
-      index = (index - 1 + images.length) % images.length;
-      update();
-    });
+      tester.dataset.heroTesterInitialized = "true";
+      let index = 0;
 
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "ArrowRight") {
+      function update() {
+        heroImage.src = images[index];
+        imageName.textContent = images[index].split("/").pop() ?? "";
+        imageCounter.textContent = `${index + 1} / ${images.length}`;
+      }
+
+      nextButton.addEventListener("click", () => {
         index = (index + 1) % images.length;
         update();
-      }
-      if (e.key === "ArrowLeft") {
+      });
+
+      previousButton.addEventListener("click", () => {
         index = (index - 1 + images.length) % images.length;
         update();
-      }
-    });
-
-    // Pattern switcher
-    document.querySelectorAll("[data-set-pattern]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const pattern = btn.getAttribute("data-set-pattern");
-        document.querySelectorAll(".pattern-overlay").forEach((el) => {
-          el.setAttribute("data-pattern", pattern);
-        });
-        document.getElementById("pattern-name").textContent = `Aktivt: ${pattern}`;
-        // Update button styles
-        document.querySelectorAll("[data-set-pattern]").forEach((b) => {
-          b.className =
-            "rounded border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100";
-        });
-        btn.className =
-          "rounded border border-brand-200 bg-brand-50 px-3 py-1.5 text-sm font-medium text-brand-800 hover:bg-brand-100";
       });
-    });
 
-    update();
+      document.addEventListener("keydown", (event) => {
+        if (!document.contains(tester)) return;
+        if (event.key === "ArrowRight") {
+          index = (index + 1) % images.length;
+          update();
+        }
+        if (event.key === "ArrowLeft") {
+          index = (index - 1 + images.length) % images.length;
+          update();
+        }
+      });
+
+      tester.querySelectorAll<HTMLElement>("[data-set-pattern]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const pattern = button.dataset.setPattern;
+          if (!pattern) return;
+
+          document.querySelectorAll<HTMLElement>(".pattern-overlay").forEach((overlay) => {
+            overlay.dataset.pattern = pattern;
+          });
+          patternName.textContent = `Aktivt: ${pattern}`;
+
+          tester.querySelectorAll<HTMLElement>("[data-set-pattern]").forEach((item) => {
+            item.className =
+              "rounded border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-700 hover:bg-gray-100";
+          });
+          button.className =
+            "rounded border bg-[var(--aastk-surface-brand-soft)] px-3 py-1.5 text-sm font-medium text-[var(--aastk-text-brand)] [border-color:var(--aastk-border-brand-subtle)] hover:bg-[var(--aastk-action-secondary-bg-hover)]";
+        });
+      });
+
+      update();
+    }
+
+    document.addEventListener("astro:page-load", initHeroTester);
   </script>
 </Layout>
