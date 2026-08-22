@@ -5,6 +5,7 @@ ingress: Vi ønsker alle medlemmer hjertelig velkommen til hyggelige tennisdager
   i klubbmesterskapet.
 draft: false
 ---
+
 Program med tidspunkter blir sendt ut i midten av uke 33. 
 
 **Obs!** Ved mange påmeldte i alle klasser, kan det bli behov for å bruke ettermiddagene onsdag 12. og torsdag 13. august for å avvikle double-klasser.
@@ -22,7 +23,7 @@ Du kan melde deg på følgende:
 - Damer single
 - Herrer single
 - Junior 13-19 år single 
-- Barn 8 - 12 single*
+- Barn 8 - 12 single\*
 - Herrer double
 - Damer double
 - Mixed double 
@@ -47,10 +48,9 @@ Hvis kvartfinaler: Ett fullt sett til 6.
 
 Semifinaler og finaler: Best av tre sett.
 
-* Barn spiller supertiebrake best av tre. Innretning tilpasses ved antall og behov. 
+- Barn spiller supertiebrake best av tre. Innretning tilpasses ved antall og behov. 
 
 ## Annet praktisk
 
 - Vi tilbyr kaffe, saft, litt frukt, småkjeks og noe å bite i, men ta gjerne med litt mat/drikke så ikke blodsukkeret blir lavt med mange kamper og ventetid. 
 - Kontaktinformasjon under mesterskapet: 95 12 68 58 (Lars Rønn)
-
