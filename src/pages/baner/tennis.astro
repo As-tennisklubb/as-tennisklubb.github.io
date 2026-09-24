@@ -24,7 +24,7 @@ const base = import.meta.env.BASE_URL;
   <PageHeader
     variant="compact"
     title="Tennis – Ås stadion"
-    description="Tre grusbaner med kveldslys – sesong april til november."
+    description="Tre grusbaner med kveldslys – normalt spill fra april til november."
     heroCategory="tennis"
   />
 
@@ -36,15 +36,16 @@ const base = import.meta.env.BASE_URL;
           <Heading level={2} size="medium" dataColor="brand">Grus og kveldslys</Heading>
           <BodyLong>
             Tre grusbaner i Idrettsveien, rett ved Ås stadion. Som medlem kan du spille så ofte du
-            vil fra april til november. Samtlige baner har kveldslys. Booking er gratis og kan
-            gjøres opptil 7 dager i forveien. Tilgang til bane og klubbhus skjer via Yale
-            Home-appen, og racketer og baller kan lånes gratis i klubbhuset.
+            vil i utesesongen, vanligvis fra april til november når været tillater det. Samtlige
+            baner har kveldslys. Booking er gratis og kan gjøres opptil 7 dager i forveien. Tilgang
+            til bane og klubbhus skjer via Yale Home-appen, og racketer og baller kan lånes gratis i
+            klubbhuset.
           </BodyLong>
           <BodyLong>
             For kurs og organisert trening samarbeider Ås Tennisklubb med Drøbak Tennisklubb.
-            Medlemmer i Ås Tennisklubb får samme vilkår som Drøbaks egne medlemmer. I sesongen er
-            banene arena for Ås Open, klubbmesterskapet og den tradisjonsrike Ribbeturneringen på
-            nyåret.
+            Medlemmer i Ås Tennisklubb får samme vilkår som Drøbaks egne medlemmer. I utesesongen
+            brukes banene til Ås Open og klubbmesterskapet. På nyåret samles medlemmene til den
+            tradisjonsrike Ribbeturneringen i Drøbak tennishall.
           </BodyLong>
           <HStack gap="4" wrap>
             <Button href={`${base}medlemskap`}>Bli medlem →</Button>
@@ -122,7 +123,8 @@ const base = import.meta.env.BASE_URL;
         <VStack gap="2">
           <Heading level={2} size="small" dataColor="brand">Spille om vinteren?</Heading>
           <BodyLong size="small">
-            Grusbanene er normalt stengt fra november til april. Se{" "}
+            Grusbanene stenger vanligvis i løpet av november og åpner igjen i april, avhengig av
+            været. Se{" "}
             <Link href={`${base}baner/bordtennis`} inlineText>bordtennis</Link>{" "}
             for spill hele året.
           </BodyLong>

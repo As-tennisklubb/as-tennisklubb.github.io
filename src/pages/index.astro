@@ -60,14 +60,12 @@ const base = import.meta.env.BASE_URL;
       <VStack gap="4">
         <Heading level={2} size="medium" dataColor="brand">Tre idretter, ett medlemskap</Heading>
         <BodyLong>
-          <Link href={`${base}baner/tennis`} inlineText>Tre grusbaner med kveldslys</Link>{" "}
-          ved Ås stadion,{" "}
-          <Link href={`${base}baner/padel`} inlineText>to utendørs padelbaner med kveldslys</Link>{
-            " "
-          }
-          – og{" "}
-          <Link href={`${base}baner/bordtennis`} inlineText>innendørs bordtennis</Link>{" "}
-          hele året på Gamle Holstad skole.
+          Medlemskapet gir deg tilgang til{" "}
+          <Link href={`${base}baner/tennis`} inlineText>tennis</Link>,{" "}
+          <Link href={`${base}baner/padel`} inlineText>padel</Link>{" "}
+          og <Link href={`${base}baner/bordtennis`} inlineText>bordtennis</Link>. Utebanene kan
+          normalt brukes fra april til november, avhengig av vær og baneforhold. Innendørs kan du
+          spille hele året.
         </BodyLong>
         <BodyLong>
           <strong>Tennis</strong> – Tre grusbaner med kveldslys ved Ås stadion. Gratis utlån av racketer
@@ -81,7 +79,6 @@ const base = import.meta.env.BASE_URL;
           <strong>Bordtennis</strong> – Innendørs på Gamle Holstad skole, med spillmuligheter hele året.
         </BodyLong>
         <BodyLong><strong>Alt inkludert fra kun kr 500 per år.</strong></BodyLong>
-        <BodyLong>Spill tennis, padel og bordtennis med ett og samme medlemskap.</BodyLong>
       </VStack>
     </PageBlock>
   </section>

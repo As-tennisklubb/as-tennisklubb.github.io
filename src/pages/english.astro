@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import { CalendarCheck } from "@lucide/astro";
 import Button from "../components/ui/Button.astro";
-import Link from "../components/ui/Link.astro";
 import PageHeader from "../components/layout/PageHeader.astro";
 import Heading from "../components/ui/Heading.astro";
 import BodyLong from "../components/ui/BodyLong.astro";
@@ -49,10 +48,11 @@ const base = import.meta.env.BASE_URL;
             to retirees, and you do not need to speak Norwegian to join or play.
           </BodyLong>
           <BodyLong>
-            We have three clay courts open from April to November, with two courts equipped with
-            floodlights for evening play. Indoor table tennis is available year-round at Gamle
-            Holstad school, and two outdoor padel courts are open during summer. Rackets and balls
-            can be borrowed for free, so you do not need your own equipment to get started.
+            Our three clay tennis courts and two outdoor padel courts can normally be used from
+            April to November, weather and court conditions permitting. Floodlights make evening
+            play possible. Indoor table tennis is available year-round at Gamle Holstad school.
+            Rackets and balls can be borrowed for free, so you do not need your own equipment to get
+            started.
           </BodyLong>
         </VStack>
       </PageBlock>
@@ -67,7 +67,7 @@ const base = import.meta.env.BASE_URL;
           <Process>
             <ProcessEvent title="Become a member" status="active">
               <Fragment slot="bullet">1</Fragment>
-              <p>Register via Min Idrett and pay the annual fee.</p>
+              <p>Pay the annual fee and register via Min Idrett.</p>
               <div>
                 <Button href={`${base}medlemskap`} size="small"> Membership page → </Button>
               </div>
@@ -103,14 +103,13 @@ const base = import.meta.env.BASE_URL;
         <VStack gap="6">
           <Heading level={2} size="medium" dataColor="brand">Membership</Heading>
           <BodyLong>
-            Membership is required to use the facilities. Annual fees start from NOK 500. After
-            paying, send your name and mobile number to{" "}
-            <Link href="mailto:aas.tbk@gmail.com" inlineText>aas.tbk@gmail.com</Link>{" "}
-            – we will set up your access through the <strong>Yale Home app</strong>.
+            Membership is required to use the facilities. Annual fees start from NOK 500. Once your
+            payment and Min Idrett registration are confirmed, you will get access to the courts
+            through the <strong>Yale Home app</strong>.
           </BodyLong>
           <HStack gap="4" wrap>
             <Button
-              href="https://medlemskap.nif.no/19967"
+              href="https://www.minidrett.no/medlemskap/19967"
               target="_blank"
               rel="noopener noreferrer"
             >
